@@ -1,0 +1,89 @@
+@mixin flex($dir: 0, $wrap: 0, $just: 0, $align: 0, $flex: flex)
+  display: $flex
+  @if $dir != 0 
+    flex-direction: $dir
+  @if $wrap != 0 
+    flex-wrap: $wrap
+  @if $just != 0 
+    justify-content: $just
+  @if $align != 0 
+    align-items: $align
+
+@mixin text($size: 0, $weight: 0, $line: 0, $color: 0)
+  @if $size != 0 
+    font-size: $size+px
+  @if $weight != 0 
+    font-weight: $weight
+  @if $line != 0 
+    line-height: $line+px
+  @if $color != 0 
+    color: $color
+
+@mixin icon($w,$h,$pos,$pos_y: -5px)
+	content: ''
+	display: block
+	width: $w+px
+	height: $h+px
+	background: url('../img/icons.svg') $pos $pos_y no-repeat
+
+@mixin lg
+  @media (min-width: 1200px)
+  	@content
+@mixin md
+  @media (max-width: 1199px)
+  	@content
+@mixin sm
+  @media (max-width: 992px)
+  	@content
+@mixin xs
+  @media (max-width: 768px)
+  	@content
+@mixin xxs
+  @media (max-width: 500px)
+  	@content
+@mixin break($break)
+  @media (max-width: $break+'px')
+  	@content
+
+
+@mixin before
+  &::before
+  	content: ''
+  	@content
+@mixin after
+  &::after
+  	content: ''
+  	@content
+@mixin hover
+  &:hover
+  	@content
+@mixin first
+  &:first-child
+    @content
+@mixin last
+  &:last-child
+    @content
+
+@mixin tran($on, $time)
+	transition: $on $time
+
+@mixin progLine($name, $w, $t, $d, $last: 0)
+	@keyframes #{$name}
+		from
+			width: 0
+		to
+			@if $last != 0
+				width: calc(100% - 59px)
+			@else				
+				width: $w+px
+	animation: $name $t $d
+	animation-fill-mode: forwards
+
+@mixin progCircle($name, $t, $d)
+	@keyframes #{$name}
+		from
+			background: #C4C4C4
+		to
+			background: #006B38
+	animation: $name $t $d
+	animation-fill-mode: forwards

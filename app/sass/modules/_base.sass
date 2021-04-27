@@ -1,0 +1,1285 @@
+@import "./inc/var.sass"
+@import "./inc/mixins.sass"
+
+
+.btn
+  border: 0
+  padding: 0
+  background: none
+  cursor: pointer
+  &--primary
+    display: block
+    width: 100%
+    padding: 19px 0
+    text-align: center
+    border-radius: 32px
+    background: $color-primary
+    +text(18,600,26,#fff)
+    +tran(all,.2s)
+    +hover
+      background: $color-primary-hover
+      text-decoration: none
+    +xs
+      padding: 16px 0
+      +text(16,700,24,0)
+  &--disabled
+    background: $color-button-disabled!important
+    cursor: no-drop
+  &--dashed
+    border-bottom: 1px dashed #000
+    +text(14,400,24,#000)
+    +tran(all,.2s)
+    +hover
+      border-color: $transparent
+
+.title
+  +text(32,700,40,$color_text)
+.heading
+  +text(24,700,32,$color_text)
+.container
+  width: $container
+  margin: 0 auto
+  +break(1600)
+    width: 92%
+
+.tooltip
+  display: inline-block
+  position: relative
+  &__wrap
+    opacity: 0
+    pointer-events: none
+    position: absolute
+    width: 443px
+    border-radius: 4px
+    +tran(all,.4s)
+    +text(14,400,24,#333)
+    +xs
+      +text(12,0,18,0)
+  &__content
+    background: $color-tooltip-content
+    padding: 24px 32px
+  &__pick
+    width: 18px
+    height: 18px
+    border-radius: 50%
+    background: $color-tooltip-picker
+    line-height: 1
+    margin-left: 5px
+    position: relative
+    +text(14,0,0,#555)
+    +flex(0,0,center,center)
+    +tran(all,.2s)
+  &--dropBottom
+    .tooltip__wrap
+      top: 50%
+      right: -15px
+      padding-top: 125%
+      +before
+        position: absolute
+        top: 15px
+        right: 15px
+        border-right: 9px solid $transparent
+        border-bottom: 18px solid $color-tooltip-content
+        border-left: 9px solid $transparent
+  &--preview
+    position: static
+    .tooltip__wrap
+      z-index: 10
+      width: auto
+      top: 0
+      left: 0
+      right: 0
+      padding-top: 30px
+      +before
+        position: absolute
+        top: -15px
+        right: 50%
+        border-right: 9px solid $transparent
+        border-bottom: 18px solid $color-tooltip-content
+        border-left: 9px solid $transparent
+        display: none
+  &--short
+    .tooltip__content
+      padding: 14px
+      max-height: 100px
+      overflow: auto
+  +hover
+    .tooltip__pick
+      background: $color-primary-hover
+      color: #fff
+    .tooltip__wrap
+      opacity: 1
+      pointer-events: auto
+
+.no-scroll
+  overflow-y: hidden
+  padding-right: 3px
+  @-moz-document url-prefix()
+  padding-right: 16px
+  +xs
+    padding-right: 0
+  .header--fix
+    margin-right: 3px
+    @-moz-document url-prefix()
+    margin-right: 16px
+    +xs
+      margin-right: 0
+  .header--opacity
+    margin-right: 3px
+    @-moz-document url-prefix()
+    margin-right: 16px
+    +xs
+      margin-right: 0
+  .toTop
+    opacity: 0
+
+.scroll
+  &::-webkit-scrollbar
+    display: block
+    width: 2px
+    background: $transparent
+  &::-webkit-scrollbar-thumb
+    background: $color-primary
+  &--radius
+    &::-webkit-scrollbar-track
+      margin-top: 20px
+      margin-bottom: 20px
+@-moz-document url-prefix()
+.scroll
+  scrollbar-color: $color-primary $transparent
+  scrollbar-width: thin
+  &--radius
+
+.fields
+  +flex(0,0,space-between,flex-start)
+  +xs
+    flex-wrap: wrap
+    width: 100%
+  &:not(:last-child)
+    +xs
+      margin-bottom: 16px
+  &--two
+    .field
+      width: 48%
+      +xs
+        width: 100%
+
+.field
+  margin-bottom: 16px
+  +last
+    margin-bottom: 0
+  &--street
+    margin: 0 16px 0 0
+    width: 223px!important
+    +xs
+      width: 100% !important
+      margin: 0 0 16px 0
+  &--house
+    margin-bottom: 0
+    width: 96px!important
+    +xs
+      width: 100% !important
+      margin-bottom: 16px!important
+  &--tooltip
+    +flex(0,0,flex-start,center)
+    .tooltip__wrap
+      padding-top: 50px
+  &__subtitle
+    margin-top: 8px
+    +text(12,400,20,#949494)
+
+.input, .textarea
+  width: 100%
+  background: $color-input
+  padding: 16px 0 16px 16px
+  border: 0
+  border-radius: 32px
+  border: 1px solid $transparent
+  +tran(all,.4s)
+  +text(14,400,24,0)
+  +xs
+    padding: 10px 0 10px 16px
+  &--err
+    border-color: $color-primary
+  &--ok
+    border-color: $color-sup
+  &::-webkit-input-placeholder
+    color: $color-placeholder
+    +sm
+      font-size: 12px
+  &::-moz-placeholder
+    color: $color-placeholder
+    +sm
+      font-size: 12px
+  &:-moz-placeholder
+    color: $color-placeholder
+    +sm
+      font-size: 12px
+  &:-ms-input-placeholder
+    color: $color-placeholder
+    +sm
+      font-size: 12px
+
+.input
+  &--line
+    border-bottom: 1px solid #979797
+    border-radius: 0
+    background: $transparent
+    padding-left: 9px !important
+    &.input--err
+      border-top-color: $transparent
+      border-right-color: $transparent
+      border-left-color: $transparent
+      border-bottom-color: $color-primary
+    &.input--ok
+      border-top-color: $transparent
+      border-right-color: $transparent
+      border-left-color: $transparent
+      border-bottom-color: $color-sup
+  &--file
+    opacity: 0
+    position: absolute
+    left: 0
+
+.textarea
+  resize: none
+  height: 96px
+  font-family: $ff
+
+.checkbox
+  opacity: 0
+  position: absolute
+  left: 0
+  + label
+    position: relative
+    cursor: pointer
+    padding-left: 35px
+    display: inline-block
+    text-align: left
+    +text(16,400,24,0)
+    +before
+      position: absolute
+      left: 0
+      width: 21px
+      height: 21px
+      border: 1px solid #E4E4E4
+      background: #fff
+      margin-right: 16px
+      box-sizing: border-box
+    +after
+      position: absolute
+      top: 4px
+      left: 2px
+      width: 18px
+      height: 15px
+      opacity: 0
+      background: url('../img/icons.svg') -551px -5px no-repeat
+      +tran(all,.2s)
+  &:checked
+    + label
+      +after
+        opacity: 1
+
+.radio
+  display: none
+  + label
+    position: relative
+    display: inline-block
+    cursor: pointer
+    padding-left: 32px
+    letter-spacing: 0.01em
+    +text(16,400,24,0)
+    +before
+      position: absolute
+      left: 0
+      width: 24px
+      height: 24px
+      border-radius: 50%
+      border: 1px solid $color-primary
+      background: #fff
+      margin-right: 16px
+      box-sizing: border-box
+    +after
+      position: absolute
+      top: 6px
+      left: 6px
+      width: 12px
+      height: 12px
+      opacity: 0
+      background: $color-primary
+      border-radius: 50%
+      +tran(all,.2s)
+  &:checked
+    + label
+      font-weight: 600
+      +after
+        opacity: 1
+
+.placeholder
+  &::-webkit-input-placeholder
+    +text(14,400,24,#564040)
+  &::-moz-placeholder
+    +text(14,400,24,#564040)
+  &:-moz-placeholder
+    +text(14,400,24,#564040)
+  &:-ms-input-placeholder
+    +text(14,400,24,#564040)
+
+
+
+@keyframes fadeIn
+  from
+    opacity: 0
+  to
+    opacity: 1
+
+@keyframes header
+  from
+    transform: translateY(-100%)
+  to
+    transform: translateY(0)
+
+.arrow
+  +before
+    width: 10px
+    height: 2px
+    background: $color-primary
+    position: absolute
+    top: 23px
+    right: 23px
+    transform: rotate(40deg)
+    border-radius: 10px
+    +tran(all,.2s)
+    +md
+      top: 16px
+  +after
+    width: 10px
+    height: 2px
+    background: $color-primary
+    position: absolute
+    top: 23px
+    right: 16px
+    transform: rotate(-40deg)
+    border-radius: 10px
+    +tran(all,.2s)
+    +md
+      top: 16px
+
+.products
+  display: grid
+  grid-template-columns: repeat(4, 1fr)
+  grid-gap: 16px
+  +xs
+    grid-template-columns: repeat(1, 1fr)
+  &--category
+    grid-template-columns: repeat(3, 1fr)
+    +md
+      grid-template-columns: repeat(2, 1fr)
+    +xs
+      grid-template-columns: repeat(1, 1fr)
+
+.preview
+  width: 100%
+  max-width: 372px
+  border-radius: 14px
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2)
+  background: #fff
+  position: relative
+  padding: 11px 16px 24px 16px
+  +tran(all,.4s)
+  +xs
+    max-width: 100%
+    padding: 12px
+  &.swiper-slide
+    max-width: 100%
+
+  &__stickers
+    position: absolute
+    top: 11px
+    left: 16px
+    z-index: 5
+  &__sticker
+    width: 100%
+    padding: 1px 13px
+    border-radius: 8px 2px 8px 2px
+    text-align: center
+    white-space: nowrap
+    +text(14,600,24,#fff)
+    &:not(:last-child)
+      margin-bottom: 8px
+    &--new
+      background: $color-sticker-new
+    &--exc
+      background: $color-sticker-exc
+    &--spec
+      background: $color-sticker-spec
+    &--green
+      background: $color-sticker-green
+  &__wish
+    position: absolute
+    top: 20px
+    right: 0
+    opacity: 0
+    pointer-events: none
+    +sm
+      right: 20px
+      opacity: 1
+      pointer-events: auto
+    +tran(all,.4s)
+    +before
+      +tran(all,.4s)
+    +after
+      width: 30px
+      height: 28px
+      background: url("../img/icons.svg") -715px -5px no-repeat
+      position: absolute
+      top: 0
+      left: 0
+      opacity: 0
+      +tran(all,.4s)
+    +hover
+      +before
+        opacity: 0
+      +after
+        opacity: 1
+    &--added
+      cursor: no-drop
+      +before
+        background: url(../img/icons.svg) -1344px -7px no-repeat!important
+        opacity: 1!important
+        transition: none!important
+      +after
+        opacity: 0!important
+  &__thumb
+    display: block
+    width: 204px
+    height: 228px
+    object-fit: contain
+    margin: 29px auto 0 auto
+  &__art
+    margin-top: 30px
+    +text(13,400,15,#979797)
+  &__name
+    display: block
+    margin-top: 4px
+    height: 48px
+    overflow: hidden
+    text-overflow: ellipsis
+    +text(18,600,24,0)
+  &__info
+    margin-top: 14px
+    +text(16,400,19,0)
+    +break(374)
+      font-size: 14px
+  &__infoTitle
+    color: $color-sup
+    position: relative
+  &__infoValue
+    color: $color-text
+  &__bottom
+    margin-top: 23px
+    min-height: 58px
+    +flex(0,0,flex-end,flex-start)
+  &__price
+    margin-right: auto
+    max-width: 48%
+    overflow: hidden
+    text-overflow: ellipsis
+    +text(24,700,28.8,$color-primary)
+    span
+      overflow: hidden
+      white-space: nowrap
+      text-overflow: ellipsis
+      max-width: 100%
+  &__special
+    display: inline-block
+    margin-top: 4px
+    text-decoration-line: line-through
+    +text(18,400,21.6,#636363)
+  &__buy
+    width: 50%
+    max-width: 183px
+    padding: 15px 0
+    +flex(0,0,center,center)
+    +sm
+      font-size: 14px
+    +before
+      margin-right: 17px
+    &--added
+      background: $color-sup
+      cursor: no-drop
+      +hover
+        background: $color-sup
+  +hover
+    box-shadow: 0px 2px 10px $color-preview-hover
+    .preview__wish
+      right: 20px
+      opacity: 1
+      pointer-events: auto
+      transition-delay: .3s
+
+.toTop
+  position: fixed
+  bottom: 25px
+  right: -55px
+  z-index: 10
+  background: $color-primary
+  border-radius: 50%
+  width: 50px
+  height: 50px
+  opacity: 0
+  pointer-events: none
+  +flex(0,0,center,center)
+  +tran(all,.4s)
+  +hover
+    background: $color-primary-hover
+  +before
+    transform: rotate(-90deg)
+  &--active
+    opacity: 1
+    pointer-events: auto
+    right: 15px
+
+.breadcrumbs
+  padding: 24px 0 42px 0
+  +sm
+    padding: 40px 0 32px 0
+  &__list
+    +flex(0,wrap,flex-start,center)
+  &__item
+    position: relative
+    padding-right: 8px
+    margin-right: 8px
+    +text(14,400,18, #C5C5C5)
+    +before
+      position: absolute
+      top: 50%
+      right: 0
+      width: 1px
+      height: 14px
+      background: #C5C5C5
+      transform: translateY(-50%)
+    a
+      +text(14,400,18, #C5C5C5)
+    &--start
+      a
+        +flex(0,0,flex-start,center)
+        +before
+          margin-right: 8px
+    &--end
+      +before
+        display: none
+  &--banner
+    position: absolute
+    top: 220px
+    left: 0
+    right: 0
+    z-index: 10
+    +break(1366)
+      top: 200px
+    +xs
+      top: 68px
+
+.primary-bg
+  position: relative
+  +before
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    height: 638px
+    background-image: url('../img/layout/background-primary-top.svg')
+    background-repeat: no-repeat
+    background-size: 100%
+    z-index: -1
+    +xs
+      background-size: cover
+      background-image: url('../img/layout/background-primary-top-mobile.svg')
+  +after
+    position: absolute
+    bottom: 0
+    left: 0
+    right: 0
+    height: 638px
+    background-image: url('../img/layout/background-primary-bottom.svg')
+    background-repeat: no-repeat
+    background-size: 100%
+    background-position: bottom
+    z-index: -1
+    +xs
+      background-image: url('../img/layout/background-primary-bottom-mobile.svg')
+      background-size: cover
+
+  &--category
+    +before
+      display: none
+      +xs
+        display: block
+        top: 7%
+        background-position: bottom
+        z-index: -1
+    +after
+      display: none
+      +xs
+        display: block
+        z-index: -1
+        bottom: 7%
+.layout
+  width: 100%
+  &--left
+    position: relative
+    +flex(0,0,space-between,0)
+    .main
+      width: $main
+      padding: 0 calc((100% - 1540px) / 2) 104px 51px
+      +break(1600)
+        width: calc(100% - 20%)
+        padding: 0 4% 104px 25px
+      +sm
+        width: 100%
+        padding: 0 4% 80px 4%
+    .breadcrumbs
+      .container
+        width: 100%
+
+.sidebar
+  width: $sidebar
+  background: $color-sidebar
+  padding-left: calc((100% - 1540px) / 2)
+  padding-top: 93px
+  +break(1600)
+    width: 20%
+    padding-left: 4%
+  +sm
+    display: none
+  &--catalog
+    +sm
+      display: block
+      position: fixed
+      top: 170px
+      left: -100%
+      bottom: 0
+      padding: 0
+      width: 100%
+      z-index: 20
+      padding: 40px 0 123px 16px
+      overflow: auto
+      max-height: calc(100vh - 67px)
+      +tran(all,.4s)
+    +xs
+      top: 67px
+  &--open
+    left: 0
+  &__title
+    padding-bottom: 12px
+    margin-bottom: 16px
+    border-bottom: 1px solid #D6D6D6
+    +sm
+      +flex(0,0,flex-start,center)
+    +before
+      display: none !important
+      +sm
+        display: block !important
+        margin-right: 20px
+
+.dropdown
+  width: 172px
+  max-width: 100%
+  position: relative
+  z-index: 1
+  +text(14,500,24,0)
+  +before
+    position: absolute
+    top: 16px
+    right: 5px
+    +tran(all,.2s)
+  +break(1400)
+    width: 200px
+  &:hover
+    cursor: pointer
+  &__title
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+    border: 1px solid #C1C1C1
+    border-radius: 8px
+    padding: 7px 32px 7px 12px
+    +text(15,400,20,#000)
+  &__list
+    opacity: 0
+    max-height: 0px
+    overflow: hidden
+    position: absolute
+    top: 100%
+    left: 0
+    width: 100%
+    border: 1px solid #C1C1C1
+    border-top: 0
+    border-radius: 0 0 4px 4px
+    padding: 8px 30px 8px 16px
+    background: #fff
+    box-shadow: 0px 4px 8px #C1C1C1
+    pointer-events: none
+    +tran(all,.4s)
+    li
+      margin: 5px 0
+  &--open
+    z-index: 10
+    +before
+      transform: rotate(-180deg)
+    .dropdown__title
+      border-radius: 8px 8px 0 0
+    .dropdown__list
+      opacity: 1
+      max-height: 999px
+      pointer-events: auto
+
+.accordion
+  &__title
+    cursor: pointer
+    padding-right: 20px
+    +flex(0,0,flex-start,center)
+    +text(16,600,19,0)
+    +before
+      top: 10px
+      right: 7px
+      background: #000
+    +after
+      top: 10px
+      right: 0
+      background: #000
+    i
+      display: inline-block
+      margin-right: 18px
+  &__content
+    max-height: 0
+    opacity: 0
+    overflow: hidden
+    padding-top: 0
+    padding-right: 5px
+    +tran(all,.4s)
+    &--scroll
+      overflow: auto
+    .productPageInfo__row
+      &:nth-child(1n + 7)
+        max-height: 100px
+        opacity: 1
+      span
+        background: #fff
+      &:not(:last-child)
+        margin-bottom: 16px
+      span
+        padding: 0 10px 0 0
+        + span
+          padding: 0 0 0 10px
+  &__item
+    position: relative
+    padding-bottom: 16px
+    margin-bottom: 16px
+    border-bottom: 1px solid #D6D6D6
+    &--open
+      .accordion__title
+        +before
+          background: $color-primary
+          right: 6px
+          transform: rotate(-40deg) translateY(-50%)
+        +after
+          background: $color-primary
+          transform: rotate(40deg) translateY(-50%)
+      .accordion__content
+        max-height: 187px
+        opacity: 1
+        margin-top: 16px
+
+  &__btn
+  &__opener
+    position: absolute
+    top: 0
+    right: 0
+    width: 30px
+    height: 30px
+    background: grey
+
+.quantly
+  +flex(0,0,flex-start,center)
+  &__inner
+    width: 93px
+    padding-right: 24px
+    position: relative
+    +xs
+      width: auto
+      +flex(row-reverse,0,flex-start,center)
+  &__label
+    display: inline-block
+    margin-right: 8px
+    white-space: nowrap
+    +text(14,600,19,0)
+    +xs
+      margin-right: 18px
+  &__input
+    width: 100%
+    padding: 15px 0
+    border-radius: 8px 0 0 8px
+    border: 1px solid #D6D6D6
+    background-repeat: no-repeat
+    text-align: center
+    +text(20,400,26,#000)
+    +xs
+      border-radius: 8px
+      width: 46px
+      padding: 9px 0
+      margin: 0 8px
+  &__plus
+    top: 0
+    border-radius: 0px 8px 0px 0px
+    border-bottom: 0!important
+    +after
+      width: 9px
+      height: 1px
+      background: #D6D6D6
+      transform: rotate(90deg)
+      position: absolute
+      +xxs
+        height: 2px
+  &__minus
+    bottom: 0
+    border-radius: 0px 0px 8px 0px
+  &__button
+    position: absolute
+    width: 24px
+    height: 29px
+    right: 0
+    border: 1px solid #D6D6D6
+    border-left: 0
+    +flex(0,0,center,center)
+    +xs
+      position: static
+      width: 46px
+      height: 46px
+      background: $color-primary
+      border-radius: 8px
+      border: none
+    +before
+      width: 9px
+      height: 1px
+      background: #D6D6D6
+      position: absolute
+      +xs
+        height: 2px
+    +hover
+      +before
+        background: #000
+      +after
+        background: #000
+
+.items
+  display: block
+  &Slider
+    overflow: visible
+    +xs
+      overflow: hidden
+      padding: 15px 30px
+    &.swiper-container-initialized
+      .items
+        display: flex
+        &__item
+          opacity: 0
+          transition: opacity .2s
+          &.swiper-slide-visible
+            opacity: 1
+  &__item
+    background: #fff
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2)
+    border-radius: 16px
+    min-height: 149px
+    overflow: hidden
+    +flex(0,0,space-between,0)
+    +xs
+      position: relative
+      +flex(column,0,0,center)
+    &:not(:last-child)
+      margin-bottom: 32px
+  &__col
+    max-height: 149px
+    padding: 30px 0
+    overflow: auto
+    +xs
+      max-height: 1000px
+  &__colFirst
+    width: 238px
+    position: relative
+    overflow: hidden
+    padding: 0
+    +xs
+      width: 100%
+    img
+      display: block
+      width: 100%
+      height: 100%
+      object-fit: cover
+      +tran(all,.4s)
+      +xs
+        max-height: 154px
+    .recipes__rate
+      bottom: unset
+      top: 8px
+      left: 13px
+      +xs
+        top: unset
+        bottom: 15px
+        left: 11px
+    +hover
+      img
+        transform: scale(1.1)
+  &__colSecond
+    width: 379px
+    padding: 0 16px
+    +flex(column,0,0,0)
+    +xs
+      width: 100%
+      padding: 8px 16px
+    .heading
+      margin-bottom: 6px
+      margin-top: auto
+      +md
+        +text(18,0,24,0)
+      +xs
+        margin-bottom: 0
+        +text(24,0,32,0)
+    .recipes__categories
+      position: static
+      margin-bottom: auto
+      +xs
+        position: absolute
+        top: 16px
+        left: 11px
+      a
+        background: rgba(255, 221, 169, 0.55)
+        border: 2px solid $transparent
+        margin-bottom: 8px
+        +xs
+          background: rgba(255, 255, 255, 0.55)
+        &:nth-child(1n + 3)
+          +xs
+            display: none
+        +hover
+          border-color: rgba(255, 221, 169, 0.55)
+  &__colThird
+    width: 600px
+    border-left: 1px solid #D6D6D6
+    border-right: 1px solid #D6D6D6
+    padding: 0 43px 0 31px
+    display: flex
+    +xs
+      border: none
+      width: 100%
+      padding: 8px 25px 8px 8px
+    p
+      margin: auto 0
+      +md
+        +text(14,0,20,0)
+      +xs
+        max-height: 72px
+        overflow: hidden
+        text-overflow: ellipsis
+        +text(16,0,24,0)
+  &__colFourth
+    width: 246px
+    padding: 0 33px
+    +flex(column,0,center,0)
+    +md
+      padding: 0 10px
+    +sm
+      display: none
+  &__btn
+    padding: 15px 0
+    +break(1600)
+      font-size: 16px
+    +md
+      font-size: 12px
+      padding: 8px 0
+  
+  &Wishlist
+    .items__item
+      position: relative
+      +xs
+        padding: 16px
+        +flex(row,wrap,0,0)
+      &:not(:last-child)
+        margin-bottom: 16px
+    &__stickers
+      width: 150px
+      +md
+        display: none
+      +xs
+        display: block
+        width: 100%
+      .preview__stickers
+        +xs
+          position: static
+          padding-right: 24px
+          +flex(0,wrap,flex-start,flex-start)
+      .preview__sticker
+        +break(1600)
+          font-size: 12px
+        +xs
+          width: auto
+          margin-right: 11px
+        &:nth-child(1n + 5)
+          display: none
+        &:nth-child(1n + 3)
+          +xxs
+            display: none
+    &__info
+      width: 474px
+      +flex(row,0,flex-start,center)
+      +break(1600)
+        width: 420px
+      +md
+        width: 40%
+      +xs
+        width: 100%
+        padding: 0
+        margin-bottom: 16px
+    &__set
+      width: 361px
+      padding: 0 16px
+      +flex(0,0,space-between,center)
+      +break(1600)
+        width: 415px
+      +md
+        width: 60%
+      +xs
+        position: relative
+        padding: 90px 0 0 0
+        overflow: visible
+      +xxs
+        padding-top: 50px
+        width: 45%
+      .quantly
+        margin-right: 24px
+        +xs
+          position: absolute
+          top: 0
+        .quantly__button
+          +xxs
+            width: 32px
+            height: 32px
+        .quantly__input
+          +xxs
+            width: 40px
+            height: 32px
+      .preview__price
+        max-width: 100%
+        min-height: 53px
+        +flex(column,0,center,0)
+        span
+          +xs
+            display: block
+    &__tools
+      width: 215px
+      padding: 0 16px
+      position: relative
+      +md
+        width: 15%
+      +sm
+        display: flex
+      +xs
+        position: static
+        align-self: flex-end
+        width: 35%
+        padding: 0
+      +xxs
+        width: 54%
+      .preview__buy
+        max-width: 100%
+        width: 100%
+        +before
+          +md
+            margin-right: 0
+          +xs
+            margin-right: 16px
+        +md
+          font-size: 0
+        +xs
+          font-size: 16px
+    &__thumb
+      margin-right: 32px
+      width: 25%
+      +md
+        margin-right: 16px
+      +xs
+        width: 25%
+      img
+        width: 102px
+        height: 114px
+        object-fit: contain
+        +xs
+          width: 134px
+          height: auto
+    &__names
+      width: 75%
+    &__code
+      +text(13,400,16,#979797)
+    &__name
+      display: block
+      max-height: 63px
+      overflow: hidden
+      text-overflow: ellipsis
+      +text(18,600,21,0)
+    &__del
+      position: absolute
+      bottom: 11px
+      left: 0
+      width: 100%
+      letter-spacing: 0.02em
+      +text(12,600,18,#000)
+      +flex(0,0,center,center)
+      +xs
+        bottom: unset
+        top: 16px
+        left: unset
+        right: 16px
+        width: auto
+        font-size: 0
+      +before
+        +xs
+          background: url("../img/icons.svg") -441px -5px no-repeat!important
+    
+    &--noCommerce
+      .itemsWishlist__set
+        overflow: visible
+        +xs
+          padding: 0
+        .quantly
+          +xs
+            position: static
+      .cartContentProducts__priceDesc
+        +text(16,400,21,0)
+      .preview__infoTitle
+        +xs
+          display: none
+
+.list-check
+  li
+    padding-left: 32px
+    position: relative
+    +before
+      position: absolute
+      top: 50%
+      left: 0
+      width: 18px
+      height: 15px
+      background-image: url('../img/icons/check.svg')
+      transform: translateY(-50%)
+
+.select
+  width: auto
+  &__item
+  .dropdown
+    width: auto
+    &--open
+      .arrow
+        +before
+          transform: rotate(-40deg)
+        +after
+          transform: rotate(40deg)
+      .dropdown__list
+        top: 110% !important
+  .dropdown__title
+    background: $color-input
+    border: none
+    border-radius: 32px
+    padding: 10px 40px 10px 14px
+    border: 1px solid $transparent
+    text-align: left
+    +tran(all,.4s)
+    +text(14,400,24,$color-placeholder)
+    +before
+      +md
+        top: 23px
+    +after
+      +md
+        top: 23px
+  .dropdown__list
+    border: none
+    padding: 0
+    top: 80%
+    max-height: 266px
+    overflow: auto
+    li
+      padding: 0 16px
+      margin: 0
+      +tran(all,.2s)
+      +hover
+        background: $color-primary
+        button
+          color: #fff
+      button
+        display: block
+        text-align: left
+        padding: 10px 0
+        width: 100%
+        +tran(all,.2s)
+  &--err
+    .dropdown__title
+      border-color: $color-primary
+  &--ok
+    .dropdown__title
+      border-color: $color-sup
+    
+  
+.uploaded
+  display: block
+  max-width: 100%
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
+  +text(14,400,24,#909090)
+
+
+.sad_face
+  animation: fadeIn .1s linear
+  &::before
+    content: attr(data-deleted)
+    color: $color-text
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    opacity: 1
+    z-index: 11
+    padding-top: 50px
+    +flex(0,0,center,center)
+  +after
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: 10
+    background-image: url(../img/icons/sad_face.svg)
+    background-color: #fff
+    background-size: 30px
+    background-repeat: no-repeat
+    background-position: 50% 40%
+
+
+
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+  body
+    overflow: hidden
+    &::before
+      content: 'К сожалению сайт не может открыться в вашем браузере, так как он устарел. Пожалуйста обновите ваш браузер и попробуйте еще раз.'
+      position: fixed
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      background: #fff
+      z-index: 1000
+      text-align: center
+      padding-top: 50px
+
