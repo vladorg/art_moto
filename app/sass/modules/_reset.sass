@@ -1,6 +1,3 @@
-@import "./inc/var.sass"
-@import "./inc/mixins.sass"
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -39,28 +36,3 @@ table
   &:target, &:focus, &:active
     border: none
     outline: none
-body
-  font-size: $fz
-  font-weight: $fw
-  font-family: $ff
-  overflow-x: hidden
-  background: $color_body
-  &::-webkit-scrollbar
-    width: 3px
-    background: $transparent
-  &::-webkit-scrollbar-thumb
-    background: $color-primary
-  &.column
-    min-height: 100vh
-    +flex(column,0,0,0)
-
-button
-  font-family: $ff
-img
-  max-width: 100%
-  height: auto
-a
-  text-decoration: none
-  color: $color-text
-  +hover
-    text-decoration: underline

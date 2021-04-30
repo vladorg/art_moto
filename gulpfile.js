@@ -13,7 +13,7 @@ htmlmin = require('gulp-htmlmin'),
 htmlreplace = require('gulp-html-replace'), 
 babel = require('gulp-babel'),
 pug = require('gulp-pug'),
-webpack = require('webpack-stream');
+gcmq = require('gulp-group-css-media-queries');
 
 
 
@@ -91,6 +91,7 @@ gulp.task('buildFonts', function() {
 gulp.task('buildCss', function() {
 	return gulp.src('app/css/*.css', '!app/css/libs/*.css')
 	.pipe(concat('style.css'))
+	.pipe(gcmq())
 	.pipe(gulp.dest('dist/css/'))
 	.pipe(cssnano({autoprefixer: {
 		browsers:['last 50 versions', '> 1%', 'ie 8', 'ie 7'], 
@@ -129,7 +130,7 @@ gulp.task('b', gulp.parallel('clean', 'img', 'buildHtml', 'buildCss', 'buildCssL
 gulp.task('watch', function() {
 	gulp.watch('app/sass/**/*.sass', gulp.parallel('sass'));
 	gulp.watch('app/pug/**/*.pug', gulp.parallel('pug'));
-	gulp.watch('app/js/modules/**/*.js', gulp.parallel('scripts'));
+	gulp.watch(['app/js/**/*.js', 'app/libs/**/*.js'], gulp.parallel('scripts'));
 });
 
 

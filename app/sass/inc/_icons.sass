@@ -1,162 +1,228 @@
-@import "./var.sass"
-@import "./mixins.sass"
-
-.ic-arrow
-	&::before
-		+icon(13,16,-99px)
-.ic-arrow-active
-	&::before
-		+icon(7,14,-21px)
-.ic-arrow-back
-	&::before
-		+icon(18,16,-495px)
-.ic-arrow-black
-	&::before
-		+icon(14,7,-145px)
-.ic-arrow-disable
-	&::before
-		+icon(7,14,-38px)
+.ic-arrow_down
+  +before
+    display: block
+    width: 13px
+    height: 7px
+    background: url('../img/sprite.svg') -89px -5px
+.ic-arrow_slider
+  +before
+    display: block
+    width: 22px
+    height: 40px
+    background: url('../img/sprite.svg') -829px -5px
 .ic-burger
-	&::before
-		+icon(18,12,-523px)
-.ic-card
-	&::before
-		+icon(25,17,-607px)
+  +before
+    display: block
+    width: 20px
+    height: 20px
+    background: url('../img/sprite.svg') -468px -5px
+.ic-burger_orange
+  +before
+    display: block
+    width: 20px
+    height: 20px
+    background: url('../img/sprite.svg') -498px -5px
+.ic-calendar
+  +before
+    display: block
+    width: 16px
+    height: 16px
+    background: url('../img/sprite.svg') -306px -5px
 .ic-cart
-	&::before
-		+icon(32,32,-795px)
-.ic-cart-white
-	&::before
-		+icon(27,26,-678px)
-.ic-catalog
-	&::before
-		+icon(14,14,-169px)
-.ic-check
-	&::before
-		+icon(18,15,-551px)
-.ic-check-green
-	&::before
-		+icon(14,15,-193px)
-.ic-f1
-	&::before
-		+icon(32,32,-837px)
-.ic-f2
-	&::before
-		+icon(32,28,-879px)
-.ic-f3
-	&::before
-		+icon(32,32,-921px)
-.ic-f4
-	&::before
-		+icon(32,32,-963px)
-.ic-f5
-	&::before
-		+icon(32,32,-1005px)
-.ic-f6
-	&::before
-		+icon(32,30,-1047px)
-.ic-facebook
-	&::before
-		+icon(6,14,-5px)
-.ic-heart
-	&::before
-		+icon(30,28,-715px)
-.ic-heart-grey
-	&::before
-		+icon(30,28,-755px)
-.ic-heart-green
-	&::before
-		+icon(30,28,-1344px, -7px)
-.ic-heart-small
-	&::before
-		+icon(14,14,-217px)
-.ic-home
-	&::before
-		+icon(14,16,-241px)
-.ic-instagram
-	&::before
-		+icon(14,14,-265px)
-.ic-lines
-	&::before
-		+icon(18,11,-579px)
-.ic-mail
-	&::before
-		+icon(12,12,-55px)
-.ic-mail-white
-	&::before
-		+icon(16,17,-361px)
-.ic-marker
-	&::before
-		+icon(14,17,-289px)
-.ic-pencil
-	&::before
-		+icon(14,14,-313px)
-.ic-phone
-	&::before
-		+icon(12,12,-77px)
-.ic-phone-white
-	&::before
-		+icon(14,13,-337px)
-.ic-search
-	&::before
-		+icon(17,17,-387px)
-.ic-star
-	&::before
-		+icon(17,16,-414px)
-.ic-telegram
-	&::before
-		+icon(13,12,-122px)
-.ic-trash
-	&::before
-		+icon(17,17,-441px)
-.ic-trash-black
-	&::before
-		+icon(17,17,-468px)
-.ic-trash-white
-	&::before
-		+icon(17,17,-1318px, -13px)
-.ic-truck
-	&::before
-		+icon(26,21,-642px)
-.ic-user
-	&::before
-		+icon(32,32,-1089px,-6px)
+  +before
+    display: block
+    width: 14px
+    height: 19px
+    background: url('../img/sprite.svg') -112px -5px
+.ic-cart_orange
+  +before
+    display: block
+    width: 14px
+    height: 19px
+    background: url('../img/sprite.svg') -136px -5px
+.ic-check_in
+  +before
+    display: block
+    width: 20px
+    height: 20px
+    background: url('../img/sprite.svg') -528px -5px
+.ic-check_orange
+  +before
+    display: block
+    width: 21px
+    height: 15px
+    background: url('../img/sprite.svg') -798px -5px
 .ic-close
-	&::before
-    +icon(15,15,-1225px,-13px)
-.ic-close-black
-	&::before
-    +icon(15,15,-1254px,-13px)
-.ic-search-big
-  &::before
-    +icon(26,26,-1130px,-8px)
-.ic-catalog-orange
-  &::before
-    +icon(20,20,-1169px,-11px)
-.ic-arrow-orange
-	&::before
-    +icon(7,15,-1205px,-13px)
-.ic-box-black
-	&::before
-    +icon(25,25,-1281px,-8px)
+  +before
+    display: block
+    width: 34px
+    height: 34px
+    background: url('../img/sprite.svg') -1029px -5px
+.ic-compare
+  +before
+    display: block
+    width: 25px
+    height: 16px
+    background: url('../img/sprite.svg') -959px -5px
+.ic-compare_orange
+  +before
+    display: block
+    width: 25px
+    height: 16px
+    background: url('../img/sprite.svg') -994px -5px
+.ic-facebook
+  +before
+    display: block
+    width: 10px
+    height: 17px
+    background: url('../img/sprite.svg') -5px -5px
+.ic-facebook_orange
+  +before
+    display: block
+    width: 10px
+    height: 17px
+    background: url('../img/sprite.svg') -25px -5px
+.ic-heart
+  +before
+    display: block
+    width: 20px
+    height: 16px
+    background: url('../img/sprite.svg') -558px -5px
+.ic-heart_black
+  +before
+    display: block
+    width: 20px
+    height: 16px
+    background: url('../img/sprite.svg') -588px -5px
+.ic-heart_orange
+  +before
+    display: block
+    width: 20px
+    height: 16px
+    background: url('../img/sprite.svg') -618px -5px
+.ic-instagram
+  +before
+    display: block
+    width: 20px
+    height: 20px
+    background: url('../img/sprite.svg') -648px -5px
+.ic-instagram_orange
+  +before
+    display: block
+    width: 20px
+    height: 20px
+    background: url('../img/sprite.svg') -678px -5px
+.ic-mail
+  +before
+    display: block
+    width: 15px
+    height: 12px
+    background: url('../img/sprite.svg') -256px -5px
+.ic-minus
+  +before
+    display: block
+    width: 14px
+    height: 4px
+    background: url('../img/sprite.svg') -160px -5px
+.ic-phone
+  +before
+    display: block
+    width: 15px
+    height: 14px
+    background: url('../img/sprite.svg') -281px -5px
+.ic-plus
+  +before
+    display: block
+    width: 14px
+    height: 14px
+    background: url('../img/sprite.svg') -184px -5px
+.ic-search
+  +before
+    display: block
+    width: 20px
+    height: 19px
+    background: url('../img/sprite.svg') -708px -5px
 .ic-share
-	&::before
-    +icon(19,19,-1385px,-11px)
-.ic-star-grey
-	&::before
-    +icon(17,16,-1418px,-11px)
-.ic-facebook-big
-	&::before
-    +icon(18,32,-1573px,-6px)
-.ic-twitter
-	&::before
-    +icon(23,19,-1451px,-10px)
-.ic-telegram-big
-	&::before
-    +icon(26,24,-1489px,-7px)
-.ic-copy
-	&::before
-    +icon(18,23,-1536px,-9px)
-.ic-copy-green
-	&::before
-    +icon(18,23,-1613px,-9px)
+  +before
+    display: block
+    width: 18px
+    height: 18px
+    background: url('../img/sprite.svg') -412px -5px
+.ic-star_e
+  +before
+    display: block
+    width: 17px
+    height: 16px
+    background: url('../img/sprite.svg') -358px -5px
+.ic-star_f
+  +before
+    display: block
+    width: 17px
+    height: 16px
+    background: url('../img/sprite.svg') -385px -5px
+.ic-trash
+  +before
+    display: block
+    width: 12px
+    height: 18px
+    background: url('../img/sprite.svg') -45px -5px
+.ic-trash_orange
+  +before
+    display: block
+    width: 12px
+    height: 18px
+    background: url('../img/sprite.svg') -67px -5px
+.ic-twitter_orange
+  +before
+    display: block
+    width: 24px
+    height: 20px
+    background: url('../img/sprite.svg') -925px -5px
+.ic-user
+  +before
+    display: block
+    width: 20px
+    height: 20px
+    background: url('../img/sprite.svg') -738px -5px
+.ic-user_orange
+  +before
+    display: block
+    width: 20px
+    height: 20px
+    background: url('../img/sprite.svg') -768px -5px
+.ic-what
+  +before
+    display: block
+    width: 14px
+    height: 14px
+    background: url('../img/sprite.svg') -208px -5px
+.ic-what_orange
+  +before
+    display: block
+    width: 14px
+    height: 14px
+    background: url('../img/sprite.svg') -232px -5px
+.ic-youtube
+  +before
+    display: block
+    width: 22px
+    height: 16px
+    background: url('../img/sprite.svg') -861px -5px
+.ic-youtube_orange
+  +before
+    display: block
+    width: 22px
+    height: 16px
+    background: url('../img/sprite.svg') -893px -5px
+.ic-checked
+  +before
+    display: block
+    width: 16px
+    height: 16px
+    background: url('../img/sprite.svg') -332px -5px
+.ic-russia
+  +before
+    display: block
+    width: 18px
+    height: 18px
+    background: url('../img/sprite.svg') -440px -5px

@@ -1,2 +1,175 @@
-@import "../inc/var.sass"
-@import "../inc/mixins.sass"
+.header
+  color: #fff
+  background: $c_header
+  +xs
+    border-bottom: 1px solid #424242
+
+  &--absolute
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+  
+  &--opacity
+    background: rgba(0,0,0,.2)
+
+  &__toolbar
+    letter-spacing: 0.02em
+    background: $c_toolbar
+    padding: 5px 0
+    +text(14,400,22,#fff)
+    +xs
+      display: none
+    .container
+      +flex(0,0,flex-start,center)
+    a
+      color: #fff
+
+    .phones      
+      .dropdown__title
+        +flex(0,0,flex-start,center)
+        +before
+          margin-right: 5px
+    
+    .emails
+      margin-left: 32px
+      .dropdown__title
+        +flex(0,0,flex-start,center)
+        +before
+          margin-right: 5px
+
+    .languages
+      margin: 0 38px 0 auto
+      &__active
+        +flex(0,0,flex-start,center)
+        img
+          border-radius: 50%
+          margin-right: 5px
+    
+    .exchange
+      +flex(0,0,flex-start,center)
+      .tooltip
+        margin-left: 5px
+
+
+  &__inner
+    padding: 17px 0
+    +xs
+      padding: 15px 0
+    .container
+      +flex(0,0,flex-start,center)
+      +md
+        justify-content: space-between
+      +xs
+        justify-content: flex-start
+    
+  
+  &__nav
+    border-top: 1px solid #424242
+    border-bottom: 1px solid #424242
+    +xs
+      display: none
+
+
+.logo
+  img
+    +sm
+      width: 150px
+
+
+.menu
+  margin-right: 34px
+  +md
+    margin: 0
+  +xs
+    margin-right: 26px
+
+  &Content
+    display: none
+
+
+.search
+  position: relative
+  margin-left: 95px
+  width: 100%
+  max-width: 393px
+  +md
+    margin: 0
+  +sm
+      max-width: 225px
+  +xs
+    display: none
+  &__inner
+    width: 100%    
+    background: #282828
+    border: 1px solid #525252
+    padding: 17px 0
+  &__btn
+    position: absolute
+    top: 18px
+    left: 27px
+
+
+.user
+  margin: 0 50px 0 auto
+  +md
+    margin: 0
+  +xs
+    display: none
+
+
+.wishlist
+  margin: 0 60px 0 0
+  +md
+    margin: 0
+  +xs
+    display: none
+
+  
+.compare
+  margin: 0 50px 0 0
+  +md
+    margin: 0
+  +xs
+    display: none
+
+
+.cart
+  margin: 0 32px 0 0
+  color: #8D8D8D
+  +flex(0,0,flex-start,center)
+  +md
+    margin: 0
+  +xs
+    margin-left: auto
+  +before
+    margin-right: 9px
+
+
+.currency
+  border: 1px solid $c_primary
+  padding: 10px 12px
+  +xs
+    display: none
+  &__title
+    color: #8D8D8D
+    span
+      +text(0,600,0,#fff)
+
+
+.catalog
+  +flex(0,0,space-between,center)
+  &__item
+    a
+      display: block
+      padding: 8px 0
+      +text(16,600,24,#fff)
+      +md
+        font-size: 12px
+    &--target
+      a
+        color: $c_primary
+  
+
+
+  

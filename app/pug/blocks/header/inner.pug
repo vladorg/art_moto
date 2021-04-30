@@ -1,0 +1,27 @@
+.header__inner
+
+  .container
+
+    include ../ui/menu.pug
+
+    a.logo(href="./")
+      img(src="./img/logo.svg", alt="Logo" width="180" height="58")
+
+    .search
+      input.search__inner 
+      button.btn.ic-search.search__btn
+
+    include ../ui/user.pug
+  
+    include ../ui/wishlist.pug
+
+    include ../ui/compare.pug
+
+    include ../ui/cart.pug
+
+    .currency.dropdown
+      .currency__title.dropdown__title
+        span USD
+        | ($)
+      button.btn.dropdown__btn.ic-arrow_down
+      .dropdown__inner content
