@@ -1,11 +1,751 @@
-
-<head>
-  <meta charset="UTF-8"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Product</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <h1>hello1</h1>
-</body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title><link rel="stylesheet" href="css/critical.min.css">  </head>
+  <body class="root page-product">
+    <header class="header">
+      <div class="header__toolbar">
+        <div class="container">
+          <div class="dropdown phones">
+            <div class="dropdown__title ic-phone"><a href="tel:+380800316173">+38 (0 800) 316-173  </a></div>
+            <button class="btn dropdown__btn ic-arrow_down"></button>
+            <div class="dropdown__inner">
+              <div class="dropdown__title"><a href="tel:+380800316173">+38 (0 800) 316-173</a></div>
+              <div class="dropdown__title"><a href="tel:+380800316173">+38 (0 800) 316-173</a></div>
+              <div class="dropdown__title"><a href="tel:+380800316173">+38 (0 800) 316-173</a></div>
+            </div>
+          </div>
+          <div class="dropdown emails">
+            <div class="dropdown__title ic-mail"><a href="mailto:info@artmoto.ua">info@artmoto.ua</a></div>
+            <button class="btn dropdown__btn ic-arrow_down"></button>
+            <div class="dropdown__inner">
+              <div class="dropdown__title"><a href="tel:+380800316173">info@artmoto.ua</a></div>
+              <div class="dropdown__title"><a href="tel:+380800316173">info@artmoto.ua</a></div>
+              <div class="dropdown__title"><a href="tel:+380800316173">info@artmoto.ua</a></div>
+            </div>
+          </div>
+          <div class="dropdown languages">
+            <div class="dropdown__title"> 
+              <div class="languages__active"><img src="./img/icons/russia.svg" alt="">
+                <p>Русский</p>
+              </div>
+            </div>
+            <button class="btn dropdown__btn ic-arrow_down"></button>
+            <div class="dropdown__inner"><a href="#">Русский</a><a href="#">Українська</a><a href="#">English</a></div>
+          </div>
+          <div class="exchange">
+            <div class="exchange__content">1 USD = 28.10 грн</div>
+            <div class="tooltip ic-what">
+              <div class="tooltip__wrap">
+                <div class="tooltip__content">Lorem ipsum dolor</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header__inner">
+        <div class="container">
+          <div class="menu">
+            <button class="btn menu__btn ic-burger"> </button>
+            <div class="menuContent">
+              <div class="menuContent__header">
+                <button class="btn menuContent__close ic-close"></button><a href=""><img class="menuContent__logo" src="./img/logo.svg" alt="Logo" width="180" height="58"></a>
+              </div>
+              <ul class="menuContent__list scroll">
+                <li><a href="./about.html">О компании</a></li>
+                <li><a href="./delivery.html">Доставка и оплата</a></li>
+                <li><a href="./guarantee.html">Гарантия</a></li>
+                <li><a href="./credit.html">Кредит</a></li>
+                <li><a href="./blog.html">Блог</a></li>
+                <li><a href="./#.html">Мотосервис</a></li>
+                <li><a href="./#.html">Салоны</a></li>
+                <li><a href="./contacts.html">Контакты</a></li>
+              </ul>
+            </div>
+          </div><a class="logo" href="./"><img src="./img/logo.svg" alt="Logo" width="180" height="58"></a>
+          <div class="search">
+            <input class="search__inner">
+            <button class="btn ic-search search__btn"></button>
+          </div>
+          <div class="user ic-user"></div>
+          <div class="wishlist ic-heart"></div>
+          <div class="compare ic-compare"></div>
+          <div class="cart ic-cart">(0)</div>
+          <div class="currency dropdown">
+            <div class="currency__title dropdown__title"><span>USD</span>($)</div>
+            <button class="btn dropdown__btn ic-arrow_down"></button>
+            <div class="dropdown__inner"><a class="currency__title" href="#"><span>UAH</span>(₴)</a><a class="currency__title" href="#"><span>EUR</span>(€)</a></div>
+          </div>
+        </div>
+      </div>
+      <nav class="header__nav">
+        <div class="container">
+          <ul class="catalog">
+            <li class="catalog__item"><a href="./catalog.html">Мотоциклы</a>
+              <div class="catalogChild">
+                <div class="container">
+                  <ul class="catalogChild__list scroll">
+                    <li class="catalogChild__item ic-arrow-orange"><a href="./catalog.html">Все мотоциклы</a></li>
+                    <li class="catalogChild__item ic-arrow-orange"><a href="./catalog.html">Детские мотоциклы</a></li>
+                    <li class="catalogChild__item ic-arrow-orange"><a href="./catalog.html">Дорожные мотоциклы</a></li>
+                    <li class="catalogChild__item ic-arrow-orange"><a href="./catalog.html">Круизеры</a></li>
+                    <li class="catalogChild__item ic-arrow-orange"><a href="./catalog.html">Мотоциклы с пробегом Б/У</a></li>
+                    <li class="catalogChild__item ic-arrow-orange"><a href="./catalog.html">Питбайки</a></li>
+                    <li class="catalogChild__item ic-arrow-orange"><a href="./catalog.html">Спортбайки</a></li>
+                    <li class="catalogChild__item ic-arrow-orange"><a href="./catalog.html">Туристические</a></li>
+                    <li class="catalogChild__item ic-arrow-orange"><a href="./catalog.html">Чопперы</a></li>
+                    <li class="catalogChild__item ic-arrow-orange"><a href="./catalog.html">Кросс мотоциклы</a></li>
+                  </ul>
+                </div>
+                <div class="catalogChild__products scroll">
+                    <div class="catalogChild__category">
+                      <div class="catalogChild__title">Все мотоциклы</div>
+                      <div class="catalogChild__items"><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a></div>
+                    </div>
+                    <div class="catalogChild__category">
+                      <div class="catalogChild__title">Детские мотоциклы</div>
+                      <div class="catalogChild__items"><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a></div>
+                    </div>
+                    <div class="catalogChild__category">
+                      <div class="catalogChild__title">Дорожные мотоциклы</div>
+                      <div class="catalogChild__items"><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a></div>
+                    </div>
+                    <div class="catalogChild__category">
+                      <div class="catalogChild__title">Круизеры</div>
+                      <div class="catalogChild__items"><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a></div>
+                    </div>
+                    <div class="catalogChild__category">
+                      <div class="catalogChild__title">Мотоциклы с пробегом Б/У</div>
+                      <div class="catalogChild__items"><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a></div>
+                    </div>
+                    <div class="catalogChild__category">
+                      <div class="catalogChild__title">Питбайки</div>
+                      <div class="catalogChild__items"><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a></div>
+                    </div>
+                    <div class="catalogChild__category">
+                      <div class="catalogChild__title">Спортбайки</div>
+                      <div class="catalogChild__items"><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a></div>
+                    </div>
+                    <div class="catalogChild__category">
+                      <div class="catalogChild__title">Туристические</div>
+                      <div class="catalogChild__items"><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a></div>
+                    </div>
+                    <div class="catalogChild__category">
+                      <div class="catalogChild__title">Чопперы</div>
+                      <div class="catalogChild__items"><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a></div>
+                    </div>
+                    <div class="catalogChild__category">
+                      <div class="catalogChild__title">Кросс мотоциклы</div>
+                      <div class="catalogChild__items"><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a></div>
+                    </div>
+                </div>
+              </div>
+            </li>
+            <li class="catalog__item"><a href="./catalog.html">Квадроциклы</a>
+              <div class="catalogChild">
+                <div class="container">
+                  <ul class="catalogChild__list scroll">
+                    <li class="catalogChild__item ic-arrow-orange"><a href="./catalog.html">Все мотоциклы</a></li>
+                    <li class="catalogChild__item ic-arrow-orange"><a href="./catalog.html">Детские мотоциклы</a></li>
+                    <li class="catalogChild__item ic-arrow-orange"><a href="./catalog.html">Дорожные мотоциклы</a></li>
+                    <li class="catalogChild__item ic-arrow-orange"><a href="./catalog.html">Круизеры</a></li>
+                    <li class="catalogChild__item ic-arrow-orange"><a href="./catalog.html">Мотоциклы с пробегом Б/У</a></li>
+                    <li class="catalogChild__item ic-arrow-orange"><a href="./catalog.html">Питбайки</a></li>
+                    <li class="catalogChild__item ic-arrow-orange"><a href="./catalog.html">Спортбайки</a></li>
+                    <li class="catalogChild__item ic-arrow-orange"><a href="./catalog.html">Туристические</a></li>
+                    <li class="catalogChild__item ic-arrow-orange"><a href="./catalog.html">Чопперы</a></li>
+                    <li class="catalogChild__item ic-arrow-orange"><a href="./catalog.html">Кросс мотоциклы</a></li>
+                  </ul>
+                </div>
+                <div class="catalogChild__products scroll">
+                    <div class="catalogChild__category">
+                      <div class="catalogChild__title">Все мотоциклы</div>
+                      <div class="catalogChild__items"><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a></div>
+                    </div>
+                    <div class="catalogChild__category">
+                      <div class="catalogChild__title">Детские мотоциклы</div>
+                      <div class="catalogChild__items"><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a></div>
+                    </div>
+                    <div class="catalogChild__category">
+                      <div class="catalogChild__title">Дорожные мотоциклы</div>
+                      <div class="catalogChild__items"><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a></div>
+                    </div>
+                    <div class="catalogChild__category">
+                      <div class="catalogChild__title">Круизеры</div>
+                      <div class="catalogChild__items"><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a></div>
+                    </div>
+                    <div class="catalogChild__category">
+                      <div class="catalogChild__title">Мотоциклы с пробегом Б/У</div>
+                      <div class="catalogChild__items"><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a></div>
+                    </div>
+                    <div class="catalogChild__category">
+                      <div class="catalogChild__title">Питбайки</div>
+                      <div class="catalogChild__items"><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a></div>
+                    </div>
+                    <div class="catalogChild__category">
+                      <div class="catalogChild__title">Спортбайки</div>
+                      <div class="catalogChild__items"><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a></div>
+                    </div>
+                    <div class="catalogChild__category">
+                      <div class="catalogChild__title">Туристические</div>
+                      <div class="catalogChild__items"><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a></div>
+                    </div>
+                    <div class="catalogChild__category">
+                      <div class="catalogChild__title">Чопперы</div>
+                      <div class="catalogChild__items"><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a></div>
+                    </div>
+                    <div class="catalogChild__category">
+                      <div class="catalogChild__title">Кросс мотоциклы</div>
+                      <div class="catalogChild__items"><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a><a class="catalogChild__product" href="./product.html"><img src="./img/products/1.png" alt="Product">
+                          <p>DUCATI PANIGALE V2</p><span>250 000 ₴</span></a></div>
+                    </div>
+                </div>
+              </div>
+            </li>
+            <li class="catalog__item"><a href="./catalog.html">Скутеры</a></li>
+            <li class="catalog__item"><a href="./catalog.html">Электротранспорт</a></li>
+            <li class="catalog__item"><a href="./catalog.html">Экипировка</a></li>
+            <li class="catalog__item"><a href="./catalog.html">Запчасти</a></li>
+            <li class="catalog__item"><a href="./catalog.html">Аксессуары</a></li>
+            <li class="catalog__item"><a href="./catalog.html">Сервис</a></li>
+            <li class="catalog__item catalog__item--target"><a href="./catalog.html">SALE</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main class="product">
+      <div class="container">
+        <section class="breadcrumbs"><a class="breadcrumbs__item" href="./">Главная</a><a class="breadcrumbs__item" href="./catalog.html">Мотоциклы</a><a class="breadcrumbs__item" href="./catalog.html">yamaha</a>
+            <div class="breadcrumbs__end">vmax</div>
+        </section>
+        <section class="productMain">
+          <div class="productMainImages">
+            <div class="swiper-container swiper-visible-slides productMainImages__thumb ic-zoom-in">
+              <div class="swiper-wrapper"><a class="swiper-slide" href="./img/product/product1.png" data-fancybox="gallery"><img src="./img/product/product1.png" alt=""></a><a class="swiper-slide" href="./img/product/product2.png" data-fancybox="gallery"><img src="./img/product/product2.png" alt=""></a><a class="swiper-slide" href="./img/product/product3.png" data-fancybox="gallery"><img src="./img/product/product3.png" alt=""></a><a class="swiper-slide" href="./img/product/product4.png" data-fancybox="gallery"><img src="./img/product/product4.png" alt=""></a><a class="swiper-slide" href="./img/product/product5.png" data-fancybox="gallery"><img src="./img/product/product5.png" alt=""></a><a class="swiper-slide" href="./img/product/product1.png" data-fancybox="gallery"><img src="./img/product/product1.png" alt=""></a>
+                <div class="swiper-slide">
+                  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/rPM9B99wHsI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-container swiper-visible-slides productMainImages__nav">
+              <div class="swiper-wrapper"><img class="swiper-slide" src="./img/product/product1.png" alt=""><img class="swiper-slide" src="./img/product/product2.png" alt=""><img class="swiper-slide" src="./img/product/product3.png" alt=""><img class="swiper-slide" src="./img/product/product4.png" alt=""><img class="swiper-slide" src="./img/product/product5.png" alt=""><img class="swiper-slide" src="./img/product/product1.png" alt="">
+                <div class="swiper-slide productMainImages__video ic-play"><img src="./img/product/preview.jpg" alt=""></div>
+              </div>
+            </div>
+          </div>
+          <div class="productMainInfo"> 
+            <div class="productMainInfo__stickers">
+              <div class="preview__sticker preview__sticker--new">новинка</div>
+              <div class="preview__sticker preview__sticker--freeshiping">бесплатная доставка</div>
+            </div>
+            <h1 class="heading productMainInfo__name">МОТОШЛЕМ LS2 FF353 RAPID SINGLE MONO GLOSS BLACK</h1>
+            <div class="productMainInfo__status">
+              <div class="productMainInfo__stock ic-check_in">В наличии</div>
+              <div class="productMainInfo__rate ic-star_f">3.5 
+                <button class="btn goto_reviews">(2 отзыва)</button>
+              </div>
+            </div>
+            <div class="productMainInfo__price">2360.40 ₴ </div>
+            <div class="productMainInfo__art">арт.: 23545645</div>
+            <div class="productMainInfoOptions">
+              <div class="productMainInfoOptions__item productMainInfoOptions__item--color">
+                <div class="productMainInfoOptions__title label">Цвет:</div>
+                <div class="productMainInfoOptions__content">
+                  <div class="productMainInfoOptions__field">
+                    <input class="input-hidden" type="radio" name="color" id="color1" value="Черно-красный" checked>
+                    <label for="color1"> <img class="color-picker active" src="./img/colors/black_red.svg" alt=""></label>
+                  </div>
+                  <div class="productMainInfoOptions__field">
+                    <input class="input-hidden" type="radio" name="color" id="color2" value="Черно-синий">
+                    <label for="color2"> <img class="color-picker" src="./img/colors/black_blue.svg" alt=""></label>
+                  </div>
+                  <div class="productMainInfoOptions__field">
+                    <input class="input-hidden" type="radio" name="color" id="color3" value="Черный">
+                    <label for="color3"> <img class="color-picker" src="./img/colors/black.svg" alt=""></label>
+                  </div>
+                </div>
+              </div>
+              <div class="productMainInfoOptions__item"> 
+                <div class="productMainInfoOptions__title label">Размер:</div>
+                <div class="productMainInfoOptions__content">
+                  <div class="productMainInfoOptions__field productMainInfoOptions__field--disabled">
+                    <input class="input-hidden" type="radio" name="size" id="size1" value="XS" disabled>
+                    <label for="size1">XS</label>
+                  </div>
+                  <div class="productMainInfoOptions__field productMainInfoOptions__field--disabled">
+                    <input class="input-hidden" type="radio" name="size" id="size2" value="S" disabled>
+                    <label for="size2">S</label>
+                  </div>
+                  <div class="productMainInfoOptions__field">
+                    <input class="input-hidden" type="radio" name="size" id="size3" value="M" checked>
+                    <label for="size3">M</label>
+                  </div>
+                  <div class="productMainInfoOptions__field">
+                    <input class="input-hidden" type="radio" name="size" id="size4" value="L">
+                    <label for="size4">L</label>
+                  </div>
+                  <div class="productMainInfoOptions__field productMainInfoOptions__field--disabled">
+                    <input class="input-hidden" type="radio" name="size" id="size5" value="XL" disabled>
+                    <label for="size5">XL</label>
+                  </div>
+                </div><a class="btn btn--dashed" href="#"><span>Размерная сетка</span></a>
+              </div>
+            </div>
+            <div class="productMainInfoQuantity">
+              <div class="label">Кол-во:</div>
+              <div class="quantity">
+                <button class="btn quantity__minus"></button>
+                <input class="quantity__value" type="text" name="quantity" value="1">
+                <button class="btn quantity__plus"></button>
+              </div>
+            </div>
+            <div class="productMainInfoActions">
+              <div class="productMainInfoActions__buttons">
+                <button class="btn btn--prim">КУПИТЬ</button>
+                <button class="btn btn--default">КРЕДИТ</button>
+              </div>
+              <div class="productMainInfoActions__tools">
+                <button class="btn ic-heart_orange preview__wishlist"></button>
+                <button class="btn ic-compare_orange preview__compare"></button>
+                <button class="btn ic-share_orange share-button"></button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="productContent">
+          <div class="heading">Мотошлем LS2 FF353 Rapid Deadbolt</div>
+          <div class="seo">
+            <div class="seo__content seo__content--short content">
+              <p>Удобный, высокотехнологичный мотошлем, который предоставит непревзойденный комфорт во время занятий мотоспортом. Аэродинамическая оболочка, выполненная в трех размерах, изготовлена из композита HPTT – смеси термопластичных материалов, обеспечивающих высокую прочность и очень низкий вес. Внутренний слой выполнен из многослойного, ударопрочного вспененного полистирола EPS.</p>
+              <p>Удобный, высокотехнологичный мотошлем, который предоставит непревзойденный комфорт во время занятий мотоспортом. Аэродинамическая оболочка, выполненная в трех размерах, изготовлена из композита HPTT – смеси термопластичных материалов, обеспечивающих высокую прочность и очень низкий вес. Внутренний слой выполнен из многослойного, ударопрочного вспененного полистирола EPS.</p>
+            </div>
+            <button class="btn seo__more">Читать все</button>
+          </div>
+          <div class="productContent__tags"><a class="productContent__tag" href="#">ixs2021</a><a class="productContent__tag" href="#">ixs2021</a></div>
+        </section>
+      </div>
+      <section class="productTabs tabs">
+        <div class="container">
+          <div class="productTabs__nav">
+            <button class="btn tabs__btn tabs__btn--active productTabs__btn" data-tab="product_tab1">Характеристики</button>
+            <button class="btn tabs__btn productTabs__btn" data-tab="product_tab2">Доставка и оплата</button>
+            <button class="btn tabs__btn productTabs__btn" data-tab="product_tab3">Гарантия и сервис</button>
+            <button class="btn tabs__btn productTabs__btn productTabs__btn--reviews" data-tab="product_tab4">Отзывы(2)</button>
+          </div>
+        </div>
+        <div class="productTabs__wrap"> 
+          <div class="container"> 
+            <div class="productTabs__content">
+              <div class="productTabsChars tabs__content tabs__content--active" data-tab="product_tab1">
+                <div class="productTabsChars__chars">
+                  <div class="subtitle">Характеристики:</div>
+                  <ul class="productTabsChars__charsWrap">
+                    <li class="productTabsChars__row">
+                      <div class="productTabsChars__key">Вес:</div>
+                      <div class="productTabsChars__val">1250 г (+/- 50 г)</div>
+                    </li>
+                    <li class="productTabsChars__row">
+                      <div class="productTabsChars__key">Производство:</div>
+                      <div class="productTabsChars__val">Испания</div>
+                    </li>
+                  </ul>
+                  <div class="subtitle">Особенности:</div>
+                  <ul class="productTabsChars__features">
+                    <li class="productTabsChars__feature">Аэродинамический дизайн</li>
+                    <li class="productTabsChars__feature">Полностью съемная, моющаяся подкладка Magna-Tech</li>
+                    <li class="productTabsChars__feature">Визор с противотуманным покрытием</li>
+                    <li class="productTabsChars__feature">Регулируемый ремешок, оснащенный микрометрической застежкой</li>
+                    <li class="productTabsChars__feature">Встроенный дефлектор</li>
+                    <li class="productTabsChars__feature">Протестирован и одобрен в соответствии с нормами ECE 22.05</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="productDelivery tabs__content" data-tab="product_tab2">
+                <div class="container">
+                  <div class="productDelivery__content swiper-container">
+                    <div class="swiper-wrapper"> 
+                      <div class="swiper-slide">
+                        <div class="productDelivery__text">
+                          <div class="title">Доставка</div>
+                          <p class="scroll">Мы рады сообщить вам, что в нашем салоне нам удалось наладить четкую систему доставки, поэтому вы можете приобрести мототовар, находясь практически в любом регионе Украины. Имеющиеся у нас партнерские соглашения с целым рядом крупнейших перевозчиков гарантируют быструю и сравнительно недорогую транспортировку грузов. Мы сотрудничаем с ведущими компаниями перевозчиков , среди них «Новая Почта», «ИН-Тайм», «Евроэкспресс» и «Мистэкспресс» .</p>
+                        </div>
+                        <div class="productDelivery__images"> 
+                          <div class="productDelivery__image"><img src="./img/np.svg" alt=""></div>
+                          <div class="productDelivery__image"><img src="./img/intime.svg" alt=""></div>
+                          <div class="productDelivery__image"><img src="./img/meest.svg" alt=""></div>
+                          <div class="productDelivery__image"><img src="./img/ukrpost.svg" alt=""></div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="productDelivery__text">
+                          <div class="title">Доставка1</div>
+                          <p class="scroll">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptatum saepe in qui, et adipisci nemo totam laudantium iure earum tempora provident quisquam dignissimos accusamus iusto nulla hic est natus officiis asperiores amet! Officiis nam veniam possimus, nesciunt dolorum iure debitis ducimus doloremque, totam suscipit vitae dolorem, blanditiis necessitatibus est.</p>
+                        </div>
+                        <div class="productDelivery__images">
+                          <div class="productDelivery__image"><img src="./img/np.svg" alt=""></div>
+                          <div class="productDelivery__image"><img src="./img/intime.svg" alt=""></div>
+                          <div class="productDelivery__image"><img src="./img/meest.svg" alt=""></div>
+                          <div class="productDelivery__image"><img src="./img/ukrpost.svg" alt=""></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-pagination swiper-pagination-static"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="productGuarantee tabs__content" data-tab="product_tab3">               
+                <div class="heading">Гарантия и сервис</div>
+                <div class="productGuarantee__content">
+                  <div class="productGuarantee__text">
+                    <p>Срок действия гарантии на силовой агрегат/двигатель составляет 12 месяцев или 5000 километров пробега.</p>
+                    <p>Гарантийный ремонт - устранение недостатков двигателя, ремонт или замена деталей, узлов, агрегатов, которые вышли из строя по вине производителя.</p>
+                    <p>Гарантия на двигатель сохраняется при условии соблюдения требований, рекомендаций и правил эксплуатации и хранения двигателя. Неотъемлемой частью для сохранения гарантии есть регулярное посещение планового технического обслуживания на официальных сервисных станциях.</p>
+                  </div>
+                  <div class="productGuarantee__img guarantee"><img src="./img/director2.png" alt=""><img class="guarantee__border" src="./img/guarantee.svg" alt=""></div>
+                </div>
+                <blockquote class="productGuarantee__warn">
+                  <div class="title">Гарантия не распространяется на:</div>
+                  <p>Недостатки, которые возникли в результате ДТП или пожара, неправильной эксплуатации или небрежного отношения с двигателем;<br>На детали, узлы и агрегаты, которые установлены на неофициальных сервисных станциях, и запрещены для установки производителем двигателя;<br>Неисправности, которые возникли в результате:<br>1. несвоевременного прохождения ТО;<br>2. воздействия экстремально высоких или низких температур;<br>3. действия предметов, которые попали в агрегат или деталь и вывели ее из строя.<br>Детали (фильтра, масло, жидкости), которые имеют природный износ (диски сцепления, лампы и т.п.).</p>
+                </blockquote>
+              </div>
+              <div class="productReviews tabs__content" data-tab="product_tab4" data-name="reviews">
+                <div class="heading">Отзывы</div>
+                <div class="productMainInfo__rate ic-star_f">3.5 (2 отзыва)</div>
+                <div class="productReviews__subtitle">
+                  <p><span>Уважаемые клиенты! </span>Мы будем благодарны за любой ваш отзыв! Позитивные вдохновляют нас работать еще лучше, негативные - показывают те процессы, которые необходимо улучшить, и недочеты, которые необходимо устранить.</p>
+                  <p>Напомним лишь, что практически любую проблему может очень оперативно решить наша<span> служба поддержки!</span></p>
+                </div>
+                <button class="btn btn--prim productReviews__add">ОСТАВИТЬ ОТЗЫВ</button>
+                <div class="productReviews__list">                 
+                  <div class="productReviews__sort sorting">
+                    <div class="sorting__title">Сортировать:</div>
+                    <div class="sorting__items"><a class="sorting__item sorting__item--active btn btn--dashed" href="#"> <span>По рейтингу</span></a><a class="sorting__item btn btn--dashed" href="#"><span>По дате</span></a></div>
+                  </div>
+                  <div class="productReviews__items">
+                    <div class="productReviews__item">
+                      <div class="productReviews__header"><img class="productReviews__photo" src="./img/product/customer1.jpg" alt="">
+                        <div class="productReviews__name">Сергей К.</div>
+                        <div class="productReviews__rate ic-star_f">4.0</div>
+                        <div class="productReviews__date ic-calendar_white">01.03.2021</div>
+                      </div>
+                      <div class="productReviews__review">Шлем хороший, правда у меня не было шлема чтоб сравнить , но снаружи хорошо сделан , внутри так же качественно, перчатки в комплекте тоже как странно оказались неплохие, очки правда лучше побыстрее сменить на более качественные.</div>
+                    </div>
+                    <div class="productReviews__item">
+                      <div class="productReviews__header"><img class="productReviews__photo" src="./img/product/customer2.jpg" alt="">
+                        <div class="productReviews__name">Мария Б.</div>
+                        <div class="productReviews__rate ic-star_f">5.0</div>
+                        <div class="productReviews__date ic-calendar_white">16.09.2020</div>
+                      </div>
+                      <div class="productReviews__review">Отличный шлем! Нареканий нет.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="productsIntDefault" data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="top-center">
+        <div class="container">
+          <div class="heading">Эти товары могут вас заинтересовать</div>
+          <div class="productsListDefault swiper-container swiper-visible">
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                  <div class="preview"><a class="preview__thumb" href="./product.html"><img width="208" height="194" src="./img/products/4.png" alt=""></a>
+                    <div class="preview__caption"><a class="preview__name title" href="./product.html"> DRAKEN MP4 C4 Matt Fluor Orange</a>
+                      <div class="preview__model">AXXIS</div>
+                      <div class="preview__price"><span class="preview__special">3250 ₴</span><span>2500.50 ₴</span>
+                      </div>
+                    </div>
+                    <div class="preview__tools"><a class="btn btn--default" href="./product.html">купить</a></div>
+                    <div class="preview__actions">
+                      <button class="btn ic-compare_black preview__compare"></button>
+                      <button class="btn ic-heart_black preview__wishlist"></button>
+                    </div>
+                  </div>
+              </div>
+              <div class="swiper-slide">
+                  <div class="preview"><a class="preview__thumb" href="./product.html"><img width="208" height="194" src="./img/products/5.png" alt=""></a>
+                    <div class="preview__caption"><a class="preview__name title" href="./product.html">FF353 Rapid Cromo Matt Fluo</a>
+                      <div class="preview__model">LS2</div>
+                      <div class="preview__price"><span>2548 ₴</span>
+                      </div>
+                    </div>
+                    <div class="preview__tools"><a class="btn btn--default" href="./product.html">купить</a></div>
+                    <div class="preview__actions">
+                      <button class="btn ic-compare_black preview__compare"></button>
+                      <button class="btn ic-heart_black preview__wishlist"></button>
+                    </div>
+                  </div>
+              </div>
+              <div class="swiper-slide">
+                  <div class="preview"><a class="preview__thumb" href="./product.html"><img width="208" height="194" src="./img/products/6.png" alt=""></a>
+                    <div class="preview__caption"><a class="preview__name title" href="./product.html">FF353 Rapid Naughty Matt Black</a>
+                      <div class="preview__model">LS2</div>
+                      <div class="preview__price"><span>2538.90 ₴</span>
+                      </div>
+                    </div>
+                    <div class="preview__tools"><a class="btn btn--default" href="./product.html">купить</a></div>
+                    <div class="preview__actions">
+                      <button class="btn ic-compare_black preview__compare"></button>
+                      <button class="btn ic-heart_black preview__wishlist"></button>
+                    </div>
+                  </div>
+              </div>
+              <div class="swiper-slide">
+                  <div class="preview"><a class="preview__thumb" href="./product.html"><img width="208" height="194" src="./img/products/7.png" alt=""></a>
+                    <div class="preview__caption"><a class="preview__name title" href="./product.html">Joker Gloss White</a>
+                      <div class="preview__model">MT TARGO</div>
+                      <div class="preview__price"><span class="preview__special">3250 ₴</span><span>2790 ₴</span>
+                      </div>
+                    </div>
+                    <div class="preview__tools"><a class="btn btn--default" href="./product.html">купить</a></div>
+                    <div class="preview__actions">
+                      <button class="btn ic-compare_black preview__compare"></button>
+                      <button class="btn ic-heart_black preview__wishlist"></button>
+                    </div>
+                  </div>
+              </div>
+              <div class="swiper-slide">
+                  <div class="preview"><a class="preview__thumb" href="./product.html"><img width="208" height="194" src="./img/products/4.png" alt=""></a>
+                    <div class="preview__caption"><a class="preview__name title" href="./product.html"> DRAKEN MP4 C4 Matt Fluor Orange</a>
+                      <div class="preview__model">AXXIS</div>
+                      <div class="preview__price"><span>2500.50 ₴</span>
+                      </div>
+                    </div>
+                    <div class="preview__tools"><a class="btn btn--default" href="./product.html">купить</a></div>
+                    <div class="preview__actions">
+                      <button class="btn ic-compare_black preview__compare"></button>
+                      <button class="btn ic-heart_black preview__wishlist"></button>
+                    </div>
+                  </div>
+              </div>
+              <div class="swiper-slide">
+                  <div class="preview"><a class="preview__thumb" href="./product.html"><img width="208" height="194" src="./img/products/5.png" alt=""></a>
+                    <div class="preview__caption"><a class="preview__name title" href="./product.html">FF353 Rapid Cromo Matt Fluo</a>
+                      <div class="preview__model">LS2</div>
+                      <div class="preview__price"><span>2548 ₴</span>
+                      </div>
+                    </div>
+                    <div class="preview__tools"><a class="btn btn--default" href="./product.html">купить</a></div>
+                    <div class="preview__actions">
+                      <button class="btn ic-compare_black preview__compare"></button>
+                      <button class="btn ic-heart_black preview__wishlist"></button>
+                    </div>
+                  </div>
+              </div>
+              <div class="swiper-slide">
+                  <div class="preview"><a class="preview__thumb" href="./product.html"><img width="208" height="194" src="./img/products/6.png" alt=""></a>
+                    <div class="preview__caption"><a class="preview__name title" href="./product.html">FF353 Rapid Naughty Matt Black</a>
+                      <div class="preview__model">LS2</div>
+                      <div class="preview__price"><span>2538.90 ₴</span>
+                      </div>
+                    </div>
+                    <div class="preview__tools"><a class="btn btn--default" href="./product.html">купить</a></div>
+                    <div class="preview__actions">
+                      <button class="btn ic-compare_black preview__compare"></button>
+                      <button class="btn ic-heart_black preview__wishlist"></button>
+                    </div>
+                  </div>
+              </div>
+              <div class="swiper-slide">
+                  <div class="preview"><a class="preview__thumb" href="./product.html"><img width="208" height="194" src="./img/products/7.png" alt=""></a>
+                    <div class="preview__caption"><a class="preview__name title" href="./product.html">Joker Gloss White</a>
+                      <div class="preview__model">MT TARGO</div>
+                      <div class="preview__price"><span>2790 ₴</span>
+                      </div>
+                    </div>
+                    <div class="preview__tools"><a class="btn btn--default" href="./product.html">купить</a></div>
+                    <div class="preview__actions">
+                      <button class="btn ic-compare_black preview__compare"></button>
+                      <button class="btn ic-heart_black preview__wishlist"></button>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination swiper-pagination-static"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__inner">
+          <div class="footer__col footer__catalog">
+            <div class="footer__title">Каталог</div>
+            <button class="btn ic-arrow_down visible-xs footer__opener"></button>
+            <ul class="footer__list">
+              <li class="footer__target"><a href="#">SALE</a></li>
+              <li><a href="#">Б/У техника</a></li>
+              <li><a href="#">Мотоциклы</a></li>
+              <li><a href="#">Квадроциклы</a></li>
+              <li><a href="#">Скутеры</a></li>
+              <li><a href="#">Электротраспорт</a></li>
+              <li><a href="#">Снегоходы</a></li>
+              <li><a href="#">Водная техника</a></li>
+              <li><a href="#">Прицепы</a></li>
+              <li><a href="#">Экипировка</a></li>
+              <li><a href="#">Запчасти</a></li>
+              <li><a href="#">Аксессуары</a></li>
+            </ul>
+          </div>
+          <div class="footer__col footer__info">
+            <div class="footer__title">Информация</div>
+            <button class="btn ic-arrow_down visible-xs footer__opener"></button>
+            <ul class="footer__list">
+              <li><a href="#">О компании</a></li>
+              <li><a href="#">Новости</a></li>
+              <li><a href="#">Вакансии</a></li>
+              <li><a href="#">Мотосервис</a></li>
+              <li><a href="#">Условия пользования</a></li>
+              <li><a href="#">Политика конфиденциальности</a></li>
+            </ul>
+            <div class="socials socials--footer"> 
+              <div class="socials__title footer__title">Присоединияйтесь</div>
+              <ul class="socials__list">
+                <li><a class="ic-facebook_orange" href="#" target="_blank"></a></li>
+                <li><a class="ic-instagram_orange" href="#" target="_blank"></a></li>
+                <li><a class="ic-youtube_orange" href="#" target="_blank"> </a></li>
+                <li><a class="ic-twitter_orange" href="#" target="_blank"> </a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer__col footer__buyer">
+            <div class="footer__title">Покупателю</div>
+            <button class="btn ic-arrow_down visible-xs footer__opener"></button>
+            <ul class="footer__list">
+              <li><a href="#">Связаться с нами</a></li>
+              <li><a href="#">Возврат товара</a></li>
+              <li><a href="#">Личный кабинет</a></li>
+              <li><a href="#">Доставка и оплата</a></li>
+              <li><a href="#">Бренды</a></li>
+              <li><a href="#">Акции</a></li>
+            </ul>
+          </div>
+          <div class="footer__col footer__contacts">
+            <div class="footer__title">Контакты</div>
+            <button class="btn ic-arrow_down visible-xs footer__opener"></button>
+            <ul class="footer__list">
+              <li><a href="#">Магазины</a></li>
+              <li><a href="#">Мотосервисы</a></li>
+            </ul>
+            <div class="footer__numberWrap">
+              <div class="footer__numberTitle">Контактный номер телефона:</div><a class="footer__number" href="tel:+380800316173">+38 (0 800) 316-173</a>
+              <div class="footer__numberSubtitle">(Стоимость звонков согласно тарифам вашего оператора)</div>
+            </div>
+            <div class="footer__email"><span>Email: </span><a href="mailto:help@artmoto.ua">help@artmoto.ua</a></div>
+            <div class="socials socials--footerMobile visible-xs">
+              <div class="socials__title footer__title">Присоединияйтесь</div>
+              <ul class="socials__list">
+                <li><a class="ic-facebook_orange" href="#" target="_blank"></a></li>
+                <li><a class="ic-instagram_orange" href="#" target="_blank"></a></li>
+                <li><a class="ic-youtube_orange" href="#" target="_blank"> </a></li>
+                <li><a class="ic-twitter_orange" href="#" target="_blank"></a></li>
+              </ul>
+            </div>
+            <div class="footer__powered">
+              <div class="footer__poweredTitle">Разработка и поддержка:</div><a class="footer__poweredLogo" href="https://apri-code.com/uslugi/sozdanie-internet-magazina/" target="_blank"><img src="./img/apricode.svg" alt="Apricode" width="133" height="31"></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer__bottom"><a class="footer__logo" href="./"><img src="./img/logo.svg" alt="Logo" width="180" height="58"></a>
+          <div class="footer__copy">© Всі права захищені ООО «АРТ-МОТО», 2010–2021</div>
+          <div class="footer__payments"><img src="./img/mastercard.svg" alt="Mastercard" width="65" height="39"><img src="./img/visa.svg" alt="Visa" width="80" height="25"></div>
+        </div>
+      </div>
+    </footer>
+    <script src="./libs/swiper/swiper-bundle.min.js"></script>
+    <script src="./libs/aos/aos.js"></script>
+    <script src="./libs/nouislider/nouislider.min.js"></script>
+    <script src="./libs/view_360/js-cloudimage-360-view.min.js"></script>
+    <script src="./libs/lazysizes/lazysizes.min.js"></script>
+    <script src="./libs/jquery/jquery.min.js"></script>
+    <script src="./libs/lightbox/jquery.fancybox.min.js"></script><script src="js/main.js"></script>    <link rel="stylesheet" data-style="swiper" href="./css/libs/swiper-bundle.min.css">
+    <link rel="stylesheet" data-style="aos" href="./css/libs/aos.css">
+    <link rel="stylesheet" data-style="nouislider" href="./css/libs/nouislider.css">
+    <link rel="stylesheet" data-style="fancybox" href="./css/libs/jquery.fancybox.min.css"><link rel="stylesheet" href="css/style.min.css">  </body>
+</html>

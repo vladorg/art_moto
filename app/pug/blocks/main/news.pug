@@ -1,0 +1,79 @@
+-
+  let item_href = './new.html';
+  let more_href = './news.html';
+  let news_list = [
+    {
+      title: 'Скидка 5%',
+      subtitle: 'на техническое обслуживание квадроциклов ',
+      date: '05-14.03',
+      href: item_href,
+      img_bg: './img/news/2.png',
+      big_title: true,
+      big_subtitle: false,
+      bg_color: false
+    },
+    {
+      title: 'Кредит под 0%',
+      subtitle: 'на весь электро-транспорт',
+      date: '05-14.03',
+      href: item_href,
+      img_bg: './img/news/3.png',
+      big_title: true,
+      big_subtitle: false,
+      bg_color: false
+    },
+    {
+      title: 'Шлемы AXXIS 2021',
+      subtitle: '-70%',
+      date: '05-14.03',
+      href: item_href,
+      img: './img/news/4.png',
+      big_title: true,
+      big_subtitle: true,
+      bg_color: 'background: #3A336A'
+    },
+    {
+      title: 'МАСЛО МОТОРНОЕ MOTUL SCOOTER EXPERT',
+      subtitle: '1=2',
+      date: '05-14.03',
+      href: item_href,
+      img: './img/news/5.png',
+      big_title: false,
+      big_subtitle: true,
+      bg_color: 'background: #143D8C'
+    },
+  ]
+
+section.news
+  .container
+    .heading НОВИНКИ И АКЦИИ
+    .news__inner
+      .news__item.news__item--big(data-aos="flip-left" data-aos-duration="1000" data-aos-anchor-placement="top-center")
+        img(src='./img/news/1.png', alt="").news__img
+        .heading.news__title
+          span Распродажа одежды от Indian Motorcycle
+        .news__date.ic-calendar_black 05-14.03
+        a.btn.btn--prim(href=item_href) подробнее
+      each val in news_list
+
+          .news__item(data-aos="flip-left" data-aos-duration="1000" data-aos-anchor-placement="top-center" class=val.img_bg ? 'news__item--bgImg' : null style= val.bg_color ? val.bg_color : null)
+            if val.img_bg
+              img(src=val.img_bg, alt="").news__img.news__img--bg
+            else
+              img(src=val.img, alt="").news__img
+
+            if val.big_title
+              .heading.news__title
+                span= val.title
+            else
+              .heading.news__title= val.title
+
+            if val.big_subtitle
+              .news__subtitle
+                span= val.subtitle
+            else
+              .news__subtitle= val.subtitle
+
+            .news__date.ic-calendar_white= val.date
+            a.btn.btn--prim(href=val.href) подробнее
+    a.btn.btn--default.news__more.visible-xs(href=more_href) СМОТРЕТЬ ВСЕ

@@ -1,0 +1,26 @@
+-
+  let brands = [
+    './img/brands/1.png',
+    './img/brands/2.png',
+    './img/brands/3.png',
+    './img/brands/4.png',
+    './img/brands/5.png',
+    './img/brands/6.png',
+    './img/brands/7.png',
+    './img/brands/8.png',
+    './img/brands/9.png',
+    './img/brands/10.png',
+    './img/brands/11.png',
+    './img/brands/12.png'
+  ]
+
+section.brands
+  .container
+    .heading Artmoto - официальный дилер и Импортер
+  .brands__wrap
+    .container.swiper-container.swiper-visible
+      .brands__list.swiper-wrapper
+        each brand in brands
+          .brands__item.swiper-slide(data-aos="zoom-in" data-aos-duration="500" data-aos-anchor-placement="top-bottom")
+            img(src=brand)
+      .swiper-pagination

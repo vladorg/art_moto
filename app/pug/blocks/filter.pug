@@ -1,0 +1,54 @@
+-
+  let counter = 1;
+  let cols = 1;
+  let filters = [
+    'Детские шлемы',
+    'Мото перчатки / Вело перчатки',
+    'Шлем открытый',
+    'Шлем кроссовый',
+    'Шлем трансформер',
+    'Моточерепахи / Наколенники ',
+    'Мото очки / Вело очки / Очки спортивные / Очки кроссовые',
+    'Ручки руля универсальные (мото / вело)',
+    'Рюкзаки / Сумки'
+  ];
+
+.filter
+
+  a(href="#").filter__reset.btn.btn--dashed
+    span Сбросить все фильтры
+
+  .filter__item.filter__price.accordion.accordion--opened
+    .filter__title.accordion__btn.ic-arrow_right Цена(₴)
+    .filter__content.accordion__content
+      #ui_slider(data-min="0" data-max="1000" data-step="10")
+      .filter__priceSub
+        .filter__priceSubMin
+        .filter__priceSubMax   
+      .filter__priceVals   
+        input.input.filter__min(type="text")
+        i.filter__priceLine
+        input.input.filter__max(type="text")
+        button.btn.btn--prim ok
+
+  .filter__item.accordion.accordion--opened
+    .filter__title.accordion__btn.ic-arrow_right Фильтр
+    .filter__content.accordion__content
+      ul
+        each filter in filters 
+          li
+            input.checkbox(type="checkbox" name="filter" id="filter"+counter)
+            label(for="filter"+counter)= filter
+            - counter++
+
+  while cols <= 5
+    .filter__item.accordion.accordion
+      .filter__title.accordion__btn.ic-arrow_right Фильтр #{cols}
+      .filter__content.accordion__content
+        ul
+          each filter in filters 
+            li
+              input.checkbox(type="checkbox" name="filter" id="filter"+counter)
+              label(for="filter"+counter)= filter
+              - counter++
+    - cols++

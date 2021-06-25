@@ -1,0 +1,45 @@
+-
+  let title = "Список страниц";
+  let breadcrumbs = [
+    {
+      href: './',
+      label: 'Главная'
+    },
+    {
+      href: null,
+      label: 'Список страниц',
+      last: true
+    }
+  ];
+
+doctype html
+html(lang="en")
+  include ../blocks/head.pug
+  body.root.page-product
+
+    header.header
+      include ../blocks/header/root.pug
+    
+
+    main.product
+      .container
+
+        section.breadcrumbs
+          +breadcrumbs(breadcrumbs)
+
+        h1.heading Список страниц
+
+        section.content
+          ul.ul 
+            li 
+              a(href="./" target="_blank") Главная
+            li 
+              a(href="./catalog.html" target="_blank") Каталог
+            li 
+              a(href="./product.html" target="_blank") Карточка товара
+            li 
+              a(href="./product-big.html" target="_blank") Карточка товара (расширенная)
+
+
+
+    include ../blocks/footer/footer.pug

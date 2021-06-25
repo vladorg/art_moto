@@ -1,0 +1,17 @@
+.accordion
+
+  &__btn
+    cursor: pointer
+  
+  &__content
+    display: block
+    height: 0
+    overflow: hidden
+    opacity: 0
+    transition: opacity .4s linear 0s, height .4s
+
+  &--opened
+
+    .accordion__content
+      opacity: 1
+      transition: opacity .4s linear .3s, height .4s

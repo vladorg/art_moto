@@ -3,15 +3,23 @@
   background: $c_header
   +xs
     border-bottom: 1px solid #424242
+    background: $c_toolbar
+    position: sticky
+    top: 0
 
   &--absolute
     position: absolute
     top: 0
     left: 0
     right: 0
+    z-index: 100
+    +xs
+      position: sticky
   
   &--opacity
     background: rgba(0,0,0,.2)
+    +xs
+      background: $c_toolbar
 
   &__toolbar
     letter-spacing: 0.02em
@@ -25,18 +33,44 @@
     a
       color: #fff
 
-    .phones      
-      .dropdown__title
+    .phones
+      > .dropdown__title
         +flex(0,0,flex-start,center)
         +before
           margin-right: 5px
+          min-width: 15px
+      .dropdown__inner
+        text-align: right
+        a
+          white-space: nowrap
+          +tran(all,.2s)
+          +ellipsis(0)
+          +hover
+            color: $c_primary
+            text-decoration: none
+        .dropdown__title
+          +not_last
+            margin-bottom: 4px
     
     .emails
       margin-left: 32px
-      .dropdown__title
+      > .dropdown__title
         +flex(0,0,flex-start,center)
         +before
           margin-right: 5px
+          min-width: 15px
+      .dropdown__inner
+        text-align: right
+        a
+          white-space: nowrap
+          +tran(all,.2s)
+          +ellipsis(0)
+          +hover
+            color: $c_primary
+            text-decoration: none
+        .dropdown__title
+          +not_last
+            margin-bottom: 4px
 
     .languages
       margin: 0 38px 0 auto
@@ -45,15 +79,38 @@
         img
           border-radius: 50%
           margin-right: 5px
+      .dropdown__inner
+        padding: 14px 8px
+        a
+          display: block
+          white-space: nowrap
+          +tran(all,.2s)
+          +ellipsis(0)
+          +hover
+            color: $c_primary
+            text-decoration: none
+          +not_last
+            margin-bottom: 4px
     
     .exchange
       +flex(0,0,flex-start,center)
       .tooltip
         margin-left: 5px
+        &__wrap
+          +b(1500)
+            top: 100%
+            right: 0
+            padding-left: 0
+            padding-top: 14px
+          +before
+            +b(1500)
+              top: 10px
+              left: unset
+              right: 10px
 
 
   &__inner
-    padding: 17px 0
+    padding: 16px 0
     +xs
       padding: 15px 0
     .container
@@ -83,9 +140,58 @@
     margin: 0
   +xs
     margin-right: 26px
+  
+  &__btn
+    min-width: 20px
+    min-height: 20px
+    +tran(all,.4s)
+    +hover
+      +before
+        background: url('../img/sprite.svg') -498px -5px
 
   &Content
-    display: none
+    position: absolute
+    top: 0
+    left: -100%
+    width: 633px
+    height: 907px
+    background: #414141
+    padding: 40px 40px 40px 240px
+    opacity: 0
+    z-index: 100
+    transition: left .4s, opacity .1s
+    +xs
+      display: none
+    
+    &__header
+      opacity: 0
+      +tran(all,.4s)
+      +flex(0,0,0,center)
+    &__close
+      +hover
+        +before
+          background: url('../img/sprite.svg') -1125px -5px
+    &__logo
+      margin-left: 42px
+    &__list
+      margin-top: 128px
+      opacity: 0
+      max-height: calc(100% - 58px - 128px)
+      overflow: auto
+      +tran(all,.4s)
+      li
+        +not_last
+          margin-bottom: 32px
+        a
+          +text(24,700,36,#fff)
+
+    &--opened
+      left: 0
+      opacity: 1
+      .menuContent__header,
+      .menuContent__list
+        opacity: 1
+        transition-delay: .4s
 
 
 .search
@@ -103,7 +209,8 @@
     width: 100%    
     background: #282828
     border: 1px solid #525252
-    padding: 17px 0
+    padding: 17px 0 17px 60px
+    +text(14,0,0,#fff)
   &__btn
     position: absolute
     top: 18px
@@ -150,17 +257,60 @@
   border: 1px solid $c_primary
   padding: 10px 12px
   +xs
-    display: none
+    display: none!important
   &__title
     color: #8D8D8D
     span
       +text(0,600,0,#fff)
-
+  .dropdown__inner
+    .currency__title
+      display: block
+      text-align: center
+      max-width: 100%
+      white-space: nowrap
+      +tran(all,.2s)
+      +ellipsis(0)
+      +text(0,600,0,0)
+      +not_last
+        margin-bottom: 8px
+      +hover
+        color: $c_primary
+        text-decoration: none
+        span
+          color: $c_primary
+          text-decoration: none
+      span
+        color: #fff
+        display: inline-block
+        margin-right: 4px
+        +tran(all,.2s)
 
 .catalog
+  //margin: 0 -8px
   +flex(0,0,space-between,center)
   &__item
-    a
+    padding: 0 8px
+    +tran(all, .2s)
+    +sm
+      padding: 0 4px
+    +hover
+      background: $c_childMenu
+      > a
+        color: $c_primary
+        text-decoration: none
+      .catalogChild
+        opacity: 1
+        pointer-events: auto
+        transition-delay: .2s
+        transform: none
+        +before
+          opacity: 1
+          transition-delay: .4s
+      .catalogChild__list, .catalogChild__products
+        opacity: 1
+        pointer-events: auto
+        transition-delay: .4s
+    > a
       display: block
       padding: 8px 0
       +text(16,600,24,#fff)
@@ -168,6 +318,105 @@
         font-size: 12px
     &--target
       a
+        color: $c_primary
+  
+  &Child
+    display: none
+    position: absolute
+    top: calc(166px - 1px)
+    left: 0
+    right: 0
+    max-height: 100vh
+    height: 704px
+    padding-top: 40px
+    z-index: 100
+    background: $c_childMenu
+    box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.2)
+    opacity: 0
+    pointer-events: none
+    transform: translateY(10px) scale(0.98)
+    +tran(all, .2s)
+    +before
+      position: absolute
+      left: calc((100% - 1224px) / 2 + 315px)
+      top: 40px
+      bottom: 40px
+      width: 1px
+      background: #D9DADC
+      opacity: 0
+      +tran(all,.2s)
+
+    .container
+      max-height: 100%
+    
+    &__list
+      opacity: 0
+      max-width: 315px
+      max-height: calc(671px - 40px)
+      padding: 32px 8px 0 0
+      overflow: auto
+      +tran(all,.2s)
+
+    &__item
+      max-width: 315px
+      +flex(row-reverse,0,flex-end,center)
+      +text(18,500,36,#222)
+      +before
+        margin-left: 11px
+      +hover
+        .catalogChild__products
+          opacity: 1
+          pointer-events: auto
+      a
+        display: block
+        max-width: calc(100% - 20px)
+        white-space: nowrap
+        +ellipsis(0)
+        
+    
+    &__products
+      position: absolute
+      top: 40px
+      bottom: 40px
+      right: calc((100% - #{$container}) / 2 - 65px)
+      left: calc((100% - #{$container}) / 2 + 315px)
+      padding: 32px 64px 32px 32px
+      border-right: 1px solid #AEAFB3
+      opacity: 0
+      pointer-events: none
+      overflow: auto
+      +tran(all, .2s)
+    
+    &__category
+      +not_last
+        margin-bottom: 24px
+    
+    &__title
+      margin-bottom: 16px
+      +text(18,500,36,#222)
+    
+    &__items
+      display: grid
+      grid-template-columns: repeat(4,202px)
+      grid-gap: 24px
+
+    &__product
+      +flex(column,0,0,0)
+      +text(14,0,22,#414141)
+      +hover
+        text-decoration: none
+        p
+          text-decoration: underline
+      img
+        width: 100%
+        height: 128px
+        object-fit: contain
+      p
+        margin-top: 8px
+        +ellipsis(44px, 2, true)
+      span
+        display: inline-block
+        margin-top: auto
         color: $c_primary
   
 

@@ -1,2 +1,327 @@
 .preview
-  display: block
+  width: 288px
+  border: 1px solid $transparent
+  position: relative
+  +xs
+    box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.2)
+    border: 1px solid #D9DADC
+    background: #fff
+    width: 263px
+  +before
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    height: calc(100% + 102px - 2px)
+    z-index: 10
+    box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.2)
+    border: 1px solid #D9DADC
+    opacity: 0
+    pointer-events: none
+    +tran(all,.4s)
+    +xs
+      display: none
+
+    
+  &__stickers
+    position: absolute
+    top: 10px
+    left: 10px
+  
+  &__sticker
+    display: inline-block
+    background: #27AE60
+    padding: 5px 10px
+    text-transform: uppercase
+    margin: 0 4px 4px 0
+    +text(10,700,12,#fff)
+
+    &--new
+      background: $c_sticker_new
+    &--discount
+      background: $c_sticker_discount
+    &--bestseller
+      background: $c_sticker_bestseller
+    &--freeshiping
+      background: $c_sticker_freeshiping
+    &--bu
+      background: $c_sticker_bu
+
+
+  &__thumb
+    display: block
+    padding: 47px 40px
+    background: #F4F4F4
+    margin-bottom: 16px
+    +xs
+      padding: 32px 64px
+
+  
+  &__actions
+    position: absolute
+    top: 10px
+    right: 16px
+    opacity: 0
+    +tran(all,.4s)
+    +xs
+      opacity: 1
+      pointer-events: auto
+      position: static
+      margin: 24px 0
+      +flex(0,0,center,center)
+    button
+      width: 36px
+      height: 36px
+      border-radius: 50%
+      background: #fff
+      +flex(0,0,center,center)
+      +xs
+        width: 60px
+        height: 60px
+        background: #F4F4F4
+        border-radius: 50%
+      +not_last
+        margin-bottom: 8px
+        +xs
+          margin: 0 32px 0 0
+
+      &.preview__compare
+        +hover
+          +before
+            background: url("../img/sprite.svg") -994px -5px
+        &--added
+          +before
+            background: url("../img/sprite.svg") -994px -24px
+          +hover
+            +before
+              background: url("../img/sprite.svg") -994px -24px
+      &.preview__wishlist
+        +hover
+          +before
+            background: url("../img/sprite.svg") -618px -5px
+        &--added
+          +before
+            background: url("../img/sprite.svg") -618px -24px
+          +hover
+            +before
+              background: url("../img/sprite.svg") -618px -24px
+
+  &__caption
+    padding: 0 16px
+    text-align: center
+
+  &__buy
+    display: block
+    background: #F4F4F4
+    border-radius: 50%
+    width: 36px
+    height: 36px
+    position: absolute
+    top: 18px
+    right: 18px
+    opacity: 0
+    +tran(all,.4s)
+    +flex(0,0,center,center)
+
+    +hover
+      +before
+        background: url("../img/sprite.svg") -136px -5px
+
+    &--added
+      +before
+        background: url("../img/sprite.svg") -112px -28px!important
+      +hover
+        +before
+          background: url("../img/sprite.svg") -112px -28px!important
+    
+  &__images
+    display: block
+    position: relative
+    margin-bottom: 19px
+    +xxs
+      margin: 8px 0
+    img
+      position: absolute
+      top: 0
+      left: 0
+      opacity: 0
+      width: 312px
+      height: 202px
+      object-fit: contain
+      &.active
+        position: static
+        opacity: 1
+      &.visible
+        opacity: 1
+      &.hidden
+        opacity: 0
+  &__name.title
+    height: 72px
+    +ellipsis(72px,2,true)
+    +xs
+      +text(18,0,26,0)
+    +hover
+      text-decoration: none
+  &__model
+    max-width: 100%
+    white-space: nowrap
+    +ellipsis(0)
+    +text(18,400,36,$c_text)
+    +xxs
+      margin-top: 4px
+      +text(16,0,0,0)
+  &__price
+    position: relative
+    padding-top: 8px
+    margin-top: 8px
+    max-width: 100%
+    white-space: nowrap
+    +ellipsis(0)
+    +text(18,500,28,$c_primary)
+    +xxs
+      font-size: 16px
+      margin-top: 4px
+      padding-top: 4px
+    +before
+      width: 42px
+      height: 1px
+      background: #AEAFB3
+      position: absolute
+      top: 0
+      left: 50%
+      transform: translateX(-50%)
+      text-align: center
+
+  &__special
+    display: inline-block
+    margin-right: 4px
+    text-decoration: line-through
+    +text(16,400,24,#676767)
+
+  &__tools
+    padding: 16px 0 24px 0
+    width: 100%
+    opacity: 0
+    pointer-events: none
+    position: absolute
+    z-index: 5
+    background: #fff
+    +flex(0,0,center,center)
+    +tran(all,.4s)
+    +xs
+      display: none
+  &__colors
+    opacity: 0
+    +flex(0,0,center,center)
+    +tran(all,.4s)
+    +xs
+      opacity: 1
+      pointer-events: auto
+
+  +hover
+    +before
+      opacity: 1
+
+    .preview__tools,
+    .preview__colors,
+    .preview__actions,
+    .preview__buy
+      opacity: 1
+      pointer-events: auto
+    .preview__buy
+      transition-delay: .1s
+  
+
+.preview.preview--custom 
+  width: 390px
+  +xxs
+    width: 263px
+  +before
+    height: calc(100% + 64px)
+    +xs
+      height: 100%
+      z-index: -1
+  .preview__caption
+    padding: 18px 38px 0 38px
+    margin-bottom: 24px
+    text-align: center
+    +flex(column,0,0,center)
+    +xs
+      padding: 15px 12px 0 12px
+      margin-bottom: 14px
+  .preview__name
+    white-space: nowrap
+    height: auto
+    max-width: 100%
+    display: block
+    +ellipsis(0)
+  .preview__tools
+    padding: 20px 0
+    border-top: 1px solid #D9DADC
+    +xs
+      opacity: 1
+      pointer-events: auto
+      display: flex
+      position: static
+    +xs
+      border-top: none
+      padding: 0 0 24px 0
+    button
+      +text(14,400,22,$c_text)
+      +xs
+        width: 60px
+        height: 60px
+        background: #F4F4F4
+        border-radius: 50%
+        +flex(0,0,center,center)
+      +not_last
+        margin-right: 53px
+        +xs
+          margin-right: 32px
+      +before
+        +xs
+          margin-right: 0
+      span
+        +xs
+          display: none        
+      &.preview__compare
+        +before
+          margin-right: 8px
+          +xs
+            margin-right: 0
+        +hover
+          +before
+            background: url("../img/sprite.svg") -994px -5px
+        &--added
+          +before
+            background: url("../img/sprite.svg") -994px -24px
+          +hover
+            +before
+              background: url("../img/sprite.svg") -994px -24px
+          span
+            color: #4BA82E
+            border-color: #4BA82E
+      &.preview__wishlist
+        +before
+          margin-right: 8px
+          +xs
+            margin-right: 0
+        +hover
+          +before
+            background: url("../img/sprite.svg") -618px -5px
+        &--added
+          +before
+            background: url("../img/sprite.svg") -618px -24px
+          +hover
+            +before
+              background: url("../img/sprite.svg") -618px -24px
+          span
+            color: #4BA82E
+            border-color: #4BA82E
+
+
+
+.products
+  display: grid
+  grid-template-columns: repeat(3, 1fr)
+  grid-gap: 24px

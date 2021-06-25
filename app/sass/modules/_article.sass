@@ -1,0 +1,81 @@
+.article
+  max-width: 392px
+  border: 1px solid #D9DADC
+  background: #FFF
+  +tran(all,.4s)
+  &__thumb
+    position: relative
+    overflow: hidden
+    img
+      width: 100%
+      height: 392px
+      object-fit: cover
+      +tran(all,.4s)
+      +xs
+        height: 296px
+  &__caption
+    padding: 16px
+  &__categories
+    position: absolute
+    top: 16px
+    left: 16px
+    +flex(0,wrap,0,center)
+    +xs
+      top: 10px
+      left: 15px
+    a
+      display: block
+      padding: 6px 17px
+      background: rgba(255, 255, 255, 0.55)
+      backdrop-filter: blur(2px)
+      margin-bottom: 8px
+      +text(14,400,22,#676767)
+      +xs
+        color: #303030
+      +not_last
+        margin-right: 8px
+      &:nth-child(1n + 4)
+        display: none
+  &__info
+    position: absolute
+    bottom: 16px
+    left: 16px
+    +flex(0,wrap,0,center)
+    +xs
+      bottom: 10px
+      left: 15px
+    div
+      padding: 6px 17px
+      background: rgba(255, 255, 255, 0.55)
+      backdrop-filter: blur(4px)
+      +text(12,0,20,#676767)
+      +flex(0,0,0,center)
+      +not_last
+        margin-right: 8px
+  &__date
+    +before
+      margin-right: 4px
+  &__rate
+    color: #303030
+    flex-direction: row-reverse
+    +before
+      margin-left: 4px
+  &__title
+    margin-bottom: 8px
+    +text(18,700,26,#000)
+    +ellipsis(48px,2,true)
+    +xs
+      margin-bottom: 16px
+      +text(16,0,24,0)
+  &__preview
+    +text(14,400,22,#676767)
+    +ellipsis(66px,3,true)
+    +xs
+      +ellipsis(44px,2,true)
+
+  +hover
+    box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.2)
+
+    .article__thumb
+      img
+        transform: scale(1.1)

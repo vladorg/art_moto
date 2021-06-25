@@ -1,0 +1,105 @@
+mixin menuChildCategory(name)
+  .catalogChild__category
+    .catalogChild__title= name
+    .catalogChild__items
+      a(href="./product.html").catalogChild__product
+        img(src="./img/products/1.png", alt="Product")
+        p DUCATI PANIGALE V2
+        span 250 000 ₴
+      a(href="./product.html").catalogChild__product
+        img(src="./img/products/1.png", alt="Product")
+        p DUCATI PANIGALE V2
+        span 250 000 ₴
+      a(href="./product.html").catalogChild__product
+        img(src="./img/products/1.png", alt="Product")
+        p DUCATI PANIGALE V2
+        span 250 000 ₴
+      a(href="./product.html").catalogChild__product
+        img(src="./img/products/1.png", alt="Product")
+        p DUCATI PANIGALE V2
+        span 250 000 ₴
+
+
+mixin preview_custom(product)
+  .preview.preview--custom
+    .preview__caption
+      button.btn.preview__buy.ic-cart_black
+      .preview__colors
+        - let color_counter = 1;
+        each color in product.colors
+          if color_counter == 1
+            img(src=color.src, alt="" data-color=color.code).color-picker.active
+            - color_counter++
+          else
+            img(src=color.src, alt="" data-color=color.code).color-picker
+      a.preview__images(href="./product-big.html")
+        - let img_counter = 1;
+        each img in product.images
+          if img_counter == 1
+            img(width="312" height="202" src=img.src, alt="" data-color=img.code).active
+            - img_counter++
+          else
+            img(width="312" height="202" src=img.src, alt="" data-color=img.code)
+      a(href="./product-big.html").preview__name.title= product.name
+      .preview__model= product.model
+      .preview__price
+        if product.special
+          span.preview__special= product.special
+          span= product.price
+        else
+          span= product.price
+    .preview__tools
+      button.btn.btn--dashed.ic-compare_black.preview__compare
+        span В сравнение
+      button.btn.btn--dashed.ic-heart_black.preview__wishlist
+        span В избранное
+
+
+
+mixin preview_default(product)
+  .preview
+    if product.stickers
+      .preview__stickers
+        each sticker in product.stickers
+          .preview__sticker(class="preview__sticker--"+sticker.modifier)= sticker.title
+    a.preview__thumb(href="./product.html")
+      img(width="208" height="194" src=product.thumb, alt="")
+    .preview__caption
+      a(href="./product.html").preview__name.title= product.name
+      .preview__model= product.model
+      .preview__price
+        if product.special
+          span.preview__special= product.special
+          span= product.price
+        else
+          span= product.price
+    .preview__tools
+      a.btn.btn--default(href="./product.html") купить
+    .preview__actions
+      button.btn.ic-compare_black.preview__compare
+      button.btn.ic-heart_black.preview__wishlist
+
+
+mixin article(data)
+  .article
+    .article__thumb
+      a(href="./article.html")
+        img(src=data.thumb, alt="")
+      .article__categories 
+        each category in data.categories
+          a(href="./blog.html")= category
+      .article__info
+        .article__date.ic-calendar= data.date
+        .article__rate.ic-star_f= data.rate
+    .article__caption
+      a.article__title(href="./article.html")= data.title
+      .article__preview= data.preview
+
+
+
+mixin breadcrumbs(links)
+  each link in links
+    if !link.last
+      a.breadcrumbs__item(href=link.href)= link.label
+    else 
+      .breadcrumbs__end= link.label

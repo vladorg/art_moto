@@ -1,0 +1,50 @@
+.socialswidget
+  position: absolute
+  top: 50%
+  left: 49px
+  z-index: 90
+  transform: translateY(-50%)
+  +flex(column,0,0,center)
+  +sm
+    display: none
+  a
+    display: block
+    +not_last
+      margin-bottom: 30px
+  .ic-youtube
+    +hover
+      +before
+        background: url("../img/sprite.svg") -893px -5px
+  .ic-facebook
+    +hover
+      +before
+        background: url("../img/sprite.svg") -25px -5px
+  .ic-instagram
+    +hover
+      +before
+        background: url("../img/sprite.svg") -678px -5px
+
+
+.socials
+  &--footer
+    margin-top: 36px
+    +xs
+      display: none
+  &--footerMobile
+    margin-top: 24px
+    .socials__title
+      margin-bottom: 24px
+    .socials__list
+      justify-content: flex-start
+      li
+        +not_last
+          margin-right: 32px
+  &__list
+    +flex(0,0,flex-start,center)
+    +sm
+      justify-content: space-between
+    li
+      +not_last
+        margin-right: 32px
+        +sm
+          margin-right: 0

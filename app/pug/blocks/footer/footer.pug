@@ -4,6 +4,7 @@ footer.footer
 
       .footer__col.footer__catalog
         .footer__title Каталог
+        button.btn.ic-arrow_down.visible-xs.footer__opener
         ul.footer__list
           li.footer__target
             a(href="#") SALE
@@ -32,6 +33,7 @@ footer.footer
 
       .footer__col.footer__info
         .footer__title Информация
+        button.btn.ic-arrow_down.visible-xs.footer__opener
         ul.footer__list
           li
             a(href="#") О компании
@@ -60,6 +62,7 @@ footer.footer
 
       .footer__col.footer__buyer
         .footer__title Покупателю
+        button.btn.ic-arrow_down.visible-xs.footer__opener
         ul.footer__list
           li
             a(href="#") Связаться с нами
@@ -76,6 +79,7 @@ footer.footer
 
       .footer__col.footer__contacts
         .footer__title Контакты
+        button.btn.ic-arrow_down.visible-xs.footer__opener
         ul.footer__list
           li
             a(href="#") Магазины
@@ -90,6 +94,18 @@ footer.footer
         .footer__email
           span Email: 
           a(href="mailto:help@artmoto.ua") help@artmoto.ua
+        
+        .socials.socials--footerMobile.visible-xs
+          .socials__title.footer__title Присоединияйтесь
+          ul.socials__list
+            li
+              a(href="#" target="_blank").ic-facebook_orange
+            li
+              a(href="#" target="_blank").ic-instagram_orange
+            li
+              a(href="#" target="_blank").ic-youtube_orange 
+            li
+              a(href="#" target="_blank").ic-twitter_orange
         
         .footer__powered
           .footer__poweredTitle Разработка и поддержка:
@@ -111,3 +127,4 @@ footer.footer
 
 
 include ../../inc/scripts.pug
+include ../../inc/styles.pug

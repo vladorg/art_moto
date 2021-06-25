@@ -1,0 +1,42 @@
+.tooltip
+  cursor: pointer
+  position: relative
+
+  &__wrap
+    position: absolute
+    top: -5px
+    right: -139px
+    z-index: 5
+    text-align: right    
+    padding-left: 14px
+    width: 139px
+    opacity: 0
+    pointer-events: none
+    transform: translateX(-5px)
+    +text(10,400,18,#fff)
+    +tran(all,.2s)
+    +before
+      position: absolute
+      top: 6px
+      left: 10px
+      width: 12px
+      height: 12px
+      background: $c_dropdown
+      transform: rotate(45deg)
+  
+  &__content
+    padding: 4px 8px
+    background: $c_dropdown
+    border-radius: 2px
+  
+  &.ic-what
+    +hover
+      +before
+        background: url(../img/sprite.svg) -232px -5px
+
+  +hover
+    .tooltip__wrap
+      opacity: 1
+      pointer-events: all
+      transform: none
+      transition-delay: .3s

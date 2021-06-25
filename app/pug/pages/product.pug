@@ -1,6 +1,263 @@
-- var title = "Product";
+-
+  let title = "Product";
+  let breadcrumbs = [
+    {
+      href: './',
+      label: 'Главная'
+    },
+    {
+      href: './catalog.html',
+      label: 'Мотоциклы'
+    },
+    {
+      href: './catalog.html',
+      label: 'yamaha'
+    },
+    {
+      href: null,
+      label: 'vmax',
+      last: true
+    }
+  ];
+  let thumbs = [
+    './img/product/product1.png',
+    './img/product/product2.png',
+    './img/product/product3.png',
+    './img/product/product4.png',
+    './img/product/product5.png',
+    './img/product/product1.png',
+  ]
 
-include ../blocks/head.pug
+doctype html
+html(lang="en")
+  include ../blocks/head.pug
+  body.root.page-product
 
-body
-  include ../blocks/content.pug
+    header.header
+      include ../blocks/header/root.pug
+    
+
+    main.product
+      .container
+
+        section.breadcrumbs
+          +breadcrumbs(breadcrumbs)
+
+        section.productMain
+
+          .productMainImages
+          
+            .swiper-container.swiper-visible-slides.productMainImages__thumb.ic-zoom-in
+              .swiper-wrapper
+                each thumb in thumbs
+                  a(href=thumb data-fancybox="gallery").swiper-slide
+                    img(src=thumb, alt="")
+                .swiper-slide
+                  iframe(width="100%" height="100%" src="https://www.youtube.com/embed/rPM9B99wHsI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="")
+            .swiper-container.swiper-visible-slides.productMainImages__nav
+              .swiper-wrapper
+                each thumb in thumbs
+                  img(src=thumb, alt="").swiper-slide
+                .swiper-slide.productMainImages__video.ic-play
+                  img(src='./img/product/preview.jpg', alt="")
+
+          .productMainInfo 
+            .productMainInfo__stickers
+              .preview__sticker.preview__sticker--new новинка
+              .preview__sticker.preview__sticker--freeshiping бесплатная доставка
+            h1.heading.productMainInfo__name МОТОШЛЕМ LS2 FF353 RAPID SINGLE MONO GLOSS BLACK
+            .productMainInfo__status
+              .productMainInfo__stock.ic-check_in В наличии
+              .productMainInfo__rate.ic-star_f 3.5 
+                button.btn.goto_reviews (2 отзыва)
+            .productMainInfo__price 2360.40 ₴ 
+            .productMainInfo__art арт.: 23545645
+            .productMainInfoOptions
+              .productMainInfoOptions__item.productMainInfoOptions__item--color
+                .productMainInfoOptions__title.label Цвет:
+                .productMainInfoOptions__content
+                  .productMainInfoOptions__field
+                    input(type="radio" name="color" id="color1" value="Черно-красный" checked).input-hidden
+                    label(for="color1") 
+                      img.color-picker.active(src="./img/colors/black_red.svg", alt="")
+                  .productMainInfoOptions__field
+                    input(type="radio" name="color" id="color2" value="Черно-синий").input-hidden
+                    label(for="color2") 
+                      img.color-picker(src="./img/colors/black_blue.svg", alt="")
+                  .productMainInfoOptions__field
+                    input(type="radio" name="color" id="color3" value="Черный").input-hidden
+                    label(for="color3") 
+                      img.color-picker(src="./img/colors/black.svg", alt="")                                
+              .productMainInfoOptions__item 
+                .productMainInfoOptions__title.label Размер:
+                .productMainInfoOptions__content
+                  .productMainInfoOptions__field.productMainInfoOptions__field--disabled
+                    input(type="radio" name="size" id="size1" value="XS" disabled).input-hidden
+                    label(for="size1") XS
+                  .productMainInfoOptions__field.productMainInfoOptions__field--disabled
+                    input(type="radio" name="size" id="size2" value="S" disabled).input-hidden
+                    label(for="size2") S
+                  .productMainInfoOptions__field
+                    input(type="radio" name="size" id="size3" value="M" checked).input-hidden
+                    label(for="size3") M
+                  .productMainInfoOptions__field
+                    input(type="radio" name="size" id="size4" value="L").input-hidden
+                    label(for="size4") L
+                  .productMainInfoOptions__field.productMainInfoOptions__field--disabled
+                    input(type="radio" name="size" id="size5" value="XL" disabled).input-hidden
+                    label(for="size5") XL
+                a(href="#").btn.btn--dashed
+                  span Размерная сетка
+            .productMainInfoQuantity
+              .label Кол-во:
+              .quantity
+                button.btn.quantity__minus
+                input(type="text" name="quantity" value="1").quantity__value
+                button.btn.quantity__plus
+            .productMainInfoActions
+              .productMainInfoActions__buttons
+                button.btn.btn--prim КУПИТЬ
+                button.btn.btn--default КРЕДИТ
+              .productMainInfoActions__tools
+                button.btn.ic-heart_orange.preview__wishlist
+                button.btn.ic-compare_orange.preview__compare
+                button.btn.ic-share_orange.share-button
+
+        section.productContent
+          .heading Мотошлем LS2 FF353 Rapid Deadbolt
+          .seo
+            .seo__content.seo__content--short.content
+              p Удобный, высокотехнологичный мотошлем, который предоставит непревзойденный комфорт во время занятий мотоспортом. Аэродинамическая оболочка, выполненная в трех размерах, изготовлена из композита HPTT – смеси термопластичных материалов, обеспечивающих высокую прочность и очень низкий вес. Внутренний слой выполнен из многослойного, ударопрочного вспененного полистирола EPS.
+              p Удобный, высокотехнологичный мотошлем, который предоставит непревзойденный комфорт во время занятий мотоспортом. Аэродинамическая оболочка, выполненная в трех размерах, изготовлена из композита HPTT – смеси термопластичных материалов, обеспечивающих высокую прочность и очень низкий вес. Внутренний слой выполнен из многослойного, ударопрочного вспененного полистирола EPS.
+            button.btn.seo__more Читать все
+          .productContent__tags
+            a.productContent__tag(href="#") ixs2021
+            a.productContent__tag(href="#") ixs2021
+
+      section.productTabs.tabs
+        .container
+          .productTabs__nav
+            button.btn.tabs__btn.tabs__btn--active.productTabs__btn(data-tab="product_tab1") Характеристики
+            button.btn.tabs__btn.productTabs__btn(data-tab="product_tab2") Доставка и оплата
+            button.btn.tabs__btn.productTabs__btn(data-tab="product_tab3") Гарантия и сервис
+            button.btn.tabs__btn.productTabs__btn.productTabs__btn--reviews(data-tab="product_tab4") Отзывы(2)
+        .productTabs__wrap 
+          .container 
+            .productTabs__content
+
+              .productTabsChars.tabs__content.tabs__content--active(data-tab="product_tab1")
+                .productTabsChars__chars
+                  .subtitle Характеристики:
+                  ul.productTabsChars__charsWrap
+                    li.productTabsChars__row
+                      .productTabsChars__key Вес:
+                      .productTabsChars__val 1250 г (+/- 50 г)
+                    li.productTabsChars__row
+                      .productTabsChars__key Производство:
+                      .productTabsChars__val Испания
+                  .subtitle Особенности:
+                  ul.productTabsChars__features
+                    li.productTabsChars__feature Аэродинамический дизайн
+                    li.productTabsChars__feature Полностью съемная, моющаяся подкладка Magna-Tech
+                    li.productTabsChars__feature Визор с противотуманным покрытием
+                    li.productTabsChars__feature Регулируемый ремешок, оснащенный микрометрической застежкой
+                    li.productTabsChars__feature Встроенный дефлектор
+                    li.productTabsChars__feature Протестирован и одобрен в соответствии с нормами ECE 22.05
+
+              .productDelivery.tabs__content(data-tab="product_tab2")
+                .container
+                  .productDelivery__content.swiper-container
+                    .swiper-wrapper 
+                      .swiper-slide
+                        .productDelivery__text
+                          .title Доставка
+                          p.scroll Мы рады сообщить вам, что в нашем салоне нам удалось наладить четкую систему доставки, поэтому вы можете приобрести мототовар, находясь практически в любом регионе Украины. Имеющиеся у нас партнерские соглашения с целым рядом крупнейших перевозчиков гарантируют быструю и сравнительно недорогую транспортировку грузов. Мы сотрудничаем с ведущими компаниями перевозчиков , среди них «Новая Почта», «ИН-Тайм», «Евроэкспресс» и «Мистэкспресс» .
+                        .productDelivery__images 
+                          .productDelivery__image
+                            img(src="./img/np.svg", alt="")
+                          .productDelivery__image
+                            img(src="./img/intime.svg", alt="")
+                          .productDelivery__image
+                            img(src="./img/meest.svg", alt="")
+                          .productDelivery__image
+                            img(src="./img/ukrpost.svg", alt="")
+                      .swiper-slide
+                        .productDelivery__text
+                          .title Доставка1
+                          p.scroll Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptatum saepe in qui, et adipisci nemo totam laudantium iure earum tempora provident quisquam dignissimos accusamus iusto nulla hic est natus officiis asperiores amet! Officiis nam veniam possimus, nesciunt dolorum iure debitis ducimus doloremque, totam suscipit vitae dolorem, blanditiis necessitatibus est.
+                        .productDelivery__images
+                          .productDelivery__image
+                            img(src="./img/np.svg", alt="")
+                          .productDelivery__image
+                            img(src="./img/intime.svg", alt="")
+                          .productDelivery__image
+                            img(src="./img/meest.svg", alt="")
+                          .productDelivery__image
+                            img(src="./img/ukrpost.svg", alt="")
+                    .swiper-pagination.swiper-pagination-static
+
+              .productGuarantee.tabs__content(data-tab="product_tab3")                
+                .heading Гарантия и сервис
+                .productGuarantee__content
+                  .productGuarantee__text
+                    p Срок действия гарантии на силовой агрегат/двигатель составляет 12 месяцев или 5000 километров пробега.
+                    p Гарантийный ремонт - устранение недостатков двигателя, ремонт или замена деталей, узлов, агрегатов, которые вышли из строя по вине производителя.
+                    p Гарантия на двигатель сохраняется при условии соблюдения требований, рекомендаций и правил эксплуатации и хранения двигателя. Неотъемлемой частью для сохранения гарантии есть регулярное посещение планового технического обслуживания на официальных сервисных станциях.
+                  .productGuarantee__img.guarantee()
+                    img(src="./img/director2.png" alt="")
+                    img.guarantee__border(src="./img/guarantee.svg", alt="")
+                blockquote.productGuarantee__warn
+                  .title Гарантия не распространяется на:
+                  p Недостатки, которые возникли в результате ДТП или пожара, неправильной эксплуатации или небрежного отношения с двигателем;
+                    br
+                    | На детали, узлы и агрегаты, которые установлены на неофициальных сервисных станциях, и запрещены для установки производителем двигателя;
+                    br
+                    | Неисправности, которые возникли в результате:
+                    br
+                    | 1. несвоевременного прохождения ТО;
+                    br
+                    | 2. воздействия экстремально высоких или низких температур;
+                    br
+                    | 3. действия предметов, которые попали в агрегат или деталь и вывели ее из строя.
+                    br
+                    | Детали (фильтра, масло, жидкости), которые имеют природный износ (диски сцепления, лампы и т.п.).
+              
+              .productReviews.tabs__content(data-tab="product_tab4" data-name="reviews")
+                .heading Отзывы
+                .productMainInfo__rate.ic-star_f 3.5 (2 отзыва)
+                .productReviews__subtitle
+                  p
+                    span Уважаемые клиенты! 
+                    | Мы будем благодарны за любой ваш отзыв! Позитивные вдохновляют нас работать еще лучше, негативные - показывают те процессы, которые необходимо улучшить, и недочеты, которые необходимо устранить.
+                  p Напомним лишь, что практически любую проблему может очень оперативно решить наша
+                    span  служба поддержки!
+                button.btn.btn--prim.productReviews__add ОСТАВИТЬ ОТЗЫВ
+                .productReviews__list                  
+                  .productReviews__sort.sorting
+                    .sorting__title Сортировать:
+                    .sorting__items
+                      a(href="#").sorting__item.sorting__item--active.btn.btn--dashed 
+                        span По рейтингу
+                      a(href="#").sorting__item.btn.btn--dashed
+                        span По дате
+                  .productReviews__items
+                    .productReviews__item
+                      .productReviews__header
+                        img.productReviews__photo(src="./img/product/customer1.jpg" alt="")
+                        .productReviews__name Сергей К.
+                        .productReviews__rate.ic-star_f 4.0
+                        .productReviews__date.ic-calendar_white 01.03.2021
+                      .productReviews__review Шлем хороший, правда у меня не было шлема чтоб сравнить , но снаружи хорошо сделан , внутри так же качественно, перчатки в комплекте тоже как странно оказались неплохие, очки правда лучше побыстрее сменить на более качественные.
+                    .productReviews__item
+                      .productReviews__header
+                        img.productReviews__photo(src="./img/product/customer2.jpg" alt="")
+                        .productReviews__name Мария Б.
+                        .productReviews__rate.ic-star_f 5.0
+                        .productReviews__date.ic-calendar_white 16.09.2020
+                      .productReviews__review Отличный шлем! Нареканий нет.
+
+      include ../blocks/product_list_default.pug 
+
+
+
+    include ../blocks/footer/footer.pug

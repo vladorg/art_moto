@@ -1,0 +1,56 @@
+.page-catalog
+  .heading
+    text-transform: unset
+    margin-bottom: 40px
+    + .catalogSorting
+      padding-top: 0
+  
+
+.catalog
+  
+  &Sorting
+    padding: 40px 0 0 0
+    +flex(0,0,flex-end,0)
+
+  &Content
+    padding: 12px 0 40px 0
+    +flex()
+
+    &__news
+      padding-top: 24px
+      .news__item
+        background: #143D8C
+        align-items: flex-start
+        padding: 24px 78px 24px 16px
+        min-height: 253px
+        +not_last
+          margin-bottom: 16px
+        +hover
+          transform: none
+      .news__img
+        right: -40px
+        height: 100%
+        z-index: 0
+      .news__title
+        margin-bottom: 16px
+        +text(14,0,17,0)
+      .news__subtitle
+        +text(30,700,36,0)
+        +ellipsis(36px,1,true)
+      .news__date
+        margin: 8px 0 0 0
+        +text(16,0,0,0)
+      .btn
+        padding: 8px 31px
+        margin-top: 27px
+        +text(14,0,24,0)
+      
+
+    &__products
+      padding-left: 24px
+
+      .sorting
+        justify-content: flex-end
+
+      .seo
+        margin-top: 80px

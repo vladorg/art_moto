@@ -1,0 +1,56 @@
+include ../../storage/products_custom.pug
+
+section.populars(data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="top-center")
+  .container
+    .heading ПОПУЛЯРНЫЕ МОДЕЛИ
+    .tabs
+      .populars__buttons.tabs__buttons.swiper-container
+        .swiper-wrapper
+          button.btn.swiper-slide.tabs__btn.tabs__btn--active(data-tab="populars_tab1") Мотоциклы
+          button.btn.swiper-slide.tabs__btn(data-tab="populars_tab2") Квадроциклы
+          button.btn.swiper-slide.tabs__btn(data-tab="populars_tab3") Скутеры
+          button.btn.swiper-slide.tabs__btn(data-tab="populars_tab4") Электротранспорт
+          button.btn.swiper-slide.tabs__btn(data-tab="populars_tab5") Смотреть все
+      .populars__tabs.tabs
+        .populars__tab.productsListCustom.swiper-container.swiper-visible.tabs__content.tabs__content--active(data-tab="populars_tab1")
+          .swiper-button-prev
+          .populars__products.swiper-wrapper
+            each val in products_custom
+              .swiper-slide
+                +preview_custom(val)
+          .swiper-button-next
+          .swiper-pagination
+        .populars__tab.productsListCustom.swiper-container.swiper-visible.tabs__content(data-tab="populars_tab2") 
+          .swiper-button-prev
+          .populars__products.swiper-wrapper
+            each val in products_custom
+              .swiper-slide
+                +preview_custom(val)
+          .swiper-button-next
+          .swiper-pagination
+        .populars__tab.productsListCustom.swiper-container.swiper-visible.tabs__content(data-tab="populars_tab3") 
+          .swiper-button-prev
+          .populars__products.swiper-wrapper
+            each val in products_custom
+              .swiper-slide
+                +preview_custom(val)
+          .swiper-button-next
+          .swiper-pagination
+        .populars__tab.productsListCustom.swiper-container.swiper-visible.tabs__content(data-tab="populars_tab4") 
+          .swiper-button-prev
+          .populars__products.swiper-wrapper
+            each val in products_custom
+              .swiper-slide
+                +preview_custom(val)
+          .swiper-button-next
+          .swiper-pagination
+        .populars__tab.productsListCustom.swiper-container.swiper-visible.tabs__content(data-tab="populars_tab5") 
+          .swiper-button-prev
+          .populars__products.swiper-wrapper
+            each val in products_custom
+              .swiper-slide
+                +preview_custom(val)
+          .swiper-button-next
+          .swiper-pagination
+
+    

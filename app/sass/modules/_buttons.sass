@@ -4,6 +4,48 @@
   color: inherit
   border: none
   padding: 0
+  +tran(all,.2s)
   +hover
     cursor: pointer
+    text-decoration: none
+
+  &--prim
+    background: $c_primary
+    padding: 16px 40px
+    text-align: center
+    white-space: nowrap
+    +text(16,500,26,#fff)
+    +hover
+      background: $c_primary_hover
+      
+
+  &--op
+    padding: 16px 40px
+    text-align: center
+    border: 1px solid #D9DADC
+    +text(16,500,26,#fff)
+    +hover
+      background: #D9DADC
+      color: #000
+
+  &--default
+    padding: 16px 40px
+    text-align: center
+    border: 2px solid #AEAFB3
+    text-transform: uppercase
+    +text(16,700,26,$c_text)
+    +hover
+      background: #AEAFB3
+      color: #fff
+
+  &--dashed
+    +flex(0,0,0,center)
+    span
+      display: inline-block
+      border-bottom: 1px dashed #414141
+      +text(14,0,22,0)
+      +tran(all,.2s)
+    +hover
+      span
+        border-color: $transparent
 

@@ -1,26 +1,30 @@
-//- - 
-//-   let links = [
-//-   'Мотоциклы',
-//-   'Квадроциклы',
-//-   'Скутеры',
-//-   'Электротранспорт',
-//-   'Экипировка',
-//-   'Запчасти',
-//-   'Аксессуары',
-//-   'Сервис',
-//-   'SALE',
-//-   ];
+- let childItems = ['Все мотоциклы','Детские мотоциклы','Дорожные мотоциклы','Круизеры','Мотоциклы с пробегом Б/У','Питбайки','Спортбайки','Туристические','Чопперы','Кросс мотоциклы']
 
 nav.header__nav
   .container
     ul.catalog
-      //- each val in links    
-      //-   li
-      //-     a(href="#")= val 
       li.catalog__item
         a(href="./catalog.html") Мотоциклы
+        .catalogChild
+          .container
+            ul.catalogChild__list.scroll
+              each val in childItems
+                li.catalogChild__item.ic-arrow-orange
+                  a(href="./catalog.html")= val
+          .catalogChild__products.scroll
+            each val in childItems
+              +menuChildCategory(val)
       li.catalog__item
         a(href="./catalog.html") Квадроциклы
+        .catalogChild
+          .container
+            ul.catalogChild__list.scroll
+              each val in childItems
+                li.catalogChild__item.ic-arrow-orange
+                  a(href="./catalog.html")= val
+          .catalogChild__products.scroll
+            each val in childItems
+              +menuChildCategory(val)
       li.catalog__item
         a(href="./catalog.html") Скутеры
       li.catalog__item

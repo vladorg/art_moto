@@ -1,2 +1,922 @@
 .productBig
   display: block
+  padding-bottom: 80px
+  opacity: 1
+  +xs
+    +flex(column,0,0,0)
+  
+  .feedback
+    margin-top: 140px
+
+
+
+.productBigMain
+  position: relative
+  margin-bottom: 32px
+  +flex(0,0,0,center)
+  +sm
+    flex-wrap: wrap
+  +xs
+    margin-bottom: 24px
+  &__articul
+    margin-bottom: 8px
+    +text(12,0,20,#AEAFB3)
+  &__name
+    position: absolute
+    top: 7px
+    left: 0
+    +text(57,800,70,#f0f0f0)
+    +ellipsis(140px,2,true)
+    +md
+      +text(36,0,42,0)
+    +sm
+      position: static
+      width: 100%
+    +xs
+      margin-bottom: 8px
+      +text(24,0,30,$c_text)
+  &__pickers
+    .title
+      margin-bottom: 16px
+      width: 100%
+      text-align: center
+      +text(16,600,0,0)
+    +xs
+      width: 100%
+      order: 3
+      margin-top: 32px
+      +flex(0,wrap,center,center)
+    .tooltip
+      &__wrap
+        top: 50%
+        transform: translateY(-50%)!important
+        +xs
+          display: none
+      &__content
+        text-align: center
+    img
+      +not_last
+        margin-bottom: 24px
+        +xs
+          margin-bottom: 0
+  &__photos
+    width: 750px
+    max-width: 62%
+    margin: 0 auto
+    padding-top: 32px
+    +xs
+      width: 100%
+      max-width: 100%
+      order: 1
+    +xxs
+      padding-top: 16px
+    canvas
+      max-width: 100%
+      height: 500px !important
+      object-fit: contain
+      +xs
+        height: 300px !important
+      +xxs
+        height: 200px !important
+  &__360
+    position: absolute
+    bottom: -32px
+    left: 50%
+    transform: translateX(-50%)
+    +xs
+      position: static
+      transform: none
+      order: 2
+      display: block
+      margin: 0 auto
+  &__images
+    display: none
+    +first
+      display: block
+    &.hidden
+      display: none
+    &.visible
+      display: block
+    
+  &__stats
+    width: 165px
+    max-width: 20%
+    margin-left: auto
+    position: relative
+    +xs
+      display: none
+  &__item
+    +not_last
+      margin-bottom: 48px
+    &:nth-child(1n + 5)
+      display: none
+  &__val
+    +text(18,700,22,$c_primary)
+    white-space: nowrap
+    max-width: 100%
+    overflow: hidden
+    text-overflow: ellipsis
+    +sm
+      font-size: 16px
+    span
+      display: inline-block
+      margin-right: 8px
+      +text(36,0,44,0)
+      +sm
+        +text(30,0,38,0)
+  &__key
+    +text(12,500,20,0)
+    +ellipsis(40px,2,true)
+
+.productBigSlot
+  position: fixed
+  bottom: 0
+  left: 0
+  right: 0
+  background: #fff
+  padding: 0 24px
+  border: 1px solid #D7D7D7
+  box-shadow: 0px -4px 40px rgba(0, 0, 0, 0.1)
+  z-index: 20
+  transform: translateY(100%)
+  +flex(0,0,center,center)
+  +tran(all,.4s)
+  +xs
+    position: relative
+    background: $transparent
+    border: none
+    border-top: 1px solid #D7D7D7
+    transform: none
+    box-shadow: none
+    padding: 24px 0 0 0
+    +flex(row-reverse,0,0,flex-start)
+  &--show
+    transform: none
+    transition-delay: .5s
+
+  &__left
+    padding: 12px 0
+    position: relative
+    +flex(0,0,center,center)
+    +sm
+      +flex(0,wrap,flex-start,0)
+      max-width: 50%
+    +xs
+      width: 40%
+      margin: 0 auto
+      padding: 0
+    +xxs
+      position: absolute
+      top: 24px
+      right: 0
+      padding: 0
+      width: auto
+    +before
+      position: absolute
+      top: 0
+      bottom: 0
+      right: 0
+      width: 1px
+      background: #D7D7D7
+      +xs
+        display: none
+  &__right
+    padding: 12px 0 12px 16px
+    +flex(0,0,center,center)
+    +md
+      +flex(0,wrap,space-between,0)
+      max-width: 50%
+    +xs
+      padding: 0 8px 0 0
+      max-width: 100%
+      width: 100%
+      justify-content: space-between
+    +xxs
+      padding-right: 0
+  
+  &__name
+    margin-right: 16px
+    max-width: 335px
+    +text(16,800,28,0)
+    +ellipsis(112px,4,true)
+    +desc
+      +text(14,700,22,0)
+    +sm
+      width: 100%
+      max-width: 100%
+      margin-bottom: 8px
+      -webkit-line-clamp: 2
+      max-height: 44px
+    +xs
+      display: none
+    span
+      display: inline-block
+      margin-left: 8px
+      +text(14,400,0,#AEAFB3)
+  &__stock
+    background: #EFEFF0
+    border-radius: 2px
+    padding: 8px
+    white-space: nowrap
+    margin-right: 16px
+    +flex(0,0,0,center)
+    +text(14,500,26,#000)
+    +before
+      margin-right: 4px
+    +xs
+      display: none
+    &--mobile
+      display: none
+      +xs
+        display: flex
+  &__status
+    background: #EFEFF0
+    border-radius: 2px
+    padding: 8px 14px
+    white-space: nowrap
+    +text(14,500,26,0)
+    +xs
+      display: none
+    &--mobile
+      display: none
+      +xs
+        display: flex
+  &__tools
+    margin: 0 35px 0 42px
+    +flex(0,0,0,center)
+    +sm
+      margin: 8px auto
+    +xxs
+      margin: 0
+    button
+      +not_last
+        margin-right: 16px
+        +xs
+          margin-right: 32px
+      &.share-button
+        +xs
+          +before
+            background: url("../img/sprite.svg") -412px -5px
+        +hover
+          +before
+            background: url("../img/sprite.svg") -412px -5px
+      &.preview__wishlist
+        +xs
+          +before
+            background: url("../img/sprite.svg") -618px -5px
+        +hover
+          +before
+            background: url("../img/sprite.svg") -618px -5px
+        &--added
+          +hover
+            +before
+              background: url("../img/sprite.svg") -618px -24px
+          +before
+            background: url("../img/sprite.svg") -618px -24px
+      &.preview__compare
+        +xs
+          +before
+            background: url("../img/sprite.svg") -994px -5px
+        +hover
+          +before
+            background: url("../img/sprite.svg") -994px -5px
+        &--added
+          +hover
+            +before
+              background: url("../img/sprite.svg") -994px -24px
+          +before
+            background: url("../img/sprite.svg") -994px -24px
+  &__price
+    margin-right: 24px
+    +text(18,500,26,#AEAFB3)
+    +flex(0,0,0,flex-end)
+    +md
+      margin-bottom: 8px
+      +flex(0,0,center,center)
+    +xs
+      margin-right: 0
+      width: 100%
+      justify-content: flex-start
+    +xxs
+      +flex(column,0,0,flex-start)
+  &__priceLabel
+    margin-right: 8px
+    white-space: nowrap
+    +text(18,400,24,$c_text)
+    +xxs
+      +text(16,600,0,0)
+  &__priceContent
+    +md
+      +flex(row-reverse,0,0,center)
+    +xxs
+      +flex(column-reverse,0,0,flex-start)
+  &__old
+    text-decoration: line-through
+    white-space: nowrap
+    +desc
+      font-size: 16px
+    +md
+      margin-left: 8px
+    +xxs
+      padding-left: 0
+      margin: 8px 0 0 0
+  &__total
+    display: inline-block
+    white-space: nowrap
+    +text(36,700,0,$c_primary)
+    +desc
+      font-size: 24px
+    +xs
+      display: block
+      margin: 4px 0 0 0
+  &__buy
+    padding: 16px 24px
+    font-size: 18px
+    margin-right: 12px
+    font-weight: 700
+    text-transform: uppercase
+    +desc
+      padding: 16px
+      font-size: 14px
+    +md
+      width: 48%
+      margin-right: 0
+    +xxs
+      width: 100%
+      margin: 24px 0 0 0
+      font-size: 18px
+  &__credit
+    padding: 14px 24px
+    font-size: 18px
+    +desc
+      padding: 14px 16px
+      font-size: 14px
+    +md
+      width: 48%
+    +xxs
+      width: 100%
+      margin-top: 8px
+      font-size: 18px
+
+
+.productBigNav
+  display: block
+  position: fixed
+  top: 354px
+  left: 0
+  padding: 58px 0
+  background: #FFEEE6
+  z-index: 21
+  transform: translateX(-100%)
+  +tran(all,.4s)
+  display: none
+  &__items
+  &__item
+    padding-left: 89px
+    position: relative
+    width: calc(190px + 89px)
+    text-align: left
+    +tran(all,.2s)
+    +text(18,400,26,#000)
+    +not_last
+      margin-bottom: 16px
+    +before
+      width: 26px
+      height: 1px
+      background: #AEAFB3
+      position: absolute
+      top: 50%
+      left: 0
+      transform: translateY(-50%)
+      +tran(all,.4s)
+    &.active
+      color: $c_primary
+      font-weight: 600
+      +before
+        width: 48px
+        height: 2px
+        background: $c_primary
+        transition-delay: .3s
+    +hover
+      color: $c_primary
+      font-weight: 600
+  &__btn
+    position: absolute
+    top: 0
+    bottom: 0
+    right: calc(-90px - 75px)
+    width: calc(90px + 75px)
+    background: #FFEEE6
+    border-radius: 0 194px 194px 0
+    +flex(0,0,flex-end,center)
+    .btn
+      display: inline-block
+      margin-right: 8px
+      transform: rotate(-90deg)
+      padding-bottom: 38px
+      +text(18,600,26,#aeafb3)
+      +tran(all,.2s)
+      +before
+        position: absolute
+        bottom: 0
+        right: 50%
+        transform: rotate(90deg)
+        margin-right: -9px
+        +tran(all,.2s)
+        transition-delay: .4s
+      +hover
+        color: $c_primary
+  &--opened
+    transform: none
+    .productBigNav__btn
+      .btn
+        +before
+          // transform-origin: 100% 0
+          transform: rotate(-90deg)
+
+  
+.productPresent
+  margin-top: 124px
+  position: relative
+  padding: 64px 0 84px 0
+  +xs
+    margin-top: 24px
+    padding: 32px 0
+  +before
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    background: rgba(0, 0, 0, 0.8)
+    backdrop-filter: blur(8px)
+    z-index: 5
+    +xs
+      background: rgba(0, 0, 0, 0.6)
+  .productPresent__bg
+    position: absolute
+    z-index: 1
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+  &Content
+    position: relative
+    z-index: 10
+    +before
+      width: 1150px
+      height: 831px
+      position: absolute
+      bottom: -84px
+      left: 0
+      background: url('../img/layer1.svg')
+      background-size: cover
+      transform: rotateX(180deg)
+      z-index: -1
+      +xs
+        width: 50%
+        height: 50%
+        bottom: -31px
+    +after
+      width: 1150px
+      height: 831px
+      position: absolute
+      bottom: -84px
+      right: 0
+      background: url('../img/layer1.svg')
+      background-size: cover
+      transform: rotate(180deg)
+      z-index: -1
+      +xs
+        width: 50%
+        height: 50%
+        bottom: -32px
+
+  &Info
+    +flex(0,0,center,center)
+    +desc
+      padding: 0 4%
+    +xs
+      display: block
+    &__desc
+      max-width: 392px
+      margin-right: 353px
+      +md
+        margin-right: 230px
+      +sm
+        margin-right: 48px
+      +xs
+        max-width: 100% 
+        margin: 0 0 16px 0
+    &__title
+      margin-bottom: 40px
+      +text(36,700,44,#fff)
+      +xs
+        margin-bottom: 16px
+        +text(24,0,32,#fff)
+    &__content
+      letter-spacing: 0.01em
+      +text(14,400,22,#fff)
+      p
+        +not_last
+          margin-bottom: 24px
+    +before
+      width: 1150px
+      height: 831px
+      position: absolute
+      top: -64px
+      left: 0
+      background: url('../img/layer1.svg')
+      background-size: cover
+      z-index: -1
+      +xs
+        width: 50%
+        height: 50%
+        top: -32px
+    +after
+      width: 1150px
+      height: 831px
+      position: absolute
+      top: -64px
+      right: 0
+      background: url('../img/layer1.svg')
+      background-size: cover
+      transform: rotateY(180deg)
+      z-index: -1
+      +xs
+        width: 50%
+        height: 50%
+        top: -32px
+    &__images
+      position: relative
+      margin: 0
+      img
+        position: absolute
+        top: 26px
+        left: -121px
+        z-index: 5
+        width: auto
+        height: auto
+        max-height: 100%
+        &:nth-child(1n + 3)
+          display: none
+          +xs
+            display: block
+        +sm
+          display: none
+        +xs
+          display: block
+          max-height: 273px
+          object-fit: cover
+          position: static
+      .swiper-pagination
+        margin-top: 24px
+    &__imagePrimary
+      position: static!important
+      width: 612px
+      height: 655px
+      +sm
+        display: block!important
+
+  &String
+    margin-top: 72px
+    text-transform: uppercase    
+    white-space: nowrap
+    width: max-content
+    animation: marquee 20s linear infinite 
+    +text(40,800,36,$transparent)
+    +xs
+      font-size: 24px
+      margin-top: 40px
+    +hover
+      animation-play-state: paused
+    span
+      display: inline-block
+      white-space: nowrap
+      margin: 0 26px
+      -webkit-text-stroke-width: 1px
+      -webkit-text-stroke-color: #fff
+    &__active
+      -webkit-text-stroke-color: $c_primary!important
+
+  &Slider
+    padding-top: 72px
+    +md
+      padding: 72px 4% 0 
+    +sm
+      padding-top: 24px
+      +flex(column,0,0,0)
+    .swiper-wrapper
+      +sm
+        order: 1
+    .swiper-slide
+      position: relative
+      +before
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        background: rgba(0, 0, 0, 0.7)
+        opacity: 0
+        +tran(all,.2s)
+      img
+        width: 100%
+        height: 385px
+        object-fit: cover
+        +sm
+          height: 323px
+      &:not(.swiper-slide-active)
+        +before
+          opacity: 1
+      &-prev
+        opacity: 0
+      &-next
+        +sm
+          opacity: 0
+      
+    .swiper-pagination
+      position: static
+      margin-top: 43px
+      +sm
+        order: 2
+    
+    &__caption
+      width: 406px
+      max-width: 21%
+      position: absolute
+      top: 72px
+      bottom: 72px
+      // left: calc((100vw - 1224px) / 2)
+      left: 18%
+      z-index: 10
+      padding: 32px 8px 32px 40px
+      +desc
+        left: 10%
+        max-width: 27% 
+      +md
+        left: 4%
+        padding: 0
+      +sm
+        order: 3
+        position: static
+        width: 100%
+        max-width: 100%
+        margin-top: 32px
+      &--hide
+        opacity: 0
+        +tran(all,.2s)
+    &__title
+      margin-bottom: 54px
+      +text(36,700,44,#fff)
+      +ellipsis(44px,1,false)
+      +desc
+        font-size: 26px
+        margin-bottom: 24px
+      +sm
+        font-size: 24px
+        margin-bottom: 16px
+    &__content
+      max-height: calc(100% - 44px - 24px)
+      overflow: auto
+      padding-right: 4px
+      +text(14,400,22,#fff)
+      +sm
+        overflow: visible
+        
+
+    &__placeholder
+      display: none
+      
+
+.productChars
+  padding-top: 60px
+  +xs
+    padding-top: 40px
+  &__title
+    background: #414141
+    padding: 19px 32px
+    +flex(0,0,space-between,center)
+    +text(18,500,26,#fff)
+    +tran(all,.8s)
+    +before
+      order: 1
+      +tran(all,.4s)
+      transition-delay: .4s
+    +xs
+      font-size: 16px
+      padding: 16px
+  &__content
+    width: 100%
+    +xs
+      overflow-y: hidden
+      overflow-x: visible
+    tbody
+      display: table
+      width: 100%
+      td
+        width: 71%        
+        +xs
+          font-size: 14px
+          padding: 17px 8px
+          border-left: none
+          border-right: none
+          white-space: nowrap
+        +first
+          width: 29%
+          background: #F1F3F7
+          +xs
+            font-weight: 500
+            padding-left: 16px
+          
+  
+  .accordion
+    +not_last
+      .productChars__title
+        border-bottom: 1px solid #fff
+    &--opened
+      .productChars__title
+        border-color: $transparent
+        margin-bottom: -1px
+        +before
+          transform: rotate(180deg)
+
+
+.productComplectation
+  padding-top: 100px
+  +xs
+    padding-top: 40px
+  .heading
+    +xs
+      margin-bottom: 24px
+  &__wrap
+    position: relative
+    padding-bottom: 122px
+    +flex(0,0,space-between,0)
+    +xs
+      display: block
+  &__info
+    max-width: 47%
+    height: 100%
+    +xs
+      max-width: 100%
+      height: 180px
+  .seo__more
+    margin: 24px auto
+    text-decoration: none
+    color: #000
+    padding-bottom: 24px
+    border-bottom: 1px dashed #AEAFB3
+    display: none
+    +before
+      margin-left: 8px
+    +xs
+      +flex(row-reverse,0,0,center)
+  &__item
+    .title
+      margin-bottom: 12px
+      +xs
+        margin-bottom: 24px
+    +not_last
+      margin-bottom: 19px
+  &__photos
+    margin: 32px 0 0 0
+    position: static
+    .swiper-wrapper
+      position: static
+      transform: none
+      +md
+        +flex(column,0,space-around,center)
+      +xs
+        transform: translate3d(0px,0,0)
+        position: relative
+        +flex(unset,0,unset,unset)
+    .swiper-pagination
+      +xs
+        margin-top: 32px
+    img
+      width: 504px
+      height: auto
+      object-fit: cover
+      +md
+        width: 65%
+      +xs
+        max-height: 317px
+      +first
+        position: relative
+        right: -108px
+        top: -77px
+        +desc
+          right: 0
+          top: 0
+        +md
+          margin-bottom: 24px
+        +xs
+          margin-bottom: 0
+      +last
+        position: absolute
+        bottom: 0
+        right: 24px
+        +desc
+          right: 77px
+        +md
+          position: static
+      &:nth-child(1n + 3)
+        display: none
+        +xs
+          display: block
+
+
+.productDelivery
+  margin-top: 140px
+  padding: 76px 0 80px 0
+  position: relative
+  display: none
+  +before
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    background: rgba(0, 0, 0, 0.8)
+    backdrop-filter: blur(8px)
+    z-index: 5
+  &__back
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    height: 100%
+  .heading
+    text-transform: unset
+    color: #fff
+    margin-bottom: 8px
+  .container
+    position: relative
+    z-index: 10
+  .swiper-slide
+    +flex(0,0,flex-start,center)
+  .swiper-pagination
+    margin-top: 12px
+  &__content
+  &__text
+    max-width: 600px
+    .title
+      margin-bottom: 16px
+      color: #fff
+    p
+      max-height: 290px
+      overflow: auto
+      +text(14,400,22,#fff)
+    + .productDelivery__tariffs
+      margin-left: 124px
+  &__tariffs
+    
+    background: #fff
+    width: 393px
+    td, th
+      border-color: #F4F4F4
+      vertical-align: middle
+      text-align: center
+      width: 50%
+      padding: 14px 32px
+      +text(14,0,22,0)
+      img
+        margin: 0 auto
+
+
+.productGuarantee
+  padding-top: 80px
+  display: none
+  .heading
+    margin-bottom: 0
+  &__content
+    padding-bottom: 60px
+    +flex(0,0,flex-start,center)
+  &__text
+    max-width: 600px
+    p
+      +not_last
+        margin-bottom: 16px
+  &__img
+    margin-left: 180px
+  &__warn
+
+.productsIntCustom
+  padding-top: 80px
+  display: none
+  .swiper-pagination
+    margin-top: 84px
+  
+.productsIntDefault
+  display: none
+  padding-top: 140px
+  .heading
+    text-transform: unset
+  .swiper-pagination
+    margin-top: 100px

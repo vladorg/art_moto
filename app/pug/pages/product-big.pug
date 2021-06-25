@@ -1,0 +1,331 @@
+include ../storage/product_chars.pug
+include ../storage/product_adv_slides.pug
+
+-
+  let title = "Product big";
+  let breadcrumbs = [
+    {
+      href: './',
+      label: 'Главная'
+    },
+    {
+      href: './catalog.html',
+      label: 'Каталог'
+    },
+    {
+      href: './catalog.html',
+      label: 'yamaha'
+    },
+    {
+      href: null,
+      label: 'vmax',
+      last: true
+    }
+  ];
+  let images = [
+    './img/products/360/1.png',
+    './img/products/360/2.png',
+    './img/products/360/3.png',
+    './img/products/360/4.png',
+    './img/products/360/5.png',
+    './img/products/360/6.png',
+    './img/products/360/7.png',
+  ];
+
+doctype html
+html(lang="en")
+  include ../blocks/head.pug
+  body.root.page-product-big
+
+    header.header
+      include ../blocks/header/root.pug
+    
+
+    main.productBig
+      .container
+
+        section.breadcrumbs
+          +breadcrumbs(breadcrumbs)
+
+        section.productBigNav
+          .productBigNav__items
+            button.btn.anchor.productBigNav__item.active(data-section="view") Обзор
+            button.btn.anchor.productBigNav__item(data-section="chars") Характеристики
+            button.btn.anchor.productBigNav__item(data-section="complect") Комплектация
+            button.btn.anchor.productBigNav__item(data-section="delivery") Доставка и оплата
+            button.btn.anchor.productBigNav__item(data-section="guarantee") Гарантия и сервис
+          .productBigNav__btn
+            button.btn.ic-arrow_nav Навигация
+
+        section.productBigMain
+
+          .productBigMain__articul.visible-xs Арт.: 1234567890
+
+          h1.productBigMain__name BIGY FACTORY 190 ZE MX 2020
+
+          .productBigSlot__stock.productBigSlot__stock--mobile.ic-check_in В наличии
+          .productBigSlot__status.productBigSlot__status--mobile Б/У
+
+          .productBigMain__pickers
+            .title.visible-xs Доступные цвета:
+            .tooltip
+              img.color-picker.active(src="./img/colors/black_red.svg" alt="" data-color="Черно-красный")
+              .tooltip__wrap
+                .tooltip__content Черно-красный
+            .tooltip
+              img.color-picker(src="./img/colors/black_blue.svg" alt="" data-color="Черно-синий")
+              .tooltip__wrap
+                .tooltip__content Черно-синий
+            .tooltip
+              img.color-picker(src="./img/colors/black.svg" alt="" data-color="Черный")
+              .tooltip__wrap
+                .tooltip__content Черный
+
+          img.productBigMain__360(src="./img/icons/360.svg", alt="")
+
+          .productBigMain__photos
+            
+            .productBigMain__images.productBigMain__images--active.cloudimage-360(
+              data-folder="./img/products/360/"
+              data-filename="{index}.png"
+              data-amount="7"
+              data-speed="50"
+              data-autoplay="false"
+              data-hide-360-logo="true"  
+              data-lazyload="true"
+              data-color="Черно-красный"
+            )
+            .productBigMain__images.productBigMain__images.cloudimage-360(
+              data-folder="./img/products/360/"
+              data-filename="{index}.png"
+              data-amount="7"
+              data-speed="50"
+              data-autoplay="false"
+              data-hide-360-logo="true"  
+              data-lazyload="true"
+              data-color="Черно-синий"
+            )
+            .productBigMain__images.productBigMain__images.cloudimage-360(
+              data-folder="./img/products/360/"
+              data-filename="{index}.png"
+              data-amount="7"
+              data-speed="50"
+              data-autoplay="false"
+              data-hide-360-logo="true"  
+              data-lazyload="true"
+              data-color="Черный"
+            )
+
+          .productBigMain__stats
+            .productBigMain__item 
+              .productBigMain__val 
+                span 660
+                | см3
+              .productBigMain__key РАБОЧИЙ ОБЪЕМ МОТОРА
+            .productBigMain__item 
+              .productBigMain__val 
+                span 81
+                | л.с
+              .productBigMain__key МАКСИМАЛЬНАЯ МОЩНОСТЬ
+            .productBigMain__item 
+              .productBigMain__val 
+                span 64
+                | нм
+              .productBigMain__key МАКСИМУМ КРУТЯЩЕГО МОМЕНТА
+            .productBigMain__item 
+              .productBigMain__val 
+                span 16 000
+                | км
+              .productBigMain__key МЕЖСЕРВИСНЫЙ ИНТЕРВАЛ
+        
+        section.productBigSlot
+          .productBigSlot__left
+            .productBigSlot__name Мотошлем LS2 OF599 Spitfire Single Mono Gloss Chrome
+              span Арт.: 1234567890
+            .productBigSlot__stock.ic-check_in В наличии
+            //- .productBigSlot__stock.ic-no_check Нет в наличии
+            .productBigSlot__status Б/У
+            .productBigSlot__tools
+              button.btn.ic-heart_black.preview__wishlist
+              button.btn.ic-compare_black.preview__compare
+              button.btn.ic-share_black.share-button
+          .productBigSlot__right
+            .productBigSlot__price
+              .productBigSlot__priceLabel Цена от:
+              .productBigSlot__priceContent
+                .productBigSlot__old 2 580 000 $
+                .productBigSlot__total 2 566 000 $
+            a.btn.btn--prim.productBigSlot__buy(href="#") купить
+            a.btn.btn--default.productBigSlot__credit(href="#") КРЕДИТ
+              
+        
+      section.productPresent.anchor-section(data-section="view")
+        img.productPresent__bg(src="./img/bg_about_product.jpg" alt="")
+        .productPresentContent
+          .productPresentInfo
+            .productPresentInfo__desc(data-aos="fade-right" data-aos-duration="800" data-aos-anchor-placement="top-center")
+              .productPresentInfo__title TIGER 850 SPORT
+              .productPresentInfo__content
+                p Настоящий универсальный мотоцикл. И имя Tiger определяет его характер - он стремительный и мощный, подвижный, быстрый и уверенный в себе. Способный мгновенно отреагировать на действия водителя.
+                p Tiger 850 Sport специально разработан для длительных передвижений по дорогам общего пользования, уделено особое внимание удобству и безопасности водителя. Мотоцикл соединил в себе первоклассные характеристики и высокий уровень оснащенности, а это значит, что вы будете уверенно чувствовать себя за рулем при любой поездке и любых обстоятельствах.
+            .productPresentInfo__images.swiper-container.swiper-visible 
+              .swiper-wrapper
+                img.swiper-slide.productPresentInfo__imagePrimary(src="./img/product/info2.jpg", alt="" data-aos="zoom-in" data-aos-duration="500" data-aos-anchor-placement="top-center")
+                img.swiper-slide(src="./img/product/info1.jpg", alt="" data-aos="zoom-in-left" data-aos-duration="500" data-aos-anchor-placement="top-center")
+                img.swiper-slide(src="./img/product/info2.jpg", alt="")
+                img.swiper-slide(src="./img/product/info1.jpg", alt="")
+              .swiper-pagination.swiper-pagination-static
+          .productPresentString
+            span ОСОБЕННОСТИ TRIDENT 660
+            span.productPresentString__active ОСОБЕННОСТИ TRIDENT 660
+            span ОСОБЕННОСТИ TRIDENT 660
+          .productPresentSlider.swiper-container(data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="top-center")
+            .productPresentSlider__caption
+              .productPresentSlider__title
+              .productPresentSlider__content.scroll
+            .swiper-wrapper
+              each slide in adv_slides
+                .swiper-slide
+                  img(src=slide.img)
+                  .productPresentSlider__placeholder
+                    .title=slide.title
+                    .content=slide.content
+            .swiper-pagination
+      
+      include ../blocks/product_list_custom.pug
+
+      section.productChars.anchor-section(data-section="chars")
+        .container
+          .heading Характеристики
+          each item in chars
+            .accordion(data-aos="fade-right" data-aos-duration="800" data-aos-anchor-placement="top-center" class=item.opened ? 'accordion--opened' : null)
+              .accordion__btn.ic-arrow_white.productChars__title= item.title
+              table.accordion__content.productChars__content.scroll.scroll--table
+                each char in item.content
+                  tr
+                    td= char.key
+                    td= char.value
+
+      section.productComplectation.anchor-section(data-section="complect")
+        .container
+          .heading(data-aos="fade-right" data-aos-duration="1000" data-aos-anchor-placement="top-center") Комплектация
+          .productComplectation__wrap.seo(data-aos="fade-right" data-aos-duration="800" data-aos-offset="300" data-aos-anchor-placement="top-center" data-aos-easing="ease-in-sine")
+            .productComplectation__info.seo__content
+              .productComplectation__item 
+                .title Двигатель
+                ul.ul
+                  li 3-цилиндровый двигатель рабочего объема 888 см3
+                  li Мощность в 85 лс при 8,500 об/мин
+                  li Крутящий момент 82 Нм при 6,500 об/мин
+                  li Проскальзывающее сцепление центробежного типа
+              .productComplectation__item 
+                .title Рама и подвеска
+                ul.ul 
+                  li Легкая рама модульного типа с задними подрамником и креплением пассажирских подножек к раме на болтах
+                  li Вилка Marzocchi перевёрнутого типа, рабочий ход 180 мм
+                  li Задний моноамортизатор Marzocchi, ручная регулировка предварительного поджатия пружины, ход заднего колеса 170 мм
+                  li Задний двухсторонний маятник из алюминиевого сплава
+                  li Съёмные подножки пассажира
+              .productComplectation__item 
+                .title Оборудование и технологии
+                ul.ul 
+                  li Первоклассные тормозные системы с суппортами моноблочного типа Brembo Stylema®
+                  li Тормозная система с ABS
+                  li Трекшен контроль с возможностью отключения
+                  li 5-дюймовая TFT приборная панель
+                  li Два режима электронных настроек: Rain, Road.
+                  li Полностью светодиодная фара и светотехника
+                  li Интуитивные коммутационные кнопки и 5-позиционный джойстик управления
+                  li Штатный иммобилайзер
+                  li Топливный бак на 20 литров
+            button.btn.seo__more.ic-arrow_orange Смотреть все 
+            .productComplectation__photos.swiper-container.swiper-visible-slides 
+              .swiper-wrapper 
+                img.swiper-slide(src="./img/product/complectation1.jpg" alt="" data-aos="fade-left" data-aos-duration="800" data-aos-offset="300" data-aos-anchor-placement="top-center")
+                img.swiper-slide(src="./img/product/complectation2.jpg" alt="" data-aos="fade-left" data-aos-duration="800" data-aos-offset="300" data-aos-anchor-placement="top-center")
+                img.swiper-slide(src="./img/product/complectation1.jpg" alt="")
+                img.swiper-slide(src="./img/product/complectation2.jpg" alt="")
+              .swiper-pagination.swiper-pagination-static
+
+      section.productDelivery.anchor-section(data-section="delivery")
+        img.productDelivery__back(src="./img/bg_delivery_product.jpg")
+        .container(data-section="delivery" data-aos="zoom-in" data-aos-duration="800" data-aos-anchor-placement="top-center")
+          .heading Доставка и оплата 
+          .productDelivery__content.swiper-container.swiper-visible-slides
+            .swiper-wrapper 
+              .swiper-slide
+                .productDelivery__text
+                  .title Доставка
+                  p.scroll Мы рады сообщить вам, что в нашем салоне нам удалось наладить четкую систему доставки, поэтому вы можете приобрести мототовар, находясь практически в любом регионе Украины. Имеющиеся у нас партнерские соглашения с целым рядом крупнейших перевозчиков гарантируют быструю и сравнительно недорогую транспортировку грузов. Мы сотрудничаем с ведущими компаниями перевозчиков , среди них «Новая Почта», «ИН-Тайм», «Евроэкспресс» и «Мистэкспресс» .
+                table.productDelivery__tariffs
+                  thead 
+                    th Служба доставки
+                    th Стоимость
+                  tbody
+                    tr 
+                      td
+                        img(src="./img/np.svg" alt="")
+                      td от 150 ₴
+                    tr 
+                      td
+                        img(src="./img/meest.svg" alt="")
+                      td от 250 ₴
+                    tr 
+                      td
+                        img(src="./img/intime.svg" alt="")
+                      td от 350 ₴
+              .swiper-slide
+                .productDelivery__text
+                  .title Доставка1
+                  p.scroll Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptatum saepe in qui, et adipisci nemo totam laudantium iure earum tempora provident quisquam dignissimos accusamus iusto nulla hic est natus officiis asperiores amet! Officiis nam veniam possimus, nesciunt dolorum iure debitis ducimus doloremque, totam suscipit vitae dolorem, blanditiis necessitatibus est.
+                table.productDelivery__tariffs
+                  thead 
+                    th Служба доставки
+                    th Стоимость
+                  tbody
+                    tr 
+                      td
+                        img(src="./img/np.svg" alt="")
+                      td от 150 ₴
+                    tr 
+                      td
+                        img(src="./img/meest.svg" alt="")
+                      td от 250 ₴
+                    tr 
+                      td
+                        img(src="./img/intime.svg" alt="")
+                      td от 350 ₴
+            .swiper-pagination.swiper-pagination-static
+
+      section.productGuarantee.anchor-section(data-section="guarantee")
+        .container 
+          .heading(data-aos="zoom-in" data-aos-duration="500" data-aos-anchor-placement="center-center") Гарантия и сервис
+          .productGuarantee__content
+            .productGuarantee__text(data-aos="zoom-in" data-aos-duration="500" data-aos-anchor-placement="center-center")
+              p Срок действия гарантии на силовой агрегат/двигатель составляет 12 месяцев или 5000 километров пробега.
+              p Гарантийный ремонт - устранение недостатков двигателя, ремонт или замена деталей, узлов, агрегатов, которые вышли из строя по вине производителя.
+              p Гарантия на двигатель сохраняется при условии соблюдения требований, рекомендаций и правил эксплуатации и хранения двигателя. Неотъемлемой частью для сохранения гарантии есть регулярное посещение планового технического обслуживания на официальных сервисных станциях.
+            .productGuarantee__img.guarantee(data-aos="flip-left" data-aos-duration="500" data-aos-anchor-placement="center-center")
+              img(src="./img/director2.png" alt="")
+              img.guarantee__border(src="./img/guarantee.svg", alt="")
+          blockquote.productGuarantee__warn(data-aos="zoom-in-up" data-aos-duration="700" data-aos-anchor-placement="center-center")
+            .title Гарантия не распространяется на:
+            p Недостатки, которые возникли в результате ДТП или пожара, неправильной эксплуатации или небрежного отношения с двигателем;
+              br
+              | На детали, узлы и агрегаты, которые установлены на неофициальных сервисных станциях, и запрещены для установки производителем двигателя;
+              br
+              | Неисправности, которые возникли в результате:
+              br
+              | 1. несвоевременного прохождения ТО;
+              br
+              | 2. воздействия экстремально высоких или низких температур;
+              br
+              | 3. действия предметов, которые попали в агрегат или деталь и вывели ее из строя.
+              br
+              | Детали (фильтра, масло, жидкости), которые имеют природный износ (диски сцепления, лампы и т.п.).
+
+      include ../blocks/product_list_default.pug
+
+      include ../blocks/feedback.pug
+
+    include ../blocks/footer/footer.pug

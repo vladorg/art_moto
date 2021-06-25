@@ -1,3 +1,6 @@
+html
+  overflow-x: hidden
+  
 body
   font-size: $fz
   font-weight: $fw
@@ -9,6 +12,8 @@ body
   &.root
     min-height: 100vh
     +flex(column,0,0,0)
+  &.compensate-for-scrollbar
+    margin-right: 0
 
 
 button
@@ -24,6 +29,141 @@ a
   text-decoration: none
   +hover
     text-decoration: underline
+
+section
+  //overflow: hidden
+
+table
+  th, td
+    border: 1px solid #AEAFB3
+    padding: 20px 32px
+    vertical-align: middle
+    +text(16,500,22,0)
+  th
+    font-weight: 600
+    color: #000
+
+ul.ul
+  li
+    +text(14,400,22,0)
+    +flex(0,0,0,flex-start)
+    +before
+      display: inline-block
+      min-width: 7px
+      min-height: 7px
+      background: $c_primary
+      border-radius: 50%
+      margin: 8px 8px 0 0
+    +not_last
+      margin-bottom: 16px
+
+blockquote
+  background: rgba(255, 238, 230, 0.2)
+  border: 1px solid $c_primary
+  padding: 26px 24px 32px
+  .title
+    margin-bottom: 16px
+
+.scroll
+  &::-webkit-scrollbar
+    display: block
+    width: 2px
+    background: $transparent
+  &::-webkit-scrollbar-thumb
+    background: $c_primary
+  &--table
+    &::-webkit-scrollbar
+      height: 4px
+
+.blured-black
+  position: relative
+  +before
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    background: rgba(0, 0, 0, 0.8)
+    backdrop-filter: blur(8px)
+
+@-moz-document url-prefix()
+  .scroll
+    scrollbar-color: $c_primary $transparent
+    scrollbar-width: thin
+
+
+
+
+.visible-xs
+  display: none!important
+  +xs
+    display: block!important
+
+.list
+  li
+    +text(18,500,36,0)
+    +xs
+      +text(16,0,24,0)
+    +not_last
+      +xs
+        margin-bottom: 16px
+  &--check
+    li
+      +flex(0,0,0,center)
+      +before
+        display: block
+        min-width: 21px
+        height: 15px
+        background: url('../img/sprite.svg') -798px -5px
+        margin-right: 10px
+
+  
+.content
+  p
+    margin-bottom: 16px
+      
+
+
+.guarantee
+  position: relative
+  &__border
+    position: absolute
+    top: 0
+    left: 0
+    transform: scale(1.3)
+    animation: rotate_guarantee 15s infinite linear
+  +hover
+    .guarantee__border
+      animation-play-state: paused
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes marquee
+  0%
+    transform: translateX(100vw)
+  100%
+    transform: translateX(-100%)
+
+
+@keyframes rotate_guarantee
+  0%
+    transform: rotate(0) scale(1.3)
+  100%
+    transform: rotate(360deg) scale(1.3)
+
 
 
 // ***  For IE10-11  ***

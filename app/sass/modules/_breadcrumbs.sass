@@ -1,0 +1,28 @@
+.breadcrumbs
+  padding: 40px 0
+  +flex(0,0,flex-start,center)
+  +xs
+    padding: 11px 5%
+    background: $c_breadcrumbs
+    margin: 0 -5%
+    margin-bottom: 16px
+  &__item
+    margin-right: 9px
+    +flex(0,0,0,center)
+    +text(12,300,10,#000)
+    +hover
+      text-decoration: none
+    +after
+      display: block
+      width: 7px
+      height: 12px
+      background: url(../img/sprite.svg) -92px -19px
+      margin-left: 9px
+    +xs
+      font-size: 10px
+      +text(10,400,0,0)
+  &__end
+    text-decoration: underline
+    +text(12,300,10,$c_primary)
+    +xs
+      +text(10,400,0,0)

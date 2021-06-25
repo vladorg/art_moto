@@ -1,0 +1,34 @@
+.pagination
+  padding-top: 64px
+  +flex(column,0,center,center)
+  &__list
+    +flex(0,0,center,center)
+    li
+      +not_last
+        margin-right: 8px
+  &__item
+    width: 58px
+    height: 58px
+    border: 1px solid $transparent
+    +flex(0,0,center,center)
+    +text(18,400,22,0)
+    +tran(all,.2s)
+
+    +hover
+      border-color: $c_primary
+      text-decoration: none
+    
+    &--active
+      background: $c_primary
+      font-weight: 700
+      color: #fff
+      +hover
+        border-color: $transparent
+    &--delim
+      +hover
+        border-color: $transparent
+
+    
+  &__more
+    display: inline-block
+    margin-top: 24px

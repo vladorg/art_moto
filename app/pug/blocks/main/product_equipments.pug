@@ -1,0 +1,66 @@
+include ../../storage/products_default.pug
+
+section.equipments(data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="top-center")
+  .container
+    .heading ЗАПЧАСТИ И ЭКИПИРОВКА
+    .tabs
+      .equipments__buttons.tabs__buttons.swiper-container
+        .swiper-wrapper
+          button.btn.swiper-slide.tabs__btn.tabs__btn--active(data-tab="equipments_tab1") Шлемы
+          button.btn.swiper-slide.tabs__btn(data-tab="equipments_tab2") Куртки
+          button.btn.swiper-slide.tabs__btn(data-tab="equipments_tab3") Штаны
+          button.btn.swiper-slide.tabs__btn(data-tab="equipments_tab4") Защита
+          button.btn.swiper-slide.tabs__btn(data-tab="equipments_tab5") Обувь
+          button.btn.swiper-slide.tabs__btn(data-tab="equipments_tab6") Смотреть все
+      .equipments__tabs.tabs
+        .equipments__tab.productsListDefault.swiper-container.swiper-visible.tabs__content.tabs__content--active(data-tab="equipments_tab1")
+          .swiper-button-prev
+          .equipments__products.swiper-wrapper
+            each product in products_default
+              .swiper-slide
+                +preview_default(product)
+          .swiper-button-next
+          .swiper-pagination
+        .equipments__tab.productsListDefault.swiper-container.swiper-visible.tabs__content(data-tab="equipments_tab2")
+          .swiper-button-prev
+          .equipments__products.swiper-wrapper
+            each product in products_default
+              .swiper-slide
+                +preview_default(product)
+          .swiper-button-next
+          .swiper-pagination
+        .equipments__tab.productsListDefault.swiper-container.swiper-visible.tabs__content(data-tab="equipments_tab3")
+          .swiper-button-prev
+          .equipments__products.swiper-wrapper
+            each product in products_default
+              .swiper-slide
+                +preview_default(product)
+          .swiper-button-next
+          .swiper-pagination
+        .equipments__tab.productsListDefault.swiper-container.swiper-visible.tabs__content(data-tab="equipments_tab4")
+          .swiper-button-prev
+          .equipments__products.swiper-wrapper
+            each product in products_default
+              .swiper-slide
+                +preview_default(product)
+          .swiper-button-next
+          .swiper-pagination
+        .equipments__tab.productsListDefault.swiper-container.swiper-visible.tabs__content(data-tab="equipments_tab5")
+          .swiper-button-prev
+          .equipments__products.swiper-wrapper
+            each product in products_default
+              .swiper-slide
+                +preview_default(product)
+          .swiper-button-next
+          .swiper-pagination
+        .equipments__tab.productsListDefault.swiper-container.swiper-visible.tabs__content(data-tab="equipments_tab6")
+          .swiper-button-prev
+          .equipments__products.swiper-wrapper
+            each product in products_default
+              .swiper-slide
+                +preview_default(product)
+          .swiper-button-next
+          .swiper-pagination
+
+
+    

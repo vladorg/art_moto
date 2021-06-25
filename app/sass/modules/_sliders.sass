@@ -1,2 +1,74 @@
-.slider
-  display: block
+div.swiper-visible
+  overflow: visible
+
+.swiper-container-initialized .swiper-slide
+  opacity: 0
+  transition-duration: 200ms
+  transition-property: transform, opacity // fix slides vanish
+
+.swiper-container-initialized .swiper-slide-visible
+  opacity: 1
+
+.swiper-visible-slides .swiper-slide
+  opacity: 1
+
+div.swiper-button-prev,
+div.swiper-button-next
+  padding: 15px
+  box-sizing: content-box
+  +tran(all,.2s)
+  +before
+    display: block
+    width: 22px
+    height: 40px
+    background: url('../img/sprite.svg') -829px -5px
+  +after
+    display: none
+  +hover
+    background: #d9dadc
+
+div.swiper-button-prev
+  left: -73px
+  +desc
+    left: 0
+  +md
+    left: -40px
+  +sm
+    display: none
+div.swiper-button-next
+  right: -73px
+  +desc
+    right: 0
+  +md
+    right: -40px
+  +sm
+    display: none
+  +before
+    transform: rotate(180deg)
+
+
+div.swiper-pagination
+  .bullet
+    width: 15px
+    height: 15px
+    border-radius: 50%
+    opacity: 1
+    background: radial-gradient(#D9DADC 4px, $transparent 5px)
+    margin: 0!important
+    +not_last
+      margin: 0 26px 0 0!important
+    +hover
+      background: #D9DADC
+    &.swiper-pagination-bullet-active
+      background: $c_primary
+      +hover
+        background: $c_primary
+  
+  &-static
+    position: static
+
+div.swiper-slide
+  transition-property: unset
+  .preview
+    margin: 0 auto
+    

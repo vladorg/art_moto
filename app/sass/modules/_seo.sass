@@ -1,0 +1,22 @@
+.seo
+
+  &__more
+    display: block
+    margin-top: 16px
+    text-decoration: underline
+    +text(14,500,22,$c_primary)
+
+  &__content
+    height: 307px
+    overflow: hidden
+    +tran(all,.4s)
+    p
+      font-weight: 300
+    &--short
+      height: 65px
+      
+  &--opened
+    .seo__more
+      // opacity: 0
+      // pointer-events: none
+      display: none !important

@@ -1,0 +1,15 @@
+include ../storage/products_custom.pug
+
+section.productsIntCustom(data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="top-center")
+  .container
+    .heading Эти товары могут вас заинтересовать
+    .productsListCustom.swiper-container.swiper-visible
+      .swiper-button-prev
+      .swiper-wrapper
+        each val in products_custom
+          .swiper-slide
+            +preview_custom(val)
+      .swiper-button-next
+      .swiper-pagination.swiper-pagination-static
+
+    

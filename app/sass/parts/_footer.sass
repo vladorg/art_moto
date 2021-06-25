@@ -21,9 +21,14 @@
     +xs
       font-size: 18px
       margin-bottom: 16px
+      // padding-bottom: 16px
+      // border-bottom: 1px solid #414141
   &__list
     +xs
-      display: none
+      height: 0
+      overflow: hidden
+      opacity: 0
+      transition: opacity .4s linear 0s, height .4s
     li
       +not_last
         margin-bottom: 8px
@@ -32,6 +37,15 @@
         display: block
         +sm
           +text(12,0,20,0)
+        +xs
+          +text(14,0,22,0)
+  &__opener
+    position: absolute
+    top: 8px
+    right: 0
+    +before
+      +tran(all,.4s)
+      transition-delay: .3s
   &__target
     a
       color: $c_primary
@@ -41,6 +55,17 @@
       width: 24%
     +xs
       width: 100%
+      position: relative
+      margin-bottom: 16px
+      border-bottom: 1px solid #414141
+    &--opened
+      .footer__list
+        margin-bottom: 16px
+        opacity: 1
+        transition: opacity .4s linear .3s, height .4s
+      .footer__opener
+        +before
+          transform: rotateX(180deg)
   &__buyer
     margin-left: auto
     +md
@@ -51,14 +76,18 @@
       width: 24%
     +xs
       width: 100%
+      border: none
 
   &__number
+    display: block
     margin-bottom: 4px
     +text(30,500,38,$c_primary)
     +md
       font-size: 20px
     +sm
       font-size: 16px
+    +xs
+      font-size: 30px
   &__numberWrap
     margin-top: 16px
   &__numberTitle
@@ -68,6 +97,8 @@
     +text(12,400,22,#AEAFB3)
     +sm
       +text(10,0,18,0)
+    +xs
+      +text(12,0,22,0)
   
   &__email
     margin-top: 8px
@@ -83,6 +114,8 @@
       margin-bottom: 8px
       +sm
         font-size: 10px
+      +xs
+        font-size: 14px
   
 
   &__bottom
@@ -92,7 +125,7 @@
     +flex(0,0,flex-start,center)
     +xs
       border-top: none
-      margin-top: 16px
+      margin-top: 0
       +flex(column,0,0,flex-start)
   &__logo
     display: block
@@ -107,6 +140,7 @@
       font-size: 12px
     +xs
       order: 3
+      font-size: 14px
   &__payments
     margin-left: auto
     +flex(0,0,flex-start,center)
@@ -119,20 +153,3 @@
     img
       +first
         margin-right: 24px
-
-
-
-.socials
-  &--footer
-    margin-top: 36px
-    +xs
-      display: none
-  &__list
-    +flex(0,0,flex-start,center)
-    +sm
-      justify-content: space-between
-    li
-      +not_last
-        margin-right: 32px
-        +sm
-          margin-right: 0

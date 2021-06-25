@@ -1,6 +1,26 @@
-.menu
+- 
+  let items = [
+    { label: 'О компании', href: './about.html'},
+    { label: 'Доставка и оплата', href: './delivery.html'},
+    { label: 'Гарантия', href: './guarantee.html'},
+    { label: 'Кредит', href: './credit.html'},
+    { label: 'Блог', href: './blog.html'},
+    { label: 'Мотосервис', href: './#.html'},
+    { label: 'Салоны', href: './#.html'},
+    { label: 'Контакты', href: './contacts.html'}
+  ]
 
+.menu
   button.btn.menu__btn.ic-burger 
 
   .menuContent
-    p fsdfsdf
+
+    .menuContent__header
+      button.btn.menuContent__close.ic-close
+      a(href="")
+        img(src="./img/logo.svg", alt="Logo" width="180" height="58").menuContent__logo 
+
+    ul.menuContent__list.scroll
+      each val in items
+        li
+          a(href=val.href)= val.label 

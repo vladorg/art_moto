@@ -1,0 +1,42 @@
+.feedback
+  position: relative
+  display: none
+  &__bg
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    height: 100%
+    z-index: -1
+    object-fit: cover
+  &__content
+    position: relative
+    z-index: 1
+    padding: 40px 0
+    +flex(0,0,flex-start,center)
+  &__text
+    max-width: 390px
+    color: #fff
+    .heading
+      margin-bottom: 32px
+      color: #fff
+    p
+      +not_last
+        margin-bottom: 16px
+  &__form
+    width: 100%
+    max-width: 392px
+    margin-left: 124px
+    +flex(column,0,0,0)
+    .input
+      padding: 12px 0 12px 24px
+      margin-bottom: 16px
+    textarea
+      height: 96px
+    .btn
+      margin-top: 16px
+  &__image
+    position: absolute
+    top: -40px
+    right: 164px

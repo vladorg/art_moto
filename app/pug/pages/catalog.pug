@@ -1,4 +1,48 @@
-- var title = "Catalog";
+-
+  let title = "Catalog";
+  let breadcrumbs = [
+    {
+      href: './',
+      label: 'Главная'
+    },
+    {
+      href: './catalog.html',
+      label: 'Каталог'
+    },
+    {
+      href: null,
+      label: 'Шлемы',
+      last: true
+    }
+  ];
+  let catalogChilds = [
+    {
+      label: 'Шлемы интегралы',
+      thumb: './img/catalog/child1.jpg'
+    },
+    {
+      label: 'Детские шлемы',
+      thumb: './img/catalog/child2.jpg'
+    },
+    {
+      label: 'Стекла (визоры) для шлемов',
+      thumb: './img/catalog/child3.jpg'
+    },
+    {
+      label: 'Шлемы открытые',
+      thumb: './img/catalog/child4.jpg'
+    },
+    {
+      label: 'Шлемы кроссовые',
+      thumb: './img/catalog/child5.jpg'
+    },
+    {
+      label: 'Шлемы трансформер',
+      thumb: './img/catalog/child6.jpg'
+    }
+  ]
+
+include ../storage/catalog_products.pug
 
 doctype html
 html(lang="en")
@@ -9,6 +53,56 @@ html(lang="en")
       include ../blocks/header/root.pug
     
 
-    main.main fsd
+    main.catalog
+
+      .container
+
+        section.breadcrumbs
+          +breadcrumbs(breadcrumbs)
+
+        h1.heading Шлемы
+
+        section.catalogChilds
+          each child in catalogChilds
+            a.catalogChilds__item(href="#")
+              img(width="392" height="84" src=child.thumb, alt="Category").catalogChilds__thumb
+              .catalogChilds__name= child.label
+        
+        section.catalogBanner
+          a(href="#")
+            .catalogBanner__info 
+              .catalogBanner__date.ic-calendar_black 05-14.03 
+              .catalogBanner__title Распродажа одежды от Indian Motorcycle
+            img.catalogBanner__thumb(width="585" height="190" src="./img/banners/catalog.png")
+        
+        section.catalogSorting
+          include ../blocks/sorting.pug
+
+        section.catalogContent
+
+          .catalogContent__sidebar
+            include ../blocks/filter.pug
+
+            .catalogContent__news.news
+              .news__item
+                img(src="./img/news/5.png", alt="").news__img
+                .heading.news__title МАСЛО МОТОРНОЕ MOTUL SCOOTER EXPERT 
+                .news__subtitle 1=2
+                .news__date.ic-calendar_white 05-14.03
+                a.btn.btn--prim(href="#") подробнее
+              .news__item
+                img(src="./img/news/5.png", alt="").news__img
+                .heading.news__title МАСЛО МОТОРНОЕ MOTUL SCOOTER EXPERT 
+                .news__subtitle 1=2
+                .news__date.ic-calendar_white 05-14.03
+                a.btn.btn--prim(href="#") подробнее
+
+          .catalogContent__products
+            .products
+              each product in catalog_products
+                +preview_default(product)
+        
+            include ../blocks/pagination.pug
+            include ../blocks/seo.pug
 
     include ../blocks/footer/footer.pug

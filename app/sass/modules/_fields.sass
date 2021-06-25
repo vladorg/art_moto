@@ -1,2 +1,135 @@
 .input
-  display: block
+  padding: 9px 0 9px 24px
+  border: 1px solid $c_input_border
+  resize: none
+  +text(14,400,22,0)
+  &::-webkit-input-placeholder
+    color: #aeafb3
+    font-family: $ff
+  &::-moz-placeholder
+    color: #aeafb3
+    font-family: $ff
+  &:-moz-placeholder
+    color: #aeafb3
+    font-family: $ff
+  &:-ms-input-placeholder
+    color: #aeafb3
+    font-family: $ff
+
+
+.input-hidden
+  display: none
+
+
+
+.checkbox
+  display: none
+  + label
+    display: inline-block
+    padding-left: 24px
+    position: relative
+    cursor: pointer
+    +text(14,400,22,$c_text)
+    +before
+      position: absolute
+      top: 2px
+      left: 0
+      width: 16px
+      height: 16px
+      border: 1px solid #CACACA
+      border-radius: 3px
+      +tran(all,.2s)
+    +after
+      position: absolute
+      top: 2px
+      left: 0
+      width: 16px
+      height: 16px
+      background: url("../img/sprite.svg") -799px -26px
+      border-radius: 3px
+      border: 1px solid $transparent
+      opacity: 0
+      +tran(all,.2s)
+  &:checked
+    + label
+      +before
+        background: $c_green
+        border-color: $c_green
+      +after
+        opacity: 1
+
+
+.radio
+  display: none
+  + label
+    display: inline-block
+    padding-left: 24px
+    position: relative
+    cursor: pointer
+    +text(14,400,22,$c_text)
+    +before
+      position: absolute
+      top: 2px
+      left: 0
+      width: 16px
+      height: 16px
+      border: 1px solid #CACACA
+      border-radius: 50%
+      +tran(all,.2s)
+  &:checked
+    + label
+      +before
+        background: radial-gradient(#fff 2px, $c_primary 3px)
+        border-color: $c_primary
+
+
+
+
+.quantity
+  position: relative
+  display: inline-block
+  &__minus, &__plus
+    position: absolute
+    top: 1px
+    bottom: 1px
+    width: 40px
+    +tran(all,.2s)
+    +before
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%,-50%)
+      width: 14px
+      height: 3px
+      +tran(all,.2s)
+    +after
+      +tran(all,.2s)
+    +hover
+      background: $c_primary
+      +before
+        background: #fff
+      +after
+        background: #fff
+  &__minus
+    left: 1px
+    +before
+      background: #D9DADC
+  &__plus
+    right: 1px
+    +before
+      background: #414141
+    +after
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%,-50%) rotate(90deg)
+      width: 14px
+      height: 3px
+      background: #414141
+  &__value
+    width: 160px
+    text-align: center
+    padding: 10px 42px
+    border: 1px solid #414141
+    border-radius: 0
+    +text(14,500,0,#000)

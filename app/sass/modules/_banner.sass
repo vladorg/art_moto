@@ -1,0 +1,143 @@
+.banner
+  min-height: 907px
+  position: relative
+  +flex(0,0,0,center)
+  +md
+    min-height: 700px
+    max-height: 700px
+  +sm
+    min-height: 575px
+    max-height: 575px
+  +xs
+    display: block
+    min-height: 472px
+    max-height: 472px
+    overflow: hidden
+
+  &__bg
+    position: absolute
+    top: 0
+    min-height: 100%
+    max-height: 100%
+
+  &__slider
+    position: relative
+    z-index: 80
+    width: 100%
+    height: 100%
+    padding-top: 100px
+    +xs
+      padding: 24px 4%
+
+  .swiper-slide
+    +flex(0,0,center,center)
+    +sm
+      justify-content: space-around
+    +xs
+      flex-wrap: wrap
+      text-align: center
+  
+  &__caption
+    width: 670px
+    max-width: 37%
+    //margin-right: -100px
+    position: relative
+    z-index: 10
+    +xs
+      max-width: 100%
+
+  &__image
+    width: 867px
+    height: 640px
+    max-width: 52%
+    object-fit: contain
+    cursor: move
+    +desc
+      max-width: 40%
+    +sm
+      max-height: 475px
+    +xs
+      max-width: 100%
+      max-height: 210px
+
+  &__title
+    margin-bottom: 10px
+    +ellipsis(144px,2,true)
+    +text(64,700,72,#fff)
+    +desc
+      +text(48,0,56,0)
+    +md
+      +text(32,0,40,0)
+    +xs
+      margin-bottom: 0
+      +text(24,0,0,0)
+  
+  &__subtitle
+    margin-bottom: 48px
+    -webkit-text-stroke-width: 1px
+    -webkit-text-stroke-color: #fff
+    +ellipsis(112px,2,true)
+    +text(48,600,56,#000)
+    +desc
+      margin-bottom: 32px
+      +text(40,0,48,0)
+    +md
+      +text(24,0,32,0)
+    +sm
+      margin-bottom: 0
+    +xs
+      +text(20,0,0,0)
+
+  &__text
+    padding-right: 132px
+    +ellipsis(104px,4,true)
+    +text(16,400,26,#D9DADC)
+    +md
+      +text(14,0,24,0)
+    +sm
+      display: none
+
+  &__buttons
+    padding-top: 24px
+    +flex(0,0,flex-start,center)
+    +xs
+      display: none
+  
+  &__details
+    width: 343px
+    margin-right: 12px
+    &--mobile
+      display: none
+      +xs
+        display: block
+        margin: 32px 0 0 0
+  
+  &__show
+    width: 200px
+    white-space: nowrap
+
+  div.swiper-pagination
+    width: auto
+    position: absolute
+    top: 50%
+    right: 30px
+    bottom: unset
+    left: unset
+    transform: translateY(-50%)
+    +flex(column,0,0,0)
+    +sm
+      transform: none
+      flex-direction: row
+      top: unset
+      bottom: 32px
+      right: 0
+      left: 0
+      justify-content: center
+    +xs
+      position: static
+      margin-top: 38px
+    .bullet
+      +not_last
+        margin: 0 0 26px 0!important
+        +sm
+          margin: 0 16px 0 0!important

@@ -20,7 +20,7 @@
     color: $color
 
 @mixin desc
-  @media (max-width: 1400px)
+  @media (max-width: 1440px)
   	@content
 
 @mixin md
@@ -65,6 +65,10 @@
 @mixin last
   &:last-child
     @content
+  
+@mixin not_first
+  &:not(:first-child)
+    @content
 
 @mixin not_last
   &:not(:last-child)
@@ -72,3 +76,16 @@
 
 @mixin tran($on, $time)
 	transition: $on $time
+
+
+@mixin ellipsis($height, $clamp: 2, $box: false)
+  @if $box
+    display: -webkit-box
+  @if $height != 0
+    max-height: $height
+    -webkit-box-orient: vertical
+    -webkit-line-clamp: $clamp
+  overflow: hidden
+  text-overflow: ellipsis
+    
+    

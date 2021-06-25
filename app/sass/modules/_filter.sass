@@ -1,0 +1,64 @@
+.filter
+  width: 288px
+  padding: 16px 16px 24px 16px
+  background: $c_filter
+
+  &__title
+    border-bottom: 1px solid #D9DADC
+    padding-bottom: 8px
+    +text(18,500,36,0)
+    +flex(0,0,space-between,center)
+    +tran(all,.4s)
+    +before
+      order: 1
+      transform: rotate(90deg)
+      +tran(all,.4s)
+      transition-delay: .4s
+
+  &__content
+    //padding-top: 24px
+    ul
+      li
+        +not_last
+          margin-bottom: 10px
+
+  &__item
+    +not_last
+      margin-bottom: 16px
+    &.accordion--opened
+      +not_last
+        margin-bottom: 32px
+      .filter__title
+        margin-bottom: 24px
+        +tran(all,.2s)
+        +before
+          transform: rotate(-90deg)
+  
+  &__price
+    .accordion__content
+      overflow: visible
+
+  &__priceSub
+    padding-top: 10px
+    +flex(0,0,space-between,center)
+  &__priceVals
+    padding-top: 16px
+    +flex(0,0,flex-start,center)
+    input
+      max-width: 80px
+      padding: 8px 0
+      text-align: center
+    button
+      margin-left: auto
+      text-transform: uppercase
+      padding: 7px 24px
+  
+  &__priceLine
+    width: 8px
+    height: 1px
+    background: #cacaca
+    margin: 0 4px
+  
+  &__reset
+    display: block
+    margin-bottom: 24px

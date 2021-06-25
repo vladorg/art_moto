@@ -77,7 +77,8 @@ gulp.task('clean', function() {
 gulp.task('buildHtml', function() {
 	return gulp.src('app/*.html')
 	.pipe(htmlreplace({
-		'css': 'css/style.css',
+		'css_critical': 'css/critical.min.css',
+		'css_main': 'css/style.min.css',
 		'js': 'js/main.js'
 	}))
 	.pipe(gulp.dest('dist'))
@@ -89,7 +90,7 @@ gulp.task('buildFonts', function() {
 });
 
 gulp.task('buildCss', function() {
-	return gulp.src('app/css/*.css', '!app/css/libs/*.css')
+	return gulp.src('app/css/*.css', '!app/css/libs/*.css', '!app/css/critical.css')
 	.pipe(concat('style.css'))
 	.pipe(gcmq())
 	.pipe(gulp.dest('dist/css/'))
@@ -98,6 +99,18 @@ gulp.task('buildCss', function() {
 		add: true
 	}}))	
 	.pipe(concat('style.min.css'))
+	.pipe(gulp.dest('dist/css/'))
+});
+
+gulp.task('buildCssCritical', function() {
+	return gulp.src('app/css/critical.css')
+	.pipe(gcmq())
+	.pipe(gulp.dest('dist/css/'))
+	.pipe(cssnano({autoprefixer: {
+		browsers:['last 50 versions', '> 1%', 'ie 8', 'ie 7'], 
+		add: true
+	}}))	
+	.pipe(concat('critical.min.css'))
 	.pipe(gulp.dest('dist/css/'))
 });
 
@@ -124,7 +137,7 @@ gulp.task('buildLibs', function() {
 	.pipe(gulp.dest('dist/libs'))
 });
 
-gulp.task('b', gulp.parallel('clean', 'img', 'buildHtml', 'buildCss', 'buildCssLibs', 'buildJs', 'buildFonts', 'buildLibs'));
+gulp.task('b', gulp.parallel('clean', 'img', 'buildHtml', 'buildCss', 'buildCssCritical', 'buildCssLibs', 'buildJs', 'buildFonts', 'buildLibs'));
 
 
 gulp.task('watch', function() {

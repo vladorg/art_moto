@@ -1,0 +1,13 @@
+include ../../storage/articles.pug
+
+section.blog(data-aos="fade-up" data-aos-duration="500" data-aos-anchor-placement="top-center")
+  .container
+    .heading БЛОГ
+    .blog__inner.swiper-container.swiper-visible
+      .swiper-button-prev
+      .blog__articles.swiper-wrapper
+        each article in articles
+          .swiper-slide
+           +article(article)
+      .swiper-button-next
+      .swiper-pagination

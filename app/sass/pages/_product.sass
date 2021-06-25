@@ -1,2 +1,354 @@
 .product
+  padding-bottom: 80px
+  .productsIntDefault
+    padding-top: 80px
+  
+.productMain
   display: block
+  +flex(0,0,space-between,flex-start)
+
+
+.productMainImages
+  max-width: 624px
+  margin-right: 80px
+  position: relative
+  &__wrap
+    position: absolute
+    opacity: 0
+    pointer-events: none
+    &.visible
+      position: static
+      opacity: 1
+      pointer-events: auto
+    &.hidden
+      position: absolute
+      opacity: 0
+      pointer-events: none
+  &__thumb
+    border: 1px solid #D9DADC
+    margin-bottom: 32px
+    position: relative
+    +before
+      position: absolute
+      top: 19px
+      left: 19px
+    +hover
+      +before
+        background: url("../img/sprite.svg") -678px -27px
+    .swiper-slide      
+      padding: 59px 115px
+      cursor: zoom-in
+    img,
+    iframe
+      width: 400px
+      height: 400px
+      object-fit: contain
+      margin: 0 auto
+  &__nav
+    .swiper-slide
+      height: 88px
+      object-fit: contain
+      padding-bottom: 16px
+      border-bottom: 2px solid $transparent
+      box-sizing: content-box
+      cursor: pointer
+      +tran(all,.2s)
+      &.swiper-slide-thumb-active
+        border-color: $c_primary
+      img
+        height: 100%
+        object-fit: contain
+  &__video
+    position: relative
+    +before
+      position: absolute
+      top: 50%
+      right: 0
+      transform: translateY(-50%)
+  
+
+.productMainInfo
+
+  &__stickers
+    margin-bottom: 4px
+    +flex(0,wrap,0,0)
+    .preview__sticker
+      +text(14,700,17,0)
+  &__name
+    margin-bottom: 12px
+  &__status
+    margin-bottom: 20px
+    +text(14,500,26,#000)
+    +flex(0,0,0,center)
+  &__stock
+    margin-right: 16px
+    +flex(0,0,0,center)
+    +before
+      margin-right: 8px
+  &__rate
+    +flex(0,0,0,center)
+    +before
+      margin-right: 8px
+    .goto_reviews
+      margin-left: 4px
+      +text(14,0,22,0)
+      +hover
+        text-decoration: underline
+  &__price
+    margin-bottom: 4px
+    +text(36,500,44,$c_primary)
+  &__art
+    +text(14,400,26,#AEAFB3)
+
+  &Options
+    padding: 24px 0
+    margin-top: 16px
+    border-top: 1px solid #AEAFB3
+    &__title
+      margin-bottom: 8px
+      width: 100%
+    &__content
+      padding: 0 16px 8px 0
+      +flex(0,0,0,center)
+    &__field
+      +not_last
+        margin-right: 4px
+      label
+        display: block
+        padding: 7px 21px
+        border: 1px solid #414141
+        cursor: pointer
+        position: relative
+        +tran(all,.2s)
+        +before
+          position: absolute
+          top: 0
+          left: 0
+          width: 100%
+          height: 1px
+          background: #414141        
+          transform: rotate(-34deg)
+          top: 46%
+          left: -7px
+          width: 130%
+          opacity: 0
+      input
+        &:checked
+          + label
+            background: #414141
+            color: #fff
+      &--disabled
+        label
+          opacity: 0.2
+          overflow: hidden
+          +before
+            opacity: 1
+    &__item
+      +text(14,500,26,#000)
+      +flex(0,wrap,space-between,center)
+      +not_last
+        margin-bottom: 16px
+      &--color
+        .productMainInfoOptions__field
+          input
+            &:checked
+              + label
+                background: $transparent
+                color: #000
+          label
+            padding: 0
+            border: none
+          img
+            margin: 0
+          +not_last
+            img
+              margin: 0 24px 0 0
+  
+  &Quantity
+  
+  &Actions
+    padding-top: 47px
+    +flex(0,0,0,center)
+    &__buttons
+      padding-right: 33px
+      +flex(0,0,0,center)
+      .btn--prim
+        font-weight: 700
+        margin-right: 4px
+      .btn--default
+        padding: 14px 24px
+    &__tools
+      +flex(0,0,0,center)
+      .btn
+        +not_last
+          margin-right: 16px
+        &.preview__wishlist
+          &--added
+            +hover
+              +before
+                background: url("../img/sprite.svg") -618px -24px
+            +before
+              background: url("../img/sprite.svg") -618px -24px
+        &.preview__compare
+          &--added
+            +hover
+              +before
+                background: url("../img/sprite.svg") -994px -24px
+            +before
+              background: url("../img/sprite.svg") -994px -24px
+  
+.productContent
+  padding-top: 80px
+  .heading
+    font-size: 24px
+    text-transform: unset
+    margin-bottom: 24px
+  .seo__more
+    margin-top: 0
+  &__tags
+    padding-top: 24px
+  &__tag
+    display: inline-block
+    padding: 5px 10px
+    background: #828282
+    text-transform: uppercase
+    margin: 0 8px 8px 0
+    +tran(all,.2s)
+    +text(10,700,12,#fff)
+    +hover
+      text-decoration: none
+      background: #414141
+
+
+.productTabs
+  padding-top: 166px
+  &__nav
+    margin-left: -24px
+    +flex()
+    .tabs__btn
+      margin-right: 0 !important
+      border-bottom: none
+      -webkit-text-stroke-width: 0px
+      padding: 18px 24px
+      +text(18,500,36,0)
+      &--active
+        background: linear-gradient(0deg, rgba(32, 32, 32, 0.95), rgba(32, 32, 32, 0.95))
+        color: #fff
+  &__wrap
+    background: linear-gradient(0deg, rgba(32, 32, 32, 0.95), rgba(32, 32, 32, 0.95))
+  .tabs__content
+    padding: 40px 0
+    color: #fff
+    min-height: 471px
+  .subtitle
+    color: #fff
+    margin-bottom: 16px
+  
+  &Chars
+    &__chars
+      &Wrap
+        padding-bottom: 24px
+    &__row
+      +flex(0,0,0,center)
+      +not_last
+        margin-bottom: 8px
+    &__key
+      margin-right: 4px
+    &__val
+      font-weight: 500
+    &__features
+    &__feature
+      +not_last
+        margin-bottom: 8px
+
+  .productDelivery
+    margin: 0
+    +before
+      display: none
+    &.tabs__content--active
+      +flex(0,0,0,center)
+
+    .swiper-pagination
+      margin-top: 56px
+
+    &__images
+      display: grid
+      grid-template-columns: repeat(2,1fr)
+      grid-gap: 24px
+      margin-left: 159px
+    &__image
+      width: 207px
+      height: 74px
+      padding: 8px 22px
+      background: #fff
+      border-radius: 4px
+      +flex(0,0,center,center)
+      img
+        width: 100%
+  
+  .productGuarantee
+    &__content
+      padding-bottom: 100px
+    .heading, .title
+      color: #fff
+    .heading
+      margin-bottom: 40px
+
+  .productReviews
+    .heading
+      margin-bottom: 6px
+      text-transform: none
+      +text(24,0,0,#fff)
+    &__subtitle
+      margin: 16px 0
+      padding-bottom: 16px
+      border-bottom: 1px solid #AEAFB3
+      p
+        +not_last
+          margin-bottom: 16px
+      span
+        color: $c_primary
+    &__add
+      font-weight: 700
+    .sorting
+      color: #fff
+      margin: 16px 0
+      a:not(:hover)
+        span
+          border-color: #fff
+      &__title
+        margin-right: 16px
+    &__items
+    &__item
+      background: rgba(255, 238, 230, 0.2)
+      border: 1px solid #AEAFB3
+      min-height: 170px
+      max-width: 704px
+      +not_last
+        margin-bottom: 16px
+    &__header
+      padding: 16px
+      border-bottom: 1px solid #AEAFB3
+      +flex(0,0,0,center)
+    &__photo
+      width: 40px
+      height: 40px
+      border-radius: 50%
+    &__name
+      margin: 0 16px
+      +text(18,500,18,0)
+    &__rate
+      +text(14,500,26,0)
+      +flex(0,0,0,center)
+      +before
+        margin-right: 8px
+    &__date
+      margin-left: auto
+      +text(12,400,22,0)
+      +flex(0,0,0,center)
+      +before
+        margin-right: 8px
+        transform: scale(0.8)
+    &__review
+      padding: 16px
+      +text(14,400,22,0)
