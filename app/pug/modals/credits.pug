@@ -1,0 +1,110 @@
+//- вариант полностью не готов, отложено на стилизацию после установки модуля кредитования
+
+.modal.modalCredits 
+  .modal__win
+    button.btn.modal__close.ic-close_modal
+    .modal__header 
+      .heading Кредиты
+      .modal__sub В корзине 
+        span 8 товаров
+        | , на сумму 
+        span 7002,90₴
+    table.creditsTable 
+      thead 
+        tr
+          th Банк
+          th Срок, месяцев
+          th Ежемесячный платеж
+          th Комиссия
+      tbody 
+
+        tr.active 
+          td
+            input(type="radio" name="credit" id="artmoto" checked).radio
+            label(for="artmoto")
+              img(src="./img/icons/artmoto.svg", alt="")
+              span.creditsTable__name ArtMoto - кредит
+          td
+            .dropdown
+              .dropdown__title 2 мес.
+              button.btn.dropdown__btn.ic-arrow_down
+              .dropdown__inner
+                span 1
+                span 2
+                span 3
+          td 4500 ₴/мес.
+          td
+            .creditsTable__com 
+              p Ежемесячная комиссия -  
+                span 2.25%
+              p Разовая комиссия - 
+                span 3%
+
+        tr 
+          td
+            input(type="radio" name="credit" id="monobank").radio
+            label(for="monobank")
+              img(src="./img/icons/monobank.svg", alt="")
+              span.creditsTable__name Monobank - Покупка частями 
+          td
+            .dropdown
+              .dropdown__title 2 мес.
+              button.btn.dropdown__btn.ic-arrow_down
+              .dropdown__inner
+                span 1
+                span 2
+                span 3
+          td 4500 ₴/мес.
+          td
+            .creditsTable__com 
+              p Ежемесячная комиссия -  
+                span 2.25%
+              p Разовая комиссия - 
+                span 3%
+        
+        tr 
+          td
+            input(type="radio" name="credit" id="alfabank").radio
+            label(for="alfabank")
+              img(src="./img/icons/alfabank.svg", alt="")
+              span.creditsTable__name Альфа-Банк - легкая рассрочка
+          td
+            .dropdown
+              .dropdown__title 2 мес.
+              button.btn.dropdown__btn.ic-arrow_down
+              .dropdown__inner
+                span 1
+                span 2
+                span 3
+          td 4500 ₴/мес.
+          td
+            .creditsTable__com 
+              p Ежемесячная комиссия -  
+                span 2.25%
+              p Разовая комиссия - 
+                span 3%
+        
+        tr 
+          td
+            input(type="radio" name="credit" id="privatbank").radio
+            label(for="privatbank")
+              img(src="./img/icons/privatbank.svg", alt="")
+              span.creditsTable__name ПриватБанк - оплата частями
+          td
+            .dropdown
+              .dropdown__title 2 мес.
+              button.btn.dropdown__btn.ic-arrow_down
+              .dropdown__inner
+                span 1
+                span 2
+                span 3
+          td 4500 ₴/мес.
+          td
+            .creditsTable__com 
+              p Ежемесячная комиссия -  
+                span 2.25%
+              p Разовая комиссия - 
+                span 3%
+          
+    
+

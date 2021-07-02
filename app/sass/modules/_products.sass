@@ -122,10 +122,11 @@
     opacity: 0
     +tran(all,.4s)
     +flex(0,0,center,center)
-
     +hover
       +before
         background: url("../img/sprite.svg") -136px -5px
+    +xs
+      opacity: 1
 
     &--added
       +before
@@ -318,6 +319,94 @@
           span
             color: #4BA82E
             border-color: #4BA82E
+  .color-picker
+    &:nth-child(1n + 3)
+      +xs
+        display: none
+
+
+
+
+
+.preview.preview--cart
+  width: 100%
+  padding: 12px
+  background: $c_cart_product
+  +flex(0,0,0,center)
+  +before
+    display: none
+  +not_last
+    margin-bottom: 32px
+  .preview__thumb
+    padding: 0    
+    min-width: 80px
+    height: 80px
+    background: $transparent
+    margin: 0 24px 0 0
+    img
+      width: 100%
+      height: 100%
+      object-fit: contain
+  .preview__name.title
+    width: 316px
+    +text(14,400,22,#000)
+    +ellipsis(44px,2,true)
+    +hover
+      text-decoration: underline
+  .quantity
+    margin-left: auto
+    margin-right: 77px
+    &__value
+      width: 118px
+  .preview__price
+    white-space: normal
+    overflow: visible
+    margin: 0
+    padding: 0
+    text-align: right
+    width: 120px
+    padding-right: 12px
+    +before
+      display: none
+    span
+      display: block
+      white-space: nowrap
+      overflow: hidden
+      text-overflow: ellipsis
+  .preview__special
+    font-size: 14px
+    margin-right: 0
+  .preview__actions
+    opacity: 1
+    top: 0
+    right: 12px
+    transform: translateY(-50%)
+    z-index: 11
+    +flex()
+    button
+      margin-bottom: 0
+      background: #dadada
+      +before
+        opacity: .4
+      +hover
+        +before
+          opacity: 1
+  .preview__wishlist
+    margin-right: 16px
+    &--added
+      +before
+        opacity: 1!important
+  .preview__delete
+    +hover
+      +before
+        background: url('../img/sprite.svg') -67px -5px
+
+
+
+
+
+
+
 
 
 

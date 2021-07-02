@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Список страниц</title><!-- build:css_critical -->
+    <title>Cart</title><!-- build:css_critical -->
     <link rel="stylesheet" href="./css/critical.css"><!-- endbuild -->
   </head>
-  <body class="root page-product">
+  <body class="root page-cart">
     <header class="header">
       <div class="header__toolbar">
         <div class="container">
@@ -297,19 +297,120 @@
         </div>
       </nav>
     </header>
-    <main class="product">
+    <main class="cartPage">
       <div class="container">
         <section class="breadcrumbs"><a class="breadcrumbs__item" href="./">Главная</a>
-            <div class="breadcrumbs__end">Список страниц</div>
+            <div class="breadcrumbs__end">Корзина</div>
         </section>
-        <h1 class="heading">Список страниц</h1>
-        <section class="content">
-          <ul class="ul"> 
-            <li> <a href="./" target="_blank">Главная</a></li>
-            <li> <a href="./catalog.html" target="_blank">Каталог</a></li>
-            <li> <a href="./product.html" target="_blank">Карточка товара</a></li>
-            <li> <a href="./product-big.html" target="_blank">Карточка товара (расширенная)</a></li>
-          </ul>
+        <section class="cartPageWrap">
+          <div class="cartPageContent">
+            <div class="cartPageContent__header">
+              <h1 class="heading">Корзина</h1>
+              <button class="btn btn--dashed ic-heart_black cartPageContent__wish" id="add_to_wish_all"><span>Добавить все в избранное</span></button>
+              <button class="btn btn--dashed ic-trash cartPageContent__del" id="cart_del_all"><span>Удалить все</span></button>
+            </div>
+            <div class="cartPageContent__products">
+                <div class="preview preview--cart"><a class="preview__thumb" href="./product.html"><img width="80" height="80" src="./img/cart/1.png" alt=""></a><a class="preview__name title" href="./product.html">Мотошлем LS2 FF353 RAPID BOHO WHITE-BLACK-PINK</a>
+                  <div class="quantity">
+                    <button class="btn quantity__minus"></button>
+                    <input class="quantity__value" type="text" name="quantity" value="1">
+                    <button class="btn quantity__plus"></button>
+                  </div>
+                  <div class="preview__price"><span class="preview__special">2700.50 ₴</span><span>2538.90 ₴</span>
+                  </div>
+                  <div class="preview__actions">
+                    <button class="btn ic-heart_black preview__wishlist"></button>
+                    <button class="btn ic-trash preview__delete"></button>
+                  </div>
+                </div>
+                <div class="preview preview--cart"><a class="preview__thumb" href="./product.html"><img width="80" height="80" src="./img/cart/2.png" alt=""></a><a class="preview__name title" href="./product.html">Мотоперчатки Elemento 212</a>
+                  <div class="quantity">
+                    <button class="btn quantity__minus"></button>
+                    <input class="quantity__value" type="text" name="quantity" value="1">
+                    <button class="btn quantity__plus"></button>
+                  </div>
+                  <div class="preview__price"><span>418.50 ₴</span>
+                  </div>
+                  <div class="preview__actions">
+                    <button class="btn ic-heart_black preview__wishlist"></button>
+                    <button class="btn ic-trash preview__delete"></button>
+                  </div>
+                </div>
+                <div class="preview preview--cart"><a class="preview__thumb" href="./product.html"><img width="80" height="80" src="./img/cart/3.png" alt=""></a><a class="preview__name title" href="./product.html">Штаны FOX 360 Racepant red</a>
+                  <div class="quantity">
+                    <button class="btn quantity__minus"></button>
+                    <input class="quantity__value" type="text" name="quantity" value="1">
+                    <button class="btn quantity__plus"></button>
+                  </div>
+                  <div class="preview__price"><span>83.70 ₴</span>
+                  </div>
+                  <div class="preview__actions">
+                    <button class="btn ic-heart_black preview__wishlist"></button>
+                    <button class="btn ic-trash preview__delete"></button>
+                  </div>
+                </div>
+                <div class="preview preview--cart"><a class="preview__thumb" href="./product.html"><img width="80" height="80" src="./img/cart/4.png" alt=""></a><a class="preview__name title" href="./product.html">Кроссовые очки PROGRIP BASE LINE GOGGLES Yellow</a>
+                  <div class="quantity">
+                    <button class="btn quantity__minus"></button>
+                    <input class="quantity__value" type="text" name="quantity" value="1">
+                    <button class="btn quantity__plus"></button>
+                  </div>
+                  <div class="preview__price"><span class="preview__special">890.20 ₴</span><span>809.10 ₴</span>
+                  </div>
+                  <div class="preview__actions">
+                    <button class="btn ic-heart_black preview__wishlist"></button>
+                    <button class="btn ic-trash preview__delete"></button>
+                  </div>
+                </div>
+                <div class="preview preview--cart"><a class="preview__thumb" href="./product.html"><img width="80" height="80" src="./img/cart/5.png" alt=""></a><a class="preview__name title" href="./product.html">Мотошина SHINKO 130/70R18 63H TL/SE890</a>
+                  <div class="quantity">
+                    <button class="btn quantity__minus"></button>
+                    <input class="quantity__value" type="text" name="quantity" value="1">
+                    <button class="btn quantity__plus"></button>
+                  </div>
+                  <div class="preview__price"><span>3 152.70 ₴</span>
+                  </div>
+                  <div class="preview__actions">
+                    <button class="btn ic-heart_black preview__wishlist"></button>
+                    <button class="btn ic-trash preview__delete"></button>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div class="cartPageInfo">
+            <div class="cartInfo">
+              <div class="cartInfo__row cartInfo__row--products">
+                <div class="cartInfo__key label">Товаров в корзине:</div>
+                <div class="cartInfo__val label">8 ед.</div>
+              </div>
+              <div class="cartInfo__row"> 
+                <div class="cartInfo__key label">Скидка:</div>
+                <div class="cartInfo__val label">-532,10 ₴</div>
+              </div>
+              <div class="cartInfo__row cartInfo__row--cashback"> 
+                <div class="cartInfo__key label">Кешбек:</div>
+                <div class="cartInfo__val label">70,90 ₴</div>
+              </div>
+              <div class="cartInfo__row cartInfo__row--total"> 
+                <div class="cartInfo__key label">Итого:</div>
+                <div class="cartInfo__val label">7002,90 ₴</div>
+              </div>
+            </div>
+            <div class="cartPageInfo__inner">
+              <div class="enter">
+                <div class="enter__btn btn btn--dashed open_promo"><span>Ввести промокод</span></div>
+                <div class="enter__enter">
+                  <p>Введите промокод!</p>
+                  <div class="enter__enterArea">
+                    <input class="input" type="text" name="promocode" placeholder="Код">
+                    <button class="btn btn--prim add_promo">Применить</button>
+                  </div>
+                </div>
+                <div class="enter__success">Промокод успешно применён!</div>
+              </div><a class="btn btn--prim cartPageInfo__checkout" href="./checkout.html">Оформить</a>
+              <button class="btn btn--dashed open_credits"> <span>КРЕДИТ</span></button>
+            </div>
+          </div>
         </section>
       </div>
     </main>

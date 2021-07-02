@@ -1,2 +1,181 @@
-.cart
-  //display: block
+.cartPage
+  padding-bottom: 148px
+
+  .heading
+    text-transform: unset
+    margin-bottom: 8px
+
+
+.cartPageWrap
+  +flex(0,0,0,flex-start)
+
+.cartPageContent
+  width: 100%
+  max-width: calc(70% - 29px)
+  margin-right: 29px
+
+  &__header
+    +flex(0,0,0,flex-end)
+
+  &__wish
+    margin: 0 48px 0 auto
+
+  &__products
+    padding-top: 56px
+
+.cartPageInfo
+  width: 100%
+  max-width: 30%
+  margin-top: 72px
+  position: sticky
+  top: 16px
+  background: #FAFAFA
+  padding: 32px 0 24px 0
+  &__inner
+    padding: 0 24px
+  &__checkout
+    text-transform: uppercase
+    font-weight: 700
+    margin-bottom: 16px
+  .open_credits
+    display: block
+    margin: 0 auto
+    +text(16,700,24,0)
+  .enter__btn
+    margin-bottom: 16px
+  .enter
+    margin-bottom: 16px
+
+
+
+.cartInfo
+  padding-bottom: 16px
+  margin-bottom: 24px
+  border-bottom: 1px solid #DADADA
+  &__row
+    padding: 0 24px
+    margin-bottom: 16px
+    +flex(0,0,space-between,center)
+    &--products
+      margin-bottom: 32px
+    &--total
+      margin: 24px 0 0 0
+      .cartInfo__val
+        +text(28,700,44,$c_primary)
+    &--cashback
+      .cartInfo__val
+        font-weight: 700
+  &__key
+    font-weight: 400
+    margin-bottom: 0
+  &__val
+    margin-bottom: 0
+    font-weight: 500
+
+
+.enter
+  &__btn
+    text-align: center
+    display: block
+    +before
+      display: none
+    span
+      color: $c_primary
+      border-color: $c_primary
+  &__enter
+    display: none
+  &__success
+    display: none
+    padding: 16px
+    border: 1px solid #4BA82E
+    font-weight: 500
+    > span
+      font-weight: 600
+      display: inline-block
+      margin: 0 4px
+    button
+      margin-left: auto
+      color: $c_primary
+      span
+        border-color: $c_primary
+  &__enterArea
+    +flex(0,wrap,space-between,center)
+  &__enter
+    padding: 16px   
+    border: 1px solid $c_primary 
+    p
+      margin-bottom: 20px
+    input
+      width: 100%
+      max-width: 55%
+      padding: 3px 8px
+    button
+      padding: 4px 16px
+      +text(14,600,22,0)
+  &__msg
+    margin-top: 8px
+    color: $c_primary
+  
+  &--opened
+    .enter__btn
+      display: none
+    .enter__enter
+      display: block
+    .enter__success
+      display: none
+  &--entered
+    .enter__btn
+      display: none
+    .enter__enter
+      display: none
+    .enter__success
+      +flex()
+
+
+.creditsTable
+  &__name
+    display: inline-block
+    color: #6B6B6B
+    white-space: nowrap
+    max-width: 230px
+  &__com
+    p
+      white-space: nowrap
+      font-size: 14px
+  th,td
+    border: none
+
+  thead
+    border-top: 1px solid #D9DADC
+    border-bottom: 1px solid #D9DADC
+    th
+      white-space: nowrap
+      padding: 8px 32px
+      text-align: left
+      +text(14,500,22,#D9DADC)
+      &:nth-child(2)
+        padding-left: 16px
+  tbody
+    tr
+      &:nth-child(even)
+        background: #FAFAFA
+      td
+        font-weight: 400
+        +first
+          label
+            +flex(0,0,0,center)
+            img
+              margin: 0 8px 0 4px
+        &:nth-child(2)
+          padding-left: 16px
+      &.active
+        td
+          color: #000
+          font-weight: 500
+        .creditsTable__name
+          color: #000
+          font-weight: 700
+        .creditsTable__com
+          p
+            span
+              font-weight: 600

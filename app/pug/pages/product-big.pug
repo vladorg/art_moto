@@ -48,14 +48,16 @@ html(lang="en")
           +breadcrumbs(breadcrumbs)
 
         section.productBigNav
-          .productBigNav__items
-            button.btn.anchor.productBigNav__item.active(data-section="view") Обзор
-            button.btn.anchor.productBigNav__item(data-section="chars") Характеристики
-            button.btn.anchor.productBigNav__item(data-section="complect") Комплектация
-            button.btn.anchor.productBigNav__item(data-section="delivery") Доставка и оплата
-            button.btn.anchor.productBigNav__item(data-section="guarantee") Гарантия и сервис
-          .productBigNav__btn
-            button.btn.ic-arrow_nav Навигация
+          .productBigNav__wrap
+            .title.visible-xs Навигация
+            .productBigNav__items
+              button.btn.anchor.productBigNav__item.active(data-section="view") Обзор
+              button.btn.anchor.productBigNav__item(data-section="chars") Характеристики
+              button.btn.anchor.productBigNav__item(data-section="complect") Комплектация
+              button.btn.anchor.productBigNav__item(data-section="delivery") Доставка и оплата
+              button.btn.anchor.productBigNav__item(data-section="guarantee") Гарантия и сервис
+            .productBigNav__btn
+              button.btn.ic-arrow_nav Навигация
 
         section.productBigMain
 
@@ -159,7 +161,7 @@ html(lang="en")
             a.btn.btn--default.productBigSlot__credit(href="#") КРЕДИТ
               
         
-      section.productPresent.anchor-section(data-section="view")
+      section.productPresent.blured-black.anchor-section(data-section="view")
         img.productPresent__bg(src="./img/bg_about_product.jpg" alt="")
         .productPresentContent
           .productPresentInfo
@@ -239,7 +241,7 @@ html(lang="en")
                   li Штатный иммобилайзер
                   li Топливный бак на 20 литров
             button.btn.seo__more.ic-arrow_orange Смотреть все 
-            .productComplectation__photos.swiper-container.swiper-visible-slides 
+            .productComplectation__photos.swiper-container.swiper-visible 
               .swiper-wrapper 
                 img.swiper-slide(src="./img/product/complectation1.jpg" alt="" data-aos="fade-left" data-aos-duration="800" data-aos-offset="300" data-aos-anchor-placement="top-center")
                 img.swiper-slide(src="./img/product/complectation2.jpg" alt="" data-aos="fade-left" data-aos-duration="800" data-aos-offset="300" data-aos-anchor-placement="top-center")
@@ -247,7 +249,7 @@ html(lang="en")
                 img.swiper-slide(src="./img/product/complectation2.jpg" alt="")
               .swiper-pagination.swiper-pagination-static
 
-      section.productDelivery.anchor-section(data-section="delivery")
+      section.productDelivery.blured-black.anchor-section(data-section="delivery")
         img.productDelivery__back(src="./img/bg_delivery_product.jpg")
         .container(data-section="delivery" data-aos="zoom-in" data-aos-duration="800" data-aos-anchor-placement="top-center")
           .heading Доставка и оплата 
@@ -308,21 +310,21 @@ html(lang="en")
             .productGuarantee__img.guarantee(data-aos="flip-left" data-aos-duration="500" data-aos-anchor-placement="center-center")
               img(src="./img/director2.png" alt="")
               img.guarantee__border(src="./img/guarantee.svg", alt="")
-          blockquote.productGuarantee__warn(data-aos="zoom-in-up" data-aos-duration="700" data-aos-anchor-placement="center-center")
-            .title Гарантия не распространяется на:
-            p Недостатки, которые возникли в результате ДТП или пожара, неправильной эксплуатации или небрежного отношения с двигателем;
-              br
-              | На детали, узлы и агрегаты, которые установлены на неофициальных сервисных станциях, и запрещены для установки производителем двигателя;
-              br
-              | Неисправности, которые возникли в результате:
-              br
-              | 1. несвоевременного прохождения ТО;
-              br
-              | 2. воздействия экстремально высоких или низких температур;
-              br
-              | 3. действия предметов, которые попали в агрегат или деталь и вывели ее из строя.
-              br
-              | Детали (фильтра, масло, жидкости), которые имеют природный износ (диски сцепления, лампы и т.п.).
+            blockquote.productGuarantee__warn(data-aos="zoom-in-up" data-aos-duration="700" data-aos-anchor-placement="center-center")
+              .title Гарантия не распространяется на:
+              p Недостатки, которые возникли в результате ДТП или пожара, неправильной эксплуатации или небрежного отношения с двигателем;
+                br
+                | На детали, узлы и агрегаты, которые установлены на неофициальных сервисных станциях, и запрещены для установки производителем двигателя;
+                br
+                | Неисправности, которые возникли в результате:
+                br
+                | 1. несвоевременного прохождения ТО;
+                br
+                | 2. воздействия экстремально высоких или низких температур;
+                br
+                | 3. действия предметов, которые попали в агрегат или деталь и вывели ее из строя.
+                br
+                | Детали (фильтра, масло, жидкости), которые имеют природный износ (диски сцепления, лампы и т.п.).
 
       include ../blocks/product_list_default.pug
 

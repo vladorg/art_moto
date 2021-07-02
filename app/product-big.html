@@ -303,15 +303,18 @@
             <div class="breadcrumbs__end">vmax</div>
         </section>
         <section class="productBigNav">
-          <div class="productBigNav__items">
-            <button class="btn anchor productBigNav__item active" data-section="view">Обзор</button>
-            <button class="btn anchor productBigNav__item" data-section="chars">Характеристики</button>
-            <button class="btn anchor productBigNav__item" data-section="complect">Комплектация</button>
-            <button class="btn anchor productBigNav__item" data-section="delivery">Доставка и оплата</button>
-            <button class="btn anchor productBigNav__item" data-section="guarantee">Гарантия и сервис</button>
-          </div>
-          <div class="productBigNav__btn">
-            <button class="btn ic-arrow_nav">Навигация</button>
+          <div class="productBigNav__wrap">
+            <div class="title visible-xs">Навигация</div>
+            <div class="productBigNav__items">
+              <button class="btn anchor productBigNav__item active" data-section="view">Обзор</button>
+              <button class="btn anchor productBigNav__item" data-section="chars">Характеристики</button>
+              <button class="btn anchor productBigNav__item" data-section="complect">Комплектация</button>
+              <button class="btn anchor productBigNav__item" data-section="delivery">Доставка и оплата</button>
+              <button class="btn anchor productBigNav__item" data-section="guarantee">Гарантия и сервис</button>
+            </div>
+            <div class="productBigNav__btn">
+              <button class="btn ic-arrow_nav">Навигация</button>
+            </div>
           </div>
         </section>
         <section class="productBigMain">
@@ -383,7 +386,7 @@
           </div>
         </section>
       </div>
-      <section class="productPresent anchor-section" data-section="view"><img class="productPresent__bg" src="./img/bg_about_product.jpg" alt="">
+      <section class="productPresent blured-black anchor-section" data-section="view"><img class="productPresent__bg" src="./img/bg_about_product.jpg" alt="">
         <div class="productPresentContent">
           <div class="productPresentInfo">
             <div class="productPresentInfo__desc" data-aos="fade-right" data-aos-duration="800" data-aos-anchor-placement="top-center">
@@ -455,7 +458,7 @@
       <section class="productsIntCustom" data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="top-center">
         <div class="container">
           <div class="heading">Эти товары могут вас заинтересовать</div>
-          <div class="productsListCustom swiper-container swiper-visible">
+          <div class="productsListCustom swiper-container swiper-blured swiper-visible">
             <div class="swiper-button-prev"></div>
             <div class="swiper-wrapper">
               <div class="swiper-slide">
@@ -720,14 +723,14 @@
               </div>
             </div>
             <button class="btn seo__more ic-arrow_orange">Смотреть все </button>
-            <div class="productComplectation__photos swiper-container swiper-visible-slides"> 
+            <div class="productComplectation__photos swiper-container swiper-visible"> 
               <div class="swiper-wrapper"> <img class="swiper-slide" src="./img/product/complectation1.jpg" alt="" data-aos="fade-left" data-aos-duration="800" data-aos-offset="300" data-aos-anchor-placement="top-center"><img class="swiper-slide" src="./img/product/complectation2.jpg" alt="" data-aos="fade-left" data-aos-duration="800" data-aos-offset="300" data-aos-anchor-placement="top-center"><img class="swiper-slide" src="./img/product/complectation1.jpg" alt=""><img class="swiper-slide" src="./img/product/complectation2.jpg" alt=""></div>
               <div class="swiper-pagination swiper-pagination-static"></div>
             </div>
           </div>
         </div>
       </section>
-      <section class="productDelivery anchor-section" data-section="delivery"><img class="productDelivery__back" src="./img/bg_delivery_product.jpg">
+      <section class="productDelivery blured-black anchor-section" data-section="delivery"><img class="productDelivery__back" src="./img/bg_delivery_product.jpg">
         <div class="container" data-section="delivery" data-aos="zoom-in" data-aos-duration="800" data-aos-anchor-placement="top-center">
           <div class="heading">Доставка и оплата </div>
           <div class="productDelivery__content swiper-container swiper-visible-slides">
@@ -799,17 +802,17 @@
               <p>Гарантия на двигатель сохраняется при условии соблюдения требований, рекомендаций и правил эксплуатации и хранения двигателя. Неотъемлемой частью для сохранения гарантии есть регулярное посещение планового технического обслуживания на официальных сервисных станциях.</p>
             </div>
             <div class="productGuarantee__img guarantee" data-aos="flip-left" data-aos-duration="500" data-aos-anchor-placement="center-center"><img src="./img/director2.png" alt=""><img class="guarantee__border" src="./img/guarantee.svg" alt=""></div>
+            <blockquote class="productGuarantee__warn" data-aos="zoom-in-up" data-aos-duration="700" data-aos-anchor-placement="center-center">
+              <div class="title">Гарантия не распространяется на:</div>
+              <p>Недостатки, которые возникли в результате ДТП или пожара, неправильной эксплуатации или небрежного отношения с двигателем;<br>На детали, узлы и агрегаты, которые установлены на неофициальных сервисных станциях, и запрещены для установки производителем двигателя;<br>Неисправности, которые возникли в результате:<br>1. несвоевременного прохождения ТО;<br>2. воздействия экстремально высоких или низких температур;<br>3. действия предметов, которые попали в агрегат или деталь и вывели ее из строя.<br>Детали (фильтра, масло, жидкости), которые имеют природный износ (диски сцепления, лампы и т.п.).</p>
+            </blockquote>
           </div>
-          <blockquote class="productGuarantee__warn" data-aos="zoom-in-up" data-aos-duration="700" data-aos-anchor-placement="center-center">
-            <div class="title">Гарантия не распространяется на:</div>
-            <p>Недостатки, которые возникли в результате ДТП или пожара, неправильной эксплуатации или небрежного отношения с двигателем;<br>На детали, узлы и агрегаты, которые установлены на неофициальных сервисных станциях, и запрещены для установки производителем двигателя;<br>Неисправности, которые возникли в результате:<br>1. несвоевременного прохождения ТО;<br>2. воздействия экстремально высоких или низких температур;<br>3. действия предметов, которые попали в агрегат или деталь и вывели ее из строя.<br>Детали (фильтра, масло, жидкости), которые имеют природный износ (диски сцепления, лампы и т.п.).</p>
-          </blockquote>
         </div>
       </section>
       <section class="productsIntDefault" data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="top-center">
         <div class="container">
           <div class="heading">Эти товары могут вас заинтересовать</div>
-          <div class="productsListDefault swiper-container swiper-visible">
+          <div class="productsListDefault swiper-container swiper-blured swiper-visible">
             <div class="swiper-button-prev"></div>
             <div class="swiper-wrapper">
               <div class="swiper-slide">
@@ -932,7 +935,7 @@
       </section>
       <section class="feedback blured-black"><img class="feedback__bg" src="./img/bg_feedback.jpg" alt="">
         <div class="container"> 
-          <div class="feedback__content" data-aos="fade-right" data-aos-duration="800" data-aos-anchor-placement="center-center">
+          <div class="feedback__content">
             <div class="feedback__text">
               <div class="heading">Остались вопросы?</div>
               <p>Оставьте ваши контактные данные и краткое описание вопроса который вас интересует.</p>
@@ -944,7 +947,7 @@
               <textarea class="input" type="text" name="message" placeholder="Сообщение"></textarea>
               <button class="btn btn--prim">ОТПРАВИТЬ</button>
             </form>
-          </div><img class="feedback__image" src="./img/bike.png" alt="" data-aos="fade-left" data-aos-duration="800" data-aos-anchor-placement="center-center">
+          </div><img class="feedback__image" src="./img/bike.png" alt="" data-aos="zoom-in" data-aos-duration="800" data-aos-anchor-placement="center-center">
         </div>
       </section>
     </main>
@@ -1034,6 +1037,107 @@
         </div>
       </div>
     </footer>
+    <div class="modal modalCredits"> 
+      <div class="modal__win">
+        <button class="btn modal__close ic-close_modal"></button>
+        <div class="modal__header"> 
+          <div class="heading">Кредиты</div>
+          <div class="modal__sub">В корзине <span>8 товаров</span>, на сумму <span>7002,90₴</span></div>
+        </div>
+        <table class="creditsTable"> 
+          <thead> 
+            <tr>
+              <th>Банк</th>
+              <th>Срок, месяцев</th>
+              <th>Ежемесячный платеж</th>
+              <th>Комиссия</th>
+            </tr>
+          </thead>
+          <tbody> 
+            <tr class="active"> 
+              <td>
+                <input class="radio" type="radio" name="credit" id="artmoto" checked>
+                <label for="artmoto"><img src="./img/icons/artmoto.svg" alt=""><span class="creditsTable__name">ArtMoto - кредит</span></label>
+              </td>
+              <td>
+                <div class="dropdown">
+                  <div class="dropdown__title">2 мес.</div>
+                  <button class="btn dropdown__btn ic-arrow_down"></button>
+                  <div class="dropdown__inner"><span>1</span><span>2</span><span>3</span></div>
+                </div>
+              </td>
+              <td>4500 ₴/мес.</td>
+              <td>
+                <div class="creditsTable__com"> 
+                  <p>Ежемесячная комиссия -  <span>2.25%</span></p>
+                  <p>Разовая комиссия - <span>3%</span></p>
+                </div>
+              </td>
+            </tr>
+            <tr> 
+              <td>
+                <input class="radio" type="radio" name="credit" id="monobank">
+                <label for="monobank"><img src="./img/icons/monobank.svg" alt=""><span class="creditsTable__name">Monobank - Покупка частями </span></label>
+              </td>
+              <td>
+                <div class="dropdown">
+                  <div class="dropdown__title">2 мес.</div>
+                  <button class="btn dropdown__btn ic-arrow_down"></button>
+                  <div class="dropdown__inner"><span>1</span><span>2</span><span>3</span></div>
+                </div>
+              </td>
+              <td>4500 ₴/мес.</td>
+              <td>
+                <div class="creditsTable__com"> 
+                  <p>Ежемесячная комиссия -  <span>2.25%</span></p>
+                  <p>Разовая комиссия - <span>3%</span></p>
+                </div>
+              </td>
+            </tr>
+            <tr> 
+              <td>
+                <input class="radio" type="radio" name="credit" id="alfabank">
+                <label for="alfabank"><img src="./img/icons/alfabank.svg" alt=""><span class="creditsTable__name">Альфа-Банк - легкая рассрочка</span></label>
+              </td>
+              <td>
+                <div class="dropdown">
+                  <div class="dropdown__title">2 мес.</div>
+                  <button class="btn dropdown__btn ic-arrow_down"></button>
+                  <div class="dropdown__inner"><span>1</span><span>2</span><span>3</span></div>
+                </div>
+              </td>
+              <td>4500 ₴/мес.</td>
+              <td>
+                <div class="creditsTable__com"> 
+                  <p>Ежемесячная комиссия -  <span>2.25%</span></p>
+                  <p>Разовая комиссия - <span>3%</span></p>
+                </div>
+              </td>
+            </tr>
+            <tr> 
+              <td>
+                <input class="radio" type="radio" name="credit" id="privatbank">
+                <label for="privatbank"><img src="./img/icons/privatbank.svg" alt=""><span class="creditsTable__name">ПриватБанк - оплата частями</span></label>
+              </td>
+              <td>
+                <div class="dropdown">
+                  <div class="dropdown__title">2 мес.</div>
+                  <button class="btn dropdown__btn ic-arrow_down"></button>
+                  <div class="dropdown__inner"><span>1</span><span>2</span><span>3</span></div>
+                </div>
+              </td>
+              <td>4500 ₴/мес.</td>
+              <td>
+                <div class="creditsTable__com"> 
+                  <p>Ежемесячная комиссия -  <span>2.25%</span></p>
+                  <p>Разовая комиссия - <span>3%</span></p>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
     <script src="./libs/swiper/swiper-bundle.min.js"></script>
     <script src="./libs/aos/aos.js"></script>
     <script src="./libs/nouislider/nouislider.min.js"></script>

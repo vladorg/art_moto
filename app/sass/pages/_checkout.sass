@@ -1,0 +1,243 @@
+body.page-checkout
+  +flex(row,0,center,0)
+  
+  
+  
+.header
+  &--checkout
+    background: $transparent
+    padding-top: 54px
+    position: absolute
+    .container
+
+
+.checkoutMain
+  width: 1052px
+  padding: 148px 104px 0 calc((100% - #{$container}) / 2)
+
+  .breadcrumbs
+    padding: 0
+    &__item
+      &.active
+        font-weight: 500
+      +last
+        +after
+          display: none
+
+.checkoutSummary
+  padding-top: 32px
+  &__row
+    border: 1px solid #D9DADC
+    padding: 12px 16px
+    +flex(0,0,0,center)
+    display: none
+    +last
+      border-top-color: $transparent
+    &.active
+      display: flex
+  &__label
+    color: #000
+    margin-right: 8px
+  &__data
+    max-width: 70%
+    white-space: nowrap
+    +ellipsis(0,1,false)
+    span
+      color: #676767
+      display: inline-block
+      position: relative
+      +not_last
+        margin-right: 4px
+        &::after
+          content: ','
+          display: inline-block
+  .btn  
+    margin-left: auto
+    color: $c_primary
+    span
+      border-color: $c_primary
+  
+.checkoutLinks
+  border-top: 1px solid #D9DADC
+  padding-top: 24px
+  margin-top: 76px
+  ul
+    +flex(0,wrap,0,center)
+    li
+      +not_last
+        margin-right: 40px
+      a
+        color: #000
+
+.checkoutSteps
+  padding-top: 48px
+
+.checkoutStep
+  display: none
+  &.active
+    display: block
+  .heading
+    font-size: 24px
+    margin-bottom: 0
+    text-transform: none
+  &__sub
+    color: #000
+    margin-top: 16px
+    +flex(0,0,0,center)
+    button
+      margin-left: 4px
+      color: $c_primary
+      span
+        font-weight: 500
+        border-color: $c_primary
+  &__fields
+    padding-top: 32px
+  &__summary
+  &__agree
+    label
+      font-weight: 600
+  &__buttons 
+    padding-top: 32px
+    +flex(0,0,0,center)
+    .btn--prim
+      font-weight: 700
+      text-transform: uppercase
+      margin-right: 45px
+    .btn--dashed
+      color: $c_primary
+      span
+        border-color: $c_primary
+  &__comment
+    margin-top: 32px
+    .input
+      height: 96px
+      padding: 12px 16px
+
+.checkoutStepItem
+  border: 1px solid #D9DADC
+  padding: 16px
+  +not_last
+    border-bottom-color: $transparent
+  label
+    color: #676767
+  .radio:checked
+    + label
+      font-weight: 700
+  &__radio
+    +flex(0,0,0,center)
+    .field
+      + .field
+        margin-left: 12px
+        width: 100%
+        max-width: 312px
+    .input
+      padding: 4px 0 4px 7px
+  &__info
+    padding-top: 16px
+    +flex(0,0,space-between,flex-start)
+    p
+      color: #676767
+      font-weight: 300
+    span
+      font-weight: 500
+      color: #000
+  &__child
+    padding: 16px 0 0 8px
+    pointer-events: none
+    .checkoutStepItem__radio
+      +not_last
+        margin-bottom: 16px
+  
+  &.active
+    border-color: $c_primary
+    .checkoutStepItem__child
+      pointer-events: auto
+
+
+.checkoutCustomer
+  .field
+    margin-bottom: 32px
+  .input
+    padding: 12px 0 12px 16px
+    width: 100%
+
+
+.checkoutDelivery
+  .checkoutStepItem__info 
+    padding-top: 4px
+
+
+
+
+
+.checkoutSidebar
+  width: 868px
+  background: $c_checkout_sidebar
+  padding: 148px calc((100% - #{$container}) / 2) 200px 24px
+
+  &__products
+    max-height: 430px
+    padding-right: 4px
+    overflow: auto
+  &__product
+    padding-bottom: 16px
+    border-bottom: 1px solid #D9DADC
+    +flex(0,0,0,center)
+    +not_last
+      margin-bottom: 16px
+  &__thumb
+    border: 1px solid #D9DADC
+    min-width: 56px
+    max-width: 56px
+    height: 56px
+    object-fit: contain
+    margin-right: 24px
+  &__price
+    margin-left: auto
+    max-width: 100px
+    white-space: nowrap
+    +text(16,500,32,0)
+    +ellipsis(32px,1,false)
+  
+  &Opt
+    &__name
+      font-weight: 600
+      color: #000
+      width: 100%
+      max-width: 316px
+      margin-bottom: 8px
+      +ellipsis(44px,2,true)
+    &__items
+      +flex(0,wrap,0,center)
+    &__item
+      +not_last
+        margin-right: 16px
+      span
+        color: #000
+        +first
+        +last
+          font-weight: 600
+
+  .cartInfo
+    padding-top: 24px
+    &__row
+      padding: 0
+
+  .enter
+    &--cashback
+      margin-bottom: 16px
+      p
+        margin-bottom: 8px
+        span
+          font-weight: 600
+        + p
+          font-size: 12px
+          color: #858585
+          margin-bottom: 16px
+
+    .enter__btn
+      margin-top: 32px
+    
+    .enter__enter
+      input
+        max-width: 66%

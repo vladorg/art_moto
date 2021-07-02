@@ -26,7 +26,7 @@
     './img/product/product4.png',
     './img/product/product5.png',
     './img/product/product1.png',
-  ]
+  ];
 
 doctype html
 html(lang="en")
@@ -40,10 +40,23 @@ html(lang="en")
     main.product
       .container
 
-        section.breadcrumbs
+        section.breadcrumbs.scroll.scroll--breadcrumbs
           +breadcrumbs(breadcrumbs)
 
-        section.productMain
+        section.productMain         
+
+          .productMainHeading.visible-xs
+            .productMainInfo__art Арт.: 23545645
+            .heading.productMainInfo__name МОТОШЛЕМ LS2 FF353 RAPID SINGLE MONO GLOSS BLACK
+            .productMainInfo__stickers
+              .preview__sticker.preview__sticker--new новинка
+              .preview__sticker.preview__sticker--freeshiping бесплатная доставка
+            .productMainInfo__status
+              .productMainInfo__stock.ic-check_in В наличии
+              .productMainInfo__rate.ic-star_f 3.5 
+                button.btn.goto_reviews (2 отзыва)
+              .productMainInfo__manufacturer Производитель: 
+                a(href="#") IXS 
 
           .productMainImages
           
@@ -62,16 +75,24 @@ html(lang="en")
                   img(src='./img/product/preview.jpg', alt="")
 
           .productMainInfo 
-            .productMainInfo__stickers
+            .productMainInfo__stickers.hidden-xs
               .preview__sticker.preview__sticker--new новинка
               .preview__sticker.preview__sticker--freeshiping бесплатная доставка
-            h1.heading.productMainInfo__name МОТОШЛЕМ LS2 FF353 RAPID SINGLE MONO GLOSS BLACK
-            .productMainInfo__status
+            h1.heading.productMainInfo__name.hidden-xs МОТОШЛЕМ LS2 FF353 RAPID SINGLE MONO GLOSS BLACK
+            .productMainInfo__status.hidden-xs
               .productMainInfo__stock.ic-check_in В наличии
               .productMainInfo__rate.ic-star_f 3.5 
                 button.btn.goto_reviews (2 отзыва)
-            .productMainInfo__price 2360.40 ₴ 
-            .productMainInfo__art арт.: 23545645
+              .productMainInfo__manufacturer Производитель: 
+                a(href="#") IXS 
+            .productMainInfo__cost
+              .label.visible-xs Цена:
+              .productMainInfo__old 9999.99 ₴
+              .productMainInfo__price 2360.40 ₴
+            .productMainInfo__art.hidden-xs Арт.: 23545645
+            .productMainInfo__bonus
+              .productMainInfo__bonusValue +149 грн
+              .productMainInfo__bonusDesc Бонусная программа (только для вторизированных пользователей)
             .productMainInfoOptions
               .productMainInfoOptions__item.productMainInfoOptions__item--color
                 .productMainInfoOptions__title.label Цвет:
@@ -110,10 +131,7 @@ html(lang="en")
                   span Размерная сетка
             .productMainInfoQuantity
               .label Кол-во:
-              .quantity
-                button.btn.quantity__minus
-                input(type="text" name="quantity" value="1").quantity__value
-                button.btn.quantity__plus
+              include ../blocks/ui/quantity.pug
             .productMainInfoActions
               .productMainInfoActions__buttons
                 button.btn.btn--prim КУПИТЬ
@@ -135,12 +153,12 @@ html(lang="en")
             a.productContent__tag(href="#") ixs2021
 
       section.productTabs.tabs
-        .container
-          .productTabs__nav
-            button.btn.tabs__btn.tabs__btn--active.productTabs__btn(data-tab="product_tab1") Характеристики
-            button.btn.tabs__btn.productTabs__btn(data-tab="product_tab2") Доставка и оплата
-            button.btn.tabs__btn.productTabs__btn(data-tab="product_tab3") Гарантия и сервис
-            button.btn.tabs__btn.productTabs__btn.productTabs__btn--reviews(data-tab="product_tab4") Отзывы(2)
+        .productTabs__buttons.container.swiper-container.swiper-visible
+          .productTabs__nav.swiper-wrapper
+            button.btn.tabs__btn.swiper-slide.tabs__btn--active.productTabs__btn(data-tab="product_tab1") Характеристики
+            button.btn.tabs__btn.swiper-slide.productTabs__btn(data-tab="product_tab2") Доставка и оплата
+            button.btn.tabs__btn.swiper-slide.productTabs__btn(data-tab="product_tab3") Гарантия и сервис
+            button.btn.tabs__btn.swiper-slide.productTabs__btn.productTabs__btn--reviews(data-tab="product_tab4") Отзывы(2)
         .productTabs__wrap 
           .container 
             .productTabs__content
@@ -206,21 +224,21 @@ html(lang="en")
                   .productGuarantee__img.guarantee()
                     img(src="./img/director2.png" alt="")
                     img.guarantee__border(src="./img/guarantee.svg", alt="")
-                blockquote.productGuarantee__warn
-                  .title Гарантия не распространяется на:
-                  p Недостатки, которые возникли в результате ДТП или пожара, неправильной эксплуатации или небрежного отношения с двигателем;
-                    br
-                    | На детали, узлы и агрегаты, которые установлены на неофициальных сервисных станциях, и запрещены для установки производителем двигателя;
-                    br
-                    | Неисправности, которые возникли в результате:
-                    br
-                    | 1. несвоевременного прохождения ТО;
-                    br
-                    | 2. воздействия экстремально высоких или низких температур;
-                    br
-                    | 3. действия предметов, которые попали в агрегат или деталь и вывели ее из строя.
-                    br
-                    | Детали (фильтра, масло, жидкости), которые имеют природный износ (диски сцепления, лампы и т.п.).
+                  blockquote.productGuarantee__warn
+                    .title Гарантия не распространяется на:
+                    p Недостатки, которые возникли в результате ДТП или пожара, неправильной эксплуатации или небрежного отношения с двигателем;
+                      br
+                      | На детали, узлы и агрегаты, которые установлены на неофициальных сервисных станциях, и запрещены для установки производителем двигателя;
+                      br
+                      | Неисправности, которые возникли в результате:
+                      br
+                      | 1. несвоевременного прохождения ТО;
+                      br
+                      | 2. воздействия экстремально высоких или низких температур;
+                      br
+                      | 3. действия предметов, которые попали в агрегат или деталь и вывели ее из строя.
+                      br
+                      | Детали (фильтра, масло, жидкости), которые имеют природный износ (диски сцепления, лампы и т.п.).
               
               .productReviews.tabs__content(data-tab="product_tab4" data-name="reviews")
                 .heading Отзывы

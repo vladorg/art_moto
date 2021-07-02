@@ -2,7 +2,9 @@
   padding: 9px 0 9px 24px
   border: 1px solid $c_input_border
   resize: none
+  width: 100%
   +text(14,400,22,0)
+  +tran(all,.2s)
   &::-webkit-input-placeholder
     color: #aeafb3
     font-family: $ff
@@ -15,11 +17,17 @@
   &:-ms-input-placeholder
     color: #aeafb3
     font-family: $ff
+  
+  &--err
+    border-color: $c_primary
+    animation: input_error .1s linear 0s 2
+  
+  &--ok
+    border-color: $c_green
 
 
 .input-hidden
   display: none
-
 
 
 .checkbox
@@ -83,8 +91,6 @@
         border-color: $c_primary
 
 
-
-
 .quantity
   position: relative
   display: inline-block
@@ -133,3 +139,23 @@
     border: 1px solid #414141
     border-radius: 0
     +text(14,500,0,#000)
+
+
+
+.field
+  &--two
+    display: grid
+    grid-template-columns: repeat(2,1fr)
+    grid-gap: 24px
+  &--three
+    display: grid
+    grid-template-columns: repeat(3,1fr)
+    grid-gap: 8px
+
+@keyframes input_error
+  0%
+    transform: translateX(5px)
+  50%
+    transform: translateX(-5px)
+  100%
+    transform: translateX(0)

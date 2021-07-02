@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title><!-- build:css_critical -->
+    <link rel="stylesheet" href="./css/critical.css"><!-- endbuild -->
+  </head>
+  <body class="root page-checkout">
+    <header class="header header--checkout">
+      <div class="container"><a class="logo" href="./"><img src="./img/logo2.svg" alt=""></a></div>
+    </header>
+    <main class="checkoutMain">
+      <section class="breadcrumbs">
+        <div class="breadcrumbs__item">Корзина</div>
+        <div class="breadcrumbs__item active" data-step="customer">Информация о покупателе</div>
+        <div class="breadcrumbs__item" data-step="delivery">Способ доставки</div>
+        <div class="breadcrumbs__item" data-step="payment">Способ оплаты</div>
+      </section>
+      <section class="checkoutSummary">
+        <div class="checkoutSummary__row checkoutSummary__customer"> 
+          <div class="checkoutSummary__label">Покупатель:</div>
+          <div class="checkoutSummary__data"></div>
+          <button class="btn btn--dashed back_to_customer"><span>Изменить</span></button>
+        </div>
+        <div class="checkoutSummary__row checkoutSummary__delivery"> 
+          <div class="checkoutSummary__label">Доставка:</div>
+          <div class="checkoutSummary__data"></div>
+          <button class="btn btn--dashed back_to_delivery"><span>Изменить</span></button>
+        </div>
+      </section>
+      <section class="checkoutSteps">
+        <form id="checkoutForm">
+          <div class="checkoutCustomer checkoutStep active" data-step="customer">
+            <div class="heading">Информация о покупателе</div>
+            <div class="checkoutStep__sub"> <span>Уже зарегистрированны в нашем магазине ?</span>
+              <button class="btn btn--dashed open_auth"> <span>Войти</span></button>
+            </div>
+            <div class="checkoutStep__fields">
+              <div class="field field--two">
+                <input class="input required" type="text" name="first_name" placeholder="Имя">
+                <input class="input required" type="text" name="last_name" placeholder="Фамилия">
+              </div>
+              <div class="field"> 
+                <input class="input required" type="text" name="email" placeholder="Email">
+              </div>
+              <div class="field"> 
+                <input class="input mask required" type="text" name="phone" placeholder="Номер телефона">
+              </div>
+            </div>
+            <div class="checkoutStep__summary">
+              <div class="checkoutStep__agree"> 
+                <input class="checkbox" type="checkbox" name="personal_agree" id="personal_agree" checked>
+                <label for="personal_agree">Даю согласие на обработку моих персональных данных</label>
+              </div>
+              <div class="checkoutStep__buttons"> 
+                <button class="btn btn--prim" id="customer_btn">Способ доставки</button><a class="btn btn--dashed" href="./cart.html"> <span>Вернутся к корзине</span></a>
+              </div>
+            </div>
+          </div>
+          <div class="checkoutDelivery checkoutStep" data-step="delivery">
+            <div class="heading">Способ доставки</div>
+            <div class="checkoutStep__fields">
+              <div class="checkoutStepItems">
+                <div class="checkoutStepItem active">
+                  <div class="checkoutStepItem__radio">
+                    <div class="field">
+                      <input class="radio checkoutStep__pick" type="radio" name="delivery" id="delivery_pickup" value="Самовывоз" checked>
+                      <label for="delivery_pickup">Самовывоз (Харьков, ул. Академика Павлова 51) </label>
+                    </div>
+                  </div>
+                  <div class="checkoutStepItem__info"> 
+                    <p>Мы сообщим дату готовности заказа после его обработки сотрудником</p><span>Бесплатно</span>
+                  </div>
+                </div>
+                <div class="checkoutStepItem">
+                  <div class="checkoutStepItem__radio">
+                    <div class="field">
+                      <input class="radio checkoutStep__pick" type="radio" name="delivery" id="delivery_new_post" value="Новая почта">
+                      <label for="delivery_new_post">Новая почта</label>
+                    </div>
+                    <div class="field"> 
+                      <input class="input required" type="text" name="new_post_address" placeholder="№ отделения/ваш адрес">
+                    </div>
+                  </div>
+                  <div class="checkoutStepItem__child"> 
+                    <div class="checkoutStepItem__radio">
+                      <div class="field"> 
+                        <input class="radio" type="radio" name="new_post" id="new_post_pickup" value="Вывоз из отделения">
+                        <label for="new_post_pickup">Вывоз из отделения (стоимость согласно тарифам службы доставки)</label>
+                      </div>
+                    </div>
+                    <div class="checkoutStepItem__radio">
+                      <div class="field"> 
+                        <input class="radio" type="radio" name="new_post" id="new_post_currier" value="Доставка курьером">
+                        <label for="new_post_currier">Доставка курьером (стоимость согласно тарифам службы доставки)</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="checkoutStep__summary">
+              <div class="checkoutStep__buttons"> 
+                <button class="btn btn--prim" id="delivery_btn">Способ оплаты</button>
+                <button class="btn btn--dashed back_to_customer"> <span>Вернутся к информации о покупателе</span></button>
+              </div>
+            </div>
+          </div>
+          <div class="checkoutPayment checkoutStep" data-step="payment">
+            <div class="heading">Способ оплаты</div>
+            <div class="checkoutStep__fields">
+              <div class="checkoutStepItems">
+                <div class="checkoutStepItem active">
+                  <div class="checkoutStepItem__radio">
+                    <div class="field">
+                      <input class="radio checkoutStep__pick" type="radio" name="payment" id="payment_imposed" value="imposed" checked>
+                      <label for="payment_imposed">Наложенный платеж (При самовывозе с отделения Новой Почты) </label>
+                    </div>
+                  </div>
+                  <div class="checkoutStepItem__info"> 
+                    <p>Стоимость услуги оценивается службой доставки</p>
+                  </div>
+                </div>
+                <div class="checkoutStepItem">
+                  <div class="checkoutStepItem__radio">
+                    <div class="field">
+                      <input class="radio checkoutStep__pick" type="radio" name="payment" id="payment_card" value="card">
+                      <label for="payment_card">Оплата картой </label>
+                    </div>
+                  </div>
+                  <div class="checkoutStepItem__info"> 
+                    <p>Комиссия согласно условий вашего банка!</p>
+                  </div>
+                </div>
+                <div class="checkoutStepItem">
+                  <div class="checkoutStepItem__radio">
+                    <div class="field">
+                      <input class="radio checkoutStep__pick" type="radio" name="payment" id="payment_cash" value="cash">
+                      <label for="payment_cash">Наличный платеж (При самовывозе)</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="checkoutStepItem">
+                  <div class="checkoutStepItem__radio">
+                    <div class="field">
+                      <input class="radio checkoutStep__pick" type="radio" name="payment" id="payment_credit" value="credit">
+                      <label for="payment_credit">Кредит</label>
+                    </div>
+                  </div>
+                  <div class="checkoutStepItem__info"> 
+                    <p>Оформление кредита от “АртМото” и у банков партнеров</p>
+                  </div>
+                </div>
+              </div>
+              <div class="checkoutStep__comment">
+                <div class="field"> 
+                  <textarea class="input" name="info" placeholder="Дополнительная информация"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="checkoutStep__summary">
+              <div class="checkoutStep__buttons"> 
+                <button class="btn btn--prim" id="order_btn">Оформить</button>
+                <button class="btn btn--dashed back_to_delivery"> <span>Вернутся к информации о доставке</span></button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </section>
+      <section class="checkoutLinks">
+        <ul> 
+          <li> <a href="./delivery.html" target="_blank">Доставка и оплата</a></li>
+          <li> <a href="./forward.html" target="_blank">Возврат товара</a></li>
+          <li> <a href="./policy.html" target="_blank">Политика конфиденциальности</a></li>
+        </ul>
+      </section>
+    </main>
+    <aside class="checkoutSidebar">
+      <div class="checkoutSidebar__products scroll">
+        <div class="checkoutSidebar__product"> <img class="checkoutSidebar__thumb" src="./img/cart/2.png" alt="">
+          <div class="checkoutSidebarOpt">
+            <div class="checkoutSidebarOpt__name">Мотоперчатки Elemento 212</div>
+            <div class="checkoutSidebarOpt__items"> 
+              <div class="checkoutSidebarOpt__item"> <span>Р-р: </span><span>XL</span></div>
+              <div class="checkoutSidebarOpt__item"> <span>Кол-во: </span><span>1</span></div>
+            </div>
+          </div>
+          <div class="checkoutSidebar__price">418.50 ₴</div>
+        </div>
+        <div class="checkoutSidebar__product"> <img class="checkoutSidebar__thumb" src="./img/cart/3.png" alt="">
+          <div class="checkoutSidebarOpt">
+            <div class="checkoutSidebarOpt__name">Штаны FOX 360 Racepant red</div>
+            <div class="checkoutSidebarOpt__items"> 
+              <div class="checkoutSidebarOpt__item"> <span>Р-р: </span><span>M</span></div>
+              <div class="checkoutSidebarOpt__item"> <span>Кол-во: </span><span>1</span></div>
+            </div>
+          </div>
+          <div class="checkoutSidebar__price">418.50 ₴</div>
+        </div>
+      </div>
+      <div class="cartInfo">
+        <div class="cartInfo__row"> 
+          <div class="cartInfo__key label">Скидка:</div>
+          <div class="cartInfo__val label">-532,10 ₴</div>
+        </div>
+        <div class="cartInfo__row cartInfo__row--cashback"> 
+          <div class="cartInfo__key label">Кешбек:</div>
+          <div class="cartInfo__val label">70,90 ₴</div>
+        </div>
+        <div class="cartInfo__row cartInfo__row--total"> 
+          <div class="cartInfo__key label">Итого:</div>
+          <div class="cartInfo__val label">7002,90 ₴</div>
+        </div>
+      </div>
+      <div class="enter enter--opened enter--cashback">
+        <div class="enter__enter">
+          <p>На вашем бонусном счету есть <span>500грн </span></p>
+          <p>Вы можете оплатить до 50% покупки за счет доступных бонусов</p>
+          <div class="enter__enterArea">
+            <input class="input" type="text" name="cashback" placeholder="Введите сумму">
+            <button class="btn btn--prim accept_field">Использовать</button>
+          </div>
+          <div class="enter__msg"></div>
+        </div>
+        <div class="enter__success">Вы использовали <span>500грн </span>кешбека!
+          <button class="btn btn--dashed change_field"><span>Изменить</span></button>
+        </div>
+      </div>
+      <div class="enter">
+        <div class="enter__btn btn btn--dashed open_field"><span>Ввести промокод</span></div>
+        <div class="enter__enter">
+          <p>Введите промокод!</p>
+          <div class="enter__enterArea">
+            <input class="input" type="text" name="promocode" placeholder="Код">
+            <button class="btn btn--prim accept_field">Применить</button>
+          </div>
+          <div class="enter__msg"></div>
+        </div>
+        <div class="enter__success">Промокод успешно применён!</div>
+      </div>
+    </aside>
+    <script src="./libs/swiper/swiper-bundle.min.js"></script>
+    <script src="./libs/aos/aos.js"></script>
+    <script src="./libs/nouislider/nouislider.min.js"></script>
+    <script src="./libs/view_360/js-cloudimage-360-view.min.js"></script>
+    <script src="./libs/lazysizes/lazysizes.min.js"></script>
+    <script src="./libs/jquery/jquery.min.js"></script>
+    <script src="./libs/lightbox/jquery.fancybox.min.js"></script><!-- build:js -->
+    <script src="./js/main.js"></script><!-- endbuild -->
+    <link rel="stylesheet" data-style="swiper" href="./css/libs/swiper-bundle.min.css">
+    <link rel="stylesheet" data-style="aos" href="./css/libs/aos.css">
+    <link rel="stylesheet" data-style="nouislider" href="./css/libs/nouislider.css">
+    <link rel="stylesheet" data-style="fancybox" href="./css/libs/jquery.fancybox.min.css"><!-- build:css_main -->
+    <link rel="stylesheet" href="./css/main.css"><!-- endbuild -->
+  </body>
+</html>

@@ -1,14 +1,19 @@
 html
   overflow-x: hidden
+  &.blocked
+    overflow-y: hidden
+    body
+      padding-right: 16px
   
 body
   font-size: $fz
   font-weight: $fw
   font-family: $ff
   line-height: $lh
-  overflow-x: hidden
+  //overflow-x: hidden
   background: $c_body
   color: $c_text
+  -webkit-tap-highlight-color: $transparent
   &.root
     min-height: 100vh
     +flex(column,0,0,0)
@@ -16,7 +21,9 @@ body
     margin-right: 0
 
 
-button
+button,
+input,
+textarea
   font-family: $ff
 
 img
@@ -61,8 +68,13 @@ blockquote
   background: rgba(255, 238, 230, 0.2)
   border: 1px solid $c_primary
   padding: 26px 24px 32px
+  +xs
+    padding: 16px 8px
   .title
     margin-bottom: 16px
+    +xs
+      margin-bottom: 24px
+      font-size: 16px
 
 .scroll
   &::-webkit-scrollbar
@@ -74,6 +86,11 @@ blockquote
   &--table
     &::-webkit-scrollbar
       height: 4px
+  &--breadcrumbs
+    &::-webkit-scrollbar
+      height: 4px
+    &::-webkit-scrollbar-thumb
+      background: #414141
 
 .blured-black
   position: relative
@@ -85,6 +102,9 @@ blockquote
     left: 0
     background: rgba(0, 0, 0, 0.8)
     backdrop-filter: blur(8px)
+    z-index: 2
+    +xs
+      background: rgba(0, 0, 0, 0.6)
 
 @-moz-document url-prefix()
   .scroll
@@ -98,6 +118,10 @@ blockquote
   display: none!important
   +xs
     display: block!important
+
+.hidden-xs
+  +xs
+    display: none !important
 
 .list
   li
@@ -138,7 +162,13 @@ blockquote
 
 
 
-  
+
+div, img, section, span, p
+  &:active,
+  &:target,
+  &:focus
+    outline: none
+
 
 
 

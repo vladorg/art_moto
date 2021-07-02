@@ -57,8 +57,13 @@ div.swiper-pagination
     margin: 0!important
     +not_last
       margin: 0 26px 0 0!important
+      +xs
+        margin: 0 16px 0 0!important
     +hover
       background: #D9DADC
+    +xs
+      +hover
+        background: radial-gradient(#D9DADC 4px, $transparent 5px)
     &.swiper-pagination-bullet-active
       background: $c_primary
       +hover
@@ -71,4 +76,19 @@ div.swiper-slide
   transition-property: unset
   .preview
     margin: 0 auto
+
+
+div.swiper-blured
+  div.swiper-slide
+    &-prev
+      +xxs
+        opacity: .6!important
+        transform: translateX(20%) scale(.9)
+    &-next
+      +xxs
+        opacity: .6!important
+        transform: translateX(-20%) scale(.9)
+    &-active
+      +xxs
+        z-index: 10
     

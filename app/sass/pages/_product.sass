@@ -1,17 +1,39 @@
 .product
   padding-bottom: 80px
+  +xs
+    padding-bottom: 40px
   .productsIntDefault
     padding-top: 80px
+    +xs
+      padding-top: 40px
   
 .productMain
-  display: block
   +flex(0,0,space-between,flex-start)
+  +xs
+    display: block
+
+.productMainHeading
+  div.preview__sticker
+    font-size: 10px
+    padding: 2px 4px
+  .productMainInfo__manufacturer
+    width: auto
+    margin: 0 0 0 16px
+    +xxs
+      width: 100%
+      margin: 4px 0 0 0
+    
 
 
 .productMainImages
-  max-width: 624px
+  max-width: 51%
   margin-right: 80px
   position: relative
+  +sm
+    margin-right: 40px
+  +xs
+    max-width: 100%
+    margin-right: 0
   &__wrap
     position: absolute
     opacity: 0
@@ -28,6 +50,8 @@
     border: 1px solid #D9DADC
     margin-bottom: 32px
     position: relative
+    +xs
+      margin-bottom: 24px
     +before
       position: absolute
       top: 19px
@@ -38,12 +62,18 @@
     .swiper-slide      
       padding: 59px 115px
       cursor: zoom-in
+      +xs
+        padding: 32px 64px
+        align-self: center
     img,
     iframe
       width: 400px
       height: 400px
       object-fit: contain
       margin: 0 auto
+      +xs
+        width: 100%
+        height: auto
   &__nav
     .swiper-slide
       height: 88px
@@ -53,6 +83,9 @@
       box-sizing: content-box
       cursor: pointer
       +tran(all,.2s)
+      +xs
+        height: 48px
+        padding-bottom: 4px
       &.swiper-slide-thumb-active
         border-color: $c_primary
       img
@@ -68,7 +101,12 @@
   
 
 .productMainInfo
-
+  max-width: calc(49% - 80px)
+  +sm
+    max-width: calc(49% - 40px)
+  +xs
+    max-width: 100%
+    position: relative
   &__stickers
     margin-bottom: 4px
     +flex(0,wrap,0,0)
@@ -76,13 +114,28 @@
       +text(14,700,17,0)
   &__name
     margin-bottom: 12px
+    +ellipsis(144px,4,true)
+    +sm
+      max-height: 112px
+      +text(20,0,28,0)
+    +xs
+      margin-bottom: 8px
+      +text(24,800,30,0)
   &__status
     margin-bottom: 20px
     +text(14,500,26,#000)
     +flex(0,0,0,center)
+    +md
+      flex-wrap: wrap
+    +xs
+      margin-bottom: 16px
   &__stock
     margin-right: 16px
+    white-space: nowrap
     +flex(0,0,0,center)
+    +xs
+      background: #EFEFF0
+      padding: 8px
     +before
       margin-right: 8px
   &__rate
@@ -91,26 +144,92 @@
       margin-right: 8px
     .goto_reviews
       margin-left: 4px
+      white-space: nowrap
       +text(14,0,22,0)
       +hover
         text-decoration: underline
-  &__price
+  &__manufacturer
+    margin-left: 16px
+    white-space: nowrap
+    +md
+      width: 100%
+      margin: 4px 0 0 0
+    a
+      color: $c_primary
+      text-decoration: underline
+      +hover
+        text-decoration: none
+  &__cost
     margin-bottom: 4px
+    letter-spacing: 0.02em
+    +flex(0,wrap,0,center)
     +text(36,500,44,$c_primary)
+    +xs
+      margin-top: 24px
+      padding-top: 24px
+      border-top: 1px solid #D9DADC
+      padding-right: 120px
+      +text(24,700,44,$c_primary)
+    .label
+      margin: 0 16px 4px 0
+      +text(16,600,24,0)
+  &__old
+    text-decoration: line-through
+    white-space: nowrap
+    max-width: 100%
+    text-overflow: ellipsis
+    overflow: hidden
+    +text(16,400,24,#AEAFB3)
+  &__price
+    width: 100%
+    white-space: nowrap
+    max-width: 100%
+    text-overflow: ellipsis
+    overflow: hidden
   &__art
-    +text(14,400,26,#AEAFB3)
+    +text(14,500,26,#AEAFB3)
+    +xs
+      margin-bottom: 8px
+      +text(12,0,20,0)
+  &__bonus
+    margin-top: 16px
+    padding: 8px 16px
+    border: 1px solid $c_primary
+    max-width: 328px
+    +flex(0,0,0,center)
+    &Value
+      white-space: nowrap
+      +text(16,500,26,$c_primary)
+    &Desc
+      margin-left: 8px
+      +text(12,400,14,#AEAFB3)
 
   &Options
     padding: 24px 0
     margin-top: 16px
     border-top: 1px solid #AEAFB3
+    +xs
+      border-color: #D9DADC
+      margin-top: 24px
+      padding: 16px 0
+    .btn
+      span
+        +text(14,400,26,0)
+      +xs
+        margin-top: 24px
     &__title
       margin-bottom: 8px
       width: 100%
+      +xs
+        margin-bottom: 16px
+        +text(16,600,24,0)
     &__content
       padding: 0 16px 8px 0
-      +flex(0,0,0,center)
+      +flex(0,wrap,0,center)
+      +xs
+        padding-right: 0
     &__field
+      margin-bottom: 4px
       +not_last
         margin-right: 4px
       label
@@ -162,26 +281,47 @@
             margin: 0
           +not_last
             img
-              margin: 0 24px 0 0
+              margin: 0 20px 0 0
   
   &Quantity
   
   &Actions
     padding-top: 47px
     +flex(0,0,0,center)
+    +md
+      flex-wrap: wrap
+    +xs
+      padding-top: 24px
     &__buttons
       padding-right: 33px
       +flex(0,0,0,center)
+      +xs
+        padding-right: 0
+        flex-wrap: wrap
+        width: 100%
+      .btn
+        +xs
+          width: 100%
       .btn--prim
         font-weight: 700
         margin-right: 4px
+        +xs
+          margin: 0 0 8px 0
       .btn--default
         padding: 14px 24px
     &__tools
       +flex(0,0,0,center)
+      +md
+        margin-top: 16px
+      +xs
+        position: absolute
+        top: 8%
+        right: 0
       .btn
         +not_last
           margin-right: 16px
+          +xs
+            margin-right: 24px
         &.preview__wishlist
           &--added
             +hover
@@ -199,14 +339,24 @@
   
 .productContent
   padding-top: 80px
+  +xs
+    padding-top: 40px
   .heading
     font-size: 24px
     text-transform: unset
     margin-bottom: 24px
+    +xs
+      margin-bottom: 16px
+      +text(16,600,24,0)
   .seo__more
     margin-top: 0
+  .seo__content--short
+    +xs
+      height: 225px
   &__tags
     padding-top: 24px
+    +xs
+      display: none
   &__tag
     display: inline-block
     padding: 5px 10px
@@ -222,15 +372,26 @@
 
 .productTabs
   padding-top: 166px
+  +md
+    padding-top: 40px
+  &__buttons
+    +xs
+      width: 100%
   &__nav
     margin-left: -24px
+    +xs
+      margin-left: 0
     +flex()
     .tabs__btn
       margin-right: 0 !important
       border-bottom: none
       -webkit-text-stroke-width: 0px
       padding: 18px 24px
+      white-space: nowrap
       +text(18,500,36,0)
+      +sm
+        padding: 16px
+        +text(14,0,24,0)
       &--active
         background: linear-gradient(0deg, rgba(32, 32, 32, 0.95), rgba(32, 32, 32, 0.95))
         color: #fff
@@ -240,6 +401,9 @@
     padding: 40px 0
     color: #fff
     min-height: 471px
+    +xs
+      padding: 32px 0
+      min-height: 1px
   .subtitle
     color: #fff
     margin-bottom: 16px
@@ -268,14 +432,31 @@
     &.tabs__content--active
       +flex(0,0,0,center)
 
+    .container
+      width: 100%
+
     .swiper-pagination
       margin-top: 56px
+      +xs
+        margin-top: 24px
+    
+    &__text
+      +md
+        margin-right: 48px
+      +xs
+        margin-right: 0
 
     &__images
       display: grid
       grid-template-columns: repeat(2,1fr)
       grid-gap: 24px
       margin-left: 159px
+      +md
+        margin-left: auto
+        max-width: 49%
+      +xs
+        max-width: 100%
+        margin: 24px 0 0 0
     &__image
       width: 207px
       height: 74px
@@ -283,16 +464,20 @@
       background: #fff
       border-radius: 4px
       +flex(0,0,center,center)
+      +md
+        width: auto
       img
         width: 100%
   
   .productGuarantee
     &__content
       padding-bottom: 100px
+      +xs
+        padding-bottom: 40px
     .heading, .title
       color: #fff
     .heading
-      margin-bottom: 40px
+      //margin-bottom: 40px
 
   .productReviews
     .heading
@@ -313,6 +498,7 @@
     .sorting
       color: #fff
       margin: 16px 0
+      flex-wrap: wrap
       a:not(:hover)
         span
           border-color: #fff
@@ -330,6 +516,8 @@
       padding: 16px
       border-bottom: 1px solid #AEAFB3
       +flex(0,0,0,center)
+      +xs
+        flex-wrap: wrap
     &__photo
       width: 40px
       height: 40px
@@ -337,15 +525,21 @@
     &__name
       margin: 0 16px
       +text(18,500,18,0)
+      +xs
+        width: calc(100% - 40px - 32px)
     &__rate
       +text(14,500,26,0)
       +flex(0,0,0,center)
+      +xs
+        margin-top: 8px
       +before
         margin-right: 8px
     &__date
       margin-left: auto
       +text(12,400,22,0)
       +flex(0,0,0,center)
+      +xs
+        margin: 8px 0 0 16px
       +before
         margin-right: 8px
         transform: scale(0.8)

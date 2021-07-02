@@ -1,0 +1,222 @@
+-
+  let title = "Checkout";
+
+
+
+doctype html
+html(lang="en")
+  include ../blocks/head.pug
+  body.root.page-checkout
+
+    header.header.header--checkout
+      .container
+        a(href="./").logo
+          img(src="./img/logo2.svg", alt="") 
+      
+    
+
+    main.checkoutMain
+
+      section.breadcrumbs
+        .breadcrumbs__item Корзина
+        .breadcrumbs__item.active(data-step="customer") Информация о покупателе
+        .breadcrumbs__item(data-step="delivery") Способ доставки
+        .breadcrumbs__item(data-step="payment") Способ оплаты
+
+      section.checkoutSummary
+        .checkoutSummary__row.checkoutSummary__customer 
+          .checkoutSummary__label Покупатель:
+          .checkoutSummary__data
+          button.btn.btn--dashed.back_to_customer
+            span Изменить
+        .checkoutSummary__row.checkoutSummary__delivery 
+          .checkoutSummary__label Доставка:
+          .checkoutSummary__data
+          button.btn.btn--dashed.back_to_delivery
+            span Изменить
+
+      section.checkoutSteps
+
+        form#checkoutForm
+
+          .checkoutCustomer.checkoutStep.active(data-step="customer")
+            .heading Информация о покупателе
+            .checkoutStep__sub 
+              span Уже зарегистрированны в нашем магазине ?
+              button.btn.btn--dashed.open_auth 
+                span Войти
+            .checkoutStep__fields
+              .field.field--two
+                input(type="text" name="first_name" placeholder="Имя").input.required
+                input(type="text" name="last_name" placeholder="Фамилия").input.required
+              .field 
+                input(type="text" name="email" placeholder="Email").input.required
+              .field 
+                input(type="text" name="phone" placeholder="Номер телефона").input.mask.required
+            .checkoutStep__summary
+              .checkoutStep__agree 
+                input(type="checkbox" name="personal_agree" id="personal_agree" checked).checkbox
+                label(for="personal_agree") Даю согласие на обработку моих персональных данных
+              .checkoutStep__buttons 
+                button.btn.btn--prim#customer_btn Способ доставки
+                a(href="./cart.html").btn.btn--dashed 
+                  span Вернутся к корзине
+
+
+          .checkoutDelivery.checkoutStep(data-step="delivery")
+            .heading Способ доставки
+            .checkoutStep__fields
+              .checkoutStepItems
+                .checkoutStepItem.active
+                  .checkoutStepItem__radio
+                    .field
+                      input(type="radio" name="delivery" id="delivery_pickup" value="Самовывоз" checked).radio.checkoutStep__pick
+                      label(for="delivery_pickup") Самовывоз (Харьков, ул. Академика Павлова 51) 
+                  .checkoutStepItem__info 
+                    p Мы сообщим дату готовности заказа после его обработки сотрудником
+                    span Бесплатно
+                .checkoutStepItem
+                  .checkoutStepItem__radio
+                    .field
+                      input(type="radio" name="delivery" id="delivery_new_post" value="Новая почта").radio.checkoutStep__pick
+                      label(for="delivery_new_post") Новая почта
+                    .field 
+                      input(type="text" name="new_post_address" placeholder="№ отделения/ваш адрес").input.required
+                  .checkoutStepItem__child 
+                    .checkoutStepItem__radio
+                      .field 
+                        input(type="radio" name="new_post" id="new_post_pickup" value="Вывоз из отделения").radio
+                        label(for="new_post_pickup") Вывоз из отделения (стоимость согласно тарифам службы доставки)
+                    .checkoutStepItem__radio
+                      .field 
+                        input(type="radio" name="new_post" id="new_post_currier" value="Доставка курьером").radio
+                        label(for="new_post_currier") Доставка курьером (стоимость согласно тарифам службы доставки)
+            .checkoutStep__summary
+              .checkoutStep__buttons 
+                button.btn.btn--prim#delivery_btn Способ оплаты
+                button.btn.btn--dashed.back_to_customer 
+                  span Вернутся к информации о покупателе
+
+
+          .checkoutPayment.checkoutStep(data-step="payment")
+            .heading Способ оплаты
+            .checkoutStep__fields
+              .checkoutStepItems
+                .checkoutStepItem.active
+                  .checkoutStepItem__radio
+                    .field
+                      input(type="radio" name="payment" id="payment_imposed" value="imposed" checked).radio.checkoutStep__pick
+                      label(for="payment_imposed") Наложенный платеж (При самовывозе с отделения Новой Почты) 
+                  .checkoutStepItem__info 
+                    p Стоимость услуги оценивается службой доставки
+                .checkoutStepItem
+                  .checkoutStepItem__radio
+                    .field
+                      input(type="radio" name="payment" id="payment_card" value="card").radio.checkoutStep__pick
+                      label(for="payment_card") Оплата картой 
+                  .checkoutStepItem__info 
+                    p Комиссия согласно условий вашего банка!
+                .checkoutStepItem
+                  .checkoutStepItem__radio
+                    .field
+                      input(type="radio" name="payment" id="payment_cash" value="cash").radio.checkoutStep__pick
+                      label(for="payment_cash") Наличный платеж (При самовывозе)
+                .checkoutStepItem
+                  .checkoutStepItem__radio
+                    .field
+                      input(type="radio" name="payment" id="payment_credit" value="credit").radio.checkoutStep__pick
+                      label(for="payment_credit") Кредит
+                  .checkoutStepItem__info 
+                    p Оформление кредита от “АртМото” и у банков партнеров
+              .checkoutStep__comment
+                .field 
+                  textarea(name="info" placeholder="Дополнительная информация").input
+            .checkoutStep__summary
+              .checkoutStep__buttons 
+                button.btn.btn--prim#order_btn Оформить
+                button.btn.btn--dashed.back_to_delivery 
+                  span Вернутся к информации о доставке
+            
+
+      section.checkoutLinks
+        ul 
+          li 
+            a(href="./delivery.html" target="_blank") Доставка и оплата
+          li 
+            a(href="./forward.html" target ="_blank") Возврат товара
+          li 
+            a(href="./policy.html" target="_blank") Политика конфиденциальности
+
+
+
+    aside.checkoutSidebar
+
+      .checkoutSidebar__products.scroll
+        .checkoutSidebar__product 
+          img.checkoutSidebar__thumb(src="./img/cart/2.png" alt="")
+          .checkoutSidebarOpt
+            .checkoutSidebarOpt__name Мотоперчатки Elemento 212
+            .checkoutSidebarOpt__items 
+              .checkoutSidebarOpt__item 
+                span Р-р: 
+                span XL
+              .checkoutSidebarOpt__item 
+                span Кол-во: 
+                span 1
+          .checkoutSidebar__price 418.50 ₴
+        .checkoutSidebar__product 
+          img.checkoutSidebar__thumb(src="./img/cart/3.png" alt="")
+          .checkoutSidebarOpt
+            .checkoutSidebarOpt__name Штаны FOX 360 Racepant red
+            .checkoutSidebarOpt__items 
+              .checkoutSidebarOpt__item 
+                span Р-р: 
+                span M
+              .checkoutSidebarOpt__item 
+                span Кол-во: 
+                span 1
+          .checkoutSidebar__price 418.50 ₴
+        
+
+      .cartInfo
+        .cartInfo__row 
+          .cartInfo__key.label Скидка:
+          .cartInfo__val.label -532,10 ₴
+        .cartInfo__row.cartInfo__row--cashback  
+          .cartInfo__key.label Кешбек:
+          .cartInfo__val.label 70,90 ₴
+        .cartInfo__row.cartInfo__row--total 
+          .cartInfo__key.label Итого:
+          .cartInfo__val.label 7002,90 ₴
+
+      .enter.enter--opened.enter--cashback
+        .enter__enter
+          p На вашем бонусном счету есть 
+            span 500грн 
+          p Вы можете оплатить до 50% покупки за счет доступных бонусов
+          .enter__enterArea
+            input.input(type="text" name="cashback" placeholder="Введите сумму")
+            button.btn.btn--prim.accept_field Использовать
+          .enter__msg
+        .enter__success Вы использовали 
+          span 500грн 
+          | кешбека!
+          button.btn.btn--dashed.change_field
+            span Изменить
+
+      .enter
+        .enter__btn.btn.btn--dashed.open_field
+          span Ввести промокод
+        .enter__enter
+          p Введите промокод!
+          .enter__enterArea
+            input.input(type="text" name="promocode" placeholder="Код")
+            button.btn.btn--prim.accept_field Применить
+          .enter__msg
+        .enter__success Промокод успешно применён!
+
+
+
+
+    include ../inc/scripts.pug
+    include ../inc/styles.pug

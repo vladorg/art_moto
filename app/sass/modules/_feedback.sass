@@ -1,6 +1,8 @@
 .feedback
   position: relative
-  display: none
+  > .container
+    +desc
+      +flex(0,0,space-between,center)
   &__bg
     position: absolute
     top: 0
@@ -12,23 +14,46 @@
     object-fit: cover
   &__content
     position: relative
-    z-index: 1
+    z-index: 10
     padding: 40px 0
     +flex(0,0,flex-start,center)
+    +desc
+      padding-right: 40px
+      justify-content: space-between
+    +sm
+      padding-right: 0
+    +xs
+      flex-wrap: wrap
+      padding: 24px 0
   &__text
-    max-width: 390px
+    max-width: 32%
     color: #fff
+    +desc
+      max-width: 45%
+    +xs
+      max-width: 100%
     .heading
       margin-bottom: 32px
       color: #fff
+      +xs
+        margin-bottom: 16px
+        text-transform: none
     p
       +not_last
         margin-bottom: 16px
+        +xs
+          margin-bottom: 0
   &__form
     width: 100%
-    max-width: 392px
+    max-width: 32%
     margin-left: 124px
     +flex(column,0,0,0)
+    +desc
+      margin-left: 0
+      max-width: 45%
+    +xs
+      max-width: 100%
+      margin-top: 24px
     .input
       padding: 12px 0 12px 24px
       margin-bottom: 16px
@@ -39,4 +64,15 @@
   &__image
     position: absolute
     top: -40px
-    right: 164px
+    right: 0
+    max-width: 22%
+    transform: translateX(-30%)!important
+    z-index: 9
+    +desc
+      position: relative
+      top: 0
+      transform: none!important
+      max-width: 25%
+      object-fit: contain
+    +sm
+      display: none

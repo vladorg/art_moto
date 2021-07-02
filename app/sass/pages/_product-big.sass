@@ -4,9 +4,15 @@
   opacity: 1
   +xs
     +flex(column,0,0,0)
+
+  > .container
+    order: 10
   
   .feedback
     margin-top: 140px
+    +xs
+      order: 90
+      margin-top: 40px
 
 
 
@@ -362,14 +368,31 @@
 .productBigNav
   display: block
   position: fixed
-  top: 354px
+  top: 43vh
   left: 0
-  padding: 58px 0
-  background: #FFEEE6
   z-index: 21
   transform: translateX(-100%)
   +tran(all,.4s)
-  display: none
+  +before
+    position: fixed
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    background: rgba(0, 0, 0, 0.5)
+    opacity: 0
+    pointer-events: none
+    +tran(all,.2s)
+  &__wrap
+    padding: 58px 0
+    position: relative
+    background: #FFEEE6
+    +xs
+      padding: 24px 0
+  .title
+    padding-left: 40px
+    margin-bottom: 16px
+    +text(16,0,24,0)
   &__items
   &__item
     padding-left: 89px
@@ -378,6 +401,10 @@
     text-align: left
     +tran(all,.2s)
     +text(18,400,26,#000)
+    +xs
+      width: 256px
+      padding-left: 40px
+      +text(14,400,22,#000)
     +not_last
       margin-bottom: 16px
     +before
@@ -389,6 +416,8 @@
       left: 0
       transform: translateY(-50%)
       +tran(all,.4s)
+      +xs
+        width: 34px
     &.active
       color: $c_primary
       font-weight: 600
@@ -397,18 +426,30 @@
         height: 2px
         background: $c_primary
         transition-delay: .3s
-    +hover
-      color: $c_primary
-      font-weight: 600
+        +xs
+          width: 34px
+    &:not(.active)
+      +hover
+        color: $c_primary
+        font-weight: 600
+        +xs
+          color: #000
+          font-weight: 400
+
+
   &__btn
     position: absolute
     top: 0
     bottom: 0
-    right: calc(-90px - 75px)
+    right: calc(-90px - 74px)
     width: calc(90px + 75px)
     background: #FFEEE6
     border-radius: 0 194px 194px 0
     +flex(0,0,flex-end,center)
+    +xs
+      width: 26px
+      height: 34px
+      right: -26px
     .btn
       display: inline-block
       margin-right: 8px
@@ -416,6 +457,13 @@
       padding-bottom: 38px
       +text(18,600,26,#aeafb3)
       +tran(all,.2s)
+      +xs
+        width: 100%
+        height: 100%
+        font-size: 0
+        margin: 0
+        padding: 0
+        +flex(0,0,center,center)
       +before
         position: absolute
         bottom: 0
@@ -424,15 +472,28 @@
         margin-right: -9px
         +tran(all,.2s)
         transition-delay: .4s
+        +xs
+          position: static
+          margin: 0
+          transform: rotate(90deg) scale(.7)
+          width: 7px
+          height: 12px
+          background: url("../img/sprite.svg") -92px -19px
       +hover
         color: $c_primary
   &--opened
     transform: none
+    +before
+      +xs
+        opacity: 1
+        pointer-events: auto
     .productBigNav__btn
       .btn
         +before
           // transform-origin: 100% 0
           transform: rotate(-90deg)
+          +xs
+            transform: rotate(-90deg) scale(.7)
 
   
 .productPresent
@@ -442,17 +503,7 @@
   +xs
     margin-top: 24px
     padding: 32px 0
-  +before
-    position: absolute
-    top: 0
-    right: 0
-    bottom: 0
-    left: 0
-    background: rgba(0, 0, 0, 0.8)
-    backdrop-filter: blur(8px)
-    z-index: 5
-    +xs
-      background: rgba(0, 0, 0, 0.6)
+    order: 20
   .productPresent__bg
     position: absolute
     z-index: 1
@@ -672,7 +723,7 @@
         +tran(all,.2s)
     &__title
       margin-bottom: 54px
-      +text(36,700,44,#fff)
+      +text(34,700,44,#fff)
       +ellipsis(44px,1,false)
       +desc
         font-size: 26px
@@ -697,6 +748,7 @@
   padding-top: 60px
   +xs
     padding-top: 40px
+    order: 30
   &__title
     background: #414141
     padding: 19px 32px
@@ -750,6 +802,7 @@
   padding-top: 100px
   +xs
     padding-top: 40px
+    order: 40
   .heading
     +xs
       margin-bottom: 24px
@@ -759,6 +812,7 @@
     +flex(0,0,space-between,0)
     +xs
       display: block
+      padding-bottom: 0
   &__info
     max-width: 47%
     height: 100%
@@ -789,6 +843,7 @@
     .swiper-wrapper
       position: static
       transform: none
+      display: block
       +md
         +flex(column,0,space-around,center)
       +xs
@@ -817,7 +872,7 @@
           margin-bottom: 24px
         +xs
           margin-bottom: 0
-      +last
+      + img
         position: absolute
         bottom: 0
         right: 24px
@@ -835,16 +890,12 @@
   margin-top: 140px
   padding: 76px 0 80px 0
   position: relative
-  display: none
-  +before
-    position: absolute
-    top: 0
-    right: 0
-    bottom: 0
-    left: 0
-    background: rgba(0, 0, 0, 0.8)
-    backdrop-filter: blur(8px)
-    z-index: 5
+  //display: none
+  +xs
+    order: 60
+    margin-top: 40px
+    padding: 32px 0
+    
   &__back
     position: absolute
     top: 0
@@ -856,29 +907,46 @@
     text-transform: unset
     color: #fff
     margin-bottom: 8px
+    +xs
+      margin-bottom: 24px
   .container
     position: relative
     z-index: 10
   .swiper-slide
     +flex(0,0,flex-start,center)
+    +xs
+      display: block
   .swiper-pagination
     margin-top: 12px
+    +xs
+      margin-top: 24px
   &__content
   &__text
-    max-width: 600px
+    //max-width: 600px
+    max-width: 49%
+    +xs
+      max-width: 100%
     .title
       margin-bottom: 16px
       color: #fff
     p
-      max-height: 290px
+      height: 200px
       overflow: auto
       +text(14,400,22,#fff)
+      +xs
+        max-height: 100%
+        height: auto
     + .productDelivery__tariffs
       margin-left: 124px
+      +xs
+        margin-left: 0
+
   &__tariffs
-    
     background: #fff
     width: 393px
+    +xs
+      width: 100%
+      margin-top: 40px
     td, th
       border-color: #F4F4F4
       vertical-align: middle
@@ -886,37 +954,72 @@
       width: 50%
       padding: 14px 32px
       +text(14,0,22,0)
+      +xs
+        padding: 16px
       img
         margin: 0 auto
 
 
 .productGuarantee
   padding-top: 80px
-  display: none
+  //display: none
+  +xs
+    order: 70
+    padding-top: 40px
   .heading
-    margin-bottom: 0
+    //margin-bottom: 0
+    +xs
+      font-size: 24px
+      text-transform: none
+      margin-bottom: 24px
   &__content
-    padding-bottom: 60px
-    +flex(0,0,flex-start,center)
+    +flex(0,wrap,flex-start,center)
   &__text
-    max-width: 600px
+    width: 600px
+    max-width: 60% 
+    +xs
+      width: 100%
+      max-width: 100%
+      order: 1
     p
       +not_last
         margin-bottom: 16px
   &__img
     margin-left: 180px
+    +md
+      margin: 0 32px 0 auto
+    +xs
+      margin: 80px auto 0 auto
+      order: 3
   &__warn
+    width: 100%
+    margin-top: 104px
+    +xs
+      order: 2
+      margin-top: 24px
 
 .productsIntCustom
   padding-top: 80px
-  display: none
+  //display: none
+  +xs
+    order: 50
+    padding-top: 40px
   .swiper-pagination
     margin-top: 84px
+    +xs
+      margin-top: 32px
+  .heading
+    +xs
+      text-transform: none
   
 .productsIntDefault
-  display: none
   padding-top: 140px
+  +xs
+    order: 80
+    padding-top: 80px
   .heading
     text-transform: unset
   .swiper-pagination
     margin-top: 100px
+    +xs
+      margin-top: 24px

@@ -60,7 +60,7 @@ window.addEventListener('load', () => {
     observer: true,
     observeParents: true,
     autoplay: {
-      delay: 4000,
+      delay: 401100,
       disableOnInteraction: false
     },
     slideVisibleClass: 'swiper-slide-visible',
@@ -115,6 +115,8 @@ window.addEventListener('load', () => {
     catalog,
     product_big,
     product,
+    cart,
+    checkout,
     footer
   ];
 
@@ -143,9 +145,12 @@ window.addEventListener('load', () => {
     const seo_btn = get_el('.seo__more', false);
     const products_custom_row = get_el('.productsListCustom', false);
     const products_default_row = get_el('.productsListDefault', false);
-    let throttle_call = 1;
     const throttle_delay = 300;
     const quantity_input = get_el('.quantity__value', false);
+    const promo_btn = get_el('.open_promo');
+    const promo_add = get_el('.add_promo');
+
+    let throttle_call = 1;    
     let quantity_minus_time;
     let quantity_plus_time;
     
@@ -198,12 +203,16 @@ window.addEventListener('load', () => {
       const t_c = t.classList;
 
       // main menu
-      if (!t_c.contains('menuContent') && !t_c.contains('menu__btn') && !menu.contains(t)) {
-        menu.classList.remove('menuContent--opened');
+      try{
+        if (!t_c.contains('menuContent') && !t_c.contains('menu__btn') && !menu.contains(t)) {
+          menu.classList.remove('menuContent--opened');
+        }
+        if (t_c.contains('menuContent__close')) {
+          menu.classList.remove('menuContent--opened');
+        }
       }
-      if (t_c.contains('menuContent__close')) {
-        menu.classList.remove('menuContent--opened');
-      }
+      catch(e) {}
+      
 
       // drops
       if (!t_c.contains('dropdown__inner') && !t_c.contains('dropdown__btn')) {
@@ -274,6 +283,53 @@ window.addEventListener('load', () => {
         }, 200);
       }
 
+      // promocode & cashback open field
+      if (t_c.contains('open_field') || t.parentNode.classList.contains('open_field')) {
+        t.closest('.enter').classList.add('enter--opened');
+      }
+
+      // promocode & cashback change field
+      if (t_c.contains('change_field') || t.parentNode.classList.contains('change_field')) {
+        t.closest('.enter').classList.remove('enter--entered');
+        t.closest('.enter').classList.add('enter--opened');   
+      }
+
+      // promocode & cashback validate and open success msg
+      if (t_c.contains('accept_field')) {
+        const root = t.closest('.enter');
+        const input = root.querySelector('.input');
+        if (input.value != '') {
+          t.closest('.enter').classList.remove('enter--opened');
+          t.closest('.enter').classList.add('enter--entered');
+          input.classList.remove('input--err');
+          input.value = null;
+        } else {
+          input.classList.remove('input--err');
+          setTimeout(() => {
+            input.classList.add('input--err');
+          }, 0);
+        }
+      }
+
+      // close modals
+      if (t_c.contains('modal__close')) { // close on button click
+        t.closest('.modal').classList.remove('modal--opened');
+        setTimeout(() => {
+          document.documentElement.classList.remove('blocked');
+        }, 400);
+      }
+      if (t_c.contains('modal')) { // close when outside click
+        get_el('.modal--opened').classList.remove('modal--opened');
+        setTimeout(() => {
+          document.documentElement.classList.remove('blocked');
+        }, 400);
+      }
+
+      // open credits modal
+      if (t_c.contains('open_credits') || t.parentNode.classList.contains('open_credits')) {
+        openModal('.modalCredits');
+      }
+
 
     })
     
@@ -284,9 +340,12 @@ window.addEventListener('load', () => {
       if (throtte_current > throttle_call + throttle_delay) {
 
         /* hide/show menu on scroll */
-        if (window.pageYOffset > menu.clientHeight) {
-          menu.classList.remove('menuContent--opened');
+        try {
+          if (window.pageYOffset > menu.clientHeight) {
+            menu.classList.remove('menuContent--opened');
+          }
         }
+        catch(e){}
 
         /* update anchors active status */
         updateAnchors();
@@ -439,6 +498,20 @@ window.addEventListener('load', () => {
             return
           }
       }
+    }
+
+    function openModal(modal) {
+      if (modal) {
+        const target = get_el(modal);
+        const modals = get_el('.modal', false);
+        modals.forEach(modal => {
+          modal.classList.remove('modal--opened');
+        });
+        target.classList.add('modal--opened');
+        document.documentElement.classList.add('blocked');
+      } else {
+         return
+      }      
     }
 
   }
@@ -647,6 +720,8 @@ window.addEventListener('load', () => {
 
 
 
+
+
   
   /*
   *** Catalog page
@@ -695,6 +770,8 @@ window.addEventListener('load', () => {
     });
     
   }
+
+
 
 
 
@@ -892,8 +969,6 @@ window.addEventListener('load', () => {
 
   }
 
-  
-
   function product() {
 
     /* product images gallery */
@@ -901,15 +976,19 @@ window.addEventListener('load', () => {
       spaceBetween: 8,
       slidesPerView: 5,
       spaceBetween: 55,
-      freeMode: true,
-      watchSlidesVisibility: true,
-      watchSlidesProgress: true,
       breakpoints: {
-        768: {
+        1223: {
           slidesPerView: 5
         },
-        320: {
+        992: {
+          slidesPerView: 4
+        },
+        768: {
           slidesPerView: 3
+        },
+        320: {
+          slidesPerView: 5,
+          spaceBetween: 30
         }
 
       }
@@ -946,15 +1025,280 @@ window.addEventListener('load', () => {
     });
 
     /* product review anchor */
-    const goto_reviews = get_el('.goto_reviews');
+    const goto_reviews = get_el('.goto_reviews', false);
     const tab = get_el('.productReviews');
     const rev_tab_btn = get_el('.productTabs__btn--reviews');
-    goto_reviews.addEventListener('click', e => {
-      if (tab && rev_tab_btn) {
-        rev_tab_btn.click();
-        window.scrollTo({ top: getCoords(tab), behavior: 'smooth' });
-      }      
+    goto_reviews.forEach(el => {
+      el.addEventListener('click', e => {
+        if (tab && rev_tab_btn) {
+          rev_tab_btn.click();
+          window.scrollTo({ top: getCoords(tab), behavior: 'smooth' });
+        }      
+      });
     });
+    
+
+    let tabs_buttons_slider = new Swiper('.productTabs__buttons', {
+      slidesPerView: 3,
+      init: false,
+      speed: 200,
+      watchSlidesVisibility: true,
+      observer: true,
+      observeParents: true,
+      slideVisibleClass: 'swiper-slide-visible',
+      breakpoints: {
+        320: {
+          slidesPerView: 2
+        },
+        500: {
+          slidesPerView: 3
+        }
+      }
+    });
+    isMobile ? tabs_buttons_slider.init() : null;
+  }
+
+
+
+
+
+
+
+  /*
+  *** Cart page
+  */
+
+  function cart() {
+    const wish_all = get_el('#add_to_wish_all');
+    const delete_all = get_el('#cart_del_all');
+
+    // add to wishilst all products
+    wish_all.addEventListener('click', e => {
+      get_el('.preview', false).forEach(product => {
+        product.querySelector('.preview__wishlist').click();
+      });
+    });
+    // delete all products
+    delete_all.addEventListener('click', e => {
+      get_el('.preview', false).forEach(product => {
+        product.querySelector('.preview__delete').click();
+      });
+    });
+  }
+
+
+
+
+
+
+
+
+  /*
+  *** Checkout
+  */
+
+  function checkout() {
+    const checkout_pick = get_el('.checkoutStep__pick', false);
+    const checkout_pick_child = get_el('.checkoutStepItem__child input[type=radio]', false);
+    const form = get_el('#checkoutForm');
+    const nav_items = get_el('.breadcrumbs__item', false);
+    const steps = get_el('.checkoutStep', false);
+    const customer_step = get_el('.checkoutCustomer');
+    const delivery_step = get_el('.checkoutDelivery');
+    const payment_step = get_el('.checkoutPayment');
+    const customer_btn = get_el('#customer_btn');
+    const delivery_btn = get_el('#delivery_btn');
+    const order_btn = get_el('#order_btn');
+    const back_to_customer = get_el('.back_to_customer', false);
+    const back_to_delivery = get_el('.back_to_delivery', false);
+    const customer_summary = get_el('.checkoutSummary__customer');
+    const delivery_summary = get_el('.checkoutSummary__delivery');
+
+    /* block submit form && show formdata */
+    form.onsubmit = e => {
+      e.preventDefault();
+      let data = new FormData(form);
+      for (key of data.keys()) {
+        if (e.submitter == order_btn) {
+          console.log(`${key}: ${data.get(key)}`);
+        }
+        
+      }
+    }
+
+    /* 
+      - toggle item active status
+      - select first child radio button if it will be found
+      - clear required inputs when radio change
+    */
+    checkout_pick.forEach(el => {
+      el.addEventListener('change', e => {
+        let root = el.closest('.checkoutStepItems');
+        let current = el.closest('.checkoutStepItem');
+        let current_radios = current.querySelectorAll('.checkoutStepItem__child input[type=radio]');
+
+        root.querySelectorAll('.checkoutStepItem').forEach(item => {
+          let radios = item.querySelectorAll('.checkoutStepItem__child input[type=radio]');
+          let fields = item.querySelectorAll('.required');
+
+          item.classList.remove('active');
+          radios.forEach(radio => {
+            radio.checked = false;
+          });
+          fields.forEach(field => {
+            field.value = null;
+            field.classList.remove('input--err','input--ok')
+          });
+        });
+
+        current.classList.add('active');
+        if (current_radios.length) {
+          current_radios[0].checked = true;
+        }
+      })
+    });
+
+    /* clear child required inputs when radio change */
+    checkout_pick_child.forEach(el => {
+      el.addEventListener('change', e => {
+        let root = el.closest('.checkoutStepItem__child');
+        let current = el.closest('.checkoutStepItem__radio');
+
+        root.querySelectorAll('.checkoutStepItem__radio').forEach(item => {
+          let fields = item.querySelectorAll('.required');
+          fields.forEach(field => {
+            field.value = null;
+            field.classList.remove('input--err','input--ok')
+          });
+        });
+      })
+    });
+
+
+    customer_btn.addEventListener('click', step_customer);
+    delivery_btn.addEventListener('click', step_delivery);
+    order_btn.addEventListener('click', step_order);
+
+    back_to_customer.forEach(btn => btn.addEventListener('click', e => {
+      customer_summary.classList.remove('active');
+      update(customer_step);
+    }));
+    back_to_delivery.forEach(btn => btn.addEventListener('click', e => {      
+      delivery_summary.classList.remove('active');
+      update(delivery_step);
+    }));
+
+    
+
+    function step_customer() {
+      let summary_fields = customer_step.querySelectorAll('input:not(.checkbox)');
+      let required_fields = customer_step.querySelectorAll('.required');
+      let result = validate(required_fields);      
+      
+      if (result) {
+        update(delivery_step);
+        summary(customer_summary, summary_fields);
+      }
+    }
+
+    function step_delivery() {
+      let summary_fields = delivery_step.querySelectorAll('input[name=delivery]:checked, input[name=new_post_address]')
+      let checked_radios = delivery_step.querySelectorAll('input[type=radio]:checked');
+      let required_fields = [];      
+
+      checked_radios.forEach(radio => {
+        let fields = radio.closest('.checkoutStepItem__radio').querySelectorAll('.required');
+        if (fields.length) {
+          fields.forEach(field => {
+            required_fields.push(field);
+          });
+        }
+      });
+
+      let result = validate(required_fields);    
+      if (result) {
+        update(payment_step);
+        summary(delivery_summary, summary_fields);
+      }
+    }
+
+    function step_order() {    
+      let checked_radios = payment_step.querySelectorAll('input[type=radio]:checked');
+      let required_fields = [];
+
+      checked_radios.forEach(radio => {
+        let fields = radio.closest('.checkoutStepItem__radio').querySelectorAll('.required');
+        if (fields.length) {
+          fields.forEach(field => {
+            required_fields.push(field);
+          });
+        }
+      });  
+      
+      let result = validate(required_fields);
+      if (result) {
+        document.location.pathname = './success.html';
+      }
+    }
+
+    function validate(fields) {
+      let result = null;
+
+      if (fields.length) {
+        fields.forEach(field => {
+          if (field.value == '') {
+            field.classList.remove('input--ok');
+            field.classList.remove('input--err');
+            setTimeout(() => {
+              field.classList.add('input--err');
+            }, 0);          
+            result = false;
+          } else {
+            field.classList.remove('input--err');
+            field.classList.add('input--ok');
+            result != false ? result = true : null;
+          }
+        });
+      } else {
+        result = true;
+      }
+
+      return result;
+    }
+
+    function update(s) {
+      let step_id = s.dataset.step;
+
+      steps.forEach(s => {
+        s.classList.remove('active');
+      });
+      s.classList.add('active');
+      if (step_id) {
+        nav_items.forEach(item => {          
+          if (item.dataset.step == step_id) {
+            item.classList.add('active');
+          } else {
+            item.classList.remove('active');
+          }
+        });
+      }
+    }
+
+    function summary(item, fields) {
+      let summary_row = item.querySelector('.checkoutSummary__data');
+
+      item.classList.add('active');
+      summary_row.innerText = null;
+      fields.forEach(field => {
+        let s = document.createElement('span');
+        if (field.value != '') {          
+          s.innerText = field.value;
+        } else {
+          s.innerText = '-';
+        }
+        summary_row.appendChild(s);        
+      });
+    }
   }
 
 

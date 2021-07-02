@@ -1,0 +1,83 @@
+include ../storage/cart_products.pug
+
+-
+  let title = "Cart";
+  let breadcrumbs = [
+    {
+      href: './',
+      label: 'Главная'
+    },
+    {
+      href: null,
+      label: 'Корзина',
+      last: true
+    }
+  ];
+
+
+
+doctype html
+html(lang="en")
+  include ../blocks/head.pug
+  body.root.page-cart
+
+    header.header
+      include ../blocks/header/root.pug
+    
+
+    main.cartPage
+
+      .container
+
+        section.breadcrumbs
+          +breadcrumbs(breadcrumbs)
+
+        section.cartPageWrap
+
+          .cartPageContent
+
+            .cartPageContent__header
+              h1.heading Корзина
+              button.btn.btn--dashed.ic-heart_black.cartPageContent__wish#add_to_wish_all
+                span Добавить все в избранное
+              button.btn.btn--dashed.ic-trash.cartPageContent__del#cart_del_all
+                span Удалить все
+            
+            .cartPageContent__products
+              each product in products 
+                +preview_cart(product)
+
+          .cartPageInfo
+            .cartInfo
+              .cartInfo__row.cartInfo__row--products
+                .cartInfo__key.label Товаров в корзине:
+                .cartInfo__val.label 8 ед.
+              .cartInfo__row 
+                .cartInfo__key.label Скидка:
+                .cartInfo__val.label -532,10 ₴
+              .cartInfo__row.cartInfo__row--cashback  
+                .cartInfo__key.label Кешбек:
+                .cartInfo__val.label 70,90 ₴
+              .cartInfo__row.cartInfo__row--total 
+                .cartInfo__key.label Итого:
+                .cartInfo__val.label 7002,90 ₴
+            .cartPageInfo__inner
+
+              .enter
+                .enter__btn.btn.btn--dashed.open_promo
+                  span Ввести промокод
+                .enter__enter
+                  p Введите промокод!
+                  .enter__enterArea
+                    input.input(type="text" name="promocode" placeholder="Код")
+                    button.btn.btn--prim.add_promo Применить
+                .enter__success Промокод успешно применён!
+
+              a.btn.btn--prim.cartPageInfo__checkout(href="./checkout.html") Оформить
+              button.btn.btn--dashed.open_credits 
+                span КРЕДИТ
+
+
+
+
+    include ../blocks/footer/footer.pug

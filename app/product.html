@@ -299,10 +299,25 @@
     </header>
     <main class="product">
       <div class="container">
-        <section class="breadcrumbs"><a class="breadcrumbs__item" href="./">Главная</a><a class="breadcrumbs__item" href="./catalog.html">Мотоциклы</a><a class="breadcrumbs__item" href="./catalog.html">yamaha</a>
+        <section class="breadcrumbs scroll scroll--breadcrumbs"><a class="breadcrumbs__item" href="./">Главная</a><a class="breadcrumbs__item" href="./catalog.html">Мотоциклы</a><a class="breadcrumbs__item" href="./catalog.html">yamaha</a>
             <div class="breadcrumbs__end">vmax</div>
         </section>
-        <section class="productMain">
+        <section class="productMain">        
+          <div class="productMainHeading visible-xs">
+            <div class="productMainInfo__art">Арт.: 23545645</div>
+            <div class="heading productMainInfo__name">МОТОШЛЕМ LS2 FF353 RAPID SINGLE MONO GLOSS BLACK</div>
+            <div class="productMainInfo__stickers">
+              <div class="preview__sticker preview__sticker--new">новинка</div>
+              <div class="preview__sticker preview__sticker--freeshiping">бесплатная доставка</div>
+            </div>
+            <div class="productMainInfo__status">
+              <div class="productMainInfo__stock ic-check_in">В наличии</div>
+              <div class="productMainInfo__rate ic-star_f">3.5 
+                <button class="btn goto_reviews">(2 отзыва)</button>
+              </div>
+              <div class="productMainInfo__manufacturer">Производитель: <a href="#">IXS </a></div>
+            </div>
+          </div>
           <div class="productMainImages">
             <div class="swiper-container swiper-visible-slides productMainImages__thumb ic-zoom-in">
               <div class="swiper-wrapper"><a class="swiper-slide" href="./img/product/product1.png" data-fancybox="gallery"><img src="./img/product/product1.png" alt=""></a><a class="swiper-slide" href="./img/product/product2.png" data-fancybox="gallery"><img src="./img/product/product2.png" alt=""></a><a class="swiper-slide" href="./img/product/product3.png" data-fancybox="gallery"><img src="./img/product/product3.png" alt=""></a><a class="swiper-slide" href="./img/product/product4.png" data-fancybox="gallery"><img src="./img/product/product4.png" alt=""></a><a class="swiper-slide" href="./img/product/product5.png" data-fancybox="gallery"><img src="./img/product/product5.png" alt=""></a><a class="swiper-slide" href="./img/product/product1.png" data-fancybox="gallery"><img src="./img/product/product1.png" alt=""></a>
@@ -318,19 +333,28 @@
             </div>
           </div>
           <div class="productMainInfo"> 
-            <div class="productMainInfo__stickers">
+            <div class="productMainInfo__stickers hidden-xs">
               <div class="preview__sticker preview__sticker--new">новинка</div>
               <div class="preview__sticker preview__sticker--freeshiping">бесплатная доставка</div>
             </div>
-            <h1 class="heading productMainInfo__name">МОТОШЛЕМ LS2 FF353 RAPID SINGLE MONO GLOSS BLACK</h1>
-            <div class="productMainInfo__status">
+            <h1 class="heading productMainInfo__name hidden-xs">МОТОШЛЕМ LS2 FF353 RAPID SINGLE MONO GLOSS BLACK</h1>
+            <div class="productMainInfo__status hidden-xs">
               <div class="productMainInfo__stock ic-check_in">В наличии</div>
               <div class="productMainInfo__rate ic-star_f">3.5 
                 <button class="btn goto_reviews">(2 отзыва)</button>
               </div>
+              <div class="productMainInfo__manufacturer">Производитель: <a href="#">IXS </a></div>
             </div>
-            <div class="productMainInfo__price">2360.40 ₴ </div>
-            <div class="productMainInfo__art">арт.: 23545645</div>
+            <div class="productMainInfo__cost">
+              <div class="label visible-xs">Цена:</div>
+              <div class="productMainInfo__old">9999.99 ₴</div>
+              <div class="productMainInfo__price">2360.40 ₴</div>
+            </div>
+            <div class="productMainInfo__art hidden-xs">Арт.: 23545645</div>
+            <div class="productMainInfo__bonus">
+              <div class="productMainInfo__bonusValue">+149 грн</div>
+              <div class="productMainInfo__bonusDesc">Бонусная программа (только для вторизированных пользователей)</div>
+            </div>
             <div class="productMainInfoOptions">
               <div class="productMainInfoOptions__item productMainInfoOptions__item--color">
                 <div class="productMainInfoOptions__title label">Цвет:</div>
@@ -409,12 +433,12 @@
         </section>
       </div>
       <section class="productTabs tabs">
-        <div class="container">
-          <div class="productTabs__nav">
-            <button class="btn tabs__btn tabs__btn--active productTabs__btn" data-tab="product_tab1">Характеристики</button>
-            <button class="btn tabs__btn productTabs__btn" data-tab="product_tab2">Доставка и оплата</button>
-            <button class="btn tabs__btn productTabs__btn" data-tab="product_tab3">Гарантия и сервис</button>
-            <button class="btn tabs__btn productTabs__btn productTabs__btn--reviews" data-tab="product_tab4">Отзывы(2)</button>
+        <div class="productTabs__buttons container swiper-container swiper-visible">
+          <div class="productTabs__nav swiper-wrapper">
+            <button class="btn tabs__btn swiper-slide tabs__btn--active productTabs__btn" data-tab="product_tab1">Характеристики</button>
+            <button class="btn tabs__btn swiper-slide productTabs__btn" data-tab="product_tab2">Доставка и оплата</button>
+            <button class="btn tabs__btn swiper-slide productTabs__btn" data-tab="product_tab3">Гарантия и сервис</button>
+            <button class="btn tabs__btn swiper-slide productTabs__btn productTabs__btn--reviews" data-tab="product_tab4">Отзывы(2)</button>
           </div>
         </div>
         <div class="productTabs__wrap"> 
@@ -486,11 +510,11 @@
                     <p>Гарантия на двигатель сохраняется при условии соблюдения требований, рекомендаций и правил эксплуатации и хранения двигателя. Неотъемлемой частью для сохранения гарантии есть регулярное посещение планового технического обслуживания на официальных сервисных станциях.</p>
                   </div>
                   <div class="productGuarantee__img guarantee"><img src="./img/director2.png" alt=""><img class="guarantee__border" src="./img/guarantee.svg" alt=""></div>
+                  <blockquote class="productGuarantee__warn">
+                    <div class="title">Гарантия не распространяется на:</div>
+                    <p>Недостатки, которые возникли в результате ДТП или пожара, неправильной эксплуатации или небрежного отношения с двигателем;<br>На детали, узлы и агрегаты, которые установлены на неофициальных сервисных станциях, и запрещены для установки производителем двигателя;<br>Неисправности, которые возникли в результате:<br>1. несвоевременного прохождения ТО;<br>2. воздействия экстремально высоких или низких температур;<br>3. действия предметов, которые попали в агрегат или деталь и вывели ее из строя.<br>Детали (фильтра, масло, жидкости), которые имеют природный износ (диски сцепления, лампы и т.п.).</p>
+                  </blockquote>
                 </div>
-                <blockquote class="productGuarantee__warn">
-                  <div class="title">Гарантия не распространяется на:</div>
-                  <p>Недостатки, которые возникли в результате ДТП или пожара, неправильной эксплуатации или небрежного отношения с двигателем;<br>На детали, узлы и агрегаты, которые установлены на неофициальных сервисных станциях, и запрещены для установки производителем двигателя;<br>Неисправности, которые возникли в результате:<br>1. несвоевременного прохождения ТО;<br>2. воздействия экстремально высоких или низких температур;<br>3. действия предметов, которые попали в агрегат или деталь и вывели ее из строя.<br>Детали (фильтра, масло, жидкости), которые имеют природный износ (диски сцепления, лампы и т.п.).</p>
-                </blockquote>
               </div>
               <div class="productReviews tabs__content" data-tab="product_tab4" data-name="reviews">
                 <div class="heading">Отзывы</div>
@@ -532,7 +556,7 @@
       <section class="productsIntDefault" data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="top-center">
         <div class="container">
           <div class="heading">Эти товары могут вас заинтересовать</div>
-          <div class="productsListDefault swiper-container swiper-visible">
+          <div class="productsListDefault swiper-container swiper-blured swiper-visible">
             <div class="swiper-button-prev"></div>
             <div class="swiper-wrapper">
               <div class="swiper-slide">
@@ -740,6 +764,107 @@
         </div>
       </div>
     </footer>
+    <div class="modal modalCredits"> 
+      <div class="modal__win">
+        <button class="btn modal__close ic-close_modal"></button>
+        <div class="modal__header"> 
+          <div class="heading">Кредиты</div>
+          <div class="modal__sub">В корзине <span>8 товаров</span>, на сумму <span>7002,90₴</span></div>
+        </div>
+        <table class="creditsTable"> 
+          <thead> 
+            <tr>
+              <th>Банк</th>
+              <th>Срок, месяцев</th>
+              <th>Ежемесячный платеж</th>
+              <th>Комиссия</th>
+            </tr>
+          </thead>
+          <tbody> 
+            <tr class="active"> 
+              <td>
+                <input class="radio" type="radio" name="credit" id="artmoto" checked>
+                <label for="artmoto"><img src="./img/icons/artmoto.svg" alt=""><span class="creditsTable__name">ArtMoto - кредит</span></label>
+              </td>
+              <td>
+                <div class="dropdown">
+                  <div class="dropdown__title">2 мес.</div>
+                  <button class="btn dropdown__btn ic-arrow_down"></button>
+                  <div class="dropdown__inner"><span>1</span><span>2</span><span>3</span></div>
+                </div>
+              </td>
+              <td>4500 ₴/мес.</td>
+              <td>
+                <div class="creditsTable__com"> 
+                  <p>Ежемесячная комиссия -  <span>2.25%</span></p>
+                  <p>Разовая комиссия - <span>3%</span></p>
+                </div>
+              </td>
+            </tr>
+            <tr> 
+              <td>
+                <input class="radio" type="radio" name="credit" id="monobank">
+                <label for="monobank"><img src="./img/icons/monobank.svg" alt=""><span class="creditsTable__name">Monobank - Покупка частями </span></label>
+              </td>
+              <td>
+                <div class="dropdown">
+                  <div class="dropdown__title">2 мес.</div>
+                  <button class="btn dropdown__btn ic-arrow_down"></button>
+                  <div class="dropdown__inner"><span>1</span><span>2</span><span>3</span></div>
+                </div>
+              </td>
+              <td>4500 ₴/мес.</td>
+              <td>
+                <div class="creditsTable__com"> 
+                  <p>Ежемесячная комиссия -  <span>2.25%</span></p>
+                  <p>Разовая комиссия - <span>3%</span></p>
+                </div>
+              </td>
+            </tr>
+            <tr> 
+              <td>
+                <input class="radio" type="radio" name="credit" id="alfabank">
+                <label for="alfabank"><img src="./img/icons/alfabank.svg" alt=""><span class="creditsTable__name">Альфа-Банк - легкая рассрочка</span></label>
+              </td>
+              <td>
+                <div class="dropdown">
+                  <div class="dropdown__title">2 мес.</div>
+                  <button class="btn dropdown__btn ic-arrow_down"></button>
+                  <div class="dropdown__inner"><span>1</span><span>2</span><span>3</span></div>
+                </div>
+              </td>
+              <td>4500 ₴/мес.</td>
+              <td>
+                <div class="creditsTable__com"> 
+                  <p>Ежемесячная комиссия -  <span>2.25%</span></p>
+                  <p>Разовая комиссия - <span>3%</span></p>
+                </div>
+              </td>
+            </tr>
+            <tr> 
+              <td>
+                <input class="radio" type="radio" name="credit" id="privatbank">
+                <label for="privatbank"><img src="./img/icons/privatbank.svg" alt=""><span class="creditsTable__name">ПриватБанк - оплата частями</span></label>
+              </td>
+              <td>
+                <div class="dropdown">
+                  <div class="dropdown__title">2 мес.</div>
+                  <button class="btn dropdown__btn ic-arrow_down"></button>
+                  <div class="dropdown__inner"><span>1</span><span>2</span><span>3</span></div>
+                </div>
+              </td>
+              <td>4500 ₴/мес.</td>
+              <td>
+                <div class="creditsTable__com"> 
+                  <p>Ежемесячная комиссия -  <span>2.25%</span></p>
+                  <p>Разовая комиссия - <span>3%</span></p>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
     <script src="./libs/swiper/swiper-bundle.min.js"></script>
     <script src="./libs/aos/aos.js"></script>
     <script src="./libs/nouislider/nouislider.min.js"></script>
