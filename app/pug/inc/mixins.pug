@@ -97,6 +97,23 @@ mixin preview_cart(product)
       button.btn.ic-trash.preview__delete
 
 
+mixin preview_compare(product)
+  .preview
+    a.preview__thumb(href="./product.html")
+      img(width="208" height="194" src=product.thumb, alt="")
+    .preview__caption
+      a(href="./product.html").preview__name.title= product.name
+      .preview__model= product.model
+      .preview__price
+        if product.special
+          span.preview__special= product.special
+          span= product.price
+        else
+          span= product.price
+    .preview__actions
+      button.btn.ic-trash.preview__delete
+
+
 mixin article(data)
   .article
     .article__thumb
@@ -120,3 +137,16 @@ mixin breadcrumbs(links)
       a.breadcrumbs__item(href=link.href)= link.label
     else 
       .breadcrumbs__end= link.label
+
+
+
+mixin account_nav(links)
+  nav.accountNav 
+    ul 
+      each link in links
+        if link.active
+          li.active 
+            a(href=link.href)= link.title
+        else 
+          li 
+            a(href=link.href)= link.title

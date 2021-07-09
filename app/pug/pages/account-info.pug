@@ -1,0 +1,171 @@
+include ../storage/account_nav.pug
+
+-
+  let title = "Account info";
+  let breadcrumbs = [
+    {
+      href: './',
+      label: 'Главная'
+    },
+    {
+      href: null,
+      label: 'Личный кабинет',
+      last: true
+    }
+  ];
+  navigation[0].active = true;
+
+doctype html
+html(lang="en")
+  include ../blocks/head.pug
+  body.root.page-account
+
+    header.header
+      include ../blocks/header/root.pug
+    
+
+    .layout
+
+      aside.sidebar.accountSidebar
+        +account_nav(navigation)
+
+      main.accountMain
+
+        section.breadcrumbs
+          +breadcrumbs(breadcrumbs)
+
+        section.accountContacts 
+          .accountMain__header 
+            .title Контактные данные
+            button.btn.btn--dashed.ic-write.change_info 
+              span Редактировать
+          .accountMain__content 
+            form.accountContacts__fields#user_contacts
+              .field 
+                .label Имя:
+                input.input(type="text" name="first_name" placeholder="Имя:" value="Иван" readonly)
+              .field 
+                .label Фамилия:
+                input.input(type="text" name="last_name" placeholder="Фамилия:" value="Иванов" readonly)
+              .field 
+                .label Дата рождения:
+                input.input(type="text" name="birth" placeholder="Дата рождения:" value="Не указанно" readonly)
+              .field 
+                .label Email:
+                input.input(type="text" name="email" placeholder="Email:" value="email@gmail.com" readonly)
+              .field 
+                .label Телефон:
+                input.input(type="text" name="phone" placeholder="Телефон:" value="+38(050)123 45 67" readonly)
+              .accountMain__accept 
+                button(type="button").btn.btn--prim.accountMain__save.save_info сохранить
+                button(type="button").btn.btn--default.accountMain__cancel.cancel_info отмена
+            blockquote.accountMain__subs
+              .title БУДЬ В КУРСЕ ПОСЛЕДНИХ НОВОСТЕЙ ARTMOTO.UA
+              p Получай уведомления  о новинках и акциях в ARTMOTO
+              .field 
+                input(type="checkbox" name="subscribe" id="user_subscribe" checked).checkbox
+                label(for="user_subscribe") Получать уведомления
+
+        section.accountAddresses
+          .accountMain__header 
+            .title Адреса доставки
+            button.btn.btn--dashed.ic-write.change_addresses
+              span Редактировать
+          .accountAddresses__content#user_addresses
+            .accountAddressesRadio
+              .field
+                input(type="radio" name="address" id="address1" value="г.Харьков, ул. Сумская 15, кв. 1" checked data-address_id="1").radio
+                label(for="address1") г.Харьков, ул. Сумская 15, кв. 1
+                span(data-active="Выбран как основной") 
+              .field 
+                input(type="radio" name="address" id="address2" value="г.Харьков, ул. Халтурина 2, кв. 2" data-address_id="2").radio
+                label(for="address2") г.Харьков, ул. Халтурина 2, кв. 2
+                span(data-active="Выбран как основной") 
+              .field
+                input(type="radio" name="address" id="address3" value="г.Харьков, ул. Пушкинская 3, кв. 3" data-address_id="3").radio
+                label(for="address3") г.Харьков, ул. Пушкинская 3, кв. 3
+                span(data-active="Выбран как основной") 
+              .accountMain__accept 
+                button(type="button").btn.btn--prim.accountMain__add.add_address Добавить адрес
+            .accountAddressesChange
+              form#addresses_edit.accountAddressesChange__rows
+                .field 
+                  .label Выбрать как основной
+                  .accountAddressesDrop.dropdown.dropdown--default 
+                    button.btn.dropdown__btn.ic-arrow_nav(type="button") г. Харьков, ул. Сумская, д. 15
+                    .dropdown__inner 
+                      button.btn.change_active(data-address="address1") г. Харьков, ул. Сумская, д. 15
+                      button.btn.change_active(data-address="address2") г. Харьков, ул. Халтурина 2, кв. 2
+                      button.btn.change_active(data-address="address3") г. Харьков, ул. Пушкинская 3, кв. 3
+                .accountAddressesChange__row
+                  .field 
+                    .label Город
+                    input(type="text" placeholder="Введите город" name="address[1][city]" value="г.Харьков").input
+                  .field 
+                    .label Улица
+                    input(type="text" placeholder="Введите улицу" name="address[1][street]" value="ул. Сумская").input
+                  .field 
+                    .label Дом
+                    input(type="text" placeholder="Введите номер дома" name="address[1][house]" value="15").input
+                  .field 
+                    .label Квартира
+                    input(type="text" placeholder="Введите номер квартиры" name="address[1][flat]" value="кв. 1").input 
+                  button.btn.btn--dashed.ic-trash.address_delete(type="button" data-id="1")
+                    span Удалить
+                .accountAddressesChange__row
+                  .field 
+                    .label Город
+                    input(type="text" placeholder="Введите город" name="address[2][city]" value="г.Харьков").input
+                  .field 
+                    .label Улица
+                    input(type="text" placeholder="Введите улицу" name="address[2][street]" value="ул. Халтурина").input
+                  .field 
+                    .label Дом
+                    input(type="text" placeholder="Введите номер дома" name="address[2][house]" value="2").input
+                  .field 
+                    .label Квартира
+                    input(type="text" placeholder="Введите номер квартиры" name="address[2][flat]" value="кв. 2").input 
+                  button.btn.btn--dashed.ic-trash.address_delete(type="button" data-id="2")
+                    span Удалить
+                .accountAddressesChange__row
+                  .field 
+                    .label Город
+                    input(type="text" placeholder="Введите город" name="address[3][city]" value="г.Харьков").input
+                  .field 
+                    .label Улица
+                    input(type="text" placeholder="Введите улицу" name="address[3][street]" value="ул. Пушкинская").input
+                  .field 
+                    .label Дом
+                    input(type="text" placeholder="Введите номер дома" name="address[3][house]" value="3").input
+                  .field 
+                    .label Квартира
+                    input(type="text" placeholder="Введите номер квартиры" name="address[3][flat]" value="кв. 3").input 
+                  button.btn.btn--dashed.ic-trash.address_delete(type="button" data-id="3")
+                    span Удалить
+                .accountAddressesChange__row.accountAddressesChange__row--new
+                  .field 
+                    .label Город
+                    input(type="text" placeholder="Введите город" name="address[4][city]" value="" disabled).input
+                  .field 
+                    .label Улица
+                    input(type="text" placeholder="Введите улицу" name="address[4][street]" value="" disabled).input
+                  .field 
+                    .label Дом
+                    input(type="text" placeholder="Дом" name="address[4][house]" value="" disabled).input
+                  .field 
+                    .label Квартира
+                    input(type="text" placeholder="Квартира" name="address[4][flat]" value="" disabled).input
+                  button.btn.btn--dashed.ic-trash.address_delete(type="button")
+                    span Удалить
+                button.btn.btn--dashed.accountAddressesChange__add.address_add.ic-plus_light(type="button") 
+                  span Добавить
+              .accountMain__accept 
+                button(type="button").btn.btn--prim.accountMain__save.save_address сохранить
+                button(type="button").btn.btn--default.accountMain__cancel.cancel_address отмена
+              
+            
+      
+
+
+
+    include ../blocks/footer/footer.pug

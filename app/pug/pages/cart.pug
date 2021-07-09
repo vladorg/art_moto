@@ -64,13 +64,14 @@ html(lang="en")
             .cartPageInfo__inner
 
               .enter
-                .enter__btn.btn.btn--dashed.open_promo
+                .enter__btn.btn.btn--dashed.open_field
                   span Ввести промокод
                 .enter__enter
                   p Введите промокод!
                   .enter__enterArea
                     input.input(type="text" name="promocode" placeholder="Код")
-                    button.btn.btn--prim.add_promo Применить
+                    button.btn.btn--prim.accept_field Применить
+                  .enter__msg
                 .enter__success Промокод успешно применён!
 
               a.btn.btn--prim.cartPageInfo__checkout(href="./checkout.html") Оформить

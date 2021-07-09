@@ -1,0 +1,318 @@
+.accountSidebar
+  padding: 24px 0 87px calc((100% - #{$container}) / 2)
+  width: 33%
+  background: $c_account_sidebar
+
+
+.accountNav
+  ul
+    li
+      a
+        +text(18,500,36,0)
+      +not_last
+        margin-bottom: 20px
+      &.active
+        a
+          font-weight: 700
+          color: $c_primary
+          border-bottom: 1px dashed $c_primary
+          +tran(all,.2s)
+          +hover
+            text-decoration: none
+            border-color: $transparent
+
+.accountMain
+  padding: 0 calc((100% - #{$container}) / 2) 87px 24px
+  width: 67%
+
+  .breadcrumbs
+    padding: 32px 0 26px 0
+
+  &__subs
+    width: 100%
+    max-width: 392px
+    padding-top: 40px
+    padding-bottom: 40px
+    background: $c_account_sidebar
+    .title
+    p
+      margin: 24px 0 32px 0
+    .field
+      label
+        font-weight: 600
+  &__accept
+    padding-top: 32px
+    width: 100%
+    +flex(0,0,0,center)
+    .btn
+      text-transform: uppercase
+      +text(12,600,24,0)
+  &__save
+    padding: 8px 52px
+    margin-right: 8px
+  &__cancel
+    padding: 6px 10px
+  &__add
+    padding: 8px 86px
+
+  &__header 
+    +flex(0,0,space-between,center)
+    .title
+      text-transform: none
+      color: #000
+      margin-bottom: 0
+  &__content
+    padding-top: 60px
+    +flex(0,0,space-between,flex-start)
+    .title
+      text-transform: none
+      +text(18,0,26,0)
+
+.accountContacts  
+  &__fields
+    width: calc(100% - 392px - 104px)
+    .field
+      position: relative
+      +not_last
+        margin-bottom: 8px
+    .label
+      display: none
+    .input
+      padding-top: 12px
+      padding-bottom: 12px
+      color: #000
+    &:not(.editing)
+      .field
+        +not_last
+          margin-bottom: 16px
+      .label
+        display: block
+        position: absolute
+        top: 0
+        left: 0
+        color: #AEAFB3
+        font-weight: 400
+        margin-bottom: 0
+      .input
+        padding-left: 185px
+        padding-top: 0
+        padding-bottom: 16px
+        border: none
+        border-bottom: 1px solid #CECECE
+      .accountMain__accept
+        display: none
+
+.accountAddresses
+  padding-top: 56px
+
+  &Radio
+    +flex(0,wrap,0,0)
+    .field
+      position: relative
+      padding-bottom: 22px
+      +not_last
+        margin-right: 48px
+      label
+        color: #6B6B6B
+      span
+        position: absolute
+        bottom: 0
+        left: 0
+        right: 0
+        opacity: 0
+        padding-left: 24px
+        white-space: nowrap
+        +tran(all,.4s)
+        &::before
+          content: (attr(data-active))
+          display: block
+          color: #AEAFB3
+      .radio:checked
+        ~ span
+            opacity: 1
+            transition-delay: .2s
+
+
+  &Change
+    display: none
+
+    .label
+      +text(12,400,22,#AEAFB3)
+    
+    .accountAddressesDrop
+      .dropdown__btn
+        border: 1px solid #D9DADC
+        width: 100%
+        padding: 14px 24px
+        margin-left: 0
+        font-size: 14px
+        color: #000
+        +flex(row-reverse,0,space-between,center)
+        +before
+          transform: rotate(90deg)
+      .dropdown__inner
+        .btn
+          font-size: 14px
+          +not_last
+            margin-bottom: 8px
+          +hover
+            text-decoration: underline
+      &.dropdown--opened 
+        .dropdown__btn
+          +before
+            transform: rotate(-90deg)
+    &__rows
+      padding-top: 16px
+    &__row
+      // margin-bottom: 16px
+      +flex(0,0,space-between,flex-end)
+      +not_first
+        margin-top: 16px
+      .field
+        width: 288px
+        &:nth-child(1n + 3)
+          width: 80px
+          .input
+            padding-left: 8px
+        .input
+          padding-top: 12px
+          padding-bottom: 12px
+      .btn
+        margin-bottom: 8px
+      &--new
+        &:not(.active)
+          display: none
+        .btn
+          opacity: 0
+          pointer-events: none
+        &.active
+          + .accountAddressesChange__add
+            display: none
+    &__add
+      margin-top: 16px
+      
+    
+  &__content
+    padding-top: 32px
+
+    &.editing
+      padding-top: 16px
+      .accountAddressesRadio
+        display: none
+      .accountAddressesChange
+        display: block
+
+.accountOrders
+
+  &__content
+    .load_orders
+      display: block
+      margin: 56px auto 0 auto
+      text-transform: uppercase
+      padding: 8px 86px
+      +text(12,600,24,0)
+
+  &Table
+    margin-top: 16px
+    width: 100%
+    thead
+      background: $c_account_sidebar
+      th
+        border-color: $c_account_sidebar
+        padding: 16px
+        +text(14,400,0,#000)    
+    &__status
+      padding: 6px 32px
+      &--sended
+        background: $c_status_sended
+        color: #fff
+      &--inwork
+        background: $c_status_inwork
+        color: #fff
+    &__details
+      display: none
+      td
+        padding: 0
+
+
+.accountOrder
+  border: 1px solid #D9DADC
+  tr
+    td
+      border: none
+      text-align: center
+      +text(14,400,0,#000)
+      .open_order
+        width: 100%
+        +flex(row-reverse,0,0,0)
+        span
+          display: inline-block
+          margin-right: 8px
+        +before
+          margin: 0
+          transform: rotate(90deg)
+          +tran(all,.2s)
+  &.active
+    .accountOrdersTable__details
+      display: table-row
+    .open_order
+      +before
+        transform: rotate(-90deg)
+
+.accountOrderDetails
+  background: $c_account_sidebar
+  margin: 0 16px 16px
+  padding: 16px
+  text-align: left
+  &__general 
+    width: 100%
+    margin-bottom: 32px
+  &__item
+    +flex(0,0,0,center)
+    +not_last
+      margin-bottom: 16px
+  &__product
+    padding-right: 16px
+    +flex(0,0,0,center)
+    img
+      width: 44px
+      height: 44px
+      object-fit: contain
+      margin-right: 8px
+    p
+      color: #000
+      max-width: 260px
+      +ellipsis(44px,2,true)
+  &__quantity
+    margin-left: 48px
+  &__price
+    margin-left: 72px
+    max-width: 90px
+    white-space: nowrap
+    +ellipsis(0,0,false)
+  &__receipt 
+    margin: 0 16px 0 auto
+  &__wrap
+    +flex(0,wrap,space-between,flex-start)
+  &__row
+    +flex(0,0,space-between,center)
+    +not_last
+      margin-bottom: 8px
+  &__info
+    max-width: 45%
+    .label
+      margin-bottom: 16px
+    .accountOrderDetails__row
+      justify-content: flex-start
+    .accountOrderDetails__key
+      color: #9A9A9A
+      margin-right: 4px
+  &__totals
+    width: 41%
+    .accountOrderDetails__key
+      font-weight: 500
+    .accountOrderDetails__row--total
+      .accountOrderDetails__key
+        +text(18,600,0,0)
+      .accountOrderDetails__value
+        +text(18,700,0,0)

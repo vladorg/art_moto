@@ -1,0 +1,158 @@
+include ../storage/account_nav.pug
+
+-
+  let title = "Account orders";
+  let breadcrumbs = [
+    {
+      href: './',
+      label: 'Главная'
+    },
+    {
+      href: './account-info.html',
+      label: 'Личный кабинет'
+    },
+    {
+      href: null,
+      label: 'Мои заказы',
+      last: true
+    }
+  ];
+  navigation[1].active = true;
+
+doctype html
+html(lang="en")
+  include ../blocks/head.pug
+  body.root.page-account
+
+    header.header
+      include ../blocks/header/root.pug
+    
+
+    .layout
+
+      aside.sidebar.accountSidebar
+        +account_nav(navigation)
+
+      main.accountMain
+
+        section.breadcrumbs
+          +breadcrumbs(breadcrumbs)
+
+        section.accountOrders 
+          .accountMain__header 
+            .title Мои заказы
+          .accountOrders__content 
+            table.accountOrdersTable
+              thead 
+                th Номер заказа
+                th Статус
+                th Дата
+                th Бонусы
+                th Сумма
+                th 
+              tbody.accountOrder 
+                tr 
+                  td #0000001
+                  td
+                    .accountOrdersTable__status.accountOrdersTable__status--sended Доставлен
+                  td 10.03.2021
+                  td 80 ₴
+                  td 16 000 ₴
+                  td 
+                    button.btn.btn--dashed.ic-arrow_right.open_order  
+                      span Развернуть
+                tr.accountOrdersTable__details  
+                  td(colspan="6") 
+                    .accountOrderDetails
+                      .accountOrderDetails__general 
+                        .label Состав заказа
+                        .accountOrderDetails__item 
+                          a(href="./product.html").accountOrderDetails__product
+                            img(src="./img/cart/1.png", alt="") 
+                            p Мотошлем LS2 FF353 RAPID BOHO WHITE-BLACK-PINK
+                          .accountOrderDetails__quantity 1 шт.
+                          .accountOrderDetails__price 16 000 ₴
+                          button.btn.btn--dashed.ic-download.accountOrderDetails__receipt 
+                            span Электронный чек
+                      .accountOrderDetails__wrap
+                        .accountOrderDetails__info
+                          .label Информация о заказе
+                          .accountOrderDetails__row 
+                            .accountOrderDetails__key Доставка: 
+                            .accountOrderDetails__value Самовывоз
+                          .accountOrderDetails__row 
+                            .accountOrderDetails__key Оплата: 
+                            .accountOrderDetails__value Оплата наличными
+                        .accountOrderDetails__totals
+                          .accountOrderDetails__row 
+                            .accountOrderDetails__key Кешбек
+                            .accountOrderDetails__value 80 ₴
+                          .accountOrderDetails__row 
+                            .accountOrderDetails__key Доставка: 
+                            .accountOrderDetails__value Бесплатно
+                          .accountOrderDetails__row.accountOrderDetails__row--total 
+                            .accountOrderDetails__key Всего 
+                            .accountOrderDetails__value 32 000 ₴
+              tbody.accountOrder 
+                tr 
+                  td #0000002
+                  td
+                    .accountOrdersTable__status.accountOrdersTable__status--inwork В работе
+                  td 10.03.2021
+                  td 80 ₴
+                  td 48 000 ₴
+                  td 
+                    button.btn.btn--dashed.ic-arrow_right.open_order  
+                      span Развернуть
+                tr.accountOrdersTable__details  
+                  td(colspan="6") 
+                    .accountOrderDetails
+                      .accountOrderDetails__general 
+                        .label Состав заказа
+                        .accountOrderDetails__item 
+                          a(href="./product.html").accountOrderDetails__product
+                            img(src="./img/cart/1.png", alt="") 
+                            p Мотошлем LS2 FF353 RAPID BOHO WHITE-BLACK-PINK
+                          .accountOrderDetails__quantity 1 шт.
+                          .accountOrderDetails__price 16 000 ₴
+                          button.btn.btn--dashed.ic-download.accountOrderDetails__receipt 
+                            span Электронный чек
+                        .accountOrderDetails__item 
+                          a(href="./product.html").accountOrderDetails__product
+                            img(src="./img/cart/1.png", alt="") 
+                            p Мотошлем LS2 FF353 RAPID BOHO WHITE-BLACK-PINK
+                          .accountOrderDetails__quantity 1 шт.
+                          .accountOrderDetails__price 16 000 ₴
+                        .accountOrderDetails__item 
+                          a(href="./product.html").accountOrderDetails__product
+                            img(src="./img/cart/1.png", alt="") 
+                            p Мотошлем LS2 FF353 RAPID BOHO WHITE-BLACK-PINK
+                          .accountOrderDetails__quantity 1 шт.
+                          .accountOrderDetails__price 16 000 ₴
+                      .accountOrderDetails__wrap
+                        .accountOrderDetails__info
+                          .label Информация о заказе
+                          .accountOrderDetails__row 
+                            .accountOrderDetails__key Доставка: 
+                            .accountOrderDetails__value Самовывоз
+                          .accountOrderDetails__row 
+                            .accountOrderDetails__key Оплата: 
+                            .accountOrderDetails__value Оплата наличными
+                        .accountOrderDetails__totals
+                          .accountOrderDetails__row 
+                            .accountOrderDetails__key Кешбек
+                            .accountOrderDetails__value 80 ₴
+                          .accountOrderDetails__row 
+                            .accountOrderDetails__key Доставка: 
+                            .accountOrderDetails__value Бесплатно
+                          .accountOrderDetails__row.accountOrderDetails__row--total 
+                            .accountOrderDetails__key Всего 
+                            .accountOrderDetails__value 48 000 ₴
+
+            button.btn.btn--prim.load_orders Загрузить еще   
+        
+      
+
+
+
+    include ../blocks/footer/footer.pug

@@ -1,0 +1,152 @@
+include ../storage/products_default.pug
+include ../storage/compare_chars.pug
+
+-
+  let title = "Compare";
+  let breadcrumbs = [
+    {
+      href: './',
+      label: 'Главная'
+    },
+    {
+      href: null,
+      label: 'Сравнение товаров',
+      last: true
+    }
+  ];
+
+doctype html
+html(lang="en")
+  include ../blocks/head.pug
+  body.root.page-success
+
+    header.header
+      include ../blocks/header/root.pug
+    
+
+    main.main.comparePage
+      .container
+
+        section.breadcrumbs
+          +breadcrumbs(breadcrumbs)
+
+        h1.heading Сравнение товаров
+
+        section.compareContent
+          .compareContent__nav
+            .title Категории
+            .compareContent__categories 
+              .compareContent__category
+                button.btn.btn--dashed.change_category.active(data-id="1") 
+                  span Шлемы(3)
+                button.btn.ic-close_modal.compareContent__delete
+              .compareContent__category
+                button.btn.btn--dashed.change_category(data-id="2")
+                  span Шины(8)
+                button.btn.ic-close_modal.compareContent__delete
+              .compareContent__category
+                button.btn.btn--dashed.change_category(data-id="3")
+                  span Диски(8)
+                button.btn.ic-close_modal.compareContent__delete
+              .compareContent__category
+                button.btn.btn--dashed.change_category(data-id="4")
+                  span Перчатки(8)
+                button.btn.ic-close_modal.compareContent__delete
+            button.btn.btn--dashed#compare_remove_all 
+              span Удалить все
+            .compareContent__sort 
+              .field
+                input(type="radio" name="sort" value="all" id="sort_all" checked).radio
+                label(for="sort_all") Все характеристики
+              .field
+                input(type="radio" name="sort" value="differences" id="sort_diff").radio
+                label(for="sort_diff") Только отличия
+          .compareContent__tabs
+            .compareContent__tab.active(data-id="1")
+              .compareContent__wrap
+                .swiper-button-prev.compare_prev
+                .swiper-button-next.compare_next            
+                .compareContent__products.swiper-container.swiper-visible-slides            
+                  .swiper-wrapper 
+                    each product in products_default
+                      .swiper-slide
+                        +preview_compare(product)
+            .compareContent__tab(data-id="2")
+              .compareContent__wrap
+                .swiper-button-prev.compare_prev
+                .swiper-button-next.compare_next            
+                .compareContent__products.swiper-container.swiper-visible-slides            
+                  .swiper-wrapper 
+                    each product in products_default
+                      .swiper-slide
+                        +preview_compare(product)
+            .compareContent__tab(data-id="3")
+              .compareContent__wrap
+                .swiper-button-prev.compare_prev
+                .swiper-button-next.compare_next            
+                .compareContent__products.swiper-container.swiper-visible-slides            
+                  .swiper-wrapper 
+                    each product in products_default
+                      .swiper-slide
+                        +preview_compare(product)
+            .compareContent__tab(data-id="4")
+              .compareContent__wrap
+                .swiper-button-prev.compare_prev
+                .swiper-button-next.compare_next            
+                .compareContent__products.swiper-container.swiper-visible-slides            
+                  .swiper-wrapper 
+                    each product in products_default
+                      .swiper-slide
+                        +preview_compare(product)
+            
+
+        section.compareChars
+
+          .compareChars__tab.active(data-id="1")
+            .compareChars__names 
+              each name in names
+                .compareChars__name= name
+            .compareChars__cols.swiper-container.swiper-visible-slides 
+              .swiper-wrapper
+                each col in characteristics
+                  .swiper-slide.compareChars__col
+                    each prop in col.content
+                      .compareChars__value= prop
+
+          .compareChars__tab(data-id="2")
+            .compareChars__names 
+              each name in names
+                .compareChars__name= name
+            .compareChars__cols.swiper-container.swiper-visible-slides 
+              .swiper-wrapper
+                each col in characteristics
+                  .swiper-slide.compareChars__col
+                    each prop in col.content
+                      .compareChars__value= prop
+            
+          .compareChars__tab(data-id="3")
+            .compareChars__names 
+              each name in names
+                .compareChars__name= name
+            .compareChars__cols.swiper-container.swiper-visible-slides 
+              .swiper-wrapper
+                each col in characteristics
+                  .swiper-slide.compareChars__col
+                    each prop in col.content
+                      .compareChars__value= prop
+          
+          .compareChars__tab(data-id="4")
+            .compareChars__names 
+              each name in names
+                .compareChars__name= name
+            .compareChars__cols.swiper-container.swiper-visible-slides 
+              .swiper-wrapper
+                each col in characteristics
+                  .swiper-slide.compareChars__col
+                    each prop in col.content
+                      .compareChars__value= prop
+                
+
+
+
+    include ../blocks/footer/footer.pug

@@ -1,0 +1,172 @@
+.comparePage
+  padding-bottom: 100px
+
+.compareContent
+  +flex(0,0,0,0)
+  &__nav
+    width: 276px
+    position: relative
+    z-index: 10
+    +flex(column,0,0,0)
+
+  &__categories
+    padding-top: 18px
+  &__category
+    +flex(0,0,0,center)
+    +not_last
+        margin-bottom: 8px
+    .btn
+      font-weight: 500
+      +first
+        +before
+          display: none
+      &.active
+        color: $c_primary
+        span
+          border-color: $c_primary
+        +hover
+          span
+            border-color: $c_primary!important
+  &__delete
+    +before
+      transform: scale(0.75)
+      margin: 0 0 0 4px
+    +hover
+      +before
+        background: url('../img/sprite.svg') -184px -25px
+  #compare_remove_all
+    color: #EB5757
+    font-weight: 500
+    margin-top: 16px
+    span
+      border-color: #EB5757
+    +before
+      display: none
+  &__sort
+    margin: auto 0 32px 0
+    .field
+      +not_last
+        margin-bottom: 16px
+    .radio
+      &:checked
+        + label
+          font-weight: 700
+    label
+      color: #6B6B6B
+
+  &__tabs
+    border-left: 1px solid #AEAFB3
+    padding-left: 36px
+    width: calc(100% - 276px)
+    position: relative
+
+  &__tab
+    display: none
+    &.active
+      display: block
+  
+
+
+  &__wrap
+    .swiper-button-prev,
+    .swiper-button-next
+      padding: 4px
+      +before
+        width: 10px
+        height: 18px
+        background: url("../img/sprite.svg") -69px -27px
+
+    .swiper-button-prev
+      left: 0
+      +before
+        transform: rotate(180deg)
+    .swiper-button-next
+      right: -37px
+      +before
+        transform: none
+
+  &__products
+    margin-top: -20px
+    padding-top: 20px
+
+    .swiper-slide
+
+    .preview
+      border: none
+      padding-bottom: 24px
+      +before
+        display: none
+      .title
+        height: 60px
+        +text(20,0,30,0)
+      &__actions
+        top: 0
+        right: 8px
+        transform: translateY(-50%)
+        opacity: 1
+        .btn
+          background: #DADADA
+          +before
+            opacity: .4
+          +hover
+            +before
+              background: url("../img/sprite.svg") -67px -5px
+              opacity: 1
+    
+.compareChars
+  border-top: 1px solid #AEAFB3
+  text-align: center
+  position: relative
+
+  &__tab
+    display: none
+    &.active
+      +flex()
+
+  &__names
+    width: 276px
+  &__name
+    padding: 16px
+    white-space: nowrap
+    +text(18,500,36,#000)
+    +ellipsis(0,0,false)
+    &:nth-child(odd)
+      background: #F4F4F4
+      +before
+        position: absolute
+        left: 0
+        right: 0
+        height: 68px
+        background: #F4F4F4
+        z-index: -1
+        transform: translateY(-16px)
+      
+  
+  &__cols
+    width: calc(100% - 276px)
+    padding-left: 36px
+    border-left: 1px solid #AEAFB3
+  &__col
+  &__value
+    padding: 23px 16px
+    color: #000
+    white-space: nowrap
+    +ellipsis(0,0,false)
+    &:nth-child(odd)
+      background: #F4F4F4
+
+  &.differences
+    .compareChars__value, 
+    .compareChars__name 
+      background: $transparent
+      +before
+        background: $transparent
+      &:not(.no_match)
+        display: none
+
+      &.no_match
+        &.odd
+          background: #F4F4F4
+          +before
+            background: #F4F4F4
+        

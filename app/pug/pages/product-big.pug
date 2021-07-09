@@ -194,7 +194,8 @@ html(lang="en")
                     .content=slide.content
             .swiper-pagination
       
-      include ../blocks/product_list_custom.pug
+      section.relatedCustom(data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="top-center")
+        include ../blocks/product_list_custom.pug
 
       section.productChars.anchor-section(data-section="chars")
         .container
@@ -326,7 +327,8 @@ html(lang="en")
                 br
                 | Детали (фильтра, масло, жидкости), которые имеют природный износ (диски сцепления, лампы и т.п.).
 
-      include ../blocks/product_list_default.pug
+      section.relatedDefault(data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="top-center")
+        include ../blocks/product_list_default.pug
 
       include ../blocks/feedback.pug
 

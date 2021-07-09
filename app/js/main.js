@@ -117,6 +117,9 @@ window.addEventListener('load', () => {
     product,
     cart,
     checkout,
+    compare,
+    account_info,
+    account_orders,
     footer
   ];
 
@@ -1121,8 +1124,7 @@ window.addEventListener('load', () => {
       for (key of data.keys()) {
         if (e.submitter == order_btn) {
           console.log(`${key}: ${data.get(key)}`);
-        }
-        
+        }        
       }
     }
 
@@ -1300,6 +1302,424 @@ window.addEventListener('load', () => {
       });
     }
   }
+
+
+
+
+
+
+
+
+  /*
+  *** Compare
+  */
+
+  function compare() {
+    const compare_products = get_el('.compareContent__products');
+    const compare_chars = get_el('.compareChars__cols');
+    const change_category = get_el('.change_category', false);
+    const change_sort = get_el('.compareContent__sort .radio', false);
+    const chars = get_el('.compareChars');
+    const chars_tabs = get_el('.compareChars__tab', false);
+
+    const compare_slider = new Swiper('.compareContent__products', {
+      slidesPerView: 3,
+      speed: 200,
+      spaceBetween: 24,
+      watchOverflow: true,
+      observer: true,
+      observeParents: true,
+      navigation: {
+        nextEl: '.compare_next',
+        prevEl: '.compare_prev',
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1
+        },
+        768: {
+          slidesPerView: 2
+        },
+        1224: {
+          slidesPerView: 3
+        }
+      }
+    });
+
+    const compare_chars_slider = new Swiper('.compareChars__cols', {
+      slidesPerView: 3,
+      speed: 200,
+      watchOverflow: true,
+      observer: true,
+      observeParents: true,
+      breakpoints: {
+        320: {
+          slidesPerView: 1
+        },
+        768: {
+          slidesPerView: 2
+        },
+        1224: {
+          slidesPerView: 3
+        }
+      }
+    });
+
+
+    // sync
+    compare_slider.forEach((slider, i) => {
+      slider.controller.control = compare_chars_slider[i];
+    });
+    compare_chars_slider.forEach((slider, i) => {
+      slider.controller.control = compare_slider[i];
+    });
+
+
+    change_category.forEach(btn => {
+      btn.addEventListener('click', e => {
+        if (!btn.classList.contains('active') && btn.dataset.id) {        
+          let id = btn.dataset.id;
+          let tabs = get_el('.compareContent__tab', false);
+          let chars = get_el('.compareChars__tab', false);
+          let buttons = get_el('.change_category', false);
+
+          buttons.forEach(el => {
+            el.dataset.id == id ? el.classList.add('active') : el.classList.remove('active');
+          })
+          tabs.forEach(tab => {
+            tab.dataset.id == id ? tab.classList.add('active') : tab.classList.remove('active');
+          })
+          chars.forEach(char => {
+            char.dataset.id == id ? char.classList.add('active') : char.classList.remove('active');
+          })
+        } else {
+          console.log('repeated click && not set data-id attr');
+          return
+        }
+      })
+    });
+
+    change_sort.forEach(sort => {
+      sort.addEventListener('change', compare_sort.bind(sort));
+    });
+
+    function compare_sort() {
+      let cols = get_el('.compareChars__col', false);
+
+      if (this.value == 'differences') {
+        chars.classList.add('differences');
+      } else {
+        chars.classList.remove('differences');
+      }
+
+      cols.forEach(col => {
+        let next_col = col.nextSibling.nextSibling;
+        let names = col.closest('.compareChars__tab').querySelectorAll('.compareChars__name');
+        if (next_col) {
+          let current_values = col.querySelectorAll('.compareChars__value');
+          let next_values = next_col.querySelectorAll('.compareChars__value');
+          
+          current_values.forEach((val, i) => {
+            if (val.innerText != next_values[i].innerText) {
+              cols.forEach(el => {
+                el.querySelectorAll('.compareChars__value')[i].classList.add('no_match');
+                names[i].classList.add('no_match');
+              });
+            }
+          });
+        }
+      });
+
+      chars_tabs.forEach(el => {
+        let names = el.querySelectorAll('.compareChars__name.no_match');
+        let cols = el.querySelectorAll('.compareChars__col');
+
+        names.forEach((name, i) => {
+          if (i % 2) {
+            name.classList.add('even');
+          } else {
+            name.classList.add('odd');
+          }
+        });
+
+        cols.forEach(col => {
+          col.querySelectorAll('.compareChars__value.no_match').forEach((val, i) => {
+            if (i % 2) {
+              val.classList.add('even');
+            } else {
+              val.classList.add('odd');
+            }
+          });
+        })
+      })
+    }
+
+  }
+
+
+
+
+
+
+
+
+
+
+  /*
+  *** Account info
+  */
+
+  function account_info() {
+
+    // user contacts
+    const edit_info = get_el('.change_info');
+    const save_info = get_el('.save_info');
+    const cancel_info = get_el('.cancel_info');
+    const user_info = get_el('#user_contacts');
+    const inputs = user_info.querySelectorAll('.input');
+    let current_info = {};
+
+    edit_info.addEventListener('click', function(e) { 
+      inputs.forEach(el => {
+        current_info[el.name] = el.value;
+      });
+
+      if (!user_info.classList.contains('editing')) {
+        user_info.classList.add('editing');
+        inputs.forEach(input => {
+          input.readOnly = false;
+        });
+        
+        this.disabled = true;
+      }     
+    });
+
+    save_info.addEventListener('click', e => {
+      disable_info();
+      let new_data = new FormData(user_info);
+
+      /* ajax save here...... */
+    });
+
+    cancel_info.addEventListener('click', e => {
+      inputs.forEach(el => {
+        el.value = current_info[el.name];
+      });
+      disable_info();
+    });
+
+
+    function disable_info() {
+      user_info.classList.remove('editing');
+      inputs.forEach(input => {
+        input.readOnly = true;
+      });
+      edit_info.disabled = false;
+    }
+
+
+
+
+    // user addresses
+    const edit_address = get_el('.change_addresses');
+    const user_addresses = get_el('#user_addresses');
+    const save_address = get_el('.save_address');
+    const cancel_address = get_el('.cancel_address');
+    const edit_form = get_el('#addresses_edit');
+    const inputs_address = edit_form.querySelectorAll('.input');
+    const address_adding_row = get_el('.accountAddressesChange__row--new');
+    let current_addresses = {};
+
+    edit_form.onsubmit = e => {
+      e.preventDefault();
+    }
+
+    edit_address.addEventListener('click', function(e) { 
+      inputs_address.forEach(el => {
+        current_addresses[el.name] = el.value;
+      });
+
+      if (!user_addresses.classList.contains('editing')) {
+        user_addresses.classList.add('editing');
+      } 
+      this.disabled = true;
+    });
+
+    save_address.addEventListener('click', e => {
+      let flag = null;
+
+      inputs_address.forEach(el => {
+        if (!el.disabled) {
+          if (el.value == '') {
+            el.classList.remove('input--err');
+            setTimeout(() => {
+              el.classList.add('input--err');
+            }, 0);
+            flag = false;
+          } else {
+            el.classList.remove('input--err');
+            flag != false ? flag = true : null;
+          }
+        }        
+      });
+
+      if (flag) {
+        let new_data = new FormData(edit_form);
+        for (key of new_data.keys()) {
+          console.log(`${key}: ${new_data.get(key)}`);      
+        }
+
+        disable_addresses();
+        adding_fields(false);
+
+        /* ajax save here...... */
+      }
+
+      
+    });
+
+    cancel_address.addEventListener('click', e => {
+      inputs_address.forEach(el => {
+        el.value = current_addresses[el.name];
+      });
+      disable_addresses();
+      adding_fields(false);
+    });
+
+    /* for dynamic buttons */
+    document.addEventListener('click', e => {
+
+      // change address radio
+      if (e.target.name == 'address') {
+        let current_address = e.target.value;
+        let current_id = e.target.dataset.address_id;
+
+        console.log(`${current_address} (id=${current_id})`);
+        /* ajax change default address here...... */
+      }
+
+
+      // change active address (call a trigger radio button)
+      if (e.target.classList.contains('change_active')) {
+        let id = e.target.dataset.address;
+        let address = e.target.innerText;
+        e.target.closest('.dropdown').querySelector('.dropdown__btn').innerText = address;
+        get_el(`.radio#${id}`).click();
+      }
+
+
+      // delete address
+      if (e.target.classList.contains('address_delete') || e.target.parentNode.classList.contains('address_delete')) {
+        let address_id = null;
+        if (e.target.classList.contains('address_delete')) {
+          address_id = parseInt(e.target.dataset.id);
+        } else {
+          address_id = parseInt(e.target.parentNode.dataset.id)
+        }
+
+        console.log(address_id);
+        /* ajax delete here...... */
+      }
+
+
+      // show address add row fields
+      if (e.target.classList.contains('address_add') || e.target.parentNode.classList.contains('address_add')) {
+        adding_fields(true);        
+      }
+      
+
+      // add new address button
+      if (e.target.classList.contains('add_address')) {
+        edit_address.click();
+        adding_fields(true, true);        
+      }
+
+    });
+
+    function disable_addresses() {
+      user_addresses.classList.remove('editing');
+      edit_address.disabled = false;
+      inputs_address.forEach(el => {
+        el.classList.remove('input--err');       
+      });
+    }
+
+    function adding_fields(action, trigger = false) {
+      let fields = address_adding_row.querySelectorAll('.input');
+      if (action) {
+        address_adding_row.classList.add('active');
+        trigger ? window.scrollTo({ top: getCoords(address_adding_row) - 200, behavior: 'smooth' }) : null;
+        fields.forEach(el => {
+          el.disabled = false;
+          trigger ? el.classList.add('input--err') : null;
+        });
+      } else {
+        address_adding_row.classList.remove('active');
+        fields.forEach(el => {
+          el.disabled = true;
+          el.value = null;
+        });
+      }
+    }
+
+
+
+
+
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+  /*
+  *** Account orders
+  */
+
+  function account_orders() {
+
+    document.addEventListener('click', e => {
+      if (e.target.classList.contains('open_order') || e.target.parentNode.classList.contains('open_order')) {
+        let parent = e.target.closest('.accountOrder');
+        let details = parent.querySelector('.accountOrdersTable__details');
+        
+        parent.classList.toggle('active');
+
+        // let parent = el.closest('.footer__col');
+        // let list = parent.querySelector('.footer__list');
+        // let list_height = list.scrollHeight;
+
+        //slide(details, parent, 'active', details_height);
+
+        // const slide = (item, parent, class_opened, item_height) => {
+        //   if (parent.classList.contains(class_opened)) {
+        //     parent.classList.remove(class_opened);
+        //     item.removeAttribute('style');
+        //   } else {
+        //     parent.classList.add(class_opened);
+        //     item.style.height = `${item_height}px`;
+        //   }
+        // }
+      }
+    });
+
+
+
+
+  }
+
+
+
+
+
 
 
 

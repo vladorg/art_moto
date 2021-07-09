@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart</title><!-- build:css_critical -->
+    <title>Account info</title><!-- build:css_critical -->
     <link rel="stylesheet" href="./css/critical.css"><!-- endbuild -->
   </head>
-  <body class="root page-cart">
+  <body class="root page-account">
     <header class="header">
       <div class="header__toolbar">
         <div class="container">
@@ -297,124 +297,186 @@
         </div>
       </nav>
     </header>
-    <main class="cartPage">
-      <div class="container">
+    <div class="layout">
+      <aside class="sidebar accountSidebar">
+          <nav class="accountNav"> 
+            <ul> 
+              <li class="active"> <a href="./account-info.html">Личные данные</a></li>
+              <li> <a href="./account-orders.html">История заказов</a></li>
+              <li> <a href="./account-wishlist.html">Избранное</a></li>
+              <li> <a href="./account-bonus.html">Бонусный счет</a></li>
+            </ul>
+          </nav>
+      </aside>
+      <main class="accountMain">
         <section class="breadcrumbs"><a class="breadcrumbs__item" href="./">Главная</a>
-            <div class="breadcrumbs__end">Корзина</div>
+            <div class="breadcrumbs__end">Личный кабинет</div>
         </section>
-        <section class="cartPageWrap">
-          <div class="cartPageContent">
-            <div class="cartPageContent__header">
-              <h1 class="heading">Корзина</h1>
-              <button class="btn btn--dashed ic-heart_black cartPageContent__wish" id="add_to_wish_all"><span>Добавить все в избранное</span></button>
-              <button class="btn btn--dashed ic-trash cartPageContent__del" id="cart_del_all"><span>Удалить все</span></button>
-            </div>
-            <div class="cartPageContent__products">
-                <div class="preview preview--cart"><a class="preview__thumb" href="./product.html"><img width="80" height="80" src="./img/cart/1.png" alt=""></a><a class="preview__name title" href="./product.html">Мотошлем LS2 FF353 RAPID BOHO WHITE-BLACK-PINK</a>
-                  <div class="quantity">
-                    <button class="btn quantity__minus"></button>
-                    <input class="quantity__value" type="text" name="quantity" value="1">
-                    <button class="btn quantity__plus"></button>
-                  </div>
-                  <div class="preview__price"><span class="preview__special">2700.50 ₴</span><span>2538.90 ₴</span>
-                  </div>
-                  <div class="preview__actions">
-                    <button class="btn ic-heart_black preview__wishlist"></button>
-                    <button class="btn ic-trash preview__delete"></button>
-                  </div>
-                </div>
-                <div class="preview preview--cart"><a class="preview__thumb" href="./product.html"><img width="80" height="80" src="./img/cart/2.png" alt=""></a><a class="preview__name title" href="./product.html">Мотоперчатки Elemento 212</a>
-                  <div class="quantity">
-                    <button class="btn quantity__minus"></button>
-                    <input class="quantity__value" type="text" name="quantity" value="1">
-                    <button class="btn quantity__plus"></button>
-                  </div>
-                  <div class="preview__price"><span>418.50 ₴</span>
-                  </div>
-                  <div class="preview__actions">
-                    <button class="btn ic-heart_black preview__wishlist"></button>
-                    <button class="btn ic-trash preview__delete"></button>
-                  </div>
-                </div>
-                <div class="preview preview--cart"><a class="preview__thumb" href="./product.html"><img width="80" height="80" src="./img/cart/3.png" alt=""></a><a class="preview__name title" href="./product.html">Штаны FOX 360 Racepant red</a>
-                  <div class="quantity">
-                    <button class="btn quantity__minus"></button>
-                    <input class="quantity__value" type="text" name="quantity" value="1">
-                    <button class="btn quantity__plus"></button>
-                  </div>
-                  <div class="preview__price"><span>83.70 ₴</span>
-                  </div>
-                  <div class="preview__actions">
-                    <button class="btn ic-heart_black preview__wishlist"></button>
-                    <button class="btn ic-trash preview__delete"></button>
-                  </div>
-                </div>
-                <div class="preview preview--cart"><a class="preview__thumb" href="./product.html"><img width="80" height="80" src="./img/cart/4.png" alt=""></a><a class="preview__name title" href="./product.html">Кроссовые очки PROGRIP BASE LINE GOGGLES Yellow</a>
-                  <div class="quantity">
-                    <button class="btn quantity__minus"></button>
-                    <input class="quantity__value" type="text" name="quantity" value="1">
-                    <button class="btn quantity__plus"></button>
-                  </div>
-                  <div class="preview__price"><span class="preview__special">890.20 ₴</span><span>809.10 ₴</span>
-                  </div>
-                  <div class="preview__actions">
-                    <button class="btn ic-heart_black preview__wishlist"></button>
-                    <button class="btn ic-trash preview__delete"></button>
-                  </div>
-                </div>
-                <div class="preview preview--cart"><a class="preview__thumb" href="./product.html"><img width="80" height="80" src="./img/cart/5.png" alt=""></a><a class="preview__name title" href="./product.html">Мотошина SHINKO 130/70R18 63H TL/SE890</a>
-                  <div class="quantity">
-                    <button class="btn quantity__minus"></button>
-                    <input class="quantity__value" type="text" name="quantity" value="1">
-                    <button class="btn quantity__plus"></button>
-                  </div>
-                  <div class="preview__price"><span>3 152.70 ₴</span>
-                  </div>
-                  <div class="preview__actions">
-                    <button class="btn ic-heart_black preview__wishlist"></button>
-                    <button class="btn ic-trash preview__delete"></button>
-                  </div>
-                </div>
-            </div>
+        <section class="accountContacts"> 
+          <div class="accountMain__header"> 
+            <div class="title">Контактные данные</div>
+            <button class="btn btn--dashed ic-write change_info"> <span>Редактировать</span></button>
           </div>
-          <div class="cartPageInfo">
-            <div class="cartInfo">
-              <div class="cartInfo__row cartInfo__row--products">
-                <div class="cartInfo__key label">Товаров в корзине:</div>
-                <div class="cartInfo__val label">8 ед.</div>
+          <div class="accountMain__content"> 
+            <form class="accountContacts__fields" id="user_contacts">
+              <div class="field"> 
+                <div class="label">Имя:</div>
+                <input class="input" type="text" name="first_name" placeholder="Имя:" value="Иван" readonly>
               </div>
-              <div class="cartInfo__row"> 
-                <div class="cartInfo__key label">Скидка:</div>
-                <div class="cartInfo__val label">-532,10 ₴</div>
+              <div class="field"> 
+                <div class="label">Фамилия:</div>
+                <input class="input" type="text" name="last_name" placeholder="Фамилия:" value="Иванов" readonly>
               </div>
-              <div class="cartInfo__row cartInfo__row--cashback"> 
-                <div class="cartInfo__key label">Кешбек:</div>
-                <div class="cartInfo__val label">70,90 ₴</div>
+              <div class="field"> 
+                <div class="label">Дата рождения:</div>
+                <input class="input" type="text" name="birth" placeholder="Дата рождения:" value="Не указанно" readonly>
               </div>
-              <div class="cartInfo__row cartInfo__row--total"> 
-                <div class="cartInfo__key label">Итого:</div>
-                <div class="cartInfo__val label">7002,90 ₴</div>
+              <div class="field"> 
+                <div class="label">Email:</div>
+                <input class="input" type="text" name="email" placeholder="Email:" value="email@gmail.com" readonly>
               </div>
-            </div>
-            <div class="cartPageInfo__inner">
-              <div class="enter">
-                <div class="enter__btn btn btn--dashed open_field"><span>Ввести промокод</span></div>
-                <div class="enter__enter">
-                  <p>Введите промокод!</p>
-                  <div class="enter__enterArea">
-                    <input class="input" type="text" name="promocode" placeholder="Код">
-                    <button class="btn btn--prim accept_field">Применить</button>
-                  </div>
-                  <div class="enter__msg"></div>
-                </div>
-                <div class="enter__success">Промокод успешно применён!</div>
-              </div><a class="btn btn--prim cartPageInfo__checkout" href="./checkout.html">Оформить</a>
-              <button class="btn btn--dashed open_credits"> <span>КРЕДИТ</span></button>
-            </div>
+              <div class="field"> 
+                <div class="label">Телефон:</div>
+                <input class="input" type="text" name="phone" placeholder="Телефон:" value="+38(050)123 45 67" readonly>
+              </div>
+              <div class="accountMain__accept"> 
+                <button class="btn btn--prim accountMain__save save_info" type="button">сохранить</button>
+                <button class="btn btn--default accountMain__cancel cancel_info" type="button">отмена</button>
+              </div>
+            </form>
+            <blockquote class="accountMain__subs">
+              <div class="title">БУДЬ В КУРСЕ ПОСЛЕДНИХ НОВОСТЕЙ ARTMOTO.UA</div>
+              <p>Получай уведомления  о новинках и акциях в ARTMOTO</p>
+              <div class="field"> 
+                <input class="checkbox" type="checkbox" name="subscribe" id="user_subscribe" checked>
+                <label for="user_subscribe">Получать уведомления</label>
+              </div>
+            </blockquote>
           </div>
         </section>
-      </div>
-    </main>
+        <section class="accountAddresses">
+          <div class="accountMain__header"> 
+            <div class="title">Адреса доставки</div>
+            <button class="btn btn--dashed ic-write change_addresses"><span>Редактировать</span></button>
+          </div>
+          <div class="accountAddresses__content" id="user_addresses">
+            <div class="accountAddressesRadio">
+              <div class="field">
+                <input class="radio" type="radio" name="address" id="address1" value="г.Харьков, ул. Сумская 15, кв. 1" checked data-address_id="1">
+                <label for="address1">г.Харьков, ул. Сумская 15, кв. 1</label><span data-active="Выбран как основной"> </span>
+              </div>
+              <div class="field"> 
+                <input class="radio" type="radio" name="address" id="address2" value="г.Харьков, ул. Халтурина 2, кв. 2" data-address_id="2">
+                <label for="address2">г.Харьков, ул. Халтурина 2, кв. 2</label><span data-active="Выбран как основной"> </span>
+              </div>
+              <div class="field">
+                <input class="radio" type="radio" name="address" id="address3" value="г.Харьков, ул. Пушкинская 3, кв. 3" data-address_id="3">
+                <label for="address3">г.Харьков, ул. Пушкинская 3, кв. 3</label><span data-active="Выбран как основной"> </span>
+              </div>
+              <div class="accountMain__accept"> 
+                <button class="btn btn--prim accountMain__add add_address" type="button">Добавить адрес</button>
+              </div>
+            </div>
+            <div class="accountAddressesChange">
+              <form class="accountAddressesChange__rows" id="addresses_edit">
+                <div class="field"> 
+                  <div class="label">Выбрать как основной</div>
+                  <div class="accountAddressesDrop dropdown dropdown--default"> 
+                    <button class="btn dropdown__btn ic-arrow_nav" type="button">г. Харьков, ул. Сумская, д. 15</button>
+                    <div class="dropdown__inner"> 
+                      <button class="btn change_active" data-address="address1">г. Харьков, ул. Сумская, д. 15</button>
+                      <button class="btn change_active" data-address="address2">г. Харьков, ул. Халтурина 2, кв. 2</button>
+                      <button class="btn change_active" data-address="address3">г. Харьков, ул. Пушкинская 3, кв. 3</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="accountAddressesChange__row">
+                  <div class="field"> 
+                    <div class="label">Город</div>
+                    <input class="input" type="text" placeholder="Введите город" name="address[1][city]" value="г.Харьков">
+                  </div>
+                  <div class="field"> 
+                    <div class="label">Улица</div>
+                    <input class="input" type="text" placeholder="Введите улицу" name="address[1][street]" value="ул. Сумская">
+                  </div>
+                  <div class="field"> 
+                    <div class="label">Дом</div>
+                    <input class="input" type="text" placeholder="Введите номер дома" name="address[1][house]" value="15">
+                  </div>
+                  <div class="field"> 
+                    <div class="label">Квартира</div>
+                    <input class="input" type="text" placeholder="Введите номер квартиры" name="address[1][flat]" value="кв. 1">
+                  </div>
+                  <button class="btn btn--dashed ic-trash address_delete" type="button" data-id="1"><span>Удалить</span></button>
+                </div>
+                <div class="accountAddressesChange__row">
+                  <div class="field"> 
+                    <div class="label">Город</div>
+                    <input class="input" type="text" placeholder="Введите город" name="address[2][city]" value="г.Харьков">
+                  </div>
+                  <div class="field"> 
+                    <div class="label">Улица</div>
+                    <input class="input" type="text" placeholder="Введите улицу" name="address[2][street]" value="ул. Халтурина">
+                  </div>
+                  <div class="field"> 
+                    <div class="label">Дом</div>
+                    <input class="input" type="text" placeholder="Введите номер дома" name="address[2][house]" value="2">
+                  </div>
+                  <div class="field"> 
+                    <div class="label">Квартира</div>
+                    <input class="input" type="text" placeholder="Введите номер квартиры" name="address[2][flat]" value="кв. 2">
+                  </div>
+                  <button class="btn btn--dashed ic-trash address_delete" type="button" data-id="2"><span>Удалить</span></button>
+                </div>
+                <div class="accountAddressesChange__row">
+                  <div class="field"> 
+                    <div class="label">Город</div>
+                    <input class="input" type="text" placeholder="Введите город" name="address[3][city]" value="г.Харьков">
+                  </div>
+                  <div class="field"> 
+                    <div class="label">Улица</div>
+                    <input class="input" type="text" placeholder="Введите улицу" name="address[3][street]" value="ул. Пушкинская">
+                  </div>
+                  <div class="field"> 
+                    <div class="label">Дом</div>
+                    <input class="input" type="text" placeholder="Введите номер дома" name="address[3][house]" value="3">
+                  </div>
+                  <div class="field"> 
+                    <div class="label">Квартира</div>
+                    <input class="input" type="text" placeholder="Введите номер квартиры" name="address[3][flat]" value="кв. 3">
+                  </div>
+                  <button class="btn btn--dashed ic-trash address_delete" type="button" data-id="3"><span>Удалить</span></button>
+                </div>
+                <div class="accountAddressesChange__row accountAddressesChange__row--new">
+                  <div class="field"> 
+                    <div class="label">Город</div>
+                    <input class="input" type="text" placeholder="Введите город" name="address[4][city]" value="" disabled>
+                  </div>
+                  <div class="field"> 
+                    <div class="label">Улица</div>
+                    <input class="input" type="text" placeholder="Введите улицу" name="address[4][street]" value="" disabled>
+                  </div>
+                  <div class="field"> 
+                    <div class="label">Дом</div>
+                    <input class="input" type="text" placeholder="Дом" name="address[4][house]" value="" disabled>
+                  </div>
+                  <div class="field"> 
+                    <div class="label">Квартира</div>
+                    <input class="input" type="text" placeholder="Квартира" name="address[4][flat]" value="" disabled>
+                  </div>
+                  <button class="btn btn--dashed ic-trash address_delete" type="button"><span>Удалить</span></button>
+                </div>
+                <button class="btn btn--dashed accountAddressesChange__add address_add ic-plus_light" type="button"> <span>Добавить</span></button>
+              </form>
+              <div class="accountMain__accept"> 
+                <button class="btn btn--prim accountMain__save save_address" type="button">сохранить</button>
+                <button class="btn btn--default accountMain__cancel cancel_address" type="button">отмена</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
     <footer class="footer">
       <div class="container">
         <div class="footer__inner">

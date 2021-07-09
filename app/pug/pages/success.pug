@@ -1,0 +1,48 @@
+-
+  let title = "Success";
+  let breadcrumbs = [
+    {
+      href: './',
+      label: 'Главная'
+    },
+    {
+      href: './checkout',
+      label: 'Оформление заказа'
+    },
+    {
+      href: null,
+      label: 'Спасибо за покупку!',
+      last: true
+    }
+  ];
+
+doctype html
+html(lang="en")
+  include ../blocks/head.pug
+  body.root.page-success
+
+    header.header
+      include ../blocks/header/root.pug
+    
+
+    main.success
+      .container
+
+        section.breadcrumbs
+          +breadcrumbs(breadcrumbs)
+
+        section.successContent
+
+          h1.heading Спасибо за покупку!
+          p Ваш заказ успешно сформирован! Номер заказа 
+            span 000001. 
+          p Если у Вас возникнут какие-либо вопросы, пожалуйста, свяжитесь с нами. 
+          p Спасибо за покупки в нашем интернет магазине!
+          a(href="./catalog.html").btn.btn--prim Продолжить покупки
+        
+        section.relatedDefault
+          include ../blocks/product_list_default.pug
+
+
+
+    include ../blocks/footer/footer.pug

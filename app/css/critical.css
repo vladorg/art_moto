@@ -187,6 +187,9 @@ blockquote {
   .hidden-xs {
     display: none !important; } }
 
+.disable {
+  display: none !important; }
+
 .list li {
   font-size: 18px;
   font-weight: 500;
@@ -236,6 +239,9 @@ blockquote {
 
 div:active, div:target, div:focus, img:active, img:target, img:focus, section:active, section:target, section:focus, span:active, span:target, span:focus, p:active, p:target, p:focus {
   outline: none; }
+
+.main h1.heading {
+  text-transform: none; }
 
 @-webkit-keyframes marquee {
   0% {
@@ -359,6 +365,16 @@ div:active, div:target, div:focus, img:active, img:target, img:focus, section:ac
   @media (max-width: 1223px) {
     .container {
       width: 92%; } }
+
+.layout {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
 
 .preview {
   width: 288px;
@@ -1142,6 +1158,14 @@ div.swiper-slide {
     -webkit-transform: none;
         -ms-transform: none;
             transform: none; }
+  .dropdown--default .dropdown__inner {
+    background: #fff;
+    -webkit-box-shadow: 0 0 10px 0px #cecece;
+            box-shadow: 0 0 10px 0px #cecece;
+    top: 105%; }
+    .dropdown--default .dropdown__inner::after {
+      content: '';
+      display: none; }
 
 .socialswidget {
   position: absolute;

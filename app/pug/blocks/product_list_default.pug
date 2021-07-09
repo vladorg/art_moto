@@ -1,15 +1,14 @@
 include ../storage/products_default.pug
 
-section.productsIntDefault(data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="top-center")
-  .container
-    .heading Эти товары могут вас заинтересовать
-    .productsListDefault.swiper-container.swiper-blured.swiper-visible
-      .swiper-button-prev
-      .swiper-wrapper
-        each product in products_default
-          .swiper-slide
-            +preview_default(product)
-      .swiper-button-next
-      .swiper-pagination.swiper-pagination-static
+.container
+  .heading Эти товары могут вас заинтересовать
+  .productsListDefault.swiper-container.swiper-blured.swiper-visible
+    .swiper-button-prev
+    .swiper-wrapper
+      each product in products_default
+        .swiper-slide
+          +preview_default(product)
+    .swiper-button-next
+    .swiper-pagination.swiper-pagination-static
 
     

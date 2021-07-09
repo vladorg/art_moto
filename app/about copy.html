@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart</title><!-- build:css_critical -->
+    <title>About</title><!-- build:css_critical -->
     <link rel="stylesheet" href="./css/critical.css"><!-- endbuild -->
   </head>
-  <body class="root page-cart">
-    <header class="header">
+  <body class="root page-about">
+    <header class="header header--absolute">
       <div class="header__toolbar">
         <div class="container">
           <div class="dropdown phones">
@@ -297,124 +297,39 @@
         </div>
       </nav>
     </header>
-    <main class="cartPage">
-      <div class="container">
-        <section class="breadcrumbs"><a class="breadcrumbs__item" href="./">Главная</a>
-            <div class="breadcrumbs__end">Корзина</div>
-        </section>
-        <section class="cartPageWrap">
-          <div class="cartPageContent">
-            <div class="cartPageContent__header">
-              <h1 class="heading">Корзина</h1>
-              <button class="btn btn--dashed ic-heart_black cartPageContent__wish" id="add_to_wish_all"><span>Добавить все в избранное</span></button>
-              <button class="btn btn--dashed ic-trash cartPageContent__del" id="cart_del_all"><span>Удалить все</span></button>
-            </div>
-            <div class="cartPageContent__products">
-                <div class="preview preview--cart"><a class="preview__thumb" href="./product.html"><img width="80" height="80" src="./img/cart/1.png" alt=""></a><a class="preview__name title" href="./product.html">Мотошлем LS2 FF353 RAPID BOHO WHITE-BLACK-PINK</a>
-                  <div class="quantity">
-                    <button class="btn quantity__minus"></button>
-                    <input class="quantity__value" type="text" name="quantity" value="1">
-                    <button class="btn quantity__plus"></button>
-                  </div>
-                  <div class="preview__price"><span class="preview__special">2700.50 ₴</span><span>2538.90 ₴</span>
-                  </div>
-                  <div class="preview__actions">
-                    <button class="btn ic-heart_black preview__wishlist"></button>
-                    <button class="btn ic-trash preview__delete"></button>
-                  </div>
-                </div>
-                <div class="preview preview--cart"><a class="preview__thumb" href="./product.html"><img width="80" height="80" src="./img/cart/2.png" alt=""></a><a class="preview__name title" href="./product.html">Мотоперчатки Elemento 212</a>
-                  <div class="quantity">
-                    <button class="btn quantity__minus"></button>
-                    <input class="quantity__value" type="text" name="quantity" value="1">
-                    <button class="btn quantity__plus"></button>
-                  </div>
-                  <div class="preview__price"><span>418.50 ₴</span>
-                  </div>
-                  <div class="preview__actions">
-                    <button class="btn ic-heart_black preview__wishlist"></button>
-                    <button class="btn ic-trash preview__delete"></button>
-                  </div>
-                </div>
-                <div class="preview preview--cart"><a class="preview__thumb" href="./product.html"><img width="80" height="80" src="./img/cart/3.png" alt=""></a><a class="preview__name title" href="./product.html">Штаны FOX 360 Racepant red</a>
-                  <div class="quantity">
-                    <button class="btn quantity__minus"></button>
-                    <input class="quantity__value" type="text" name="quantity" value="1">
-                    <button class="btn quantity__plus"></button>
-                  </div>
-                  <div class="preview__price"><span>83.70 ₴</span>
-                  </div>
-                  <div class="preview__actions">
-                    <button class="btn ic-heart_black preview__wishlist"></button>
-                    <button class="btn ic-trash preview__delete"></button>
-                  </div>
-                </div>
-                <div class="preview preview--cart"><a class="preview__thumb" href="./product.html"><img width="80" height="80" src="./img/cart/4.png" alt=""></a><a class="preview__name title" href="./product.html">Кроссовые очки PROGRIP BASE LINE GOGGLES Yellow</a>
-                  <div class="quantity">
-                    <button class="btn quantity__minus"></button>
-                    <input class="quantity__value" type="text" name="quantity" value="1">
-                    <button class="btn quantity__plus"></button>
-                  </div>
-                  <div class="preview__price"><span class="preview__special">890.20 ₴</span><span>809.10 ₴</span>
-                  </div>
-                  <div class="preview__actions">
-                    <button class="btn ic-heart_black preview__wishlist"></button>
-                    <button class="btn ic-trash preview__delete"></button>
-                  </div>
-                </div>
-                <div class="preview preview--cart"><a class="preview__thumb" href="./product.html"><img width="80" height="80" src="./img/cart/5.png" alt=""></a><a class="preview__name title" href="./product.html">Мотошина SHINKO 130/70R18 63H TL/SE890</a>
-                  <div class="quantity">
-                    <button class="btn quantity__minus"></button>
-                    <input class="quantity__value" type="text" name="quantity" value="1">
-                    <button class="btn quantity__plus"></button>
-                  </div>
-                  <div class="preview__price"><span>3 152.70 ₴</span>
-                  </div>
-                  <div class="preview__actions">
-                    <button class="btn ic-heart_black preview__wishlist"></button>
-                    <button class="btn ic-trash preview__delete"></button>
-                  </div>
-                </div>
-            </div>
+    <section class="banner"><img class="banner__bg" src="./img/backgrounds/main.jpg">
+      <div class="socialswidget"><a class="ic-youtube" href="#" target="_blank"></a><a class="ic-facebook" href="#" target="_blank"></a><a class="ic-instagram" href="#" target="_blank"></a></div>
+      <div class="banner__slider">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="banner__caption">
+              <div class="banner__title">HARLEY DAVIDSON</div>
+              <div class="banner__subtitle">2018 FATBOY 114</div>
+              <div class="banner__text">Harley-Davidson Fat Boy — одна из самых знаковых моделей компании. Придуманная еще в 1976 году, платформа Softail в 80-х была воплощена в этом байке, получившем свое название в честь ядерных бомб Fat Man и Little Boy.</div>
+              <div class="banner__buttons"><a class="btn btn--prim banner__details" href="#">Подробнее</a><a class="btn btn--op banner__show" href="#">ШОУ-РУМ</a></div>
+            </div><img class="banner__image" width="345" height="210" src="./img/banners/harley.png"><a class="btn btn--prim banner__details banner__details--mobile" href="#">Подробнее</a>
           </div>
-          <div class="cartPageInfo">
-            <div class="cartInfo">
-              <div class="cartInfo__row cartInfo__row--products">
-                <div class="cartInfo__key label">Товаров в корзине:</div>
-                <div class="cartInfo__val label">8 ед.</div>
-              </div>
-              <div class="cartInfo__row"> 
-                <div class="cartInfo__key label">Скидка:</div>
-                <div class="cartInfo__val label">-532,10 ₴</div>
-              </div>
-              <div class="cartInfo__row cartInfo__row--cashback"> 
-                <div class="cartInfo__key label">Кешбек:</div>
-                <div class="cartInfo__val label">70,90 ₴</div>
-              </div>
-              <div class="cartInfo__row cartInfo__row--total"> 
-                <div class="cartInfo__key label">Итого:</div>
-                <div class="cartInfo__val label">7002,90 ₴</div>
-              </div>
-            </div>
-            <div class="cartPageInfo__inner">
-              <div class="enter">
-                <div class="enter__btn btn btn--dashed open_field"><span>Ввести промокод</span></div>
-                <div class="enter__enter">
-                  <p>Введите промокод!</p>
-                  <div class="enter__enterArea">
-                    <input class="input" type="text" name="promocode" placeholder="Код">
-                    <button class="btn btn--prim accept_field">Применить</button>
-                  </div>
-                  <div class="enter__msg"></div>
-                </div>
-                <div class="enter__success">Промокод успешно применён!</div>
-              </div><a class="btn btn--prim cartPageInfo__checkout" href="./checkout.html">Оформить</a>
-              <button class="btn btn--dashed open_credits"> <span>КРЕДИТ</span></button>
-            </div>
+          <div class="swiper-slide">
+            <div class="banner__caption">
+              <div class="banner__title">DAVIDSON HARLEY</div>
+              <div class="banner__subtitle">2020 BOYFAT 115</div>
+              <div class="banner__text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi fugiat impedit molestias eligendi, dolorem voluptatibus. Dolor doloremque obcaecati molestias voluptate qui corporis placeat veniam quam est perferendis.</div>
+              <div class="banner__buttons"><a class="btn btn--prim banner__details" href="#">Подробнее</a><a class="btn btn--op banner__show" href="#">ШОУ-РУМ</a></div>
+            </div><img class="banner__image" width="345" height="210" src="./img/banners/moto.png"><a class="btn btn--prim banner__details banner__details--mobile" href="#">Подробнее</a>
           </div>
-        </section>
+          <div class="swiper-slide">
+            <div class="banner__caption">
+              <div class="banner__title">HARLEY DAVIDSON</div>
+              <div class="banner__subtitle">2018 FATBOY 114</div>
+              <div class="banner__text">Harley-Davidson Fat Boy — одна из самых знаковых моделей компании. Придуманная еще в 1976 году, платформа Softail в 80-х была воплощена в этом байке, получившем свое название в честь ядерных бомб Fat Man и Little Boy.</div>
+              <div class="banner__buttons"><a class="btn btn--prim banner__details" href="#">Подробнее</a><a class="btn btn--op banner__show" href="#">ШОУ-РУМ</a></div>
+            </div><img class="banner__image" width="345" height="210" src="./img/banners/moto2.png"><a class="btn btn--prim banner__details banner__details--mobile" href="#">Подробнее</a>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
       </div>
-    </main>
+    </section>
+    <main class="main">fsd</main>
     <footer class="footer">
       <div class="container">
         <div class="footer__inner">
