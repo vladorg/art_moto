@@ -98,7 +98,7 @@ mixin preview_cart(product)
 
 
 mixin preview_compare(product)
-  .preview
+  .preview.preview--compare
     a.preview__thumb(href="./product.html")
       img(width="208" height="194" src=product.thumb, alt="")
     .preview__caption
@@ -111,6 +111,32 @@ mixin preview_compare(product)
         else
           span= product.price
     .preview__actions
+      button.btn.ic-trash.preview__delete
+
+
+mixin preview_wish(product)
+  .preview.preview--wish
+    if product.stickers
+      .preview__stickers
+        each sticker in product.stickers
+          .preview__sticker(class="preview__sticker--"+sticker.modifier)= sticker.title
+    a.preview__thumb(href="./product.html")
+      img(width="208" height="194" src=product.thumb, alt="")
+    .preview__caption
+      a(href="./product.html").preview__name.title= product.name
+      .preview__model= product.model
+      .preview__price
+        if product.special
+          span.preview__special= product.special
+          span= product.price
+        else
+          span= product.price
+    .preview__tools
+      a.btn.btn--default(href="./product.html") купить
+    .preview__actions
+      button.btn.ic-compare_black.preview__compare
+      button.btn.ic-heart_black.preview__wishlist
+    .preview__del
       button.btn.ic-trash.preview__delete
 
 
@@ -150,3 +176,14 @@ mixin account_nav(links)
         else 
           li 
             a(href=link.href)= link.title
+
+
+
+mixin gallery(images, animate=false)
+  each image in images 
+    if animate
+      a(href=image data-fancybox="gallery" data-aos="flip-left" data-aos-duration="1000" data-aos-anchor-placement="top-center")
+        img(src=image width="390" height="260" alt="")
+    else 
+      a(href=image data-fancybox="gallery")
+        img(src=image width="390" height="260" alt="")

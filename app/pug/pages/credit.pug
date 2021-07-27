@@ -1,0 +1,133 @@
+-
+  let title = "Credit";
+  let breadcrumbs = [
+    {
+      href: './',
+      label: 'Главная'
+    },
+    {
+      href: null,
+      label: 'Кредит',
+      last: true
+    }
+  ];
+  let item_href = './new.html';
+  let news_list = [
+    {
+      title: 'Кредит под 0%',
+      subtitle: 'на весь электро-транспорт',
+      date: '05-14.03',
+      href: item_href,
+      img_bg: './img/news/3.png'
+    },
+    {
+      title: 'Кредит под 0%',
+      subtitle: 'на весь электро-транспорт',
+      date: '05-14.03',
+      href: item_href,
+      img_bg: './img/news/3.png'
+    },
+    {
+      title: 'Кредит под 0%',
+      subtitle: 'на весь электро-транспорт',
+      date: '05-14.03',
+      href: item_href,
+      img_bg: './img/news/3.png'
+    }
+  ]
+
+doctype html
+html(lang="en")
+  include ../blocks/head.pug
+  body.root.page-info
+
+    header.header
+      include ../blocks/header/root.pug
+    
+
+    main.creditPage
+      .container
+
+        section.breadcrumbs
+          +breadcrumbs(breadcrumbs)
+
+        h1.heading Кредит
+
+        section.infoPresent.blured-black
+          img(src="./img/info/credit-present.jpg", alt="").infoPresent__bg
+          img(src="./img/info/moto.png", alt="").infoPresent__img
+          .infoPresent__content 
+            .heading Кредитование от АртМото
+            .title Катайся сейчас, плати потом!
+            ul.list.list--check 
+              li Выгодные условия кредитования!
+              li Доставка по всей Украине!
+              li Рассрочка от ArtMoto Finance от 0% до 36 месяцев!
+              li Широкий выбор техники!
+              li От подачи заявки до получения техники - 3 часа!
+          
+        section.content 
+          .heading Мотоцикл, квадроцикл, скутер в рассрочку или кредит
+          .subtitle Начните ездить уже сейчас, а платите потом!
+          .subtitle Удобные и выгодные условия:
+          ul.list.list--default.list--check 
+            li Сумма рассрочки до 200 000  ₴
+            li Период погашения до 36 месяцев.
+            li Процентная ставка от 0.9%  в месяц
+            li Стоимость доставки можно включить в сумму рассрочки
+            li Требуемый возраст от 18 до 70 лет.
+          p Для оформления заявки на рассрочку нужно всего лишь Ваше ФИО, номер телефона и ИНН (номер вашего идентификационного кода). Наши менеджеры с удовольствием просчитают Вам сумму, создадут заявку на рассрочку и сопроводят сделку до получения Вами желаемой техники.
+          p Также, в рассрочку можно приобрести любые товары в нашем мотосалоне. Экипировка, запчасти и тюнинг теперь стали еще доступнее!
+
+        section.news
+          .container
+            .heading Акции от АртМото
+            .news__inner
+              each val in news_list
+                .news__item(class="news__item--bgImg")
+                  img(src=val.img_bg, alt="").news__img.news__img--bg
+                  .heading.news__title
+                    span= val.title
+                  .news__subtitle= val.subtitle
+                  .news__date.ic-calendar_white= val.date
+                  a.btn.btn--prim(href=val.href) подробнее
+
+        section.contact
+          .heading Остались вопросы? 
+          .subtitle Оставьте сообщение с вашим вопросом
+            br
+            | и наш менеджер свяжется с вами!
+          .contact__row 
+            form.contact__form
+              .field 
+                input.input(type="text" name="first_name" placeholder="Имя")
+              .field 
+                input.input(type="text" name="last_name" placeholder="Фамилия")
+              .field 
+                input.input(type="text" name="email" placeholder="Email")
+              .field 
+                input.input(type="text" name="phone" placeholder="Телефон")
+              .field 
+                textarea.input(name="message" placeholder="Сообщение")
+              .contact__agree 
+                input.checkbox(type="checkbox" name="agree" id="contact_agree" checked)
+                label(for="contact_agree") Даю согласие на обработку моих персональных данных
+              button.btn.btn--prim.contact__submit Отправить
+            .contact__info 
+              .contact__area.contact__addresses 
+                .subtitle Адрес:
+                p г.Харьков, ул. Академика Павлова 51
+                p г.Черкассы, ул. Одесская 50
+                p г.Днепр, наб. Победы 106а
+              .contact__area.contact__phones 
+                .subtitle Телефоны:
+                p 
+                  a(href="tel:+380664931000") +38 (066) 493 1000
+                  a(href="tel:+380964931000") +38 (096) 493 1000
+                p 
+                  a(href="tel:+380734931000") +38 (073) 493 1000
+                  a(href="tel:+380800316178") +38 (0 800) 316-178
+
+
+
+    include ../blocks/footer/footer.pug

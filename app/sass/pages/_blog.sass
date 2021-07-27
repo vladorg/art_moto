@@ -1,0 +1,83 @@
+.blogPage
+  padding-bottom: 80px
+
+.blogPageHeader
+  .heading
+    text-transform: none
+    color: #000
+    margin-bottom: 24px
+
+  .sorting
+
+.articles
+  padding-top: 40px
+  display: grid
+  grid-template-columns: repeat(3,1fr)
+  grid-gap: 24px
+
+
+.articlePage
+  padding-bottom: 104px
+
+.articlePageContent
+  max-width: calc(100% - 392px)
+  padding-right: 24px
+
+  &__header
+    padding-bottom: 24px
+    +flex(0,0,flex-start,center)
+  &__date
+    +text(12,0,20,#676767)
+    +flex(0,0,flex-start,center)
+    +before
+      margin-right: 4px
+  &__rate
+    margin-left: 24px
+    +text(12,0,20,0)
+    +flex(row-reverse,0,flex-start,center)
+    +before
+      margin-left: 4px
+  &__categories
+    margin-left: auto
+    a
+      display: inline-block
+      padding: 8px 16px
+      background: #F4F4F4
+      +text(12,0,22,#303030)
+      +not_last
+        margin-right: 16px
+  &__thumb
+    margin-bottom: 40px
+  .content
+    margin-bottom: 48px
+    p
+      color: #000
+  &__rating
+    +flex(0,0,0,center)
+    .rate_title
+      margin-right: 16px
+      &.active
+        color: $c_green
+    .article_rate
+      &.hover,
+      &.active
+        +before
+          background: url("../img/sprite.svg") -385px -5px
+  &__share
+    margin-top: 32px
+    +flex(0,0,0,center)
+    .subtitle
+      margin-right: 16px
+    a
+      +not_last
+        margin-right: 24px
+
+.articlePageAside
+  max-width: 392px
+  .news
+    padding-top: 62px
+  .news__item
+    +hover
+      transform: none
+    +not_last
+      margin-bottom: 24px

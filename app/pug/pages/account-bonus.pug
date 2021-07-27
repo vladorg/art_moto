@@ -1,0 +1,54 @@
+include ../storage/account_nav.pug
+include ../storage/products_default.pug
+
+-
+  let title = "Account bonus";
+  let breadcrumbs = [
+    {
+      href: './',
+      label: 'Главная'
+    },
+    {
+      href: './account-info.html',
+      label: 'Личный кабинет'
+    },
+    {
+      href: null,
+      label: 'Бонусный счет',
+      last: true
+    }
+  ];
+  navigation[3].active = true;
+
+doctype html
+html(lang="en")
+  include ../blocks/head.pug
+  body.root.page-account
+
+    header.header
+      include ../blocks/header/root.pug
+    
+
+    .layout
+
+      aside.sidebar.accountSidebar
+        +account_nav(navigation)
+
+      main.accountMain
+
+        section.breadcrumbs
+          +breadcrumbs(breadcrumbs)
+
+        section.accountBonus
+          .accountMain__header 
+            .title Бонусный счет
+          .accountBonus__content
+            p С каждой покупки на сайте вам будет начислено бонус в размере 1,85% от суммы покупки. Платите до 100% от стоимости заказа бонусами!
+            p Ваши бонусы будут привязаны к ID номера вашей компании. Номер 1231546.
+            .bonuses
+              span.title Мои бонусы:
+              span.title 500 ₴
+            p Историю получения бонусов вы можете отследить на странице "Мои заказы"
+
+
+    include ../blocks/footer/footer.pug

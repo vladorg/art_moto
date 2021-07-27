@@ -1,0 +1,86 @@
+-
+  let title = "Contacts";
+  let breadcrumbs = [
+    {
+      href: './',
+      label: 'Главная'
+    },
+    {
+      href: null,
+      label: 'Контакты',
+      last: true
+    }
+  ];
+
+doctype html
+html(lang="en")
+  include ../blocks/head.pug
+  body.root.page-info
+
+    header.header
+      include ../blocks/header/root.pug
+    
+
+    main.contactsPage
+      .container
+
+        section.breadcrumbs
+          +breadcrumbs(breadcrumbs)
+
+        h1.heading Контакты
+
+        section.contactsInfo 
+          .contactsInfo__adresses 
+            .contactsInfo__title
+              .subtitle Салоны:
+            .contactsInfo__content г.Харьков, ул. Академика Павлова 51
+            .contactsInfo__content г.Черкассы, ул. Одесская 50
+            .contactsInfo__content г.Днепр, наб. Победы 106а
+            .contactsInfo__title 
+              .subtitle Сервисы:
+            .contactsInfo__content г.Харьков, ул. Шевченко 38А
+          .contactsInfo__map
+            iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2565.1524012440077!2d36.28342831593208!3d49.989752128333215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4127a0a0fc187dff%3A0x56694a8a01493c66!2z0YPQuy4g0JDQutCw0LTQtdC80LjQutCwINCf0LDQstC70L7QstCwLCA1MSwg0KXQsNGA0YzQutC-0LIsINCl0LDRgNGM0LrQvtCy0YHQutCw0Y8g0L7QsdC70LDRgdGC0YwsIDYxMDAw!5e0!3m2!1sru!2sua!4v1627387256182!5m2!1sru!2sua" width="100%" height="386" allowfullscreen="" loading="lazy")
+
+        section.contact
+          .heading Остались вопросы? 
+          .subtitle Оставьте завку и краткое описание.
+            br
+            | Мы подберем для вас лучшее время!
+          .contact__row 
+            form.contact__form
+              .field 
+                input.input(type="text" name="first_name" placeholder="Имя")
+              .field 
+                input.input(type="text" name="last_name" placeholder="Фамилия")
+              .field 
+                input.input(type="text" name="email" placeholder="Email")
+              .field 
+                input.input(type="text" name="phone" placeholder="Телефон")
+              .field 
+                textarea.input(name="message" placeholder="Сообщение")
+              .contact__agree 
+                input.checkbox(type="checkbox" name="agree" id="contact_agree" checked)
+                label(for="contact_agree") Даю согласие на обработку моих персональных данных
+              button.btn.btn--prim.contact__submit Отправить
+            .contact__info
+              .contact__area.contact__phones 
+                .subtitle Телефоны:
+                p 
+                  a(href="tel:+380664931000") +38 (066) 493 1000
+                  a(href="tel:+380964931000") +38 (096) 493 1000
+                p 
+                  a(href="tel:+380734931000") +38 (073) 493 1000
+                  a(href="tel:+380800316178") +38 (0 800) 316-178
+              .contact__area.contact__mails
+                .subtitle Email:
+                p 
+                  a(href="mailto:artmoto.ekip@gmail.com") artmoto.ekip@gmail.com
+                  a(href="mailto:artmotoscooter@gmail.com") artmotoscooter@gmail.com
+                  
+                p 
+                  a(href="mailto:motoart51@gmail.com") motoart51@gmail.com
+                  a(href="mailto:artmotozapchasti@gmail.com") artmotozapchasti@gmail.com
+
+
+    include ../blocks/footer/footer.pug

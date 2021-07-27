@@ -120,6 +120,7 @@ window.addEventListener('load', () => {
     compare,
     account_info,
     account_orders,
+    article_page,
     footer
   ];
 
@@ -1692,26 +1693,73 @@ window.addEventListener('load', () => {
         let details = parent.querySelector('.accountOrdersTable__details');
         
         parent.classList.toggle('active');
-
-        // let parent = el.closest('.footer__col');
-        // let list = parent.querySelector('.footer__list');
-        // let list_height = list.scrollHeight;
-
-        //slide(details, parent, 'active', details_height);
-
-        // const slide = (item, parent, class_opened, item_height) => {
-        //   if (parent.classList.contains(class_opened)) {
-        //     parent.classList.remove(class_opened);
-        //     item.removeAttribute('style');
-        //   } else {
-        //     parent.classList.add(class_opened);
-        //     item.style.height = `${item_height}px`;
-        //   }
-        // }
       }
     });
+  }
 
 
+
+
+
+
+  /*
+  *** Article page
+  */
+
+
+  function article_page() {
+    const rate_buttons = get_el('.article_rate', false);
+
+    rate_buttons.forEach(btn => {
+      let rate_index = btn.dataset.rate;
+
+      btn.addEventListener('mouseenter', e => {
+        e.preventDefault();
+        btn.classList.add('hover');
+        for(let el of rate_buttons) {
+          if (!el.classList.contains('hover')) {
+            el.classList.add('hover');
+          } else {
+            break;
+          }
+        }
+      });
+
+      btn.addEventListener('mouseleave', e => {
+        e.preventDefault();
+        rate_buttons.forEach(el => {
+          el.classList.remove('hover');
+        });
+      });
+
+      btn.addEventListener('click', e => {
+        let rate_title = btn.parentNode.querySelector('.rate_title');
+        let rated_title = rate_title.dataset.rated;
+
+        if (rated_title) {
+          rate_title.innerText = rated_title;
+          rate_title.classList.add('active');
+        }
+
+        btn.classList.add('active');
+
+        for(let el of rate_buttons) {          
+          if (!el.classList.contains('active')) {
+            el.classList.add('active');
+          } else {
+            break;
+          }
+        }
+
+        rate_buttons.forEach(el => {
+          el.disabled = true;
+        });
+
+        console.log(`rate = ${rate_index}`);
+      });
+
+      
+    });
 
 
   }

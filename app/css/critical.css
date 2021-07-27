@@ -219,6 +219,13 @@ blockquote {
     background: url("../img/sprite.svg") -798px -5px;
     margin-right: 10px; }
 
+.list--default li {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px; }
+  .list--default li:not(:last-child) {
+    margin-bottom: 16px; }
+
 .content p {
   margin-bottom: 16px; }
 
@@ -932,6 +939,33 @@ div:active, div:target, div:focus, img:active, img:target, img:focus, section:ac
     content: '';
     background: url("../img/sprite.svg") -67px -5px; }
 
+.preview.preview--compare {
+  border: none;
+  padding-bottom: 24px; }
+  .preview.preview--compare::before {
+    content: '';
+    display: none; }
+  .preview.preview--compare .title {
+    height: 60px;
+    font-size: 20px;
+    line-height: 30px; }
+  .preview.preview--compare .preview__actions {
+    top: 0;
+    right: 8px;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+    opacity: 1; }
+    .preview.preview--compare .preview__actions .btn {
+      background: #DADADA; }
+      .preview.preview--compare .preview__actions .btn::before {
+        content: '';
+        opacity: .4; }
+      .preview.preview--compare .preview__actions .btn:hover::before {
+        content: '';
+        background: url("../img/sprite.svg") -67px -5px;
+        opacity: 1; }
+
 .products {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1075,6 +1109,12 @@ div.swiper-slide {
       line-height: 32px; } }
   .heading--white {
     color: #fff; }
+
+.subheading {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: #414141; }
 
 .title {
   font-size: 24px;

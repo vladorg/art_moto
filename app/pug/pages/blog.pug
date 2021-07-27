@@ -1,0 +1,57 @@
+include ../storage/articles.pug
+
+-
+  let title = "Blog";
+  let breadcrumbs = [
+    {
+      href: './',
+      label: 'Главная'
+    },
+    {
+      href: null,
+      label: 'Блог',
+      last: true
+    }
+  ];
+
+doctype html
+html(lang="en")
+  include ../blocks/head.pug
+  body.root.page-blog
+
+    header.header
+      include ../blocks/header/root.pug
+    
+
+    main.blogPage
+      .container
+
+        section.breadcrumbs
+          +breadcrumbs(breadcrumbs)
+
+        section.blogPageHeader
+
+          h1.heading Блог
+
+          .sorting
+            .sorting__title Сортировать:
+            .sorting__items
+              a(href="#").sorting__item.sorting__item--active.btn.btn--dashed 
+                span По алфавиту
+              a(href="#").sorting__item.btn.btn--dashed
+                span По дате
+              a(href="#").sorting__item.btn.btn--dashed 
+                span По рейтингу
+          
+        section.articles
+          each article in articles
+            +article(article)
+          each article in articles
+            +article(article)
+        
+        include ../blocks/pagination.pug
+        
+
+
+
+    include ../blocks/footer/footer.pug

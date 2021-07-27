@@ -1,3 +1,5 @@
+include ../storage/gallery.pug
+
 - var title = "About";
 
 doctype html
@@ -5,11 +7,43 @@ html(lang="en")
   include ../blocks/head.pug
   body.root.page-about
 
-    header.header.header--absolute
+    header.header
       include ../blocks/header/root.pug
     
-    include ../blocks/main/slider.pug
+    .aboutBanner
+      img.aboutBanner__bg(width="1920" height="376" src="./img/backgrounds/about.jpg" alt="")
+      img.aboutBanner__logo(width="470" height="38" src="./img/logo3.svg" alt="")
 
-    main.main fsd
+    main.aboutContent
+
+      section.aboutInfo(data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="top-center")
+        .container
+
+          .aboutInfo__row 
+            .aboutInfo__director 
+              img(width="392" height="429" src="./img/info/director.jpg", alt="")
+              .aboutInfo__caption 
+                .subtitle Антон Бахур
+                span Основатель ArtMoto
+            .aboutInfo__text 
+              .title Мы в компании «Артмото» стараемся следовать самым свежим и интересным трендам рынка мототехники, максимально заполняем все ниши в этом направлении, дабы удовлетворить потребности максимального круга наших клиентов.
+              p Именно поэтому за 10 лет успешной работы Мы заслужили статус надёжного мультибрендового мотосалона. У Нас можно найти практически всё – от электровелосипеда до эксклюзивного кастомного чоппера, от свечи зажигания до нового двигателя в сборе, от гироскутера до мощного мотовездехода. Прибавьте к этому широкий выбор мотоэкипировки, профессиональный и ответственный мотосервис с огромным опытом работы, индивидуальный подход к каждому посетителю — и Вы получите именно то место, где осуществятся все пожелания самого требовательного клиента. При необходимости, мы сможем доставить Ваше приобретение в любую точку Украины, и даже за её пределы. Посетите Нас и Вы точно останетесь довольны! Менеджеры «Артмото» – настоящие профессионалы своего дела, всегда готовые помочь определиться с выбором, либо просто проконсультировать клиента по любому вопросу, который касается наших товаров и услуг.
+                | Структура – отдел мотоциклов и экипировки, отдел техники для активного отдыха, отдел скутеров и электротранспорта, отдел запчастей и аксессуаров, отдел сервиса и ремонта.
+          
+          .aboutInfo__row
+            .aboutInfo__text(data-aos="fade-right" data-aos-duration="1000" data-aos-anchor-placement="top-center") 
+              .title Компания «АРТМОТО» является лауреатом наград «Импортёр года» 2014 и 2016. 
+              p Эта награда ежегодно вручается Национальным бизнес-рейтингом Украины предприятиям, вносящим весомый вклад в развитие международной торговли, за высокий уровень доверия, надёжность и поднятие имиджа государства на международном рынке.
+            .aboutInfo__rewards(data-aos="fade-left" data-aos-anchor-placement="top-center")
+              img(src="./img/info/2014.jpg", alt="")
+              img(src="./img/info/2016.jpg", alt="")
+      
+      include ../blocks/main/brands.pug
+
+      section.gallery 
+        .container
+          +gallery(images, true)
+
+
 
     include ../blocks/footer/footer.pug

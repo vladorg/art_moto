@@ -13,6 +13,8 @@
         margin-bottom: 20px
       &.active
         a
+          display: inline-block
+          padding-bottom: 4px
           font-weight: 700
           color: $c_primary
           border-bottom: 1px dashed $c_primary
@@ -316,3 +318,31 @@
         +text(18,600,0,0)
       .accountOrderDetails__value
         +text(18,700,0,0)
+
+
+.accountWish
+  .products
+    padding-top: 16px
+
+.accountBonus
+
+  &__content
+    padding-top: 32px
+    p
+      +not_last
+        margin-bottom: 16px
+  
+
+  
+  
+  
+.bonuses
+  border: 1px solid #D9DADC
+  padding: 35px 25px
+  display: inline-block
+  margin-bottom: 16px
+  span
+    +last
+      display: inline-block
+      margin-left: 16px
+      color: $c_primary

@@ -1,0 +1,50 @@
+include ../storage/account_nav.pug
+include ../storage/products_default.pug
+
+-
+  let title = "Account wishlist";
+  let breadcrumbs = [
+    {
+      href: './',
+      label: 'Главная'
+    },
+    {
+      href: './account-info.html',
+      label: 'Личный кабинет'
+    },
+    {
+      href: null,
+      label: 'Избранное',
+      last: true
+    }
+  ];
+  navigation[2].active = true;
+
+doctype html
+html(lang="en")
+  include ../blocks/head.pug
+  body.root.page-account
+
+    header.header
+      include ../blocks/header/root.pug
+    
+
+    .layout
+
+      aside.sidebar.accountSidebar
+        +account_nav(navigation)
+
+      main.accountMain
+
+        section.breadcrumbs
+          +breadcrumbs(breadcrumbs)
+
+        section.accountWish
+          .accountMain__header 
+            .title Избранное
+          .products 
+            each product in products_default
+              +preview_compare(product)
+
+
+    include ../blocks/footer/footer.pug

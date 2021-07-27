@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title><!-- build:css_critical -->
+    <title>Account bonus</title><!-- build:css_critical -->
     <link rel="stylesheet" href="./css/critical.css"><!-- endbuild -->
   </head>
-  <body class="root page-about">
-    <header class="header header--absolute">
+  <body class="root page-account">
+    <header class="header">
       <div class="header__toolbar">
         <div class="container">
           <div class="dropdown phones">
@@ -297,39 +297,34 @@
         </div>
       </nav>
     </header>
-    <section class="banner"><img class="banner__bg" src="./img/backgrounds/main.jpg">
-      <div class="socialswidget"><a class="ic-youtube" href="#" target="_blank"></a><a class="ic-facebook" href="#" target="_blank"></a><a class="ic-instagram" href="#" target="_blank"></a></div>
-      <div class="banner__slider">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="banner__caption">
-              <div class="banner__title">HARLEY DAVIDSON</div>
-              <div class="banner__subtitle">2018 FATBOY 114</div>
-              <div class="banner__text">Harley-Davidson Fat Boy — одна из самых знаковых моделей компании. Придуманная еще в 1976 году, платформа Softail в 80-х была воплощена в этом байке, получившем свое название в честь ядерных бомб Fat Man и Little Boy.</div>
-              <div class="banner__buttons"><a class="btn btn--prim banner__details" href="#">Подробнее</a><a class="btn btn--op banner__show" href="#">ШОУ-РУМ</a></div>
-            </div><img class="banner__image" width="345" height="210" src="./img/banners/harley.png"><a class="btn btn--prim banner__details banner__details--mobile" href="#">Подробнее</a>
+    <div class="layout">
+      <aside class="sidebar accountSidebar">
+          <nav class="accountNav"> 
+            <ul> 
+              <li> <a href="./account-info.html">Личные данные</a></li>
+              <li> <a href="./account-orders.html">История заказов</a></li>
+              <li> <a href="./account-wishlist.html">Избранное</a></li>
+              <li class="active"> <a href="./account-bonus.html">Бонусный счет</a></li>
+            </ul>
+          </nav>
+      </aside>
+      <main class="accountMain">
+        <section class="breadcrumbs"><a class="breadcrumbs__item" href="./">Главная</a><a class="breadcrumbs__item" href="./account-info.html">Личный кабинет</a>
+            <div class="breadcrumbs__end">Бонусный счет</div>
+        </section>
+        <section class="accountBonus">
+          <div class="accountMain__header"> 
+            <div class="title">Бонусный счет</div>
           </div>
-          <div class="swiper-slide">
-            <div class="banner__caption">
-              <div class="banner__title">DAVIDSON HARLEY</div>
-              <div class="banner__subtitle">2020 BOYFAT 115</div>
-              <div class="banner__text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi fugiat impedit molestias eligendi, dolorem voluptatibus. Dolor doloremque obcaecati molestias voluptate qui corporis placeat veniam quam est perferendis.</div>
-              <div class="banner__buttons"><a class="btn btn--prim banner__details" href="#">Подробнее</a><a class="btn btn--op banner__show" href="#">ШОУ-РУМ</a></div>
-            </div><img class="banner__image" width="345" height="210" src="./img/banners/moto.png"><a class="btn btn--prim banner__details banner__details--mobile" href="#">Подробнее</a>
+          <div class="accountBonus__content">
+            <p>С каждой покупки на сайте вам будет начислено бонус в размере 1,85% от суммы покупки. Платите до 100% от стоимости заказа бонусами!</p>
+            <p>Ваши бонусы будут привязаны к ID номера вашей компании. Номер 1231546.</p>
+            <div class="bonuses"><span class="title">Мои бонусы:</span><span class="title">500 ₴</span></div>
+            <p>Историю получения бонусов вы можете отследить на странице "Мои заказы"</p>
           </div>
-          <div class="swiper-slide">
-            <div class="banner__caption">
-              <div class="banner__title">HARLEY DAVIDSON</div>
-              <div class="banner__subtitle">2018 FATBOY 114</div>
-              <div class="banner__text">Harley-Davidson Fat Boy — одна из самых знаковых моделей компании. Придуманная еще в 1976 году, платформа Softail в 80-х была воплощена в этом байке, получившем свое название в честь ядерных бомб Fat Man и Little Boy.</div>
-              <div class="banner__buttons"><a class="btn btn--prim banner__details" href="#">Подробнее</a><a class="btn btn--op banner__show" href="#">ШОУ-РУМ</a></div>
-            </div><img class="banner__image" width="345" height="210" src="./img/banners/moto2.png"><a class="btn btn--prim banner__details banner__details--mobile" href="#">Подробнее</a>
-          </div>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-    </section>
-    <main class="main">fsd</main>
+        </section>
+      </main>
+    </div>
     <footer class="footer">
       <div class="container">
         <div class="footer__inner">
@@ -337,28 +332,28 @@
             <div class="footer__title">Каталог</div>
             <button class="btn ic-arrow_down visible-xs footer__opener"></button>
             <ul class="footer__list">
-              <li class="footer__target"><a href="#">SALE</a></li>
-              <li><a href="#">Б/У техника</a></li>
-              <li><a href="#">Мотоциклы</a></li>
-              <li><a href="#">Квадроциклы</a></li>
-              <li><a href="#">Скутеры</a></li>
-              <li><a href="#">Электротраспорт</a></li>
-              <li><a href="#">Снегоходы</a></li>
-              <li><a href="#">Водная техника</a></li>
-              <li><a href="#">Прицепы</a></li>
-              <li><a href="#">Экипировка</a></li>
-              <li><a href="#">Запчасти</a></li>
-              <li><a href="#">Аксессуары</a></li>
+              <li class="footer__target"><a href="./catalog.html">SALE</a></li>
+              <li><a href="./catalog.html">Б/У техника</a></li>
+              <li><a href="./catalog.html">Мотоциклы</a></li>
+              <li><a href="./catalog.html">Квадроциклы</a></li>
+              <li><a href="./catalog.html">Скутеры</a></li>
+              <li><a href="./catalog.html">Электротраспорт</a></li>
+              <li><a href="./catalog.html">Снегоходы</a></li>
+              <li><a href="./catalog.html">Водная техника</a></li>
+              <li><a href="./catalog.html">Прицепы</a></li>
+              <li><a href="./catalog.html">Экипировка</a></li>
+              <li><a href="./catalog.html">Запчасти</a></li>
+              <li><a href="./catalog.html">Аксессуары</a></li>
             </ul>
           </div>
           <div class="footer__col footer__info">
             <div class="footer__title">Информация</div>
             <button class="btn ic-arrow_down visible-xs footer__opener"></button>
             <ul class="footer__list">
-              <li><a href="#">О компании</a></li>
-              <li><a href="#">Новости</a></li>
+              <li><a href="./about.html">О компании</a></li>
+              <li><a href="./blog.html">Новости</a></li>
               <li><a href="#">Вакансии</a></li>
-              <li><a href="#">Мотосервис</a></li>
+              <li><a href="./service.html">Мотосервис</a></li>
               <li><a href="#">Условия пользования</a></li>
               <li><a href="#">Политика конфиденциальности</a></li>
             </ul>
