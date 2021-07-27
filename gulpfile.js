@@ -56,11 +56,11 @@ gulp.task('browser-sync', function() {
 
 gulp.task('img', function() {
 	return gulp.src('app/img/**/*')
-	.pipe(cache(imagemin({ 
-		interlaced: true,
-		progressive: true,
-		svgoPlugins: [{removeViewBox: false}],
-	})))
+	// .pipe(cache(imagemin({ 
+	// 	interlaced: true,
+	// 	progressive: true,
+	// 	svgoPlugins: [{removeViewBox: false}],
+	// })))
 	.pipe(gulp.dest('dist/img'));
 });
 
@@ -77,8 +77,8 @@ gulp.task('clean', function() {
 gulp.task('buildHtml', function() {
 	return gulp.src('app/*.html')
 	.pipe(htmlreplace({
-		'css_critical': 'css/critical.min.css',
-		'css_main': 'css/style.min.css',
+		'css_critical': 'css/critical.css',
+		'css_main': 'css/style.css',
 		'js': 'js/main.js'
 	}))
 	.pipe(gulp.dest('dist'))
@@ -117,12 +117,12 @@ gulp.task('buildCssCritical', function() {
 gulp.task('buildJs', function() {
 	return gulp.src('app/js/main.js')
 	.pipe(gulp.dest('dist/js'))
-	.pipe(babel({ "presets": ["@babel/preset-env"] }))
-	.pipe(rename('es5.js'))
-	.pipe(gulp.dest('dist/js'))
-	.pipe(uglifyjs())
-	.pipe(rename({suffix: '.min'}))
-	.pipe(gulp.dest('dist/js'))
+	// .pipe(babel({ "presets": ["@babel/preset-env"] }))
+	// .pipe(rename('es5.js'))
+	// .pipe(gulp.dest('dist/js'))
+	// .pipe(uglifyjs())
+	// .pipe(rename({suffix: '.min'}))
+	// .pipe(gulp.dest('dist/js'))
 });
 
 

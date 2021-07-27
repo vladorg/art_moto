@@ -60,7 +60,7 @@ window.addEventListener('load', () => {
     observer: true,
     observeParents: true,
     autoplay: {
-      delay: 4000,
+      delay: 401100,
       disableOnInteraction: false
     },
     slideVisibleClass: 'swiper-slide-visible',
@@ -115,6 +115,12 @@ window.addEventListener('load', () => {
     catalog,
     product_big,
     product,
+    cart,
+    checkout,
+    compare,
+    account_info,
+    account_orders,
+    article_page,
     footer
   ];
 
@@ -143,9 +149,12 @@ window.addEventListener('load', () => {
     const seo_btn = get_el('.seo__more', false);
     const products_custom_row = get_el('.productsListCustom', false);
     const products_default_row = get_el('.productsListDefault', false);
-    let throttle_call = 1;
     const throttle_delay = 300;
     const quantity_input = get_el('.quantity__value', false);
+    const promo_btn = get_el('.open_promo');
+    const promo_add = get_el('.add_promo');
+
+    let throttle_call = 1;    
     let quantity_minus_time;
     let quantity_plus_time;
     
@@ -198,12 +207,16 @@ window.addEventListener('load', () => {
       const t_c = t.classList;
 
       // main menu
-      if (!t_c.contains('menuContent') && !t_c.contains('menu__btn') && !menu.contains(t)) {
-        menu.classList.remove('menuContent--opened');
+      try{
+        if (!t_c.contains('menuContent') && !t_c.contains('menu__btn') && !menu.contains(t)) {
+          menu.classList.remove('menuContent--opened');
+        }
+        if (t_c.contains('menuContent__close')) {
+          menu.classList.remove('menuContent--opened');
+        }
       }
-      if (t_c.contains('menuContent__close')) {
-        menu.classList.remove('menuContent--opened');
-      }
+      catch(e) {}
+      
 
       // drops
       if (!t_c.contains('dropdown__inner') && !t_c.contains('dropdown__btn')) {
@@ -274,6 +287,53 @@ window.addEventListener('load', () => {
         }, 200);
       }
 
+      // promocode & cashback open field
+      if (t_c.contains('open_field') || t.parentNode.classList.contains('open_field')) {
+        t.closest('.enter').classList.add('enter--opened');
+      }
+
+      // promocode & cashback change field
+      if (t_c.contains('change_field') || t.parentNode.classList.contains('change_field')) {
+        t.closest('.enter').classList.remove('enter--entered');
+        t.closest('.enter').classList.add('enter--opened');   
+      }
+
+      // promocode & cashback validate and open success msg
+      if (t_c.contains('accept_field')) {
+        const root = t.closest('.enter');
+        const input = root.querySelector('.input');
+        if (input.value != '') {
+          t.closest('.enter').classList.remove('enter--opened');
+          t.closest('.enter').classList.add('enter--entered');
+          input.classList.remove('input--err');
+          input.value = null;
+        } else {
+          input.classList.remove('input--err');
+          setTimeout(() => {
+            input.classList.add('input--err');
+          }, 0);
+        }
+      }
+
+      // close modals
+      if (t_c.contains('modal__close')) { // close on button click
+        t.closest('.modal').classList.remove('modal--opened');
+        setTimeout(() => {
+          document.documentElement.classList.remove('blocked');
+        }, 400);
+      }
+      if (t_c.contains('modal')) { // close when outside click
+        get_el('.modal--opened').classList.remove('modal--opened');
+        setTimeout(() => {
+          document.documentElement.classList.remove('blocked');
+        }, 400);
+      }
+
+      // open credits modal
+      if (t_c.contains('open_credits') || t.parentNode.classList.contains('open_credits')) {
+        openModal('.modalCredits');
+      }
+
 
     })
     
@@ -284,9 +344,12 @@ window.addEventListener('load', () => {
       if (throtte_current > throttle_call + throttle_delay) {
 
         /* hide/show menu on scroll */
-        if (window.pageYOffset > menu.clientHeight) {
-          menu.classList.remove('menuContent--opened');
+        try {
+          if (window.pageYOffset > menu.clientHeight) {
+            menu.classList.remove('menuContent--opened');
+          }
         }
+        catch(e){}
 
         /* update anchors active status */
         updateAnchors();
@@ -439,6 +502,20 @@ window.addEventListener('load', () => {
             return
           }
       }
+    }
+
+    function openModal(modal) {
+      if (modal) {
+        const target = get_el(modal);
+        const modals = get_el('.modal', false);
+        modals.forEach(modal => {
+          modal.classList.remove('modal--opened');
+        });
+        target.classList.add('modal--opened');
+        document.documentElement.classList.add('blocked');
+      } else {
+         return
+      }      
     }
 
   }
@@ -647,6 +724,8 @@ window.addEventListener('load', () => {
 
 
 
+
+
   
   /*
   *** Catalog page
@@ -700,6 +779,8 @@ window.addEventListener('load', () => {
 
 
 
+
+
   /*
   *** Product pages
   */
@@ -713,6 +794,7 @@ window.addEventListener('load', () => {
     const footer = get_el('.footer');
     const nav_opener = get_el('.productBigNav__btn');
     const present_images = get_el('.productPresentInfo__images');
+    const complect_images = get_el('.productComplectation__photos');
 
     // slider for product advanced advantages
     let adv_timer;
@@ -750,10 +832,17 @@ window.addEventListener('load', () => {
           slidesPerView: 5
         },
         1224: {
+          slidesPerView: 4
+        },
+        992: {
           slidesPerView: 3
         },
+        768: {
+          slidesPerView: 2
+        },
         320: {
-          slidesPerView: 3
+          slidesPerView: 1,
+          centeredSlides: false
         }
       }
     });
@@ -830,7 +919,32 @@ window.addEventListener('load', () => {
       }
     });
 
+    let complect_images_slider = new Swiper(complect_images, {
+      slidesPerView: 1,
+      loop: true,
+      autoHeight: false,
+      init: false,
+      speed: 200,
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true
+      },
+      autoplay: {
+        delay: 20001111,
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true,
+        renderBullet: function (index, className) {
+          return `<div class="${className} bullet"></div>`;
+        },
+      }
+    });
+
     isMobile ? present_images_slider.init() : null;
+    isMobile ? complect_images_slider.init() : null;
 
 
     // init 360 view
@@ -859,8 +973,6 @@ window.addEventListener('load', () => {
 
   }
 
-  
-
   function product() {
 
     /* product images gallery */
@@ -868,15 +980,19 @@ window.addEventListener('load', () => {
       spaceBetween: 8,
       slidesPerView: 5,
       spaceBetween: 55,
-      freeMode: true,
-      watchSlidesVisibility: true,
-      watchSlidesProgress: true,
       breakpoints: {
-        768: {
+        1223: {
           slidesPerView: 5
         },
-        320: {
+        992: {
+          slidesPerView: 4
+        },
+        768: {
           slidesPerView: 3
+        },
+        320: {
+          slidesPerView: 5,
+          spaceBetween: 30
         }
 
       }
@@ -913,16 +1029,745 @@ window.addEventListener('load', () => {
     });
 
     /* product review anchor */
-    const goto_reviews = get_el('.goto_reviews');
+    const goto_reviews = get_el('.goto_reviews', false);
     const tab = get_el('.productReviews');
     const rev_tab_btn = get_el('.productTabs__btn--reviews');
-    goto_reviews.addEventListener('click', e => {
-      if (tab && rev_tab_btn) {
-        rev_tab_btn.click();
-        window.scrollTo({ top: getCoords(tab), behavior: 'smooth' });
-      }      
+    goto_reviews.forEach(el => {
+      el.addEventListener('click', e => {
+        if (tab && rev_tab_btn) {
+          rev_tab_btn.click();
+          window.scrollTo({ top: getCoords(tab), behavior: 'smooth' });
+        }      
+      });
+    });
+    
+
+    let tabs_buttons_slider = new Swiper('.productTabs__buttons', {
+      slidesPerView: 3,
+      init: false,
+      speed: 200,
+      watchSlidesVisibility: true,
+      observer: true,
+      observeParents: true,
+      slideVisibleClass: 'swiper-slide-visible',
+      breakpoints: {
+        320: {
+          slidesPerView: 2
+        },
+        500: {
+          slidesPerView: 3
+        }
+      }
+    });
+    isMobile ? tabs_buttons_slider.init() : null;
+  }
+
+
+
+
+
+
+
+  /*
+  *** Cart page
+  */
+
+  function cart() {
+    const wish_all = get_el('#add_to_wish_all');
+    const delete_all = get_el('#cart_del_all');
+
+    // add to wishilst all products
+    wish_all.addEventListener('click', e => {
+      get_el('.preview', false).forEach(product => {
+        product.querySelector('.preview__wishlist').click();
+      });
+    });
+    // delete all products
+    delete_all.addEventListener('click', e => {
+      get_el('.preview', false).forEach(product => {
+        product.querySelector('.preview__delete').click();
+      });
     });
   }
+
+
+
+
+
+
+
+
+  /*
+  *** Checkout
+  */
+
+  function checkout() {
+    const checkout_pick = get_el('.checkoutStep__pick', false);
+    const checkout_pick_child = get_el('.checkoutStepItem__child input[type=radio]', false);
+    const form = get_el('#checkoutForm');
+    const nav_items = get_el('.breadcrumbs__item', false);
+    const steps = get_el('.checkoutStep', false);
+    const customer_step = get_el('.checkoutCustomer');
+    const delivery_step = get_el('.checkoutDelivery');
+    const payment_step = get_el('.checkoutPayment');
+    const customer_btn = get_el('#customer_btn');
+    const delivery_btn = get_el('#delivery_btn');
+    const order_btn = get_el('#order_btn');
+    const back_to_customer = get_el('.back_to_customer', false);
+    const back_to_delivery = get_el('.back_to_delivery', false);
+    const customer_summary = get_el('.checkoutSummary__customer');
+    const delivery_summary = get_el('.checkoutSummary__delivery');
+
+    /* block submit form && show formdata */
+    form.onsubmit = e => {
+      e.preventDefault();
+      let data = new FormData(form);
+      for (key of data.keys()) {
+        if (e.submitter == order_btn) {
+          console.log(`${key}: ${data.get(key)}`);
+        }        
+      }
+    }
+
+    /* 
+      - toggle item active status
+      - select first child radio button if it will be found
+      - clear required inputs when radio change
+    */
+    checkout_pick.forEach(el => {
+      el.addEventListener('change', e => {
+        let root = el.closest('.checkoutStepItems');
+        let current = el.closest('.checkoutStepItem');
+        let current_radios = current.querySelectorAll('.checkoutStepItem__child input[type=radio]');
+
+        root.querySelectorAll('.checkoutStepItem').forEach(item => {
+          let radios = item.querySelectorAll('.checkoutStepItem__child input[type=radio]');
+          let fields = item.querySelectorAll('.required');
+
+          item.classList.remove('active');
+          radios.forEach(radio => {
+            radio.checked = false;
+          });
+          fields.forEach(field => {
+            field.value = null;
+            field.classList.remove('input--err','input--ok')
+          });
+        });
+
+        current.classList.add('active');
+        if (current_radios.length) {
+          current_radios[0].checked = true;
+        }
+      })
+    });
+
+    /* clear child required inputs when radio change */
+    checkout_pick_child.forEach(el => {
+      el.addEventListener('change', e => {
+        let root = el.closest('.checkoutStepItem__child');
+        let current = el.closest('.checkoutStepItem__radio');
+
+        root.querySelectorAll('.checkoutStepItem__radio').forEach(item => {
+          let fields = item.querySelectorAll('.required');
+          fields.forEach(field => {
+            field.value = null;
+            field.classList.remove('input--err','input--ok')
+          });
+        });
+      })
+    });
+
+
+    customer_btn.addEventListener('click', step_customer);
+    delivery_btn.addEventListener('click', step_delivery);
+    order_btn.addEventListener('click', step_order);
+
+    back_to_customer.forEach(btn => btn.addEventListener('click', e => {
+      customer_summary.classList.remove('active');
+      update(customer_step);
+    }));
+    back_to_delivery.forEach(btn => btn.addEventListener('click', e => {      
+      delivery_summary.classList.remove('active');
+      update(delivery_step);
+    }));
+
+    
+
+    function step_customer() {
+      let summary_fields = customer_step.querySelectorAll('input:not(.checkbox)');
+      let required_fields = customer_step.querySelectorAll('.required');
+      let result = validate(required_fields);      
+      
+      if (result) {
+        update(delivery_step);
+        summary(customer_summary, summary_fields);
+      }
+    }
+
+    function step_delivery() {
+      let summary_fields = delivery_step.querySelectorAll('input[name=delivery]:checked, input[name=new_post_address]')
+      let checked_radios = delivery_step.querySelectorAll('input[type=radio]:checked');
+      let required_fields = [];      
+
+      checked_radios.forEach(radio => {
+        let fields = radio.closest('.checkoutStepItem__radio').querySelectorAll('.required');
+        if (fields.length) {
+          fields.forEach(field => {
+            required_fields.push(field);
+          });
+        }
+      });
+
+      let result = validate(required_fields);    
+      if (result) {
+        update(payment_step);
+        summary(delivery_summary, summary_fields);
+      }
+    }
+
+    function step_order() {    
+      let checked_radios = payment_step.querySelectorAll('input[type=radio]:checked');
+      let required_fields = [];
+
+      checked_radios.forEach(radio => {
+        let fields = radio.closest('.checkoutStepItem__radio').querySelectorAll('.required');
+        if (fields.length) {
+          fields.forEach(field => {
+            required_fields.push(field);
+          });
+        }
+      });  
+      
+      let result = validate(required_fields);
+      if (result) {
+        document.location.pathname = './success.html';
+      }
+    }
+
+    function validate(fields) {
+      let result = null;
+
+      if (fields.length) {
+        fields.forEach(field => {
+          if (field.value == '') {
+            field.classList.remove('input--ok');
+            field.classList.remove('input--err');
+            setTimeout(() => {
+              field.classList.add('input--err');
+            }, 0);          
+            result = false;
+          } else {
+            field.classList.remove('input--err');
+            field.classList.add('input--ok');
+            result != false ? result = true : null;
+          }
+        });
+      } else {
+        result = true;
+      }
+
+      return result;
+    }
+
+    function update(s) {
+      let step_id = s.dataset.step;
+
+      steps.forEach(s => {
+        s.classList.remove('active');
+      });
+      s.classList.add('active');
+      if (step_id) {
+        nav_items.forEach(item => {          
+          if (item.dataset.step == step_id) {
+            item.classList.add('active');
+          } else {
+            item.classList.remove('active');
+          }
+        });
+      }
+    }
+
+    function summary(item, fields) {
+      let summary_row = item.querySelector('.checkoutSummary__data');
+
+      item.classList.add('active');
+      summary_row.innerText = null;
+      fields.forEach(field => {
+        let s = document.createElement('span');
+        if (field.value != '') {          
+          s.innerText = field.value;
+        } else {
+          s.innerText = '-';
+        }
+        summary_row.appendChild(s);        
+      });
+    }
+  }
+
+
+
+
+
+
+
+
+  /*
+  *** Compare
+  */
+
+  function compare() {
+    const compare_products = get_el('.compareContent__products');
+    const compare_chars = get_el('.compareChars__cols');
+    const change_category = get_el('.change_category', false);
+    const change_sort = get_el('.compareContent__sort .radio', false);
+    const chars = get_el('.compareChars');
+    const chars_tabs = get_el('.compareChars__tab', false);
+
+    const compare_slider = new Swiper('.compareContent__products', {
+      slidesPerView: 3,
+      speed: 200,
+      spaceBetween: 24,
+      watchOverflow: true,
+      observer: true,
+      observeParents: true,
+      navigation: {
+        nextEl: '.compare_next',
+        prevEl: '.compare_prev',
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1
+        },
+        768: {
+          slidesPerView: 2
+        },
+        1224: {
+          slidesPerView: 3
+        }
+      }
+    });
+
+    const compare_chars_slider = new Swiper('.compareChars__cols', {
+      slidesPerView: 3,
+      speed: 200,
+      watchOverflow: true,
+      observer: true,
+      observeParents: true,
+      breakpoints: {
+        320: {
+          slidesPerView: 1
+        },
+        768: {
+          slidesPerView: 2
+        },
+        1224: {
+          slidesPerView: 3
+        }
+      }
+    });
+
+
+    // sync
+    compare_slider.forEach((slider, i) => {
+      slider.controller.control = compare_chars_slider[i];
+    });
+    compare_chars_slider.forEach((slider, i) => {
+      slider.controller.control = compare_slider[i];
+    });
+
+
+    change_category.forEach(btn => {
+      btn.addEventListener('click', e => {
+        if (!btn.classList.contains('active') && btn.dataset.id) {        
+          let id = btn.dataset.id;
+          let tabs = get_el('.compareContent__tab', false);
+          let chars = get_el('.compareChars__tab', false);
+          let buttons = get_el('.change_category', false);
+
+          buttons.forEach(el => {
+            el.dataset.id == id ? el.classList.add('active') : el.classList.remove('active');
+          })
+          tabs.forEach(tab => {
+            tab.dataset.id == id ? tab.classList.add('active') : tab.classList.remove('active');
+          })
+          chars.forEach(char => {
+            char.dataset.id == id ? char.classList.add('active') : char.classList.remove('active');
+          })
+        } else {
+          console.log('repeated click && not set data-id attr');
+          return
+        }
+      })
+    });
+
+    change_sort.forEach(sort => {
+      sort.addEventListener('change', compare_sort.bind(sort));
+    });
+
+    function compare_sort() {
+      let cols = get_el('.compareChars__col', false);
+
+      if (this.value == 'differences') {
+        chars.classList.add('differences');
+      } else {
+        chars.classList.remove('differences');
+      }
+
+      cols.forEach(col => {
+        let next_col = col.nextSibling.nextSibling;
+        let names = col.closest('.compareChars__tab').querySelectorAll('.compareChars__name');
+        if (next_col) {
+          let current_values = col.querySelectorAll('.compareChars__value');
+          let next_values = next_col.querySelectorAll('.compareChars__value');
+          
+          current_values.forEach((val, i) => {
+            if (val.innerText != next_values[i].innerText) {
+              cols.forEach(el => {
+                el.querySelectorAll('.compareChars__value')[i].classList.add('no_match');
+                names[i].classList.add('no_match');
+              });
+            }
+          });
+        }
+      });
+
+      chars_tabs.forEach(el => {
+        let names = el.querySelectorAll('.compareChars__name.no_match');
+        let cols = el.querySelectorAll('.compareChars__col');
+
+        names.forEach((name, i) => {
+          if (i % 2) {
+            name.classList.add('even');
+          } else {
+            name.classList.add('odd');
+          }
+        });
+
+        cols.forEach(col => {
+          col.querySelectorAll('.compareChars__value.no_match').forEach((val, i) => {
+            if (i % 2) {
+              val.classList.add('even');
+            } else {
+              val.classList.add('odd');
+            }
+          });
+        })
+      })
+    }
+
+  }
+
+
+
+
+
+
+
+
+
+
+  /*
+  *** Account info
+  */
+
+  function account_info() {
+
+    // user contacts
+    const edit_info = get_el('.change_info');
+    const save_info = get_el('.save_info');
+    const cancel_info = get_el('.cancel_info');
+    const user_info = get_el('#user_contacts');
+    const inputs = user_info.querySelectorAll('.input');
+    let current_info = {};
+
+    edit_info.addEventListener('click', function(e) { 
+      inputs.forEach(el => {
+        current_info[el.name] = el.value;
+      });
+
+      if (!user_info.classList.contains('editing')) {
+        user_info.classList.add('editing');
+        inputs.forEach(input => {
+          input.readOnly = false;
+        });
+        
+        this.disabled = true;
+      }     
+    });
+
+    save_info.addEventListener('click', e => {
+      disable_info();
+      let new_data = new FormData(user_info);
+
+      /* ajax save here...... */
+    });
+
+    cancel_info.addEventListener('click', e => {
+      inputs.forEach(el => {
+        el.value = current_info[el.name];
+      });
+      disable_info();
+    });
+
+
+    function disable_info() {
+      user_info.classList.remove('editing');
+      inputs.forEach(input => {
+        input.readOnly = true;
+      });
+      edit_info.disabled = false;
+    }
+
+
+
+
+    // user addresses
+    const edit_address = get_el('.change_addresses');
+    const user_addresses = get_el('#user_addresses');
+    const save_address = get_el('.save_address');
+    const cancel_address = get_el('.cancel_address');
+    const edit_form = get_el('#addresses_edit');
+    const inputs_address = edit_form.querySelectorAll('.input');
+    const address_adding_row = get_el('.accountAddressesChange__row--new');
+    let current_addresses = {};
+
+    edit_form.onsubmit = e => {
+      e.preventDefault();
+    }
+
+    edit_address.addEventListener('click', function(e) { 
+      inputs_address.forEach(el => {
+        current_addresses[el.name] = el.value;
+      });
+
+      if (!user_addresses.classList.contains('editing')) {
+        user_addresses.classList.add('editing');
+      } 
+      this.disabled = true;
+    });
+
+    save_address.addEventListener('click', e => {
+      let flag = null;
+
+      inputs_address.forEach(el => {
+        if (!el.disabled) {
+          if (el.value == '') {
+            el.classList.remove('input--err');
+            setTimeout(() => {
+              el.classList.add('input--err');
+            }, 0);
+            flag = false;
+          } else {
+            el.classList.remove('input--err');
+            flag != false ? flag = true : null;
+          }
+        }        
+      });
+
+      if (flag) {
+        let new_data = new FormData(edit_form);
+        for (key of new_data.keys()) {
+          console.log(`${key}: ${new_data.get(key)}`);      
+        }
+
+        disable_addresses();
+        adding_fields(false);
+
+        /* ajax save here...... */
+      }
+
+      
+    });
+
+    cancel_address.addEventListener('click', e => {
+      inputs_address.forEach(el => {
+        el.value = current_addresses[el.name];
+      });
+      disable_addresses();
+      adding_fields(false);
+    });
+
+    /* for dynamic buttons */
+    document.addEventListener('click', e => {
+
+      // change address radio
+      if (e.target.name == 'address') {
+        let current_address = e.target.value;
+        let current_id = e.target.dataset.address_id;
+
+        console.log(`${current_address} (id=${current_id})`);
+        /* ajax change default address here...... */
+      }
+
+
+      // change active address (call a trigger radio button)
+      if (e.target.classList.contains('change_active')) {
+        let id = e.target.dataset.address;
+        let address = e.target.innerText;
+        e.target.closest('.dropdown').querySelector('.dropdown__btn').innerText = address;
+        get_el(`.radio#${id}`).click();
+      }
+
+
+      // delete address
+      if (e.target.classList.contains('address_delete') || e.target.parentNode.classList.contains('address_delete')) {
+        let address_id = null;
+        if (e.target.classList.contains('address_delete')) {
+          address_id = parseInt(e.target.dataset.id);
+        } else {
+          address_id = parseInt(e.target.parentNode.dataset.id)
+        }
+
+        console.log(address_id);
+        /* ajax delete here...... */
+      }
+
+
+      // show address add row fields
+      if (e.target.classList.contains('address_add') || e.target.parentNode.classList.contains('address_add')) {
+        adding_fields(true);        
+      }
+      
+
+      // add new address button
+      if (e.target.classList.contains('add_address')) {
+        edit_address.click();
+        adding_fields(true, true);        
+      }
+
+    });
+
+    function disable_addresses() {
+      user_addresses.classList.remove('editing');
+      edit_address.disabled = false;
+      inputs_address.forEach(el => {
+        el.classList.remove('input--err');       
+      });
+    }
+
+    function adding_fields(action, trigger = false) {
+      let fields = address_adding_row.querySelectorAll('.input');
+      if (action) {
+        address_adding_row.classList.add('active');
+        trigger ? window.scrollTo({ top: getCoords(address_adding_row) - 200, behavior: 'smooth' }) : null;
+        fields.forEach(el => {
+          el.disabled = false;
+          trigger ? el.classList.add('input--err') : null;
+        });
+      } else {
+        address_adding_row.classList.remove('active');
+        fields.forEach(el => {
+          el.disabled = true;
+          el.value = null;
+        });
+      }
+    }
+
+
+
+
+
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+  /*
+  *** Account orders
+  */
+
+  function account_orders() {
+
+    document.addEventListener('click', e => {
+      if (e.target.classList.contains('open_order') || e.target.parentNode.classList.contains('open_order')) {
+        let parent = e.target.closest('.accountOrder');
+        let details = parent.querySelector('.accountOrdersTable__details');
+        
+        parent.classList.toggle('active');
+      }
+    });
+  }
+
+
+
+
+
+
+  /*
+  *** Article page
+  */
+
+
+  function article_page() {
+    const rate_buttons = get_el('.article_rate', false);
+
+    rate_buttons.forEach(btn => {
+      let rate_index = btn.dataset.rate;
+
+      btn.addEventListener('mouseenter', e => {
+        e.preventDefault();
+        btn.classList.add('hover');
+        for(let el of rate_buttons) {
+          if (!el.classList.contains('hover')) {
+            el.classList.add('hover');
+          } else {
+            break;
+          }
+        }
+      });
+
+      btn.addEventListener('mouseleave', e => {
+        e.preventDefault();
+        rate_buttons.forEach(el => {
+          el.classList.remove('hover');
+        });
+      });
+
+      btn.addEventListener('click', e => {
+        let rate_title = btn.parentNode.querySelector('.rate_title');
+        let rated_title = rate_title.dataset.rated;
+
+        if (rated_title) {
+          rate_title.innerText = rated_title;
+          rate_title.classList.add('active');
+        }
+
+        btn.classList.add('active');
+
+        for(let el of rate_buttons) {          
+          if (!el.classList.contains('active')) {
+            el.classList.add('active');
+          } else {
+            break;
+          }
+        }
+
+        rate_buttons.forEach(el => {
+          el.disabled = true;
+        });
+
+        console.log(`rate = ${rate_index}`);
+      });
+
+      
+    });
+
+
+  }
+
+
+
+
+
 
 
 
