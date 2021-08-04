@@ -27,7 +27,7 @@ html(lang="en")
         section.breadcrumbs
           +breadcrumbs(breadcrumbs)
 
-        h1.heading Список страниц
+        h2.heading Список страниц
 
         section.content
           ul.ul 
@@ -69,9 +69,51 @@ html(lang="en")
               a(href="./contacts.html" target="_blank") Контакты
             li 
               a(href="./404.html" target="_blank") 404
-            
+          
+          br
+
           hr
           .subtitle Всего: 19
+
+        
+        br
+        br
+
+
+        h2.heading Модальные окна
+
+        section.content
+          ul.ul 
+            li 
+              a(href="#").open_auth Вход
+            li 
+              a(href="#").open_register Регистрация
+            li 
+              a(href="#").open_forgot Сброс пароля
+            li 
+              a(href="#").open_reseted Пароль сброшен
+            li 
+              a(href="#").open_change Изменение пароля
+            li 
+              a(href="#").open_changed Пароль изменен
+            li 
+              a(href="#").open_registered Успешная регистрация
+            li 
+              a(href="#").open_credits Кредиты
+          
+          br
+          .title К модалкам можно обращаться через адресную строку дописав нужный хеш
+          br
+          ul.ul
+            li #modalAuth
+            li #modalRegister
+            li #modalForgot
+            li #modalReseted
+            li #modalChange
+            li #modalChanged
+            li #modalRegistered
+            li #modalCredits
+            
 
 
 

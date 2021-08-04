@@ -48,15 +48,15 @@ section.news
   .container
     .heading НОВИНКИ И АКЦИИ
     .news__inner
-      .news__item.news__item--big(data-aos="flip-left" data-aos-duration="1000" data-aos-anchor-placement="top-center")
+      a.news__item.news__item--big(href="#" data-aos="flip-left" data-aos-duration="1000" data-aos-anchor-placement="top-center")
         img(src='./img/news/1.png', alt="").news__img
         .heading.news__title
           span Распродажа одежды от Indian Motorcycle
         .news__date.ic-calendar_black 05-14.03
-        a.btn.btn--prim(href=item_href) подробнее
+        button.btn.btn--prim подробнее
       each val in news_list
 
-          .news__item(data-aos="flip-left" data-aos-duration="1000" data-aos-anchor-placement="top-center" class=val.img_bg ? 'news__item--bgImg' : null style= val.bg_color ? val.bg_color : null)
+          a.news__item(href=val.href data-aos="flip-left" data-aos-duration="1000" data-aos-anchor-placement="top-center" class=val.img_bg ? 'news__item--bgImg' : null style= val.bg_color ? val.bg_color : null)
             if val.img_bg
               img(src=val.img_bg, alt="").news__img.news__img--bg
             else
@@ -75,5 +75,5 @@ section.news
               .news__subtitle= val.subtitle
 
             .news__date.ic-calendar_white= val.date
-            a.btn.btn--prim(href=val.href) подробнее
+            button.btn.btn--prim подробнее
     a.btn.btn--default.news__more.visible-xs(href=more_href) СМОТРЕТЬ ВСЕ

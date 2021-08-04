@@ -1,0 +1,19 @@
+.modal#modalAuth
+  .modal__win.scroll
+    button.btn.modal__close.ic-close_modal
+    .modal__header 
+      .title Вход
+      .subtitle Для входа введите электронную почту и пароль
+    .modal__content 
+      form.form.form--control
+        .field 
+          input(type="text" name="email" placeholder="Email").input.required
+        .field.pass-wrap
+          input(type="password" name="password" placeholder="Пароль").input.required
+          button.btn.ic-eye.pass_shower(type="button")
+        .field 
+          button.btn.btn--dashed.open_forgot(type="button") 
+            span Забыли пароль?
+        button.btn.btn--prim.modal__submit Войти
+        button.btn.btn--dashed.open_register(type="button") 
+          span Зарегистрироваться

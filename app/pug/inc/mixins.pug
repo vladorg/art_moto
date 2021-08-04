@@ -84,17 +84,18 @@ mixin preview_cart(product)
   .preview.preview--cart
     a.preview__thumb(href="./product.html")
       img(width="80" height="80" src= product.thumb, alt="")
-    a(href="./product.html").preview__name.title= product.name
-    include ../blocks/ui/quantity.pug
-    .preview__price
-      if product.special
-        span.preview__special= product.special
-        span= product.price
-      else
-        span= product.price      
-    .preview__actions
-      button.btn.ic-heart_black.preview__wishlist
-      button.btn.ic-trash.preview__delete
+    .preview__caption
+      a(href="./product.html").preview__name.title= product.name
+      include ../blocks/ui/quantity.pug
+      .preview__price
+        if product.special
+          span.preview__special= product.special
+          span= product.price
+        else
+          span= product.price      
+      .preview__actions
+        button.btn.ic-heart_black.preview__wishlist
+        button.btn.ic-trash.preview__delete
 
 
 mixin preview_compare(product)

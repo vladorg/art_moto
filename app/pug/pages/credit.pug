@@ -84,13 +84,13 @@ html(lang="en")
             .heading Акции от АртМото
             .news__inner
               each val in news_list
-                .news__item(class="news__item--bgImg")
+                a.news__item(href=val.href).news__item--bgImg
                   img(src=val.img_bg, alt="").news__img.news__img--bg
                   .heading.news__title
                     span= val.title
                   .news__subtitle= val.subtitle
                   .news__date.ic-calendar_white= val.date
-                  a.btn.btn--prim(href=val.href) подробнее
+                  button.btn.btn--prim подробнее
 
         section.contact
           .heading Остались вопросы? 
@@ -98,21 +98,9 @@ html(lang="en")
             br
             | и наш менеджер свяжется с вами!
           .contact__row 
-            form.contact__form
-              .field 
-                input.input(type="text" name="first_name" placeholder="Имя")
-              .field 
-                input.input(type="text" name="last_name" placeholder="Фамилия")
-              .field 
-                input.input(type="text" name="email" placeholder="Email")
-              .field 
-                input.input(type="text" name="phone" placeholder="Телефон")
-              .field 
-                textarea.input(name="message" placeholder="Сообщение")
-              .contact__agree 
-                input.checkbox(type="checkbox" name="agree" id="contact_agree" checked)
-                label(for="contact_agree") Даю согласие на обработку моих персональных данных
-              button.btn.btn--prim.contact__submit Отправить
+
+            include ../blocks/contact_form.pug
+            
             .contact__info 
               .contact__area.contact__addresses 
                 .subtitle Адрес:

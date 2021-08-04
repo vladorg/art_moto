@@ -27,14 +27,7 @@
       right: 12px
       transform: rotate(45deg)
 
-  &--opened
-    .dropdown__btn
-      +before
-        transform: rotateX(180deg)
-    .dropdown__inner
-      opacity: 1
-      pointer-events: auto
-      transform: none
+  
   
   &--default
     .dropdown__inner
@@ -43,3 +36,38 @@
       top: 105%
       +after
         display: none
+
+  &--mobile
+    .dropdown__btn
+      display: none
+      +xs
+        display: flex
+    .dropdown__inner
+      opacity: 1
+      pointer-events: auto
+      position: static
+      box-shadow: none!important
+      transform: none
+      padding: 0
+      background: $transparent!important
+      +xs
+        opacity: 0
+        pointer-events: none
+        position: absolute
+        color: #000
+        padding: 14px
+        transform: translateY(10px)
+    &.dropdown--default
+      .dropdown__inner
+        +xs
+          background: #fff!important
+          box-shadow: 0 0 10px 0px #cecece!important
+
+  &--opened
+    .dropdown__btn
+      +before
+        transform: rotateX(180deg)
+    .dropdown__inner
+      opacity: 1
+      pointer-events: auto
+      transform: none

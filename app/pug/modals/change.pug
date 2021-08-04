@@ -1,0 +1,15 @@
+.modal#modalChange
+  .modal__win.scroll
+    button.btn.modal__close.ic-close_modal
+    .modal__header 
+      .title Изменение пароля
+      .subtitle Пароль должен быть не менее 8 символов из заглавных и строчных букв, цифр.
+    .modal__content 
+      form.form.form--control
+        .field.pass-wrap
+          input(type="password" name="password" placeholder="Пароль").input.required
+          button.btn.ic-eye.pass_shower(type="button")
+        .field.pass-wrap
+          input(type="password" name="password_repeat" placeholder="Повторите пароль").input.required
+          button.btn.ic-eye.pass_shower(type="button")
+        button.btn.btn--prim.modal__submit Сохранить

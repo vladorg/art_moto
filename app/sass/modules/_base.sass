@@ -10,7 +10,8 @@ body
   font-weight: $fw
   font-family: $ff
   line-height: $lh
-  //overflow-x: hidden
+  // overflow-x: hidden
+  overflow-x: clip
   background: $c_body
   color: $c_text
   -webkit-tap-highlight-color: $transparent
@@ -153,6 +154,11 @@ blockquote
 .content
   p
     margin-bottom: 16px
+
+
+
+.error
+  color: #f00!important
       
 
 
@@ -167,6 +173,29 @@ blockquote
   +hover
     .guarantee__border
       animation-play-state: paused
+
+div.pass-wrap
+  position: relative
+  .input
+    padding-right: 48px
+
+.pass_shower
+  position: absolute
+  top: 50%
+  right: 16px
+  transform: translateY(-50%)
+  +hover
+    +before
+      background: url('../img/sprite.svg') -231px -28px
+  
+  &.active
+    +before
+      width: 23px
+      height: 13px
+      background: url('../img/sprite.svg') -255px -28px
+    +hover
+      +before
+        background: url('../img/sprite.svg') -280px -28px
 
 
 

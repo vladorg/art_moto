@@ -48,21 +48,9 @@ html(lang="en")
             br
             | Мы подберем для вас лучшее время!
           .contact__row 
-            form.contact__form
-              .field 
-                input.input(type="text" name="first_name" placeholder="Имя")
-              .field 
-                input.input(type="text" name="last_name" placeholder="Фамилия")
-              .field 
-                input.input(type="text" name="email" placeholder="Email")
-              .field 
-                input.input(type="text" name="phone" placeholder="Телефон")
-              .field 
-                textarea.input(name="message" placeholder="Сообщение")
-              .contact__agree 
-                input.checkbox(type="checkbox" name="agree" id="contact_agree" checked)
-                label(for="contact_agree") Даю согласие на обработку моих персональных данных
-              button.btn.btn--prim.contact__submit Отправить
+          
+            include ../blocks/contact_form.pug
+
             .contact__info
               .contact__area.contact__phones 
                 .subtitle Телефоны:

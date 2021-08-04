@@ -19,11 +19,11 @@
     font-family: $ff
   
   &--err
-    border-color: $c_primary
+    border-color: $c_primary!important
     animation: input_error .1s linear 0s 2
   
   &--ok
-    border-color: $c_green
+    border-color: $c_green!important
 
 
 .input-hidden
@@ -147,6 +147,12 @@
     display: grid
     grid-template-columns: repeat(2,1fr)
     grid-gap: 24px
+    +xxs
+      display: block
+      input, 
+      textarea
+        +not_last
+          margin-bottom: 16px
   &--three
     display: grid
     grid-template-columns: repeat(3,1fr)

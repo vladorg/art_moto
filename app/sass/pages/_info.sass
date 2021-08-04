@@ -62,10 +62,17 @@
     grid-gap: 24px
     a
       cursor: zoom-in 
+      overflow: hidden
+      +tran(all,.2s)
       img
         width: 390px
         height: 260px
         object-fit: cover
+        +tran(all,.6s)
+      +hover
+        box-shadow: 0 0 20px 0px #6c6c6c        
+        img
+          transform: scale(1.1)
 
 
 .creditPage

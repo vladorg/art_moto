@@ -242,14 +242,20 @@ html(lang="en")
               
               .productReviews.tabs__content(data-tab="product_tab4" data-name="reviews")
                 .heading Отзывы
-                .productMainInfo__rate.ic-star_f 3.5 (2 отзыва)
+                .productMainInfo__rate.ic-star_f 4.5 (2 отзыва)
                 .productReviews__subtitle
                   p
                     span Уважаемые клиенты! 
                     | Мы будем благодарны за любой ваш отзыв! Позитивные вдохновляют нас работать еще лучше, негативные - показывают те процессы, которые необходимо улучшить, и недочеты, которые необходимо устранить.
                   p Напомним лишь, что практически любую проблему может очень оперативно решить наша
                     span  служба поддержки!
-                button.btn.btn--prim.productReviews__add ОСТАВИТЬ ОТЗЫВ
+
+                //- button review 
+                //- if logged button class = open_product_review
+                //- else button class = open_auth
+                button.btn.btn--prim.productReviews__add.open_product_review ОСТАВИТЬ ОТЗЫВ
+                //- end button
+
                 .productReviews__list                  
                   .productReviews__sort.sorting
                     .sorting__title Сортировать:

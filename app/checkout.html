@@ -224,7 +224,8 @@
           </div>
           <div class="enter__msg"></div>
         </div>
-        <div class="enter__success">Вы использовали <span>500грн </span>кешбека!
+        <div class="enter__success"> 
+          <p>Вы использовали <span>500грн </span>кешбека!</p>
           <button class="btn btn--dashed change_field"><span>Изменить</span></button>
         </div>
       </div>
@@ -241,13 +242,140 @@
         <div class="enter__success">Промокод успешно применён!</div>
       </div>
     </aside>
+    <div class="modal" id="modalAuth">
+      <div class="modal__win scroll">
+        <button class="btn modal__close ic-close_modal"></button>
+        <div class="modal__header"> 
+          <div class="title">Вход</div>
+          <div class="subtitle">Для входа введите электронную почту и пароль</div>
+        </div>
+        <div class="modal__content"> 
+          <form class="form form--control">
+            <div class="field"> 
+              <input class="input required" type="text" name="email" placeholder="Email">
+            </div>
+            <div class="field pass-wrap">
+              <input class="input required" type="password" name="password" placeholder="Пароль">
+              <button class="btn ic-eye pass_shower" type="button"></button>
+            </div>
+            <div class="field"> 
+              <button class="btn btn--dashed open_forgot" type="button"> <span>Забыли пароль?</span></button>
+            </div>
+            <button class="btn btn--prim modal__submit">Войти</button>
+            <button class="btn btn--dashed open_register" type="button"> <span>Зарегистрироваться</span></button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="modalRegister">
+      <div class="modal__win scroll">
+        <button class="btn modal__close ic-close_modal"></button>
+        <div class="modal__header"> 
+          <div class="title">Регистрация</div>
+          <div class="subtitle">Пароль должен быть не менее 8 символов из заглавных и строчных букв, цифр.</div>
+        </div>
+        <div class="modal__content"> 
+          <form class="form form--control">
+            <div class="field"> 
+              <input class="input required" type="text" name="name" placeholder="Имя">
+            </div>
+            <div class="field"> 
+              <input class="input required" type="text" name="phone" placeholder="Номер телефона">
+            </div>
+            <div class="field"> 
+              <input class="input required" type="text" name="email" placeholder="Email">
+            </div>
+            <div class="field pass-wrap">
+              <input class="input required" type="password" name="password" placeholder="Пароль">
+              <button class="btn ic-eye pass_shower" type="button"></button>
+            </div>
+            <div class="field pass-wrap">
+              <input class="input required" type="password" name="password_repeat" placeholder="Повторите пароль">
+              <button class="btn ic-eye pass_shower" type="button"></button>
+            </div>
+            <button class="btn btn--prim modal__submit">Зарегистрироваться</button>
+            <div class="field field--agree"> 
+              <input class="checkbox required" type="checkbox" name="agree" id="register_agree" checked>
+              <label for="register_agree">Даю согласие на обработку моих персональных данных</label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="modalForgot">
+      <div class="modal__win scroll">
+        <button class="btn modal__close ic-close_modal"></button>
+        <div class="modal__header"> 
+          <div class="title">Забыли пароль?</div>
+          <div class="subtitle">Укажите ваш e-mail для отправки ссылки на сброс пароля.</div>
+        </div>
+        <div class="modal__content"> 
+          <form class="form form--control">
+            <div class="field"> 
+              <input class="input required" type="text" name="email" placeholder="Email">
+            </div>
+            <button class="btn btn--prim modal__submit">Отправить</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="modal modalInfo" id="modalReseted">
+      <div class="modal__win scroll">
+        <button class="btn modal__close ic-close_modal"></button>
+        <div class="modal__header"> 
+          <div class="title">Сброс пароля</div>
+          <div class="subtitle">На ваш e-mail была отправлена ссылка на сброс пароля. Если ссылка не пришла-проверьте спам или попробуйте отправить еще раз.</div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="modalChange">
+      <div class="modal__win scroll">
+        <button class="btn modal__close ic-close_modal"></button>
+        <div class="modal__header"> 
+          <div class="title">Изменение пароля</div>
+          <div class="subtitle">Пароль должен быть не менее 8 символов из заглавных и строчных букв, цифр.</div>
+        </div>
+        <div class="modal__content"> 
+          <form class="form form--control">
+            <div class="field pass-wrap">
+              <input class="input required" type="password" name="password" placeholder="Пароль">
+              <button class="btn ic-eye pass_shower" type="button"></button>
+            </div>
+            <div class="field pass-wrap">
+              <input class="input required" type="password" name="password_repeat" placeholder="Повторите пароль">
+              <button class="btn ic-eye pass_shower" type="button"></button>
+            </div>
+            <button class="btn btn--prim modal__submit">Сохранить</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="modal modalInfo" id="modalChanged">
+      <div class="modal__win scroll">
+        <button class="btn modal__close ic-close_modal"></button>
+        <div class="modal__header"> 
+          <div class="title">Пароль успешно изменен!</div>
+          <div class="subtitle">Ваш пароль был изменен. Теперь Вы можете войти в систему с использованием нового пароля.</div>
+        </div>
+      </div>
+    </div>
+    <div class="modal modalInfo" id="modalRegistered">
+      <div class="modal__win scroll">
+        <button class="btn modal__close ic-close_modal"></button>
+        <div class="modal__header"> 
+          <div class="title">Спасибо за регистрацию!</div>
+          <div class="subtitle">Вам на почту будет отправленно письмо с сылкой для подтверждения регистрации.</div>
+        </div>
+      </div>
+    </div>
     <script src="./libs/swiper/swiper-bundle.min.js"></script>
     <script src="./libs/aos/aos.js"></script>
     <script src="./libs/nouislider/nouislider.min.js"></script>
     <script src="./libs/view_360/js-cloudimage-360-view.min.js"></script>
     <script src="./libs/lazysizes/lazysizes.min.js"></script>
     <script src="./libs/jquery/jquery.min.js"></script>
-    <script src="./libs/lightbox/jquery.fancybox.min.js"></script><!-- build:js -->
+    <script src="./libs/lightbox/jquery.fancybox.min.js"></script>
+    <script src="./libs/mask/imask.min.js"></script><!-- build:js -->
     <script src="./js/main.js"></script><!-- endbuild -->
     <link rel="stylesheet" data-style="swiper" href="./css/libs/swiper-bundle.min.css">
     <link rel="stylesheet" data-style="aos" href="./css/libs/aos.css">

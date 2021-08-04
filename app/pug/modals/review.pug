@@ -1,0 +1,17 @@
+.modal#modalProductReview
+  .modal__win.scroll
+    button.btn.modal__close.ic-close_modal
+    .modal__header 
+      .title Оставить отзыв
+      .subtitle Поделитесь своим мнением касательно этого товара.
+    .modal__content 
+      form.form.form--control
+        .field 
+          input(type="text" name="name" placeholder="Ваше имя" value="Имя").input.required
+        .field 
+          textarea(name="review" placeholder="Ваш отзыв").input.required
+        .field 
+          .label Ваша оценка:
+          include ../blocks/ui/rate.pug
+
+        button.btn.btn--prim.modal__submit Отправить

@@ -63,10 +63,13 @@ html(lang="en")
         h1.heading Шлемы
 
         section.catalogChilds
-          each child in catalogChilds
-            a.catalogChilds__item(href="#")
-              img(width="392" height="84" src=child.thumb, alt="Category").catalogChilds__thumb
-              .catalogChilds__name= child.label
+          .swiper-container
+            .swiper-wrapper
+              each child in catalogChilds
+                a.catalogChilds__item(href="#").swiper-slide
+                  img(width="392" height="84" src=child.thumb, alt="Category").catalogChilds__thumb
+                  .catalogChilds__name= child.label
+            .swiper-pagination.swiper-pagination-static
         
         section.catalogBanner
           a(href="#")
@@ -80,22 +83,24 @@ html(lang="en")
 
         section.catalogContent
 
-          .catalogContent__sidebar
+          button.btn.ic-filter.open_filter
+
+          .catalogContent__sidebar.scroll
             include ../blocks/filter.pug
 
             .catalogContent__news.news
-              .news__item
+              a.news__item(href="#")
                 img(src="./img/news/5.png", alt="").news__img
                 .heading.news__title МАСЛО МОТОРНОЕ MOTUL SCOOTER EXPERT 
                 .news__subtitle 1=2
                 .news__date.ic-calendar_white 05-14.03
-                a.btn.btn--prim(href="#") подробнее
-              .news__item
+                button.btn.btn--prim подробнее
+              a.news__item(href="#")
                 img(src="./img/news/5.png", alt="").news__img
                 .heading.news__title МАСЛО МОТОРНОЕ MOTUL SCOOTER EXPERT 
                 .news__subtitle 1=2
                 .news__date.ic-calendar_white 05-14.03
-                a.btn.btn--prim(href="#") подробнее
+                button.btn.btn--prim подробнее
 
           .catalogContent__products
             .products

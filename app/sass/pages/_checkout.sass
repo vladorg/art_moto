@@ -1,22 +1,35 @@
 body.page-checkout
   +flex(row,0,center,0)
+  +sm
+    flex-wrap: wrap
   
   
   
 .header
   &--checkout
+    width: 100%
     background: $transparent
     padding-top: 54px
     position: absolute
-    .container
+    border-bottom: none
+    +sm
+      padding-top: 32px
 
 
 .checkoutMain
   width: 1052px
   padding: 148px 104px 0 calc((100% - #{$container}) / 2)
+  +md
+    padding: 148px 104px 0 calc((100% - 92%) / 2)
+  +sm
+    width: 100%
+    padding: 108px 4% 0 4%
 
   .breadcrumbs
     padding: 0
+    +xs
+      background: $transparent
+      margin: 0
     &__item
       &.active
         font-weight: 500
@@ -26,6 +39,8 @@ body.page-checkout
 
 .checkoutSummary
   padding-top: 32px
+  +sm
+    margin-bottom: 32px
   &__row
     border: 1px solid #D9DADC
     padding: 12px 16px
@@ -38,6 +53,8 @@ body.page-checkout
   &__label
     color: #000
     margin-right: 8px
+    +xxs
+      +text(10,0,18,0)
   &__data
     max-width: 70%
     white-space: nowrap
@@ -46,6 +63,8 @@ body.page-checkout
       color: #676767
       display: inline-block
       position: relative
+      +xxs
+        font-size: 10px
       +not_last
         margin-right: 4px
         &::after
@@ -56,21 +75,33 @@ body.page-checkout
     color: $c_primary
     span
       border-color: $c_primary
+      +xxs
+        +text(12,0,20,0)
   
 .checkoutLinks
   border-top: 1px solid #D9DADC
   padding-top: 24px
   margin-top: 76px
+  +sm
+    margin-top: 40px
+  +xs
+    margin-top: 24px
   ul
     +flex(0,wrap,0,center)
     li
+      +xs
+        width: 100%
       +not_last
         margin-right: 40px
+        +xs
+          margin: 0 0 8px 0
       a
         color: #000
 
 .checkoutSteps
   padding-top: 48px
+  +sm
+    padding-top: 0
 
 .checkoutStep
   display: none
@@ -84,14 +115,23 @@ body.page-checkout
     color: #000
     margin-top: 16px
     +flex(0,0,0,center)
+    +xs
+      flex-wrap: wrap
+    > span
+      display: inline-block
+      margin-right: 4px
     button
-      margin-left: 4px
       color: $c_primary
       span
         font-weight: 500
         border-color: $c_primary
+      &.open_auth
+        +before
+          display: none
   &__fields
     padding-top: 32px
+    +xxs
+      padding-top: 16px
   &__summary
   &__agree
     label
@@ -99,14 +139,29 @@ body.page-checkout
   &__buttons 
     padding-top: 32px
     +flex(0,0,0,center)
+    +xs
+      flex-wrap: wrap
     .btn--prim
       font-weight: 700
       text-transform: uppercase
       margin-right: 45px
+      +xs
+        width: 100%
+        margin: 0 0 16px 0
+      +xxs
+        font-size: 14px
+        line-height: 22px
     .btn--dashed
       color: $c_primary
+      +xs
+        margin: 0 auto
+      +before
+        display: none
       span
         border-color: $c_primary
+        +xxs
+          font-size: 12px
+          line-height: 20px
   &__comment
     margin-top: 32px
     .input
@@ -120,16 +175,24 @@ body.page-checkout
     border-bottom-color: $transparent
   label
     color: #676767
+    +xxs
+      font-size: 12px
+      line-height: 20px
   .radio:checked
     + label
       font-weight: 700
   &__radio
     +flex(0,0,0,center)
+    +xs
+      flex-wrap: wrap
     .field
       + .field
         margin-left: 12px
         width: 100%
         max-width: 312px
+        +xs
+          max-width: 100%
+          margin: 8px 0 0 0
     .input
       padding: 4px 0 4px 7px
   &__info
@@ -138,6 +201,10 @@ body.page-checkout
     p
       color: #676767
       font-weight: 300
+      margin-right: 8px
+      +xxs
+        font-size: 12px
+        line-height: 20px
     span
       font-weight: 500
       color: #000
@@ -157,6 +224,8 @@ body.page-checkout
 .checkoutCustomer
   .field
     margin-bottom: 32px
+    +xxs
+      margin-bottom: 16px
   .input
     padding: 12px 0 12px 16px
     width: 100%
@@ -174,6 +243,16 @@ body.page-checkout
   width: 868px
   background: $c_checkout_sidebar
   padding: 148px calc((100% - #{$container}) / 2) 200px 24px
+  +md
+    padding: 148px calc((100% - 92%) / 2) 200px 24px
+  +sm
+    width: 100%
+    padding: 48px 4%
+    margin-top: 48px
+  +xs
+    padding: 24px 4% 48px 4%
+    margin-top: 24px
+    
 
   &__products
     max-height: 430px
@@ -200,6 +279,7 @@ body.page-checkout
     +ellipsis(32px,1,false)
   
   &Opt
+    max-width: 41%
     &__name
       font-weight: 600
       color: #000
@@ -234,6 +314,9 @@ body.page-checkout
           font-size: 12px
           color: #858585
           margin-bottom: 16px
+    &--entered
+      p
+        margin-bottom: 0
 
     .enter__btn
       margin-top: 32px
@@ -241,3 +324,5 @@ body.page-checkout
     .enter__enter
       input
         max-width: 66%
+        +md
+          max-width: 100%

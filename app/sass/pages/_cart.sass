@@ -1,38 +1,73 @@
 .cartPage
   padding-bottom: 148px
+  +sm
+    padding-bottom: 48px
 
   .heading
     text-transform: unset
-    margin-bottom: 8px
+    margin-bottom: 0
+    +xs
+      width: 100%
+      margin-bottom: 16px
 
 
 .cartPageWrap
   +flex(0,0,0,flex-start)
+  +sm
+    flex-wrap: wrap
 
 .cartPageContent
   width: 100%
   max-width: calc(70% - 29px)
   margin-right: 29px
+  +sm
+    max-width: 100%
+    margin-right: 0
 
   &__header
     +flex(0,0,0,flex-end)
+    +xs
+      flex-wrap: wrap
 
   &__wish
     margin: 0 48px 0 auto
+    +xs
+      margin-left: 0
+    +xxs
+      width: 100%
+      margin: 0 0 16px 0
+    &.active
+      color: $c_green
+      +before
+        background: url(../img/sprite.svg) -618px -24px
+      span
+        border-color: $c_green
 
   &__products
     padding-top: 56px
+    +sm
+      padding-top: 40px
+    +xs
+      padding-top: 24px
 
 .cartPageInfo
   width: 100%
   max-width: 30%
-  margin-top: 72px
+  margin-top: 100px
   position: sticky
   top: 16px
   background: #FAFAFA
   padding: 32px 0 24px 0
+  +sm
+    max-width: 100%
+    position: static
+    margin-top: 32px
+  +xs
+    padding: 16px 0
   &__inner
     padding: 0 24px
+    +xs
+      padding: 0 16px
   &__checkout
     text-transform: uppercase
     font-weight: 700
@@ -52,25 +87,42 @@
   padding-bottom: 16px
   margin-bottom: 24px
   border-bottom: 1px solid #DADADA
+  +xs
+    margin-bottom: 16px
   &__row
     padding: 0 24px
     margin-bottom: 16px
     +flex(0,0,space-between,center)
+    +xs
+      margin-bottom: 8px
+      padding: 0 16px
     &--products
       margin-bottom: 32px
+      +xs
+        margin-bottom: 8px
     &--total
       margin: 24px 0 0 0
+      +xs
+        margin-top: 16px
       .cartInfo__val
         +text(28,700,44,$c_primary)
+        +xxs
+          +text(20,0,28,0)
     &--cashback
       .cartInfo__val
         font-weight: 700
   &__key
+    max-width: 48%
     font-weight: 400
     margin-bottom: 0
+    white-space: nowrap
+    +ellipsis(0,0)
   &__val
+    max-width: 48%
     margin-bottom: 0
     font-weight: 500
+    white-space: nowrap
+    +ellipsis(0,0)
 
 
 .enter
@@ -93,13 +145,22 @@
       font-weight: 600
       display: inline-block
       margin: 0 4px
+    p
+      +xs
+        width: 100%
     button
       margin-left: auto
       color: $c_primary
+      +xs
+        margin-left: 0
+      +before
+        display: none
       span
         border-color: $c_primary
   &__enterArea
-    +flex(0,wrap,space-between,center)
+    +flex(0,0,space-between,center)
+    +md
+      flex-wrap: wrap
   &__enter
     padding: 16px   
     border: 1px solid $c_primary 
@@ -109,6 +170,10 @@
       width: 100%
       max-width: 55%
       padding: 3px 8px
+      margin-right: 4px
+      +md
+        max-width: 100%
+        margin-bottom: 16px
     button
       padding: 4px 16px
       +text(14,600,22,0)
@@ -130,6 +195,8 @@
       display: none
     .enter__success
       +flex()
+      +xs
+        flex-wrap: wrap
 
 
 .creditsTable

@@ -1,0 +1,15 @@
+.rating
+  +flex()
+
+  label
+    cursor: pointer
+
+  input
+    display: none
+    &:checked
+      ~ label
+        +before
+          background: url(../img/sprite.svg) -358px -5px
+      + label
+        +before
+          background: url(../img/sprite.svg) -385px -5px

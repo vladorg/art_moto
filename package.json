@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "circlr": "^3.1.1",
+    "imask": "^6.1.0",
     "nouislider": "^15.1.1"
   }
 }

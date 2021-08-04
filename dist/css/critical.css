@@ -345,6 +345,10 @@ blockquote .title {
   margin-bottom: 16px;
 }
 
+.error {
+  color: #f00 !important;
+}
+
 .guarantee {
   position: relative;
 }
@@ -363,6 +367,40 @@ blockquote .title {
 .guarantee:hover .guarantee__border {
   -webkit-animation-play-state: paused;
   animation-play-state: paused;
+}
+
+div.pass-wrap {
+  position: relative;
+}
+
+div.pass-wrap .input {
+  padding-right: 48px;
+}
+
+.pass_shower {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.pass_shower:hover::before {
+  content: '';
+  background: url("../img/sprite.svg") -231px -28px;
+}
+
+.pass_shower.active::before {
+  content: '';
+  width: 23px;
+  height: 13px;
+  background: url("../img/sprite.svg") -255px -28px;
+}
+
+.pass_shower.active:hover::before {
+  content: '';
+  background: url("../img/sprite.svg") -280px -28px;
 }
 
 div:active,
@@ -761,10 +799,6 @@ p:focus {
   overflow: hidden;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
-}
-
-.preview__name.title:hover {
-  text-decoration: none;
 }
 
 .preview__model {
@@ -1689,10 +1723,6 @@ div.swiper-slide .preview {
   color: #000;
 }
 
-.breadcrumbs__item:hover {
-  text-decoration: none;
-}
-
 .breadcrumbs__item::after {
   content: '';
   display: block;
@@ -1830,12 +1860,18 @@ div.swiper-slide .preview {
 }
 
 .modal__win {
+  width: 100%;
+  max-width: 600px;
+  max-height: 85vh;
+  overflow: auto;
   background: #fff;
   opacity: 0;
   -webkit-transform: scale(0.95);
   -ms-transform: scale(0.95);
   transform: scale(0.95);
   position: relative;
+  padding: 40px 40px 64px 40px;
+  border: 2px solid #FF5500;
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   transition: all 0.4s;
@@ -1843,8 +1879,8 @@ div.swiper-slide .preview {
 
 .modal__close {
   position: absolute;
-  top: 34px;
-  right: 34px;
+  top: 18px;
+  right: 18px;
 }
 
 .modal__close:hover::before {
@@ -1853,17 +1889,51 @@ div.swiper-slide .preview {
 }
 
 .modal__header {
-  padding: 27px 64px 16px 32px;
+  text-align: center;
 }
 
-.modal__header .heading {
-  margin-bottom: 12px;
-  text-transform: none;
+.modal__header .title {
+  margin-bottom: 20px;
+}
+
+.modal__header .subtitle {
+  margin-bottom: 32px;
+  font-weight: 500;
   color: #000;
 }
 
-.modal__sub span {
+.modal__content {
+  text-align: center;
+}
+
+.modal .field {
+  max-width: 392px;
+  margin: 0 auto;
+}
+
+.modal .field:not(:first-child) {
+  margin-top: 16px;
+}
+
+.modal .field--agree {
+  max-width: 100%;
+}
+
+.modal .input {
+  padding: 16px 0 16px 16px;
+}
+
+.modal .checkbox + label {
+  font-weight: 600;
+  color: #000;
+}
+
+.modal__submit {
+  text-transform: uppercase;
   font-weight: 700;
+  width: 100%;
+  max-width: 392px;
+  margin: 32px auto 0 auto;
 }
 
 .modal--opened {
@@ -1881,10 +1951,83 @@ div.swiper-slide .preview {
   transition-delay: .3s;
 }
 
-.modalCredits .modal__win {
+#modalCredits .modal__win {
   max-width: 1014px;
   width: 100%;
-  height: 693px;
+  padding: 0;
+  border: none;
+}
+
+#modalCredits .modal__close {
+  top: 34px;
+  right: 34px;
+}
+
+#modalCredits .modal__header {
+  padding: 27px 64px 16px 32px;
+}
+
+#modalCredits .modal__header .heading {
+  margin-bottom: 12px;
+  text-transform: none;
+  color: #000;
+  text-align: left;
+}
+
+#modalCredits .modal__sub {
+  text-align: left;
+}
+
+#modalCredits .modal__sub span {
+  font-weight: 700;
+}
+
+#modalAuth .open_forgot {
+  margin: 8px 0 0 auto;
+}
+
+#modalAuth .open_register {
+  margin: 24px auto 0 auto;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 36px;
+}
+
+#modalAuth .modal__submit {
+  margin-top: 16px;
+}
+
+#modalReseted .open_forgot {
+  margin-top: 16px;
+}
+
+#modalReseted .open_forgot::before {
+  content: '';
+  display: none;
+}
+
+#modalChanged .open_auth,
+#modalRegistered .open_auth {
+  margin-top: 16px;
+}
+
+#modalChanged .open_auth::before,
+#modalRegistered .open_auth::before {
+  content: '';
+  display: none;
+}
+
+.modalInfo .modal__header {
+  text-align: left;
+}
+
+.modalInfo .subtitle {
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+#modalProductReview .label {
+  text-align: left;
 }
 
 .header {

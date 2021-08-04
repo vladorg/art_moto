@@ -198,9 +198,10 @@ html(lang="en")
             input.input(type="text" name="cashback" placeholder="Введите сумму")
             button.btn.btn--prim.accept_field Использовать
           .enter__msg
-        .enter__success Вы использовали 
-          span 500грн 
-          | кешбека!
+        .enter__success 
+          p Вы использовали 
+            span 500грн 
+            | кешбека!
           button.btn.btn--dashed.change_field
             span Изменить
 
@@ -217,6 +218,13 @@ html(lang="en")
 
 
 
+    include ./../modals/auth.pug
+    include ./../modals/register.pug
+    include ./../modals/forgot.pug
+    include ./../modals/reseted.pug
+    include ./../modals/change.pug
+    include ./../modals/changed.pug
+    include ./../modals/registered.pug
 
     include ../inc/scripts.pug
     include ../inc/styles.pug

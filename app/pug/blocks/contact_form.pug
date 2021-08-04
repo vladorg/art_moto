@@ -1,0 +1,15 @@
+form.contact__form.form.form--control
+  .field 
+    input.input(type="text" name="first_name" placeholder="Имя").required
+  .field 
+    input.input(type="text" name="last_name" placeholder="Фамилия").required
+  .field 
+    input.input(type="text" name="email" placeholder="Email").required
+  .field 
+    input.input(type="text" name="phone" placeholder="Телефон").required
+  .field 
+    textarea.input(name="message" placeholder="Сообщение").required
+  .contact__agree 
+    input.checkbox(type="checkbox" name="agree" id="contact_agree" checked).required
+    label(for="contact_agree") Даю согласие на обработку моих персональных данных
+  button.btn.btn--prim.contact__submit Отправить

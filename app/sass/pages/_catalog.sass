@@ -9,6 +9,8 @@
   &Sorting
     padding: 40px 0 0 0
     +flex(0,0,flex-end,0)
+    +sm
+      justify-content: flex-start
 
   &Content
     padding: 12px 0 40px 0
@@ -16,6 +18,10 @@
 
     &__news
       padding-top: 24px
+      max-width: 288px
+      +sm
+        background: #fff
+        padding-bottom: 24px
       .news__item
         background: #143D8C
         align-items: flex-start
@@ -43,12 +49,99 @@
         margin-top: 27px
         +text(14,0,24,0)
       
+    &__sidebar
+      width: 288px
+      +sm
+        position: fixed
+        top: 0
+        left: 0
+        bottom: 0
+        z-index: 200
+        transform: translateX(-200%)
+        background: #fff
+        max-height: 100%
+        overflow: auto
+        +tran(all,.4s)
+      +before
+        position: fixed
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        z-index: -1
+        background: $c_overlay
+        opacity: 0
+        pointer-events: none
+        +tran(all,.4s)
+      +after
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        height: 100%
+        background: $c_filter
+        z-index: -1
+        opacity: 0
+        pointer-events: none
+      &.active
+        transform: none
+        +before
+          opacity: 1
+          pointer-events: auto
+        +after
+          opacity: 1
+
+    .open_filter
+      position: fixed
+      top: 50%
+      left: 0
+      z-index: 201
+      width: 35px
+      height: 35px
+      display: none
+      border-radius: 0 194px 194px 0
+      background: #FFEEE6
+      justify-content: center
+      align-items: center
+      box-shadow: 0 0 16px grey
+      +sm
+        display: flex
+      
+      &.active
+        left: 288px
+        opacity: 1!important
+        +tran(opacity, .4s)
+        +before
+          width: 20px
+          height: 20px
+          background: url("../img/sprite.svg") -159px -25px
+          transform: scale(.7)
 
     &__products
       padding-left: 24px
+      width: 100%
+      +sm
+        padding-left: 0
+
+      .products
+        +md
+          grid-template-columns: repeat(2, 1fr)
+          justify-content: space-between
+        +sm
+          grid-template-columns: repeat(3, 1fr)
+        +xs
+          grid-template-columns: repeat(2, 1fr)
+        +xxs
+          grid-template-columns: repeat(1, 1fr)
+
+        .preview
+          width: 100%
 
       .sorting
         justify-content: flex-end
 
       .seo
         margin-top: 80px
+        +sm
+          margin-top: 40px

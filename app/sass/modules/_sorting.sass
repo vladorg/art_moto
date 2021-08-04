@@ -1,12 +1,31 @@
 .sorting
   +text(14,400,22,#000)
-  +flex()
+  +flex(0,0,0,center)
+  +xxs
+    width: 100%
+    justify-content: space-between
   &__title
     margin-right: 5px
   &__items
     +flex()
+    +xs
+      flex-direction: column
+      left: unset
   &__item
     +not_last
       margin-right: 16px
+      +xs
+        margin: 0 0 8px 0
+    span
+      +xs
+        white-space: nowrap
     &--active
       font-weight: 700
+  .dropdown__btn
+    border: 1px solid #d9dadc
+    border-radius: 5px
+    padding: 4px 8px
+    flex-direction: row-reverse
+    align-items: center
+    +before
+      margin-left: 8px

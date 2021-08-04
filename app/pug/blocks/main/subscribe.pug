@@ -6,7 +6,7 @@ section.subscribe.blured-black
       .subscribe__content
         .heading БУДЬ В КУРСЕ ПОСЛЕДНИХ НОВОСТЕЙ ARTMOTO.UA
         p Компания «АРТМОТО» существует на рынке мототоваров с 2007 года.
-        form.subscribe__form(action="#") 
-          input.input(type="email" placeholder="email")
+        form.subscribe__form.form.form--control
+          input(type="text" name="email" placeholder="Email").input.required
           button.btn.btn--prim ПОДПИСАТЬСЯ
     img.subscribe__image(src="./img/banners/subscribe.png", alt="" data-aos="fade-right" data-aos-duration="500" data-aos-anchor-placement="top-center")

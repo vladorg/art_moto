@@ -1,5 +1,5 @@
 .filter
-  width: 288px
+  width: 100%
   padding: 16px 16px 24px 16px
   background: $c_filter
 
@@ -9,6 +9,8 @@
     +text(18,500,36,0)
     +flex(0,0,space-between,center)
     +tran(all,.4s)
+    +sm
+      +text(14,0,24,0)
     +before
       order: 1
       transform: rotate(90deg)
@@ -21,6 +23,11 @@
       li
         +not_last
           margin-bottom: 10px
+          +sm
+            margin-bottom: 6px
+        label
+          +sm
+            +text(12,0,20,0)
 
   &__item
     +not_last
@@ -28,8 +35,12 @@
     &.accordion--opened
       +not_last
         margin-bottom: 32px
+        +sm
+          margin-bottom: 16px
       .filter__title
         margin-bottom: 24px
+        +sm
+          margin-bottom: 16px
         +tran(all,.2s)
         +before
           transform: rotate(-90deg)
@@ -51,7 +62,8 @@
     button
       margin-left: auto
       text-transform: uppercase
-      padding: 7px 24px
+      padding: 7px 21px
+      margin-left: 12px
   
   &__priceLine
     width: 8px
@@ -62,3 +74,5 @@
   &__reset
     display: block
     margin-bottom: 24px
+    +before
+      display: none

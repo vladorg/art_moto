@@ -55,6 +55,8 @@
     margin-bottom: 16px
     +xs
       padding: 32px 64px
+    img
+      margin: 0 auto
 
   
   &__actions
@@ -159,10 +161,11 @@
   &__name.title
     height: 72px
     +ellipsis(72px,2,true)
-    +xs
+    +sm
+      height: 52px
       +text(18,0,26,0)
     +hover
-      text-decoration: none
+      //text-decoration: none
   &__model
     max-width: 100%
     white-space: nowrap
@@ -333,39 +336,85 @@
   padding: 12px
   background: $c_cart_product
   +flex(0,0,0,center)
+  +xs
+    box-shadow: none
+    border: none
   +before
     display: none
   +not_last
     margin-bottom: 32px
+    +sm
+      margin-bottom: 24px
   .preview__thumb
     padding: 0    
     min-width: 80px
     height: 80px
     background: $transparent
     margin: 0 24px 0 0
+    +xs
+      min-width: 125px
+      height: 125px
+    +xxs
+      min-width: 75px
+      height: 75px
     img
       width: 100%
       height: 100%
       object-fit: contain
+  .preview__caption
+    width: calc(100% - 80px - 24px)
+    padding: 18px 0
+    text-align: left
+    +flex(0,0,flex-start,center)
+    +xs
+      flex-wrap: wrap
+      width: calc(100% - 125px - 24px)
+    +xxs
+      width: calc(100% - 75px - 24px)
   .preview__name.title
     width: 316px
+    max-width: 40%
+    margin-right: 40px
     +text(14,400,22,#000)
     +ellipsis(44px,2,true)
+    +md
+      margin-right: 16px
+    +sm
+      height: auto
+    +xs
+      width: 100%
+      max-width: 100%
+      margin: 0 0 16px 0
+      font-weight: 500
+    +xxs
+      +text(12,0,20,0)
     +hover
       text-decoration: underline
   .quantity
     margin-left: auto
-    margin-right: 77px
+    +xs
+      margin-left: 0
     &__value
       width: 118px
+      border-color: #dadada
   .preview__price
     white-space: normal
     overflow: visible
     margin: 0
     padding: 0
     text-align: right
-    width: 120px
+    width: 100px
+    max-width: 20%
     padding-right: 12px
+    margin-left: auto
+    +xs
+      width: 48%
+      max-width: 48%
+    +xxs
+      margin: 16px 0 0 0
+      width: 100%
+      max-width: 100%
+      text-align: left
     +before
       display: none
     span
@@ -383,9 +432,15 @@
     transform: translateY(-50%)
     z-index: 11
     +flex()
+    +xs
+      position: absolute
+      margin: 0
     button
       margin-bottom: 0
       background: #dadada
+      +sm
+        width: 36px
+        height: 36px
       +before
         opacity: .4
       +hover

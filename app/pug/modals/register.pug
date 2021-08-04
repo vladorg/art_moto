@@ -1,0 +1,24 @@
+.modal#modalRegister
+  .modal__win.scroll
+    button.btn.modal__close.ic-close_modal
+    .modal__header 
+      .title Регистрация
+      .subtitle Пароль должен быть не менее 8 символов из заглавных и строчных букв, цифр.
+    .modal__content 
+      form.form.form--control
+        .field 
+          input(type="text" name="name" placeholder="Имя").input.required
+        .field 
+          input(type="text" name="phone" placeholder="Номер телефона").input.required
+        .field 
+          input(type="text" name="email" placeholder="Email").input.required
+        .field.pass-wrap
+          input(type="password" name="password" placeholder="Пароль").input.required
+          button.btn.ic-eye.pass_shower(type="button")
+        .field.pass-wrap
+          input(type="password" name="password_repeat" placeholder="Повторите пароль").input.required
+          button.btn.ic-eye.pass_shower(type="button")
+        button.btn.btn--prim.modal__submit Зарегистрироваться
+        .field.field--agree 
+          input(type="checkbox" name="agree" id="register_agree" checked).checkbox.required
+          label(for="register_agree") Даю согласие на обработку моих персональных данных

@@ -52,6 +52,10 @@ window.addEventListener('load', () => {
   const getCoords = elem => elem.getBoundingClientRect().top + pageYOffset;
   const accordion_opened = get_el('.accordion--opened', false);
   const header_height = get_el('.header').scrollHeight;
+
+  let reg_password = /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{8,}/g;
+  let reg_email = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
   let products_custom_slider_params = {
     slidesPerView: 3,
     speed: 200,
@@ -151,8 +155,20 @@ window.addEventListener('load', () => {
     const products_default_row = get_el('.productsListDefault', false);
     const throttle_delay = 300;
     const quantity_input = get_el('.quantity__value', false);
-    const promo_btn = get_el('.open_promo');
-    const promo_add = get_el('.add_promo');
+    const pass_shower = get_el('.pass_shower', false);
+    const form_control = get_el('.form.form--control', false);
+    const current_url = window.location;
+    const modal_hashs = [
+      '#modalAuth',
+      '#modalRegister',
+      '#modalForgot',
+      '#modalReseted',
+      '#modalChange',
+      '#modalChanged',
+      '#modalRegistered',
+      '#modalCredits',
+      '#modalProductReview'
+    ];
 
     let throttle_call = 1;    
     let quantity_minus_time;
@@ -182,7 +198,6 @@ window.addEventListener('load', () => {
         let list_height = list.scrollHeight;
 
         slide(list, parent, 'accordion--opened', list_height);
-
       });
     });
 
@@ -200,6 +215,29 @@ window.addEventListener('load', () => {
     quantity_input.forEach(input => {
       const f = quantity.bind(input);
       input.addEventListener('change', f);
+    });
+
+    pass_shower.forEach(btn => {
+      btn.addEventListener('click', e => {
+        let root = btn.closest('.pass-wrap');
+
+        if (root) {
+          let target = root.querySelector('.input');
+
+          if (btn.classList.contains('active')) {
+            target.type = 'password';
+            btn.classList.remove('active');
+          } else {
+            target.type = 'text';
+            btn.classList.add('active');
+          }          
+        } else {
+          return
+        }
+
+
+        
+      });
     });
 
     document.addEventListener('click', e => {
@@ -331,11 +369,62 @@ window.addEventListener('load', () => {
 
       // open credits modal
       if (t_c.contains('open_credits') || t.parentNode.classList.contains('open_credits')) {
-        openModal('.modalCredits');
+        e.preventDefault();
+        openModal('#modalCredits');
       }
 
+      // open auth modal
+      if (t_c.contains('open_auth') || t.parentNode.classList.contains('open_auth')) {
+        e.preventDefault();
+        openModal('#modalAuth');
+      }
 
-    })
+      // open register modal
+      if (t_c.contains('open_register') || t.parentNode.classList.contains('open_register')) {
+        e.preventDefault();
+        openModal('#modalRegister');
+      }
+
+      // open reset modal
+      if (t_c.contains('open_forgot') || t.parentNode.classList.contains('open_forgot')) {
+        e.preventDefault();
+        openModal('#modalForgot');
+      }
+
+      // open reseted modal
+      if (t_c.contains('open_reseted') || t.parentNode.classList.contains('open_reseted')) {
+        e.preventDefault();
+        openModal('#modalReseted');
+      }
+
+      // open change modal
+      if (t_c.contains('open_change') || t.parentNode.classList.contains('open_change')) {
+        e.preventDefault();
+        openModal('#modalChange');
+      }
+
+      // open changed modal
+      if (t_c.contains('open_changed') || t.parentNode.classList.contains('open_changed')) {
+        e.preventDefault();
+        openModal('#modalChanged');
+      }
+
+      // open registered modal
+      if (t_c.contains('open_registered') || t.parentNode.classList.contains('open_registered')) {
+        e.preventDefault();
+        openModal('#modalRegistered');
+      }
+
+      // open product review modal
+      if (t_c.contains('open_product_review') || t.parentNode.classList.contains('open_product_review')) {
+        e.preventDefault();
+        openModal('#modalProductReview');
+      }
+
+      
+
+
+    });
     
     document.addEventListener('scroll', e => {
       const throtte_current = Date.now();
@@ -368,6 +457,14 @@ window.addEventListener('load', () => {
     products_default_row.forEach(products => {
       let products_default_slider = new Swiper(products, products_default_slider_params);
     });
+
+    form_control.forEach(form => {
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        form_validate.call(form);
+      });
+    });
+
 
     function colorPicker() {
       let code = this.dataset.color;
@@ -517,6 +614,155 @@ window.addEventListener('load', () => {
          return
       }      
     }
+
+
+    /*
+      forms validation
+      - form class = form--control
+      - fields class = required
+    */
+    function form_validate() {      
+      let fields = this.querySelectorAll('.required');
+      let flag = null;      
+
+
+      fields.forEach(field => {
+        switch(field.name) {
+          case 'password':
+            flag = field_validate(field, reg_password, flag);
+            break;
+          case 'password_repeat':
+            let password = field.closest('.form').querySelector('input[name=password]').value;
+            if (field.value == '' || field.value != password) {
+              field.classList.remove('input--ok');
+              field.classList.remove('input--err');
+              setTimeout(() => {
+                field.classList.add('input--err');
+              }, 0);  
+              flag = false;
+            } else {
+              field.classList.remove('input--err');
+              field.classList.add('input--ok');
+              flag != false ? flag = true : null;
+            }
+            break;
+          case 'email':
+            flag = field_validate(field, reg_email, flag);
+            break;
+          case 'agree':
+            if (field.checked) {
+              field.parentNode.querySelector('label').classList.remove('error');
+              flag != false ? flag = true : null;
+            } else {
+              field.parentNode.querySelector('label').classList.add('error');
+              flag = false;
+            }
+            break;
+          default:
+            flag = field_validate(field, false, flag);
+            break;
+        }        
+      });
+
+      if (flag) {
+        let modal = this.closest('.modal');
+        if (modal) {
+          let modal_hash = `#${modal.id}`;
+          switch(modal_hash) {
+            case '#modalForgot':
+              openModal('#modalReseted');
+              setTimeout(() => {
+                this.submit();
+              }, 3000);
+              break;
+            case '#modalChange':
+              openModal('#modalChanged');
+              setTimeout(() => {
+                this.submit();
+              }, 3000);
+              break;
+            case '#modalRegister':
+              openModal('#modalRegistered');
+              setTimeout(() => {
+                this.submit();
+              }, 3000);
+              break;
+            default:
+              this.submit();
+              break;
+          }
+        } else {
+          this.submit();
+        }
+        
+      } else {
+        console.log('form is not valid...');
+      }
+    }
+
+    function field_validate(field, reg, flag) {
+      let result = flag;
+      if (reg) {
+        if (!reg.test(field.value)) {
+          field.classList.remove('input--ok');
+          field.classList.remove('input--err');
+          setTimeout(() => {
+            field.classList.add('input--err');
+          }, 0);          
+          result = false;
+        } else {
+          field.classList.remove('input--err');
+          field.classList.add('input--ok');
+          result != false ? result = true : null;
+        }
+      } else {
+        if (field.value == '') {
+          field.classList.remove('input--ok');
+          field.classList.remove('input--err');
+          setTimeout(() => {
+            field.classList.add('input--err');
+          }, 0);          
+          result = false;
+        } else {
+          field.classList.remove('input--err');
+          field.classList.add('input--ok');
+          result != false ? result = true : null;
+        }
+      }
+     
+      return result;
+    }
+
+    try {
+      (() => {
+        get_el('input[name=phone]', false).forEach(el => {
+          let mask = IMask(el, {
+            mask: '+{38}(000)000-00-00'
+          });
+        });
+      })();
+    }
+    catch(e){};
+
+
+    try {
+      modal_hashs.forEach(hash => {        
+        let current_hash = current_url.hash;
+        if (current_hash) {
+          if (current_hash == hash) {
+            openModal(`${hash}`);
+          } else {
+            console.log('incorrect hash');
+          }
+        }                
+      });
+    }
+    catch(e){};
+
+
+
+
+
 
   }
 
@@ -733,6 +979,10 @@ window.addEventListener('load', () => {
 
   function catalog() {
     const ui_slider = get_el('#ui_slider');
+    const childs_wrap = get_el('.catalogChilds .swiper-container');
+    const open_filter = get_el('.open_filter');
+    const sidebar = get_el('.catalogContent__sidebar');
+
     let {max: ui_max,min: ui_min,step: ui_step} = ui_slider.dataset;
     let ui_subs = [
       get_el('.filter__priceSubMin'), 
@@ -771,6 +1021,54 @@ window.addEventListener('load', () => {
       el.addEventListener('change', function () {
         ui_slider.noUiSlider.setHandle(handle, this.value);
       });
+    });
+
+    let childs_slider = new Swiper(childs_wrap, {
+      slidesPerView: 2,
+      init: false,
+      speed: 200,
+      effect: 'slide',
+      watchSlidesVisibility: true,
+      observer: true,
+      observeParents: true,
+      slideVisibleClass: 'swiper-slide-visible',
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true,
+        renderBullet: function (index, className) {
+          return `<div class="${className} bullet"></div>`;
+        },
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1
+        },
+        768: {
+          slidesPerView: 2
+        }
+      }
+    });    
+    isMobile ? childs_slider.init() : null;
+
+    open_filter.addEventListener('click', function() {
+      let _this = this;
+      if (_this.classList.contains('active')) {
+        sidebar.classList.remove('active');
+        _this.classList.remove('active');
+        document.documentElement.classList.remove('blocked');
+        setTimeout(() => {
+          _this.style.opacity = 1;
+        }, 600);        
+      } else {
+        sidebar.classList.add('active');
+        _this.style.opacity = 0;
+        document.documentElement.classList.add('blocked');
+        setTimeout(() => {
+          _this.classList.add('active');
+        }, 600);
+      }
+      
     });
     
   }
@@ -1078,9 +1376,12 @@ window.addEventListener('load', () => {
 
     // add to wishilst all products
     wish_all.addEventListener('click', e => {
+      wish_all.disabled = true;
+      wish_all.classList.add('active');
       get_el('.preview', false).forEach(product => {
         product.querySelector('.preview__wishlist').click();
       });
+      console.log('cart add all to wish button click...');
     });
     // delete all products
     delete_all.addEventListener('click', e => {
@@ -1711,7 +2012,7 @@ window.addEventListener('load', () => {
     const rate_buttons = get_el('.article_rate', false);
 
     rate_buttons.forEach(btn => {
-      let rate_index = btn.dataset.rate;
+      let rate_index = +btn.dataset.rate;
 
       btn.addEventListener('mouseenter', e => {
         e.preventDefault();
@@ -1755,7 +2056,7 @@ window.addEventListener('load', () => {
           el.disabled = true;
         });
 
-        console.log(`rate = ${rate_index}`);
+        console.log(rate_index);
       });
 
       
